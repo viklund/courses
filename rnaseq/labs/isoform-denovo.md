@@ -80,7 +80,7 @@ Load all programs that you will need for trinity to work on uppmax this exercise
 If you have not loaded the the STAR module yet to that as well. 
 
     # load modules to make RNAseq aligner STAR work 
-    module load star
+    module load star/2.5.1b
 
 If you are somewhere else
 -------------------------
@@ -128,12 +128,12 @@ of transcripts without a reference genome, Trinity has a downstream analysis pip
 that is worth following: [Trinotate](http://trinotate.github.io/). This is not something we will 
 do in this course but if you have time over feel free to try it out. 
 
-Start with mapping the trinity assembled transcripts to the human genome using STAR. 
+Start with mapping the trinity assembled transcripts to the human genome using STAR with the version for long reads (STARlong). 
 Convert them to bam format, sort and index them using samtools:
   
 	mkdir STARtrinityMapping
     
-	STAR  --genomeDir /proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/reference/hg19_Gencode14.overhang75  --readFilesIn trinity_out_dir/Trinity.fasta --runThreadN 2 --outSAMstrandField intronMotif --outFileNamePrefix STARtrinityMapping/
+	STARlong  --genomeDir /proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/reference/hg19_Gencode14.overhang75  --readFilesIn trinity_out_dir/Trinity.fasta --runThreadN 2 --outSAMstrandField intronMotif --outFileNamePrefix STARtrinityMapping/
 	samtools view -bSh -o trinityTranscripts.bam STARtrinityMapping/Aligned.out.sam
 	samtools sort trinityTranscripts.bam  trinityTranscripts.sorted
 	samtools index trinityTranscripts.sorted.bam
