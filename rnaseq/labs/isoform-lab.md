@@ -62,7 +62,7 @@ without feeding it a GTF file with the -G flag
 
 Substitute the appropriate names for the BAM file and the output directory. When 
 Stringtie has finished (which should hardly take any time at all), the output 
-directory will contain a file called ``transcripts.gtf``. Rename the file to a 
+directory will contain a file called ``sample.gtf``. Rename the file to a 
 name that reflects what created the GTF file.  You can import that in 
 the usual way into IGV as a track.
 
@@ -77,7 +77,7 @@ This step is not mandatory but if you want you can try it out. If you have not a
     module load cufflinks/2.2.1
 	cuffmerge  assembly_GTF_list.txt
 	
-where ``assembly_GTF_list.txt`` is a rext file with a list (one per line) of GTF files that you’d like to merge together into a single GTF file.
+where ``assembly_GTF_list.txt`` is a text file with a list (one per line) of GTF files that you’d like to merge together into a single GTF file.
 
 
 
