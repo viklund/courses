@@ -14,9 +14,8 @@ It is also one of the programs that is being updated and does also have downstre
 
 Figure taken from `Optimizing de novo transcriptome assembly from short-read RNA-Seq data: a comparative [study](http://www.biomedcentral.com/1471-2105/12/S14/S2).
 
-A de novo  take your reads and turn them into *contigs*. For more details
-on how **Trinity** work read the corresponding [paper](http://www.nature.com/nbt/journal/v29/n7/full/nbt.1883.html)
-. 
+A *de novo* assembler takes your reads and turns them into *contigs*. For more details
+on how **Trinity** works, read the corresponding [paper](http://www.nature.com/nbt/journal/v29/n7/full/nbt.1883.html). 
 
 
 ## Preparation
@@ -34,11 +33,11 @@ Make a new subdirectory and go there for this exercise.
 ## Files used during the exercise 
 
 Running an assembly using **Trinity** for ~20 million of reads takes at least a day and more than 50 GB of RAM. In order 
-to reduce the time for the **Trinity** to run during this course we will focus on reads that can be mapped to a small region on the human chromosome.  
+to reduce the time for **Trinity** to run during this course, we will focus on reads that can be mapped to a small region on a human chromosome.  
 
 
-The RNA seq data comes from 1 experiment with mate pair libraries for sample 1 from the A431 cell line. 
-A description of the dataset can be found [here] (intro)
+The RNA-seq data comes from 1 experiment with mate pair libraries for sample 1 from the A431 cell line. 
+A description of the dataset can be found [here](intro).
 
  
 To access the data there are two options. 
@@ -50,7 +49,7 @@ All the data you need for this lab is available in the folder:
 
 Copy the data to your folder 
 
-	cp /proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/isoform/deNovo/data/*.* . 
+	cp /proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/isoform/deNovo/data/* . 
 
 
 ### If you are working from somewhere else
@@ -93,9 +92,9 @@ If you are doing this exercise on somewhere else follow each program information
 
 Since **Trinity** is often being updated you should make sure you are using the latest version.
 That means that the requirements and the command line to to run **Trinity** changes occasionally. 
-You can find the basic usage info for **Trinity** (here)[http://trinityrnaseq.github.io/#running_trinity)
+You can find the basic usage info for **Trinity** [here](https://github.com/trinityrnaseq/trinityrnaseq/wiki/Running%20Trinity).
  
-A typical command line to type run trinity looks like [this](http://trinityrnaseq.github.io/#typical_usage)
+A typical command line to type run trinity looks like [this](https://github.com/trinityrnaseq/trinityrnaseq/wiki/Running%20Trinity#typical-trinity-command-line).
 
 Adapt the **Trinity** command line so it fits with your data and run it.  
 
@@ -104,12 +103,12 @@ Good things to know about the data used in this lab :
 
 *	You are using fastq files. 
 *	You are using paired end data. 
-*	The RNA seq data that we use in this exercise is not strand specific.
+*	The RNA-seq data that we use in this exercise is not strand specific.
      
 	 
 In general to fully use the potential 
 of a program it is worthwhile to read the manual and use the correct flags. As 
-an example **Trinity** handle strand specific RNA which reduces the complexity of 
+an example, **Trinity** handles strand specific RNA-seq data, which reduces the complexity of 
 the algorithm and produces better results.
 
 For this exercise we are using the stable 2014-07-17 version of Trinity. The minimal line to run that version of trinity is:
@@ -125,13 +124,12 @@ Remember to change the CPU count and memory to it fits with your allocated memor
 Now that the reads have been assembled into contigs you can map them back onto 
 the human genome sequence to see how they were assembled. Note that in 
 non-model organism this is not possible. If you would like to asses the assembly
-of transcripts without a reference genome Trinity has a downstream analysis pipeline 
-that is worth following `Trinotate
-<http://trinotate.github.io/>`_ . This is not something we will 
+of transcripts without a reference genome, Trinity has a downstream analysis pipeline 
+that is worth following: [Trinotate](http://trinotate.github.io/). This is not something we will 
 do in this course but if you have time over feel free to try it out. 
 
 Start with mapping the trinity assembled transcripts to the human genome using STAR. 
-Convert them to bam format, sort and index them using samtools
+Convert them to bam format, sort and index them using samtools:
   
 	mkdir STARtrinityMapping
     
@@ -141,9 +139,7 @@ Convert them to bam format, sort and index them using samtools
 	samtools index trinityTranscripts.sorted.bam
 	
 When ready there should be a BAM file that is sorted and indexed. It can now be viewed in the IGV 
-genome browsers. 
-
-Also it is good practise when working on uppmax 
+genome browser. 
 
 In total there were 12 samples and you have now assembled one of those samples. 
 If you want to view all the 12 different samples you can download the assembled and mapped samples. 
@@ -152,12 +148,12 @@ On uppmax you can copy the BAM files folder to your folder
 
    cp -r /proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/isoform/otherData/deNovo/BAMfiles/ .  
 
-Now they can also be downloaded from [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/otherData/deNovo/BAMfiles/)
+They can also be downloaded from [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/otherData/deNovo/BAMfiles/).
 
-Download a few of them and compare the experiments to see if you can identify different isoforms. How does the de novo assembled transcripts compare to the reference based isoform detection program. 
+Download a few of them and compare the experiments to see if you can identify different isoforms. How does the de novo assembled transcripts compare to the reference based isoform detection program? 
     
 
-Now that you have all the bam files in with individual names try to view them in IGV. For how to view files in IGV you can view this [tutorial](IGV.md)
+Now that you have all the bam files in with individual names, try to view them in IGV. For how to view files in IGV, see this [tutorial](IGV).
 First have a look on the  two bamfiles that contains the assemblies of all
 reads from all twelve timepoints with the trinity assemblers. They have the 
 names ``RAB11FIP5_trinity.Trinity._hg_19_STAR.bam``.
@@ -191,7 +187,7 @@ names ``RAB11FIP5_trinity.Trinity._hg_19_STAR.bam``.
     	
 
 **OPTIONAL**
-There is also a possibility to view tracks that is publicly available. This is easy to 
+There is also a possibility to view tracks that are publicly available. This is easy to 
 do in IGV and adds some information in the region that we are looking into.
 	
     	
@@ -221,8 +217,8 @@ regions on the de novo assembled transcripts do not correspond to your own .gtf
 file?  Which is the correct one? 
 
 Now take a closer look at the region chr2:73,308,166-73,308,278. This corresponds 
-to the regions where the RefSeq genes is annotated as intron but the *de novo* assembly
-, the cufflinks gtf file and the peptide file suggest that the region is being transcribed 
+to a region where the "RefSeq genes" track shows an intron but the *de novo* assembly,
+the cufflinks gtf file and the peptide file suggest that the region is being transcribed
 and translated into peptides. When examining the *de novo* assembled contigs it seems
 that none of the transcripts goes through the region. Is this real or could there 
 be a shortcoming of the assembler or the sequencing platform? Unfortunately we do 
