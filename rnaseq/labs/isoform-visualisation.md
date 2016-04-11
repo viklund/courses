@@ -35,11 +35,11 @@ only those sequences that mapped to the RAB11FIP5 gene in each sample. These "su
 files can be found in ``/proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/isoform/RAB11FIP5_fastqFiles``.
  
 
-To do the reference guided assembly yourself go to [Reference guided assembly using Cufflinks or Stringtie](isoform-lab). 
+To do the reference guided assembly yourself go to [Reference guided assembly using Cufflinks or Stringtie](isoform-lab.md). 
 
 This link also contains information on how to quantify already annotated genes and isoforms.
 
-To do the *de novo* assembly yourself go to [Isoform detection using RNA seq *de novo* Assembly](isoform-denovo).
+To do the *de novo* assembly yourself go to [Isoform detection using RNA seq *de novo* Assembly](isoform-denovo.md).
 
 
 

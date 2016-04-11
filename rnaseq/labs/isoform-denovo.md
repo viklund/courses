@@ -135,7 +135,7 @@ Convert them to bam format, sort and index them using samtools
   
 	mkdir STARtrinityMapping
     
-	STAR  --genomeDir /proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/reference/hg19_Gencode14.overhang75  --readFilesIn Trinity/Trinity.fasta --runThreadN 2 --outSAMstrandField intronMotif --outFileNamePrefix STARtrinityMapping/
+	STAR  --genomeDir /proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/reference/hg19_Gencode14.overhang75  --readFilesIn trinity_out_dir/Trinity.fasta --runThreadN 2 --outSAMstrandField intronMotif --outFileNamePrefix STARtrinityMapping/
 	samtools view -bSh -o trinityTranscripts.bam STARtrinityMapping/Aligned.out.sam
 	samtools sort trinityTranscripts.bam  trinityTranscripts.sorted
 	samtools index trinityTranscripts.sorted.bam
@@ -157,7 +157,7 @@ Now they can also be downloaded from [here](https://export.uppmax.uu.se/b2013006
 Download a few of them and compare the experiments to see if you can identify different isoforms. How does the de novo assembled transcripts compare to the reference based isoform detection program. 
     
 
-Now that you have all the bam files in with individual names try to view them in IGV. For how to view files in IGV you can view this [tutorial](IGV)
+Now that you have all the bam files in with individual names try to view them in IGV. For how to view files in IGV you can view this [tutorial](IGV.md)
 First have a look on the  two bamfiles that contains the assemblies of all
 reads from all twelve timepoints with the trinity assemblers. They have the 
 names ``RAB11FIP5_trinity.Trinity._hg_19_STAR.bam``.
