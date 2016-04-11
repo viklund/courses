@@ -135,7 +135,7 @@ Convert them to bam format, sort and index them using samtools
   
 	mkdir STARtrinityMapping
     
-	STAR  --genomeDir /proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/reference/hg19_Gencode14.overhang75  --readFilesIn Trinity/Trinity.fasta --runThreadN 2 --outSAMstrandField intronMotif --outFileNamePrefix STARtrinityMapping/
+	STAR  --genomeDir /proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/reference/hg19_Gencode14.overhang75  --readFilesIn trinity_out_dir/Trinity.fasta --runThreadN 2 --outSAMstrandField intronMotif --outFileNamePrefix STARtrinityMapping/
 	samtools view -bSh -o trinityTranscripts.bam STARtrinityMapping/Aligned.out.sam
 	samtools sort trinityTranscripts.bam  trinityTranscripts.sorted
 	samtools index trinityTranscripts.sorted.bam
