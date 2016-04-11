@@ -21,7 +21,7 @@ If you want to map more files for practice you can continue with the files found
 
 on UPPMAX and through this [URL](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/RAB11FIP5_fastqFiles).
  
-A pre-build hg19 human genome for HiSAT is found here on uppmax
+A pre-build hg19 human genome for HISAT is found here on uppmax
  
 	/proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/reference/hg19_hisat2
 
@@ -36,17 +36,15 @@ on UPPMAX and through this [URL](https://export.uppmax.uu.se/b2013006/downloads/
 
  
 
-## Mapping short reads to a reference using HiSAT2
+## Mapping short reads to a reference using HISAT2
 
-If you are using our data you will map the reads to the hg19 reference genome using a popular RNA-seq aligner **HiSAT2**. There are many features that can be tweaked using HiSAT2. For more information on all flags that can be used go [here](https://ccb.jhu.edu/software/hisat2/manual.shtml).
+If you are using our data you will map the reads to the hg19 reference genome using the RNA-seq aligner **HISAT2**. There are many features that can be tweaked using HISAT2. For more information on all flags that can be used go [here](https://ccb.jhu.edu/software/hisat2/manual.shtml).
 
 Read below for the flags we use for this exercise. Remember to change names accordingly so that you can run your program properly and know which files you have used.
 
-To load the HiSAT2 package on Uppmax, execute::
-
+To load the HISAT2 package on Uppmax, execute::
      
-     module use /proj/b2013006/sw/modules
-     module load hisat2/2.0.0-beta
+     module load HISAT2/2.0.1-beta
 
 Now you can map the reads from one of the samples (or several; it's up to you which ones(s)) to map using a command such as the one below.
 
@@ -59,11 +57,11 @@ flags used are
 
 *  ``-p N`` is the number of threads that will be used by the program.  
 *  ``--dta-cufflinks`` will generate a output that is optimal for downstream analysis with cufflinks     
-* ``-x /path/to/HiSAT2genome/fileName`` is the path to a pre-rendered reference library that HiSAT2 uses to map reads to the genome.``fileName`` is the part of the files in the folder without the endings ``.ht2``  
+* ``-x /path/to/HISAT2genome/fileName`` is the path to a pre-rendered reference library that HISAT2 uses to map reads to the genome.``fileName`` is the part of the files in the folder without the endings ``.ht2``  
 *  `` -1 /path/to/read1/sample_1.fastq `` is where you should add your forward fastq files that you will map to the reference.  
 *  `` -2 /path/to/read1/sample_2.fastq `` is where you should add your reverse fastq files that you will map to the reference.  
 *  ``-S /path/to/output/fileName.sam`` is the fileName of the samfile that will tell were the reads mapped to the reference.     
-*  ``> /path/to/output/fileName.sam.info`` will give the statistics of how many of the reads that mapped that is generated from HiSAT2.  
+*  ``> /path/to/output/fileName.sam.info`` will give the statistics of how many of the reads that mapped that is generated from HISAT2.  
 
 This should run fairly quickly and put a file called ``fileName.sam`` in 
 the directory that you specified with ``-S``. 
@@ -121,7 +119,7 @@ To load the Samtools package on Uppmax, execute
      module load samtools
 
 
-A good naming praxis is to name the file to correspond what you mapped. As an example if you mapped sample 12 using HiSAT2 you should rename the mapped SAM file to a file with the name ``sample12_RAB11FIP5.HiSAT2.bam``.  The renaming and BAMfile conversion can be done in one step. Then to view them you also have to sort the hits and index them. You can also get a report on your mapped reads using samtools **flagstat**. Since the BAM file contains all the information that you have in the SAM file remember to remove the sam file and the unsorted bam file once you are finished. 
+A good naming praxis is to name the file to correspond what you mapped. As an example if you mapped sample 12 using HISAT2 you should rename the mapped SAM file to a file with the name ``sample12_RAB11FIP5.HISAT2.bam``.  The renaming and BAMfile conversion can be done in one step. Then to view them you also have to sort the hits and index them. You can also get a report on your mapped reads using samtools **flagstat**. Since the BAM file contains all the information that you have in the SAM file remember to remove the sam file and the unsorted bam file once you are finished. 
 
 	samtools view -bSh -o /path/to/outDir/properName.bam /path/to/fileName.sam
 	#Go to outdir
