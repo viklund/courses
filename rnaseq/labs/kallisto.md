@@ -110,7 +110,7 @@ Back to the present data! The next command will read the Kallisto output files, 
  
 		so <- sleuth_prep(s2c, ~timepoint, target_mapping = t2g)
 
-Next we fit the linear model and test for one of the model coefficients. In this case only "timepoint" is possible (with >1 experimental factors, one can choose which one to test for)
+Next we fit the linear model and test for one of the model coefficients. In this case we test the 24h time point versus the control.
 
 		so <- sleuth_fit(so)
 		so <- sleuth_wt(so, which_beta="timepointt24h") 
@@ -119,5 +119,7 @@ Now we should be able to visualize the results:
 
 		sleuth_live(so)
 	
+There are lots of things to look at here - explore according to your interests! Some things you might try are e.g. the PCA and sample heatmap options in the map menu, the test table in the analyses menu (which contains a ranked list of the differentially expressed genes), or the gene view in the same menu.
 
+If you want to delve further into time series analysis with Sleuth (after all, we have just compared two time points here, whereas we have four in all), you might want to read this [excellent blog post](http://nxn.se/post/134227694720/timecourse-analysis-with-sleuth) by Valentine Svensson. Note that Sleuth is still under development, so some of the commands may be a bit different.
 
