@@ -66,7 +66,7 @@ You can find all BAM files and GTF files for all samples [here](https://export.u
 We have also created result files from *de novo* transcriptome assembly using the the subset of reads that map to the *RAB11FIP5* gene. The assembled transcripts were
 then mapped back to the genome. 
 
-You can download all BAM files and GTF files for all samples from [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/otherData/deNovo/BAMfiles) using a web browser.
+You can download all BAM files and GTF files for all samples [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/otherData/deNovo/BAMfiles) using a web browser.
 
 
 ## Importing reference based isoform info to the genome
