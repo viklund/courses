@@ -92,7 +92,7 @@ From the name of the BED file (human_A431_global-TDA-FDR1pc_green-known_red-nove
 
 # Importing the Pac bio reads mapped to the genome                                                         
 
-You can use a web browser to access the BAM file containing all PacBio reads mapped to the genome [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/otherData/). Unfortunately there are no PacBio reads that mapped to the **RAB11FIP5** gene.
+You can use a web browser to access the BAM file containing all PacBio reads mapped to the genome [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/otherData/). Unfortunately there are no PacBio reads that mapped to the **RAB11FIP5** gene, but you can look at other loci.
 
 How do the PacBio reads from full length transcripts compare to the transcripts assembled from short reads?
 
