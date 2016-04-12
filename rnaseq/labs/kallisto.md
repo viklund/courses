@@ -1,13 +1,12 @@
 ---
 layout: default
-title:  'Kallisto'
 ---
 
-# Kallisto and Sleuth (Beta format)
+# Kallisto and Sleuth 
 
 ## Transcript-level quantification with Kallisto
 
-*Kallisto* is an "alignment free" RNA-seq quantification method that runs very fast with a small memory footprint, so that it can be run on most laptops. It is a command-line program that can be downloaded as binary executables for Linux or Mac, or in source code format. For a first insight in the program, read [here](https://liorpachter.wordpress.com/2015/05/10/near-optimal-rna-seq-quantification-with-kallisto/) and for the preprint article, see [here](http://arxiv.org/abs/1505.02710).
+*Kallisto* is an "alignment free" RNA-seq quantification method that runs very fast with a small memory footprint, so that it can be run on most laptops. It is a command-line program that can be downloaded as binary executables for Linux or Mac, or in source code format. For a first insight into the program, read [here](https://liorpachter.wordpress.com/2015/05/10/near-optimal-rna-seq-quantification-with-kallisto/) and for the recently published article, see [here](http://www.nature.com/nbt/journal/vaop/ncurrent/full/nbt.3519.html). There is also a preprint [here](http://arxiv.org/abs/1505.02710).
 
 Kallisto is geared towards quantification on the transcript (isoform) level, rather than the gene level (although the latter can also be done by post-processing Kallisto output.) However, read assignment to transcript isoforms cannot (in general) be done unambiguously, so there is an intrinsic "quantification noise" or variability in this process. Kallisto can thus be run either in a single step (which is very fast) or in "bootstrap" mode (which takes longer, but can be done on several processors in parallel) in order to get uncertainty estimates for the expression levels - a kind of error bars for the quantification process. Running with bootstraps is mandatory if you want to perform differential expression analysis of isoforms with Sleuth (see below). 
 
@@ -19,13 +18,15 @@ Kallisto is primarily meant for quantification of an existing set of FASTA seque
 
 Unlike Kallisto, Sleuth is an R package. At the end of a Sleuth analysis, it is possible to view a dynamical graphical presentation of the results where you can explore the differentially expressed transcripts in an intuitive way.
 
-## Example commands for running Kallisto
+It is still early days for Sleuth and as perhaps mentioned during the lecture on differential expression analysis, it has not been extensively benchmarked against other packages yet. Let's try it on the same A431 data as in the DESeq2 lab!
 
-This is just showing you a suggestion for steps to run Kallisto. More documentation will probably be added later when we know for sure this is a good method for RNA-seq downstream analysis. (We are currently benchmarking both Kallisto and Sleuth!)
+Since it takes some time to prepare the data, we have pre-computed Kallisto results which you can download from the download area. If you are interested in the steps to get there, please refer to the next section; otherwise jump down to "Running Sleuth" at this point.
 
-These steps are all done at the command-line.
+## [Only for info, you do not need to do this!] Preparing Sleuth input with Kallisto
 
-We start by downloading Kallisto and sratools. Note that the latter is not needed for Kallisto to run - we want it in order to be able to download files from SRA in this examples.
+Sleuth was designed to work on output from Kallisto (rather than count tables, like DESeq2, or BAM files, like CuffDiff2), so we need to run Kallisto first. (Note that the outputs from other RNA-seq quantifiers like [Salmon](https://github.com/COMBINE-lab/salmon) or [Sailfish](https://github.com/kingsfordgroup/sailfish) can also be used with Sleuth via the new [wasabi](https://github.com/COMBINE-lab/wasabi) package.)
+
+Kallisto is run directly on FASTQ files.We start by downloading the Kallisto software.
 
 		wget https://github.com/pachterlab/kallisto/releases/download/v0.42.3/kallisto_mac-v0.42.3.tar.gz
 
@@ -35,8 +36,6 @@ You can of course download a different version if you want to - and if you are u
 		wget http://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/2.5.2/sratoolkit.2.5.2-mac64.tar.gz
 
 Again, if you are not using Mac, you need to change the file name above to something appropriate from http://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/2.5.2.
-
-		tar zxvf sratoolkit.2.5.2-mac64.tar.gz
 
 Now we will download and merge human cDNA and ncDNA files from ENSEMBL in order to build a Kallisto transcript index. Note that we can concatenate the two gzipped files without unpacking them first. We use both the protein-coding transcripts and the non-coding ones to be able to capture more of the transcriptome.
 
@@ -48,23 +47,28 @@ Now we can build the transcriptome index. Let's also time it to get a sense of h
 	
 	time kallisto/kallisto index -i hsGRCh38_kallisto Homo_sapiens.GRCh38.rna.fa.gz
 
-The next steps will take quite a while (maybe several hours). What they entail is (1) downloading FASTQ files from SRA and (2) quantifying the FASTQ files against our Kallisto index with bootstrapping for later use in Sleuth. You might want to either substitute your own FASTQ files here, or to run Kallisto without bootstraps (skip the -b 100 option). The samples we use here are from an experiment on prostate tumors, with three pairs of normal/tumor samples for a total of six samples (there are many more in the original study)
+It should take less than 10 minutes.
 
-		for f in SRR057629 SRR057630 SRR057632 SRR057649 SRR057650 SRR057651
-		do sratoolkit.2.5.2-mac64/bin/fastq-dump --split-files $f
-		time kallisto/kallisto quant -i hsGRCh38_kallisto -t 4 -b 100 ${f}_1.fastq ${f}_2.fastq -o ${f}
-		rm ${f}_?.fastq
-		done	
+Next, download the FASTA files from the [download area](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/diffExp/FASTQ/) .
+When that is done, it's time for quantifying the FASTQ files against our Kallisto index with bootstrapping for later use in Sleuth. You could do that one by one, with a command like
 
-In this example, we put "-t 4" so we can use up to four processors in the bootstrapping. You may want to modify this value according to the machine you are working on. If you wanted to run Kallisto without bootstraps and just get expression values on a pair of FASTQ files, you would run
+    time kallisto/kallisto quant -i hsGRCh38_kallisto -t 4 -b 100 7_111116_AD0341ACXX_137_1_index1_1.fastq.gz 7_111116_AD0341ACXX_137_1_index1_2.fastq.gz -o sample1
+	
+or in a bash loop:
 
-		kallisto/kallisto quant -i hsGRCh38_kallisto <FILE1>.fastq <FILE2>.fastq -o <OUTPUT_DIR_NAME>
+    for i in {1..12}; do time kallisto quant -i hsGRCh38_kallisto -t 4 -b 100 7_111116_AD0341ACXX_137_${i}_index${i}_1.fastq.gz 7_111116_AD0341ACXX_137_${i}_index${i}_2.fastq.gz -o sample${i}; done
 
-## Example commands for running Sleuth
+In this example, we put "-t 4" so we can use up to four processors in the bootstrapping. You may want to modify this value according to the machine you are working on. If you wanted to run Kallisto without bootstraps and just get expression values on a pair of FASTQ files, you would run something like
 
-Here we give an example workflow for a DE analysis in Sleuth. This is based on the prostate cancer scenario for which we downloaded files above, so if you are using other data, you will of course need to adjust some commands accordingly.
+    kallisto/kallisto quant -i hsGRCh38_kallisto <FILE1>.fastq <FILE2>.fastq -o <OUTPUT_DIR_NAME>
 
-This part is done entirely in R, so start your R environment and begin by installing the dependencies. This only needs to be done the first time, of course.
+Running Kallisto on all the 12 samples with 100 bootstraps may take an hour or so, depending on your machine and settings. The time on a MacBook Pro with four threads and 16 Gb of RAM was ... minutes.
+
+## Running Sleuth
+
+Here we give an example workflow for a DE analysis in Sleuth based on the A431 data that we are using for all the DE analysis labs. Start by downloading the results from the [download area](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/diffExp/kallisto_results). Download and extract the whole folder and make a note of where it is.
+
+The Sleuth analysis is done entirely in R, so start your R environment and begin by installing the dependencies. This only needs to be done the first time, of course.
 
 		source("http://bioconductor.org/biocLite.R")
 		biocLite("rhdf5")
@@ -88,25 +92,31 @@ Now load the package and use a function that we borrowed from the Sleuth documen
 
 The actual Sleuth analysis starts by defining the path to the directory where your Kallisto output folders are. You will need to replace "/PATH/TO/YOUR/FOLDER" with the actual path on your machine. 
 
-		base_dir <- "PATH/TO/YOUR/FOLDER" 
-		samples <- c("SRR057629","SRR057630","SRR057632","SRR057649","SRR057650","SRR057651")
+		base_dir <- "PATH/TO/YOUR/FOLDER"
+		
+Then we tell the program about the samples that we have. We stored the Kallisto results for the 12 samples in directories called "sample1", "sample2", ..., "sample12".
+
+		samples <- paste0("sample", 1:12)
 		kal_dirs <- sapply(samples, function(id) file.path(base_dir, id))
 
-Now fill in metadata about the samples. In this case pretend we just know it, rather than fetching metadata from SRA, which is also possible in principle.
+Now it's time to fill in metadata about the samples. We can use a similar assignment as in the DESeq2 exercise:
 
-		s2c <- data.frame(sample=samples,individual=as.factor(rep(c(2,3,6),2)), condition=c(rep("tumor",3),rep("normal",3)))
+    s2c <- data.frame(timepoint = rep(c("ctrl", "t2h", "t6h", "t24h"), each=3))
+
+Again, if there were other experimental factors involved, these could have been modelled here as well. If you want to look at such an example, you might want to refer to the [beta version of this exercise](https://github.com/SciLifeLab/courses/blob/gh-pages/rnaseq/labs/kallisto.md) that was given in October 2015. In that version, we did not use A431 data but rather a prostate cancer data set where the two experimental factors were (1) the individual that the sample came from, (2) tumor or normal tissue.
 		
-
-The next command will read the Kallisto output files, connect them with metadata, and set up a linear model for analyzing the expression data.
+Back to the present data! The next command will read the Kallisto output files, connect them with metadata, and set up a linear model for analyzing the expression data.
  
-		so <- sleuth_prep(kal_dirs, s2c, ~individual+condition, target_mapping = t2g)
+		so <- sleuth_prep(kal_dirs, s2c, ~timepoint, target_mapping = t2g)
 
-Next we fit the linear model and test for one of the model coefficients, in this case "condition" (tumor vs normal).
+Next we fit the linear model and test for one of the model coefficients. In this case only "timepoint" is possible (with >1 experimental factors, one can choose which one to test for)
 
 		so <- sleuth_fit(so)
-		so <- sleuth_test(so, which_beta = 'conditiontumor') 
+		so <- sleuth_test(so) 
 
 Now we should be able to visualize the results:
 
 		sleuth_live(so)
+	
+
 
