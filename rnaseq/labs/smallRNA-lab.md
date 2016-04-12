@@ -27,12 +27,12 @@ Running this on UPPMAX, start by loading the modules you will need:
 	module load bioinfo-tools
 	module load cutadapt
 	module load bowtie
-	module load htseq
+	module load subread/1.5.0
 
 And create a directory to work in:
 
 	# create a subfolder called "smallRNA"
-	mkdir ~/glob/RNAseqCourse/smallRNA
+	mkdir ~/RNAseqCourse/smallRNA
 
 All data and scripts required for this exercise can be found in 
 ``/proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/smallRNA`` on UPPMAX and through this [URL](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/smallRNA/).
@@ -44,7 +44,7 @@ This includes:
  
 - Precomputed bam files with the sequencing data mapped to the entire Drosophila genome, which can be used for browsing in IGV (in the subdirectory mapped_to_genome).
 
-- A gff file with the coordiates of all mircoRNAs on the Drosophila genome. (Use the file dme_mirbase_FORMAT.gff3 in the subdirectory mirbase).
+- A gff file with the coordiates of all mircoRNAs on the Drosophila genome. (Use the file dme_mirbase_FORMAT2016.gff3 in the subdirectory mirbase).
 
 Copy these files in the directory you will use for this exercise. On UPPMAX you can use the following command:
 
@@ -107,11 +107,11 @@ We can now summarize the mapped reads to see which microRNAs are expressed in th
 
 Press space to scroll down into the file and q to exit the viewer. 
 
-We are only interested in the reads mapping to known microRNA loci in [mirBase](http://www.mirbase.org), which is the "official" data base of microRNAs in many different species. The file ``/proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/smallRNA/mirbase/dme_mirbase_FORMAT.gff3`` contains the locations of all microRNAs on the fly genome. Use ``less`` to have a look at this file. [htseq-count](http://www-huber.embl.de/users/anders/HTSeq/doc/count.html) is a useful program for counting reads mapping to different genomic regions. Run it like this, for every sam file:
+We are only interested in the reads mapping to known microRNA loci in [mirBase](http://www.mirbase.org), which is the "official" data base of microRNAs in many different species. The file ``/proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/smallRNA/mirbase/dme_mirbase_FORMAT2016.gff3`` contains the locations of all microRNAs on the fly genome. Use ``less`` to have a look at this file. [featureCounts](http://bioinf.wehi.edu.au/featureCounts/) is a useful program for counting reads mapping to different genomic regions. Run it like this, for all sam file at once:
 
-	htseq-count --type=miRNA --idattr=Name sam.file gff3.file > out.file
+	featureCounts -t miRNA -g Name -O -s 1 -M -a mirbasefile -o outfile samfiles 
 
-Here we only look at loci that are "miRNA", and we use the "Name" attribute to name the loci. The output will be a list with the number of reads mapping to each microRNA. To make the next step of the analysis easier, it is convenient to create a new directory to which these files are printed. ``htseq-count`` takes around 5 mins for each data set. When the program has finished, look at the results with ``less``. 
+Here we only look at loci that are "miRNA", and we use the "Name" attribute to name the loci. The -O flag tells the program that reads that map to several overlapping microRNAs should be assigned to all of them. The -s 1 flag tells the probram to only count reads that map to the same strand as the microRNA, and the -M flag makes sure we count multi mapping reads. The output will be a list with the number of reads mapping to each microRNA. ``featureCounts`` takes around a few minutes to run. When the program has finished, look at the results with ``less``. 
 
 Once the reads mapping to each microRNA have been counted, we can analyze the microRNA expression levels using R. Start R by typing:
 
@@ -119,12 +119,11 @@ Once the reads mapping to each microRNA have been counted, we can analyze the mi
 
 You will see a different prompt, since you are now typing commands to R. You can always exit R with quit(). To combine the files you just created into an expression table, use the following commands:
 
-	dir <- "the path to the directory with the output of htseq-count"
-	files <- list.files(dir)
-	exp.data <- do.call("cbind", lapply(files, function(x){read.table(paste(dir,x,sep="/"))}))
-	rownames(exp.data) <- exp.data[,1]
-	exp.data <- exp.data[,seq(from=2, to=ncol(exp.data), by=2)]
-	colnames(exp.data) <- files
+	count.file <- "path to the output of featureCounts"
+	count.data <- read.table(count.file, sep="\t", header=TRUE)
+	exp.data <- count.data[,-1*1:6]      ## remove first 6 columns
+	rownames(exp.data) <- count.data[,1] ## use names of microRNAs as rownames in the table
+	colnames(exp.data) <- gsub(".sam", "", colnames(exp.data)) ## make column names of table nicer
 
 You can look at the first 20 rows of the table by typing:
 
