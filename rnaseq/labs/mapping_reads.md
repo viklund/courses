@@ -44,7 +44,8 @@ Read below for the flags we use for this exercise. Remember to change names acco
 
 To load the HISAT2 package on Uppmax, execute::
      
-     module load HISAT2/2.0.1-beta
+     module load bioinfo-tools # This is to get access to all bioinfo-tools that are on uppmax
+     module load HISAT2/2.0.1-beta # The specific mapping program
 
 Now you can map the reads from one of the samples (or several; it's up to you which ones(s)) to map using a command such as the one below.
 
