@@ -22,7 +22,7 @@ group as being interesting, and see what the RNA-seq data look like for that gen
 
 ## Strategies for using the RNA-seq data
 
-There are different ways to find out how the RNA-seq data shows the RAB11FIP5 gene to 
+There are different ways to find out how the RNA-seq data shows the *RAB11FIP5* gene to 
 be expressed. Roughly speaking, we can talk about three different strategies:
 
 *	Mapping the reads to a reference genome and quantifying the gene and isoform FPKMs  
@@ -31,7 +31,7 @@ be expressed. Roughly speaking, we can talk about three different strategies:
 
 
 In order to make these steps computationally feasible during the lab, we have extracted 
-only those sequences that mapped to the RAB11FIP5 gene in each sample. These "sub-FASTQ" 
+only those sequences that mapped to the *RAB11FIP5* gene in each sample. These "sub-FASTQ" 
 files can be found in ``/proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/isoform/RAB11FIP5_fastqFiles``.
  
 
@@ -45,7 +45,7 @@ To do the *de novo* assembly yourself go to [Isoform detection using RNA-seq *de
 
 ## Visualise isoform data
 
-For the gene **RAB11FIP5** you will now hopefully have generated your own data that you can look at. 
+For the gene *RAB11FIP5* you will now hopefully have generated your own data that you can look at. 
 If everything worked you will now have:
 
  * One or two BAM files with short reads mapped to the genome using HISAT2 and/or STAR 
@@ -57,16 +57,16 @@ If everything worked you will now have:
 
 ### Importing reference based isoform info for the *RAB11FIP5* gene
 
-Since it takes time to generate all data, we have already created other files that you can also download and view in your browser. This includes result files for the subset of reads that map to the **RAB11FIP5** gene. These mappings have been used for reference based assembly of isoforms. 
+Since it takes time to generate all data, we have already created other files that you can also download and view in your browser. This includes result files for the subset of reads that map to the *RAB11FIP5* gene. These mappings have been used for reference based assembly of isoforms. 
 
-You can find all BAM files and GTF files for all samples using a web browser [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/otherData/refBasedAssembly/RAB11FIP5). You can then view them in IGV using import from URL.
+You can find all BAM files and GTF files for all samples [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/otherData/refBasedAssembly/RAB11FIP5) using a web browser. You can then view them in IGV using "Import from URL".
 
 ### Importing de novo assembled transcripts mapped to the *RAB11FIP5* gene
 
-There are result files from de novo transcriptome assembly using the the subset of reads that map to the **RAB11FIP5** gene. The assembled transcripts were
+We have also created result files from *de novo* transcriptome assembly using the the subset of reads that map to the *RAB11FIP5* gene. The assembled transcripts were
 then mapped back to the genome. 
 
-You can download all BAM files and GTF files for all samples using a web browser from [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/otherData/deNovo/BAMfiles).
+You can download all BAM files and GTF files for all samples from [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/otherData/deNovo/BAMfiles) using a web browser.
 
 
 ## Importing reference based isoform info to the genome
@@ -75,13 +75,12 @@ In addition, we provide result files for *all* reads that were mapped to the gen
 reference based assembly of isoforms across the entire genome. There is a GTF file with the final merged isoform  
 information from all 12 samples.  
 
-You can download all BAM files and GTF files for all samples using a web browser from [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/otherData/refBasedAssembly/Genome).
+You can download all BAM files and GTF files for all samples [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/otherData/refBasedAssembly/Genome) using a web browser.
 
 ## Importing the peptide track for the *RAB11FIP5* gene and the genome                                                           
 
-As mentioned above, we will compare some identified peptides from a mass-spectrometry 
-experiment with RNA-seq data from the same cell line. Let's start by importing the track 
-with identified peptides from the MS experiment. 
+As mentioned above, we will look at some identified peptides from a mass-spectrometry 
+experiment, and compare those with RNA-seq data from the same cell line.
 
 You can download the BED file containing all peptides mapped to the genome [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/otherData).
 
@@ -92,7 +91,7 @@ From the name of the BED file (human_A431_global-TDA-FDR1pc_green-known_red-nove
 
 # Importing the Pac bio reads mapped to the genome                                                         
 
-You can use a web browser to access the BAM file containing all PacBio reads mapped to the genome [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/otherData/). Unfortunately there are no PacBio reads that mapped to the **RAB11FIP5** gene, but you can look at other loci.
+You can use a web browser to access the BAM file containing all PacBio reads mapped to the genome [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/otherData/). Unfortunately there are no PacBio reads that mapped to the *RAB11FIP5* gene, but you can look at other loci.
 
 How do the PacBio reads from full length transcripts compare to the transcripts assembled from short reads?
 
