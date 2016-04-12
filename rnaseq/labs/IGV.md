@@ -26,7 +26,7 @@ the file extension, IGV will automatically treat the information in the file acc
 
 ## Visualising a SAM file
 
-If the file output is in the SAM format (file ends with .sam), which is a uncompressed test format, 
+If the file output is in the SAM format (file ends with .sam), which is a uncompressed text format, 
 you need to convert it to the BAM format (file ends with .bam). A BAM file contains the same information as the SAM file but now it is in a binary compressed format unreadable for a human. 
 
 To convert a SAM file to BAM format type:
