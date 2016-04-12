@@ -10,13 +10,13 @@ One of the advantages of RNA-seq data compared to microarrays is that you get
 isoform-level information 'for free' in addition to gene-level information. 
 In this exercise, we are going to look at some ways to identify and visualize isoforms.
 
-As you have hopefully read on the introduction page, we will use RNA-seq and quantitative 
+ As you have hopefully read on the introduction page, we will use RNA-seq and quantitative 
 mass-spectrometry (MS) data sets from the A431 cell line. These data were measured by a 
 group at SciLifeLab Stockholm in a 'proteogenomics' study where the aim was to discover 
 new genes or gene variants by deep proteomic profiling using an MS method, and mapping 
 the obtained peptides back to the genome. 
 The RNA-seq data was obtained to see if there was RNA-level support for the predicted novel 
-peptides and transcript variants. We will look at one loci that were flagged by the research 
+peptides and transcript variants. We will look at one locus that was flagged by the research 
 group as being interesting, and see what the RNA-seq data look like for that gene.
 
 
@@ -35,11 +35,11 @@ only those sequences that mapped to the RAB11FIP5 gene in each sample. These "su
 files can be found in ``/proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/isoform/RAB11FIP5_fastqFiles``.
  
 
-To do the reference guided assembly yourself go to [Reference guided assembly using Cufflinks or Stringtie](isoform-lab.md). 
+To do the reference guided assembly yourself go to [Reference guided assembly using Cufflinks or Stringtie](isoform-lab). 
 
 This link also contains information on how to quantify already annotated genes and isoforms.
 
-To do the *de novo* assembly yourself go to [Isoform detection using RNA seq *de novo* Assembly](isoform-denovo.md).
+To do the *de novo* assembly yourself go to [Isoform detection using RNA-seq *de novo* Assembly](isoform-denovo).
 
 
 
@@ -48,45 +48,45 @@ To do the *de novo* assembly yourself go to [Isoform detection using RNA seq *de
 For the gene **RAB11FIP5** you will now hopefully have generated your own data that you can look at. 
 If everything worked you will now have :
 
- * One or two BAM files with short reads mapped to the genome using Hisat2 and/or STAR 
+ * One or two BAM files with short reads mapped to the genome using HISAT2 and/or STAR 
 
- * One GTF file containig differnt isoform of **RAB11FIP5** based on the short reads that mapped using cufflinks and/or Stringtie.
+ * One GTF file containing different isoforms of *RAB11FIP5* assembled with Cufflinks and/or Stringtie based on the short reads that mapped to the genome.
  
  * One BAM file with **Trinity** assembled transcripts mapped to the genome.
 
 
-### Importing reference based isoform info to the **RAB11FIP5** gene
+### Importing reference based isoform info for the *RAB11FIP5* gene
 
-Since it takes time to generate all data we have already created other files that you can also download and view in your browser.This contains results files from the subset of reads that map to the **RAB11FIP5** gene that has then been used for reference based assembly of isoforms. 
+Since it takes time to generate all data, we have already created other files that you can also download and view in your browser. This includes result files for the subset of reads that map to the **RAB11FIP5** gene that has then been used for reference based assembly of isoforms. 
 
-You can fin all BAM files and GTF files for all samples using a webinterface from [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/otherData/refBasedAssembly/RAB11FIP5). You can then view them in IGV using import from URL.
+You can find all BAM files and GTF files for all samples using a web browser [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/otherData/refBasedAssembly/RAB11FIP5). You can then view them in IGV using import from URL.
 
 ### Importing de novo assembled transcripts mapped to the **RAB11FIP5** gene
 
-This contains results files from the subset of reads that map to the **RAB11FIP5** gene that has then been used for 
-de novo assembled transcriptome and then mapped back on the genome. 
+There are result files from de novo transcriptome assembly using the the subset of reads that map to the **RAB11FIP5** gene. The assembled transcripts were
+then mapped back to the genome. 
 
-You can download all BAM files and GTF files for all samples using a webinterface from [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/otherData/deNovo/BAMfiles)
+You can download all BAM files and GTF files for all samples using a web browser from [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/otherData/deNovo/BAMfiles)
 
 
 ## Importing reference based isoform info to the genome
 
-This contains results files from all the reads that map to the genome, which then been used for 
-reference based assembly of isoforms in the genome. There is also a GTF file with the final merged isoform  
+In addition, we provide result files for all the reads that were mapped to the genome. These mappings were used for 
+reference based assembly of isoforms across the entire genome. There is also a GTF file with the final merged isoform  
 information from all 12 samples.  
 
-You can download all BAM files and GTF files for all samples using a webinterface from [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/otherData/refBasedAssembly/Genome)
+You can download all BAM files and GTF files for all samples using a web browser from [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/otherData/refBasedAssembly/Genome)
 
-## Importing the peptide track to the **RAB11FIP5** gene and the genome                                                           
+## Importing the peptide track for the *RAB11FIP5* gene and the genome                                                           
 
 As mentioned above, we will compare some identified peptides from a mass-spectrometry 
 experiment with RNA-seq data from the same cell line. Let's start by importing the track 
 with identified peptides from the MS experiment. 
 
-You can download the BED file containing all mapped peptides to the genomeusing a webinterface from [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/otherData).
+You can download the BED file containing all peptides mapped to the genome [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/otherData).
 
 
-From the BED file extension, IGV will automatically know to color the track according to peptide status
+From the name of the BED file (human_A431_global-TDA-FDR1pc_green-known_red-novel.bed), IGV will automatically know to color the track according to peptide status
 (green for annotated peptides, red for novel peptides).
 
 
