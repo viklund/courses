@@ -71,10 +71,11 @@ Looking at only the top 100 genes (or genes with a adjusted p-value below some c
 
 ``` r
 library(piano) # Install the piano package (Bioconductor) if this command does not work
+```
 
-# First we need to construct our gene-set collection, we will be looking at so called 
-# Hallmark gene-sets from the MSigDB in this example.
-# (See the paper: http://www.cell.com/cell-systems/abstract/S2405-4712(15)00218-5 )
+First we need to construct our gene-set collection, we will be looking at so called Hallmark gene-sets from the MSigDB in this example. (See the paper: <http://www.cell.com/cell-systems/abstract/S2405-4712(15)00218-5> )
+
+``` r
 # Load the gene-set collection into piano format:
 gsc <- loadGSC("h.all.v5.1.symbols.gmt.txt",type="gmt")
 gsc # Always take a look at the GSC object to see that it loaded correctly
@@ -116,8 +117,9 @@ gsc # Always take a look at the GSC object to see that it loaded correctly
     ## 
     ## No additional info available.
 
+Now we are ready to run the GSA:
+
 ``` r
-# Now we are ready to run the GSA:
 library(snowfall); library(snow) # Install snow and snowfall (CRAN) if you want to 
 # run on multiple cores, otherwise omit the ncpus argument below in the call to runGSA
 padj <- geneLevelStats$padj
@@ -131,17 +133,27 @@ gsaRes <- runGSA(padj,log2fc,gsc=gsc,ncpus=4)
     ## Calculating gene set significance...done!
     ## Adjusting for multiple testing...done!
 
-``` r
-# This command uses the adjusted p-values to score the genes and the log2-foldchange 
-# for information about the direction of change
-```
+The runGSA function uses the adjusted p-values to score the genes and the log2-foldchange for information about the direction of change.
+
+We can visualize the results in different ways, for instance using a network plot showing the significant gene-sets and the overlap of genes between sets:
 
 ``` r
-# We can visualize the results in different ways, for instance using a network plot 
-# showing the significant gene-sets and the overlap of genes between sets:
 networkPlot(gsaRes,"distinct","both",adjusted=T,ncharLabel=Inf)
 ```
 
-![](GSA_tutorial_files/figure-markdown_github/unnamed-chunk-8-1.png)<!-- -->
+The function GSAsummaryTable can be used to export the complete results. The geneSetSummary function can be used to explore specific gene-sets in more detail. For instance, we can make a boxplot of the -log10(adjusted p-values) of the genes in the gene-set HALLMARK\_DNA\_REPAIR and compare that to the distribution of all genes:
+
+``` r
+boxplot(list(-log10(geneLevelStats$padj),
+             -log10(geneSetSummary(gsaRes,"HALLMARK_DNA_REPAIR")$geneLevelStats)))
+```
+
+From here, you can dig in to the results on the gene-set level further and start making hypothesis of what is happening with the biology behind your data. You can also try to run GSA with other gene-set collections or using another GSA method.
 
 ### Further reading
+
+-   Piano webpage, with more information and link to publication: www.sysbio.se/piano
+-   GSEA paper: <http://www.pnas.org/content/102/43/15545.full>
+-   A couple of reviews:
+-   <http://bib.oxfordjournals.org/content/9/3/189.full>
+-   <http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-10-47>
