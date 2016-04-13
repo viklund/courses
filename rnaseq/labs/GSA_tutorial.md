@@ -141,14 +141,16 @@ We can visualize the results in different ways, for instance using a network plo
 networkPlot(gsaRes,"distinct","both",adjusted=T,ncharLabel=Inf)
 ```
 
-![](images/networkplot.png)<!-- --> The function GSAsummaryTable can be used to export the complete results. The geneSetSummary function can be used to explore specific gene-sets in more detail. For instance, we can make a boxplot of the -log10(adjusted p-values) of the genes in the gene-set HALLMARK\_DNA\_REPAIR and compare that to the distribution of all genes:
+![](images/networkplot.png)
+
+The function GSAsummaryTable can be used to export the complete results. The geneSetSummary function can be used to explore specific gene-sets in more detail. For instance, we can make a boxplot of the -log10(adjusted p-values) of the genes in the gene-set HALLMARK\_DNA\_REPAIR and compare that to the distribution of all genes:
 
 ``` r
 boxplot(list(-log10(geneLevelStats$padj),
              -log10(geneSetSummary(gsaRes,"HALLMARK_DNA_REPAIR")$geneLevelStats)))
 ```
 
-![](images/boxplots.png)<!-- -->
+![](images/boxplots.png)
 
 From here, you can dig in to the results on the gene-set level further and start making hypothesis of what is happening with the biology behind your data. You can also try to run GSA with other gene-set collections or using another GSA method.
 
