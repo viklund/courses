@@ -5,7 +5,7 @@ title:  'PCA and clustering'
 
 # PCA and clustering on a single cell RNA-seq dataset
 
-Here are some examples on how to run PCA/Clustering on a single cell RNA-seq dataset. These methods can also be applied to any other type of dataset, such as RNA-seq or other high throuput data. 
+Here are some simple examples on how to run PCA/Clustering on a single cell RNA-seq dataset. These methods can also be applied to any other type of dataset, such as RNA-seq or other high throuput data. 
 The dataset used is single-cell RNA-seq data from mouse embryonic development from Deng. et al. Science 2014, Vol. 343 no. 6167 pp. 193-196, "Single-Cell RNA-Seq Reveals Dynamic, Random Monoallelic Gene Expression in Mammalian Cells"
 
 All data you need is available in the folder: 
@@ -13,8 +13,15 @@ All data you need is available in the folder:
 
 Copy all that data to your folder of choice (on uppmax or your own computer) and start R in that folder. 
 
-You will need some R packages, gplots and plotrix, these can be installed with the command:
-    	install.packages(c("gplots","plotrix")) 
+You will need some R packages, these packages from CRAN can be installed with the command:
+
+    	install.packages(c("gplots","plotrix","Rtsne")) 
+
+And packages from bioconductor with
+
+    	## try http:// if https:// URLs are not supported
+    	source("https://bioconductor.org/biocLite.R")
+    	biocLite("limma")
 
 All the commands that are run in this example can also be found in the file: run_PCA_clust.R
 
@@ -63,7 +70,7 @@ There are some custom functions in PCA_RNAseq_functions.R that are called run.pc
 	PC<-run.pca(DATA)
 	# should give you a prcomp object (PC)
 	
-	# for plotting, open a PDF
+	# for plotting, open a PDF, or skip this step if you would rather see the plots in Rstudio.
 	pdf("pca_all_genes.pdf")
 	
 	# now we can plot the first 2 PCs
@@ -72,6 +79,12 @@ There are some custom functions in PCA_RNAseq_functions.R that are called run.pc
 	
 	# and plot with the first 5 PCs
 	pca.plot(PC,col=col.stage,pch=pch.embryo,main="first PCA",selpc=1:5)
+
+	# color the cells by number of detected genes
+	nDet <- apply(DATA,2,function(x) length(which(x>1)))
+	library(plotrix)
+	col.nDet <- color.scale(nDet,c(0,1,1),c(1,1,0),0)
+	pca.plot(PC,col=col.nDet,pch=pch.embryo,main="first PCA",selpc=1:5)
 	
 	# plot PC contribution
 	pca.contribution.plot(PC)
@@ -79,6 +92,10 @@ There are some custom functions in PCA_RNAseq_functions.R that are called run.pc
 	# and top gene loadings for the first 5 components
 	pca.loadings.plot(PC)
 	
+	# or plot PCA together with the top loading genes, in this case 
+	pca.plot(PC,col=col.stage,pch=pch.embryo,main="first PCA",selpc=1:2)
+	plot.pca.biplot(PC,add=T)
+
 	# close the PDF
 	dev.off()
 	
@@ -125,11 +142,11 @@ The PCA that was run automatically transforms the rpkm-values to log-space and d
 	pca.plot(PC.nocenterlog,col=col.stage,pch=pch.embryo,main="no centering, no logging")
 	dev.off()
 	
-What are the main differences, why is that do you think? Why should the RPKM-values be logged? 
+What are the main differences, why is that do you think? Should the RPKM-values be logged? 
 
 ## PCA based on blastocyst stages only
 
-The different embryonic stages separated out quite well in the first PCA, but at the blastocyst stage the cells do not separate by timepoint. Try running a PCA with only those cells and see if you can get them to separate.
+The different embryonic stages separated out quite well in the first PCA, but at the blastocyst stage the cells do not separate by timepoint, but that may also be expected since they are starting to form different cell layers that should group together. Try running a PCA with only those cells and see if you can get them to separate.
 
 	# get the index for all the blastocyst cells
 	blasto<-grep("blast",colnames(DATA))
@@ -140,8 +157,12 @@ The different embryonic stages separated out quite well in the first PCA, but at
 	pca.plot(PC.blast,col=col.stage[blasto],pch=pch.embryo[blasto],main="Blastocyst PCA")
 	legend("topleft",stages,col=coldef.stage,pch=16,cex=0.5,bty='n')
 	pca.plot(PC.blast,col=col.stage[blasto],pch=pch.embryo[blasto],main="Blastocyst PCA",selpc=1:5)
+	pca.plot(PC.blast,col=col.nDet[blasto],pch=pch.embryo[blasto],main="Blastocyst PCA",selpc=1:5)
 	pca.contribution.plot(PC.blast)
 	pca.loadings.plot(PC)
+	par(mfrow=c(1,1))
+	pca.plot(PC.blast,col=col.stage[blasto],pch=pch.embryo[blasto],main="Blastocyst PCA",selpc=1:2)
+	plot.pca.biplot(PC,add=T)
 	dev.off()
 	
 Have a look at the PCA with blastocyst cells, do you see clear separation of the timepoints at any of the PCs?
@@ -149,29 +170,11 @@ Have a look at the PCA with blastocyst cells, do you see clear separation of the
 
 ## Clustering
 
-Now, lets try some different clustering methods. Quite often, clustering is based on pairwise correlations. So let's start with calculating pairwise correlations for all samples. 
+Now, lets try some different clustering methods. Quite often, clustering is based on pairwise correlations. So let's start with calculating pairwise correlations for all samples. Default for the R-function cor is Pearson correlation.
 
-OBS! it takes a long time to run if your computer is slow, so there is a file prepared for you to read in if it is taking too long
+	   C<-cor(log2(DATA+1))
 
-     	   # OBS! This shows how the correlations were calculated, you may instead load the file
-	   C<-mat.or.vec(nS,nS)
-	   for (i in 1:nS) {
-	       for (j in 1:nS){
-	           if (i==j){ C[i,j]<-NA }
-	           else {  C[i,j] = cor(log2(DATA[,i]+1),log2(DATA[,j]+1),method="pearson") }
-	       }
-	   }
-	   colnames(C)<-colnames(DATA)
-	   rownames(C)<-colnames(DATA)
-	   write.table(C,file="pairwise_pearson_correlations.txt")
-
-Or load the file directly:
-
-	   C<-read.table("pairwise_pearson_correlations.txt")
-	   C<-as.matrix(C)
-	
-
-Run clustering based on the correlations
+Run clustering based on the correlations, where the distance will be 1-correlation
 
 	dist.corr<-as.dist(1-C) 
 	hcl.corr<-hclust(dist.corr,method="ward.D2")
@@ -255,6 +258,7 @@ Test some different cutoffs with:
 	dev.off()
 	
 
+Otimal would be to use bootstrapping when deciding on how many clusters to split the data on, and also for selecting the settings for clustering. But that takes a long time to run. The pvclust R-package can do bootsrapping for correlation based hierarchical clustering. 
 
 
 ## PCA or MDS
@@ -282,6 +286,25 @@ Now lets plot all of them and compare:
 	pca.plot(PC,col=col.stage,pch=pch.embryo,main="first PCA")
 	plot(fit.euk$points,col=col.stage,pch=pch.embryo,main="MDS euklidean")
 	plot(fit.corr$points,col=col.stage,pch=pch.embryo,main="MDS correlation")
-	plot(mds$cmdscale.out,col=col.stage,pch=pch.embryo,main="MDS limma")
+	plot(mds.limma$cmdscale.out,col=col.stage,pch=pch.embryo,main="MDS limma")
 	dev.off()
 	
+## tSNE
+
+t-distributed stochastic neighbor embedding is a dimensionality reduction technique that is often used for scRNA-seq data. Here we will use the R-package Rtsne. 
+
+From the previous PCA plots we saw that the contribution from each principal component flattened out at around 7 PCs, so we only use the first 7 PCs in the tSNE. 
+
+        library(Rtsne) 
+	# if you rerun the same tsne the results will be slightly 
+	# different if you do not set the random seed in R 
+	set.seed(1)
+	# run tSNE
+	tsne.out <- Rtsne(t(log2(DATA+1)),initial_dims=7)
+
+	# plot the results
+	pdf("tsne.pdf")	
+	plot(tsne.out$Y,col=col.stage,pch=pch.embryo,main="tSNE")
+	legend("topleft",stages,col=coldef.stage,pch=16,cex=0.5,bty='n')
+	dev.off()
+
