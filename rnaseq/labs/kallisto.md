@@ -26,7 +26,7 @@ Since it takes some time to prepare the data, we have pre-computed Kallisto resu
 
 Sleuth was designed to work on output from Kallisto (rather than count tables, like DESeq2, or BAM files, like CuffDiff2), so we need to run Kallisto first. (Note that the outputs from other RNA-seq quantifiers like [Salmon](https://github.com/COMBINE-lab/salmon) or [Sailfish](https://github.com/kingsfordgroup/sailfish) can also be used with Sleuth via the new [wasabi](https://github.com/COMBINE-lab/wasabi) package.)
 
-Kallisto is run directly on FASTQ files.We start by downloading the Kallisto software.
+Kallisto is run directly on FASTQ files. We start by downloading the Kallisto software. It can be installed with pip, if you use that (in which case replace all references to "kallisto/kallisto" below with just "kallisto", as the executable will already be in your PATH), but we can also download it:
 
 		wget https://github.com/pachterlab/kallisto/releases/download/v0.42.3/kallisto_mac-v0.42.3.tar.gz
 
@@ -56,7 +56,7 @@ When that is done, it's time for quantifying the FASTQ files against our Kallist
 	
 or in a bash loop:
 
-    for i in {1..12}; do time kallisto quant -i hsGRCh38_kallisto -t 4 -b 100 7_111116_AD0341ACXX_137_${i}_index${i}_1.fastq.gz 7_111116_AD0341ACXX_137_${i}_index${i}_2.fastq.gz -o sample${i}; done
+    for i in {1..12}; do time kallisto/kallisto quant -i hsGRCh38_kallisto -t 4 -b 100 7_111116_AD0341ACXX_137_${i}_index${i}_1.fastq.gz 7_111116_AD0341ACXX_137_${i}_index${i}_2.fastq.gz -o sample${i}; done
 
 In this example, we put "-t 4" so we can use up to four processors in the bootstrapping. You may want to modify this value according to the machine you are working on. If you wanted to run Kallisto without bootstraps and just get expression values on a pair of FASTQ files, you would run something like
 
@@ -66,13 +66,14 @@ Running Kallisto on all the 12 samples with 100 bootstraps may take an hour or s
 
 ## Running Sleuth
 
-Here we give an example workflow for a DE analysis in Sleuth based on the A431 data that we are using for all the DE analysis labs. Start by downloading the results from the [download area](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/diffExp/kallisto_results). Download and extract the whole folder and make a note of where it is.
+Here we give an example workflow for a DE analysis in Sleuth based on the A431 data that we are using for all the DE analysis labs. Start by downloading the results from the [download area](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/diffExp/kallisto_results.tar.gz). Download and extract the whole folder and make a note of where it is.
 
 The Sleuth analysis is done entirely in R, so start your R environment and begin by installing the dependencies. This only needs to be done the first time, of course.
 
 		source("http://bioconductor.org/biocLite.R")
 		biocLite("rhdf5")
 		install.packages("devtools") 
+		library("devtools")
 		devtools::install_github("pachterlab/sleuth")
  
 Now load the package and use a function that we borrowed from the Sleuth documentation for connecting ENSEMBL transcript names to common gene names. This will turn out to be useful at the end, when we look at the dynamic visualization of the results.
@@ -101,22 +102,24 @@ Then we tell the program about the samples that we have. We stored the Kallisto 
 
 Now it's time to fill in metadata about the samples. We can use a similar assignment as in the DESeq2 exercise:
 
-    s2c <- data.frame(timepoint = rep(c("ctrl", "t2h", "t6h", "t24h"), each=3))
+    s2c <- data.frame(path=kal_dirs, sample=samples, timepoint = rep(c("ctrl", "t2h", "t6h", "t24h"), each=3), stringsAsFactors=FALSE)
 
-Again, if there were other experimental factors involved, these could have been modelled here as well. If you want to look at such an example, you might want to refer to the [beta version of this exercise](https://github.com/SciLifeLab/courses/blob/gh-pages/rnaseq/labs/kallisto.md) that was given in October 2015. In that version, we did not use A431 data but rather a prostate cancer data set where the two experimental factors were (1) the individual that the sample came from, (2) tumor or normal tissue.
+Again, if there were other experimental factors involved, these could have been modelled here as well. If you want to look at such an example, you might want to refer to the [beta version of this exercise](http://scilifelab.github.io/courses/rnaseq/labs/kallisto) that was given in October 2015. In that version, we did not use A431 data but rather a prostate cancer data set where the two experimental factors were (1) the individual that the sample came from, (2) tumor or normal tissue.
 		
 Back to the present data! The next command will read the Kallisto output files, connect them with metadata, and set up a linear model for analyzing the expression data.
  
-		so <- sleuth_prep(kal_dirs, s2c, ~timepoint, target_mapping = t2g)
+		so <- sleuth_prep(s2c, ~timepoint, target_mapping = t2g)
 
-Next we fit the linear model and test for one of the model coefficients. In this case only "timepoint" is possible (with >1 experimental factors, one can choose which one to test for)
+Next we fit the linear model and test for one of the model coefficients. In this case we test the 24h time point versus the control.
 
 		so <- sleuth_fit(so)
-		so <- sleuth_test(so) 
+		so <- sleuth_wt(so, which_beta="timepointt24h") 
 
 Now we should be able to visualize the results:
 
 		sleuth_live(so)
 	
+There are lots of things to look at here - explore according to your interests! Some things you might try are e.g. the PCA and sample heatmap options in the map menu, the test table in the analyses menu (which contains a ranked list of the differentially expressed genes), or the gene view in the same menu.
 
+If you want to delve further into time series analysis with Sleuth (after all, we have just compared two time points here, whereas we have four in all), you might want to read this [excellent blog post](http://nxn.se/post/134227694720/timecourse-analysis-with-sleuth) by Valentine Svensson. Note that Sleuth is still under development, so some of the commands may be a bit different.
 
