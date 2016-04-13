@@ -73,7 +73,7 @@ Looking at only the top 100 genes (or genes with a adjusted p-value below some c
 library(piano) # Install the piano package (Bioconductor) if this command does not work
 ```
 
-First we need to construct our gene-set collection, we will be looking at so called Hallmark gene-sets from the MSigDB in this example. (See the paper: <http://www.cell.com/cell-systems/abstract/S2405-4712(15)00218-5> )
+First we need to construct our gene-set collection, we will be looking at so called Hallmark gene-sets from the MSigDB in this example. (See the paper: <http://www.cell.com/cell-systems/abstract/S2405-4712(15)00218-5> ) Download the Hallmark gene-set collection from here: <http://software.broadinstitute.org/gsea/msigdb/download_file.jsp?filePath=/resources/msigdb/5.1/h.all.v5.1.symbols.gmt>
 
 ``` r
 # Load the gene-set collection into piano format:
@@ -141,12 +141,14 @@ We can visualize the results in different ways, for instance using a network plo
 networkPlot(gsaRes,"distinct","both",adjusted=T,ncharLabel=Inf)
 ```
 
-The function GSAsummaryTable can be used to export the complete results. The geneSetSummary function can be used to explore specific gene-sets in more detail. For instance, we can make a boxplot of the -log10(adjusted p-values) of the genes in the gene-set HALLMARK\_DNA\_REPAIR and compare that to the distribution of all genes:
+![](images/networkplot.png)<!-- --> The function GSAsummaryTable can be used to export the complete results. The geneSetSummary function can be used to explore specific gene-sets in more detail. For instance, we can make a boxplot of the -log10(adjusted p-values) of the genes in the gene-set HALLMARK\_DNA\_REPAIR and compare that to the distribution of all genes:
 
 ``` r
 boxplot(list(-log10(geneLevelStats$padj),
              -log10(geneSetSummary(gsaRes,"HALLMARK_DNA_REPAIR")$geneLevelStats)))
 ```
+
+![](images/boxplots.png)<!-- -->
 
 From here, you can dig in to the results on the gene-set level further and start making hypothesis of what is happening with the biology behind your data. You can also try to run GSA with other gene-set collections or using another GSA method.
 
@@ -155,5 +157,5 @@ From here, you can dig in to the results on the gene-set level further and start
 -   Piano webpage, with more information and link to publication: www.sysbio.se/piano
 -   GSEA paper: <http://www.pnas.org/content/102/43/15545.full>
 -   A couple of reviews:
--   <http://bib.oxfordjournals.org/content/9/3/189.full>
--   <http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-10-47>
+    -   <http://bib.oxfordjournals.org/content/9/3/189.full>
+    -   <http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-10-47>
