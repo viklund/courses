@@ -1,4 +1,8 @@
+# Gene-set analysis
+
 ### Introduction and data
+
+The follwing packages are used in this tutorial: DESeq2, biomaRt, piano, snow, snowfall. In case you haven't installed them yet it could be convenient to do so before starting. 
 
 We will perform gene-set analysis on the output from the tutorial on Differential expression analysis of RNA-seq data using DESeq. A quick recap of the essential code for the differential expression analysis is included below, in case you did not save the output from that analysis:
 
@@ -26,7 +30,7 @@ It will be handy to have the gene names along with the Ensembl IDs, so let's fet
 library(biomaRt) # Install the biomaRt package (Bioconductor) if this command does not work
 
 # Get the Ensembl ID to gene name mapping:
-mart <- useMart("ensembl", dataset = "hsapiens_gene_ensembl")
+mart <- useMart("ENSEMBL_MART_ENSEMBL", dataset = "hsapiens_gene_ensembl", host="www.ensembl.org")
 ensembl2name <- getBM(attributes=c("ensembl_gene_id","external_gene_name"),mart=mart)
 
 # Merge it with our gene-level statistics:
@@ -73,11 +77,11 @@ Looking at only the top 100 genes (or genes with a adjusted p-value below some c
 library(piano) # Install the piano package (Bioconductor) if this command does not work
 ```
 
-First we need to construct our gene-set collection, we will be looking at so called Hallmark gene-sets from the MSigDB in this example. (See the paper: <http://www.cell.com/cell-systems/abstract/S2405-4712(15)00218-5> ) Download the Hallmark gene-set collection from here: <http://software.broadinstitute.org/gsea/msigdb/download_file.jsp?filePath=/resources/msigdb/5.1/h.all.v5.1.symbols.gmt>
+First we need to construct our gene-set collection, we will be looking at so called Hallmark gene-sets from the MSigDB in this example. (See the paper: <http://www.cell.com/cell-systems/abstract/S2405-4712(15)00218-5> ) Download the Hallmark gene-set collection from here: <http://software.broadinstitute.org/gsea/msigdb/download_file.jsp?filePath=/resources/msigdb/5.1/h.all.v5.1.symbols.gmt> Note that you need to sign up with an email adress to gain access. Visit <http://software.broadinstitute.org/gsea/msigdb/collections.jsp#H> if the first link does not work.
 
 ``` r
 # Load the gene-set collection into piano format:
-gsc <- loadGSC("h.all.v5.1.symbols.gmt.txt",type="gmt")
+gsc <- loadGSC("h.all.v5.1.symbols.gmt",type="gmt") # Check that the filename matches the file that you downloaded
 gsc # Always take a look at the GSC object to see that it loaded correctly
 ```
 
@@ -143,11 +147,16 @@ networkPlot(gsaRes,"distinct","both",adjusted=T,ncharLabel=Inf)
 
 ![](images/networkplot.png)
 
+``` r
+par(mfrow=c(1,1)) # Reset the plotting layout
+```
+
 The function GSAsummaryTable can be used to export the complete results. The geneSetSummary function can be used to explore specific gene-sets in more detail. For instance, we can make a boxplot of the -log10(adjusted p-values) of the genes in the gene-set HALLMARK\_DNA\_REPAIR and compare that to the distribution of all genes:
 
 ``` r
 boxplot(list(-log10(geneLevelStats$padj),
-             -log10(geneSetSummary(gsaRes,"HALLMARK_DNA_REPAIR")$geneLevelStats)))
+             -log10(geneSetSummary(gsaRes,"HALLMARK_DNA_REPAIR")$geneLevelStats)),
+        names=c("all","HALLMARK_DNA_REPAIR"))
 ```
 
 ![](images/boxplots.png)
