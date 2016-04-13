@@ -17,7 +17,7 @@ Room: [Campus Valla, House B, Room Odén](https://www.google.com/maps/place/B-Hu
 **Tuesday**  
 Room: [Campus Valla, House B, Room Odén](https://www.google.com/maps/place/B-Huset,+Link%C3%B6pings+Universitet,+581+83+Link%C3%B6ping,+Sweden/@58.3999874,15.5760839,18z/data=!3m1!5s0x46596f6fb2197c83:0xb96430f10c01d745!4m2!3m1!1s0x46596f6f9949a0e1:0xbdc92e871aaeee08?hl=en-US)  
 **09.00-10.00** [Lecture: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats] (Malin Larsson)  
-**10.00-12.00** [Exercise: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part I] (Malin Larsson, Mihaela Martis)  
+**10.00-12.00** [Exercise: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part I](labs/resequencing-analysis.md) (Malin Larsson, Mihaela Martis)  
 **12.00-13.00** Lunch  
 **13:00-17:00** [Exercise: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part II] (Malin Larsson, Mihaela Martis)  
 
