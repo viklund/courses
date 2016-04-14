@@ -68,7 +68,8 @@ There are some labs that are more close to the cutting edge of analysis and ther
 *	[Gene set analysis](GSA_tutorial)  
 
  
- ## UPPMAX
+## UPPMAX
+ 
  One example of a sbatch script
  
  *  [sbatch scripts](sbatchScript)   
