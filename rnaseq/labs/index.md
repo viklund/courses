@@ -63,8 +63,10 @@ Several tools, such as DESeq and edgeR, start from read counts per gene and use 
 ## Beta labs 
 There are some labs that are more close to the cutting edge of analysis and therefore are not as well tested as the ones above. These are tools that have high potential and will most likely, if they hold, will be moved to the mature labs.
  
-*	[Differential expression analysis using kallisto](kallisto)
-*	[Single cell RNA PCA and clustering](Single_cell_RNA_PCA_and_Clustering)
+*	[Differential expression analysis using kallisto](kallisto)  
+*	[Single cell RNA PCA and clustering](Single_cell_RNA_PCA_and_Clustering)    
+*	[Gene set analysis](GSA_tutorial)  
+
  
  
  

@@ -1,3 +1,8 @@
+---
+layout: default
+title:  'Gene-set analysis'
+---
+
 # Gene-set analysis
 
 ### Introduction and data
