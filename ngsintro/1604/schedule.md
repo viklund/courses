@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  'Schedule (preliminary)'
+title:  'Schedule'
 ---
 
 #### Click the heading of a topic to see the lecture slides or lab instructions. Slides are added as the course progresses.
