@@ -38,7 +38,7 @@ Before going into the exercises below, you should create in your home folder a s
 *cd ~/*  
 *mkdir practical1*  
 *cd practical1*  
-*ln -s /proj/g2015008/course\_data*  
+*ln -s /proj/g2016007/course\_data*  
 
 When you are done, you should have a folder called course\_data in your *practical1* folder. This course\_data folder is write-proteced, it is only a resource for you to obtain data from, but not where you are writing your own outputs to!  
 NOTE! We do not supply full paths in all of the exercises below. You will need to find the files yourself, which will be easy since you are an expert Linux-hacker. :)
