@@ -28,7 +28,7 @@ Room:
 
 **Thursday 14th**  
 Room:  
-**09.00-10.00** [Lecture: Gene-set analysis and data integration](slides/not_yet_available.pdf) (Leif Väremo)  
+**09.00-10.00** [Lecture: Gene-set analysis and data integration](slides/GSA_and_data_integration.pdf) (Leif Väremo)  
 **10:15-11:00** [Lecture: Single cell RNA-seq analysis](slides/scRNAseq_Asa_Bjorklund.pdf) (Åsa Björklund)  
 **11:00-12:00** [Lecture: Long RNA-seq read analysis](slides/Long_Reads_Adam_Amauer.pdf) (Adam Ameur)  
 **12.00-13.00** Lunch  

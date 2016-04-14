@@ -135,9 +135,6 @@ You might want to compare the results from CuffDiff and DESeq2. The identifiers 
 
     deseqgenes.24h.ctrl <- rownames(sig)
 
-If you still have the list of significant genes between 0h and 24h from the CuffDiff/cummeRbund analysis in your R session, or if you have saved it to file, you can check how many of them that were picked up by both programs::
-
-    common.24h.ctrl <- intersect(deseqgenes.24h.ctrl, cuffgenes.24h.ctrl)
 
 The gene identifiers we work with above are Ensembl gene IDs. These are useful as unique identifiers, but does not tell us anything about what the genes do. One way to find out more about individual genes is to look up the identifiers at the [Ensembl web site](http://www.ensembl.org). We can also use the R package ``biomaRt`` to download a table of corresponding gene symbols (i.e. short gene names) from Ensembl. First we load the package:
 
