@@ -1,4 +1,13 @@
- # Sbatch script expample 
+ # Sbatch script  
+ 
+ ## How to start a sbatch script
+ to start a sbatch script on uppmax you  type
+ 
+    sbatch fileName.sbatch   
+    
+ 
+ 
+ ## An example of a sbatch file 
  
  
     #! /bin/bash -l
@@ -10,7 +19,7 @@
     #SBATCH -e /proj/b2015155_nobackup/private/TRAP/reports/mRNAmappingPipeline_TRAP_SLURM_Job_id_%j.stderr.txt
     #SBATCH -o /proj/b2015155_nobackup/private/TRAP/reports/mRNAmappingPipeline_TRAP_SLURM_Job_id_%j.stdout.txt
     #SBATCH --mail-type=FAIL
-    #SBATCH --mail-user=johan.reimegard@scilifelab.se
+    #SBATCH --mail-user=john.doe@scilifelab.se
     
     
     cd /pica/v10/b2015155_nobackup/private/TRAP
