@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  'Schedule (preliminary)'
+title:  'Schedule'
 ---
 
 #### Click the heading of a topic to see the lecture slides or lab instructions. Slides are added as the course progresses.
@@ -8,16 +8,16 @@ title:  'Schedule (preliminary)'
 **Monday**  
 Room: [Campus Valla, House B, Room Odén](https://www.google.com/maps/place/B-Huset,+Link%C3%B6pings+Universitet,+581+83+Link%C3%B6ping,+Sweden/@58.3999874,15.5760839,18z/data=!3m1!5s0x46596f6fb2197c83:0xb96430f10c01d745!4m2!3m1!1s0x46596f6f9949a0e1:0xbdc92e871aaeee08?hl=en-US)   
 **09.00-09.15** [Registration and Welcome, presentation of SciLifeLab] (Malin Larsson & Eva Molin)  
-**09.15-10.00** [Lecture: Introduction to Linux] (Martin Dahlö)  
-**10.00-12.00** [Exercise: Introduction to Linux] (Martin Dahlö, Malin Larsson)  
+**09.15-10.00** [Lecture: Introduction to Linux](slides/dahlo-linux.pdf) (Martin Dahlö)  
+**10.00-12.00** [Exercise: Introduction to Linux](labs/linux-intro) (Martin Dahlö, Malin Larsson)  
 **12.00-13.00** Lunch  
-**13.00-14.00** [Lecture: Introduction to UPPMAX/UPPNEX] (Martin Dahlö)  
-**14.00-17.00** [Exercise: Introduction to UPPMAX/UPPNEX] (Martin Dahlö, Malin Larsson)   
+**13.00-14.00** [Lecture: Introduction to UPPMAX/UPPNEX](slides/dahlo-uppmax.pdf) (Martin Dahlö)  
+**14.00-17.00** [Exercise: Introduction to UPPMAX/UPPNEX](labs/uppmax-intro) (Martin Dahlö, Malin Larsson)   
 
 **Tuesday**  
 Room: [Campus Valla, House B, Room Odén](https://www.google.com/maps/place/B-Huset,+Link%C3%B6pings+Universitet,+581+83+Link%C3%B6ping,+Sweden/@58.3999874,15.5760839,18z/data=!3m1!5s0x46596f6fb2197c83:0xb96430f10c01d745!4m2!3m1!1s0x46596f6f9949a0e1:0xbdc92e871aaeee08?hl=en-US)  
 **09.00-10.00** [Lecture: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats] (Malin Larsson)  
-**10.00-12.00** [Exercise: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part I] (Malin Larsson, Mihaela Martis)  
+**10.00-12.00** [Exercise: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part I](labs/resequencing-analysis) (Malin Larsson, Mihaela Martis)  
 **12.00-13.00** Lunch  
 **13:00-17:00** [Exercise: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part II] (Malin Larsson, Mihaela Martis)  
 
