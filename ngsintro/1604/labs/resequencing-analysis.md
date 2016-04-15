@@ -129,7 +129,7 @@ NOTE - one you have typed the command for a step in the exercise below and seen 
 
 We will align our data to the reference using BWA, a popular aligner based on the Burrows-Wheeler transform.
 
-## Step 1. Indexing the reference genome
+## Indexing the reference genome
 
 Before we can run BWA at all, we need a reference genome, and we need to perform the Burrows-Wheeler transform on the reference and build the associated files.
 For our exercises, we'll use only human chromosome 17.
@@ -180,7 +180,7 @@ samtools faidx ~/glob/gatk/human_17_v37.fasta
 java -Xmx16g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/CreateSequenceDictionary.jar R=~/glob/gatk/human_17_v37.fasta O=~/glob/gatk/human_17_v37.dict
 ```
 
-## Step 2. Mapping - Making Single Read Alignments for Each of the Reads in the Paired End Data
+## Mapping - Making Single Read Alignments for Each of the Reads in the Paired End Data
 
 Running BWA for paired end data is done in multiple steps.
 First we align each set of reads, then we combine the paired alignments together (which also includes a realignment step using a more sensitive algorithm for unplaced mates).
@@ -217,7 +217,7 @@ less
 
 to read one of those .fq files in the project directory.
 
-## Step 3. Merging Alignments and Making SAM Files
+## Merging Alignments and Making SAM Files
 
 The sai files are a binary format internal to BWA.
 We now need to process those into something we can use.
@@ -242,7 +242,7 @@ It outputs a SAM format file.
 I would suggest that you give it the same name prefix as the others, but if you are getting tired of typing that, pick something shorter.
 Retain the sample name and the fact that it is the 17q low coverage data.
 
-## Step 4. Creating a BAM File
+## Creating a BAM File
 
 SAM files are nice, but bulky, so there is a compressed binary format, BAM.
 We want to convert our SAM into BAM for everything that comes downstream.
@@ -283,7 +283,7 @@ If you manually mix these things up (like you change a BAM without changing its 
 java -Xmx16g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/BuildBamIndex.jar INPUT=<bam file>
 ```
 
-## Step 5. Processing Reads with GATK
+## Processing the bam file with GATK
 
 Now, we want to use the Genome Analysis Toolkit (GATK) to perform a couple of alignment and quality improvement steps, although on our data, they may not actually do much, due to the nature of the data and some of the shortcuts we have taken in identifying our read groups.
 
@@ -366,7 +366,7 @@ java -Xmx16g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T PrintRead
 The &lt;input bam&gt; in this step is the same as the last step, because we haven't changed it yet, but the &lt;output bam&gt; is new and will have the recalibrated qualities.
 The &lt;calibration table&gt; is the file we created in the previous step.
 
-## Step 6. Variant Calling
+## Variant Calling
 
 Now we'll run the GATK HaplotypeCaller on our bam and output a gVCF file that will later be used for joint genotyping.
 
@@ -424,7 +424,7 @@ Once you have the filtered calls, open your filtered VCF with less and page thro
 It has all the variant lines, still, but one of the fields that was blank before is now filled in, indicating that the variant on that line either passed filtering or was filtered out, with a list of the filters it failed.
 Note also that the filters that were run are described in the header section.
 
-## Step 7. Looking at Your Data with IGV
+## Look at Your Data with IGV
 
 Next, we want to know how to look at these data.
 For that, we will use IGV (Integrative Genomics Viewer).
