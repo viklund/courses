@@ -107,7 +107,9 @@ mkdir ~/glob/gatk
 
 ##Running commands
 Throughout the exercises, we will illustrate commands on the format:  
-command &lt;parameter1&gt; &lt;parameter2&gt; etc  
+```bash
+command &lt;parameter1&gt; &lt;parameter2&gt; ...  
+```
 The convention is that you should replace &lt;parameter&gt; with your specific parameter, for example your input file name, output file name, directory name, etc.
 If you don't know what you should specify, ask.
 We do this for two reasons.
