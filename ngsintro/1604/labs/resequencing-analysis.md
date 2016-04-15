@@ -67,14 +67,13 @@ This is what the module system does for you.
 
 You need to know where your input data are and where your output will go.
 
-All of your input data for the first steps of these exercises will be in our course project:
+All input data for the first steps of these exercises is located in this folder:
 
 ```bash
-/proj/g2016008/labs/gatk
+/sw/courses/ngsintro/gatk
 ```
 
-Normally, if you were working on your own project, you would want to write your output into your project directory also.
-However, since we're all sharing the same data, we've made these file read-only so that no one accidentally deletes them or writes over the raw data or someone else's output.
+Since we're all sharing the same data, we've made these file read-only so that no one accidentally deletes them or writes over the raw data or someone else's output.
 
 Instead, you are going to write your output to the glob directory in your home directory.
 Remember that your home directory can be represented by the '~' character.
@@ -106,7 +105,7 @@ So that we don't clutter up the top level of our globs and get in the way of lat
 mkdir ~/glob/gatk
 ```
 
-Throughout the exercises, we will us a common convention that "&lt;parameter&gt;" (or &lt;inputfile&gt;, &lt;outputfile&gt;, &lt;your directory&gt;, etc.) means "type in this space in the command the parameter (input file, output file, directory, etc.) that you will be using", never that you should literally type "&lt;parameter&gt;" into the computer.
+Throughout the exercises, we will us a common convention that "&lt;parameter&gt;" (or &lt;inputfile&gt;, &lt;outputfile&gt;, &lt;your directory&gt;, etc.) means "insert your parameter here (e.g.input file, output file, directory, etc.)", never that you should literally type "&lt;parameter&gt;" into the computer.
 If you don't know what you should be replacing this with, ask.
 We do this for two reasons.
 First, as you all work, not everyone will create files with exactly the same names, so there is no way to make standard instructions for everyone.
