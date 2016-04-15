@@ -105,11 +105,15 @@ So that we don't clutter up the top level of our globs and get in the way of lat
 mkdir ~/glob/gatk
 ```
 
-Throughout the exercises, we will us a common convention that "&lt;parameter&gt;" (or &lt;inputfile&gt;, &lt;outputfile&gt;, &lt;your directory&gt;, etc.) means "insert your parameter here" (e.g.input file, output file, directory, etc.)", never that you should literally type "&lt;parameter&gt;" into the computer.
+##Running commands
+Throughout the exercises, we will illustrate commands on the format 
+command <parameter1> <parameter2> etc
+We follow a common convention that "&lt;parameter&gt;" (or &lt;inputfile&gt;, &lt;outputfile&gt;, &lt;your directory&gt;, etc.) in the instructions means that you should insert your parameter in this space (e.g.input file, output file, directory, etc.)", never that you should literally type "&lt;parameter&gt;" into the computer.
 If you don't know what you should be replacing this with, ask.
 We do this for two reasons.
 First, as you all work, not everyone will create files with exactly the same names, so there is no way to make standard instructions for everyone.
 Second, you need to learn how to figure out what goes into these spaces.
+Usually, if you type a command without input parameters the documentation of the tool including possible input parameters will be displayed on the screen.
 
 That brings us to copying and pasting.
 It is possible to copy some of the commands out of this wiki and paste them into your terminal and make them work.
@@ -118,6 +122,8 @@ First, there can be formatting differences (especially how return characters are
 Second, and more important, when you are doing this on your own data, there will be no cutting and pasting.
 You will learn more by typing.
 Remember that tab completion will help you with this.
+
+NOTE - one you have typed the command for a step in the exercise below and seen that it works, we recommend you to save the command in a plain text file. Plain text format will not cause formatting errors. You will perform the same procedure for at least two samples, so storing the commands in a text file will make the second analysis much faster. You will only have to change the file name in the text file and copy the comands step by step to the terminal. 
 
 We will align our data to the reference using BWA, a popular aligner based on the Burrows-Wheeler transform.
 
