@@ -105,7 +105,7 @@ So that we don't clutter up the top level of our globs and get in the way of lat
 mkdir ~/glob/gatk
 ```
 
-Throughout the exercises, we will us a common convention that "&lt;parameter&gt;" (or &lt;inputfile&gt;, &lt;outputfile&gt;, &lt;your directory&gt;, etc.) means "insert your parameter here (e.g.input file, output file, directory, etc.)", never that you should literally type "&lt;parameter&gt;" into the computer.
+Throughout the exercises, we will us a common convention that "&lt;parameter&gt;" (or &lt;inputfile&gt;, &lt;outputfile&gt;, &lt;your directory&gt;, etc.) means "insert your parameter here" (e.g.input file, output file, directory, etc.)", never that you should literally type "&lt;parameter&gt;" into the computer.
 If you don't know what you should be replacing this with, ask.
 We do this for two reasons.
 First, as you all work, not everyone will create files with exactly the same names, so there is no way to make standard instructions for everyone.
