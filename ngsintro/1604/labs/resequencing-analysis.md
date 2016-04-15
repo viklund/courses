@@ -111,7 +111,7 @@ Throughout the exercises, we will illustrate commands on the format:
 command <parameter1> <parameter2> ...  
 ```
 The convention is that you should replace &lt;parameter&gt; with your specific parameter, for example your input file name, output file name, directory name, etc.  
-If you don't know what you should specify, ask.  
+If you don't know what you should specify, please ask.  
 We do this for two reasons.  
 First, as you all work, not everyone will create files with exactly the same names, so there is no way to make standard instructions for everyone.  
 Second, you need to learn how to figure out what goes into these spaces.
