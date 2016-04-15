@@ -125,7 +125,7 @@ Second, and more important, when you are doing this on your own data, there will
 You will learn more by typing.
 Remember that tab completion will help you with this.
 
-NOTE - one you have typed the command for a step in the exercise below and seen that it works, we recommend you to save the command in a plain text file. Plain text format will not cause formatting errors. You will perform the same procedure for at least two samples, so storing the commands in a text file will make the second analysis much faster. You will only have to change the file name in the text file and copy the comands step by step to the terminal. 
+NOTE - one you have typed the command for a step in the exercise below and seen that it works with your specifications, we recommend you to save the command in a plain text file. Plain text format will not cause formatting errors. You will perform the same procedure for at least two samples, so storing the commands in a text file will make the second analysis much faster.    
 
 We will align our data to the reference using BWA, a popular aligner based on the Burrows-Wheeler transform.
 
