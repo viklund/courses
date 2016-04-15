@@ -17,7 +17,7 @@ Held in Uppsala April 26-27, 2016.
 [Map over Uppsala](http://www.uppsalakartan.se/)  
 [Map over Uppsala biomedical center, BMC](bmc)  
 [Travel Info](travel)  
-[Restaurant Lingon](http://www.restauranglingon.com/)  
+[Restaurant Koh Phangan](http://www.kohphangan.se/#)  
 [TO DO AND EAT in Uppsala](http://www.destinationuppsala.se/en/)
 
 ## Helpful Things
