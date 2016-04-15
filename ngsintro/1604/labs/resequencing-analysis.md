@@ -106,8 +106,8 @@ mkdir ~/glob/gatk
 ```
 
 ##Running commands
-Throughout the exercises, we will illustrate commands on the format 
-command <parameter1> <parameter2> etc
+Throughout the exercises, we will illustrate commands on the format  
+command <parameter1> <parameter2> etc  
 We follow a common convention that "&lt;parameter&gt;" (or &lt;inputfile&gt;, &lt;outputfile&gt;, &lt;your directory&gt;, etc.) in the instructions means that you should insert your parameter in this space (e.g.input file, output file, directory, etc.)", never that you should literally type "&lt;parameter&gt;" into the computer.
 If you don't know what you should be replacing this with, ask.
 We do this for two reasons.
