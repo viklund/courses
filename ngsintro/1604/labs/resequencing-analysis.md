@@ -283,7 +283,7 @@ If you manually mix these things up (like you change a BAM without changing its 
 java -Xmx16g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/BuildBamIndex.jar INPUT=<bam file>
 ```
 
-## Processing the bam file with GATK
+## Processing the BAM file with GATK
 
 Now, we want to use the Genome Analysis Toolkit (GATK) to perform a couple of alignment and quality improvement steps, although on our data, they may not actually do much, due to the nature of the data and some of the shortcuts we have taken in identifying our read groups.
 
