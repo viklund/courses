@@ -27,7 +27,7 @@ Room: [Campus Valla, House B, Room Odén](https://www.google.com/maps/place/B-Hu
 **11:30-12.00** [Lecture: The National Bioinformatics Infrastructure Sweden] (Malin Larsson)  
 **12.00-13.00** Lunch  
 **13.00-14.00** [Lecture: NGS and bioinformatics analysis pipelines] (Adam Ameur)  
-**14.00-17.00** [Project discussion] (slides/Group_discussions.pdf)(Olga Vinnere Pettersson, Adam Ameur, Malin Larsson, Mihaela Martis, Agata Smialowska)  
+**14.00-17.00** [Project discussion](slides/Group_discussions.pdf) (Olga Vinnere Pettersson, Adam Ameur, Malin Larsson, Mihaela Martis, Agata Smialowska)  
    
 **18:00-** Course dinner at [De Klomp](https://www.deklomp.se/)   
 
