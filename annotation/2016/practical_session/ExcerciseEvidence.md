@@ -62,7 +62,7 @@ The gff-format of Augustus is non-standard (looks like gtf) so to view it in a g
 
 Do this to convert your Augustus-file:
 
-*Module load genometools*  
+*Module load GenomeTools*  
 *gt gtf\_to\_gff3 augustus\_drosophila.gtf > augustus\_drosophila.gff3*
 
 Transfer the augustus\_drosophila.gff3 to your computer using scp:    
