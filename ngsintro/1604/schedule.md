@@ -10,7 +10,7 @@ Room: [Campus Valla, House B, Room Odén](https://www.google.com/maps/place/B-Hu
 **09.00-09.15** [Registration and Welcome, presentation of SciLifeLab](slides/SciLifeLabIntro_160418.pdf) (Malin Larsson)  
 **09.15-10.00** [Lecture: Introduction to Linux](slides/dahlo-linux.pdf) (Martin Dahlö)  
 **10.00-12.00** [Exercise: Introduction to Linux](labs/linux-intro) (Martin Dahlö, Malin Larsson)  
-**12.00-13.00** Lunch at Universitetsklubben (https://www.google.se/maps/place/Vallfarten/@58.3974049,15.5710066,17z/data=!3m1!4b1!4m2!3m1!1s0x46596f6fe1880d25:0xe7c64832ae4a3048)   
+**12.00-13.00** Lunch [Universitetsklubben](https://www.google.se/maps/place/Vallfarten/@58.3974049,15.5710066,17z/data=!3m1!4b1!4m2!3m1!1s0x46596f6fe1880d25:0xe7c64832ae4a3048)   
 **13.00-14.00** [Lecture: Introduction to UPPMAX/UPPNEX](slides/dahlo-uppmax.pdf) (Martin Dahlö)  
 **14.00-17.00** [Exercise: Introduction to UPPMAX/UPPNEX](labs/uppmax-intro) (Martin Dahlö, Malin Larsson)   
 
