@@ -34,9 +34,9 @@ Room: [Campus Valla, House B, Room Odén](https://www.google.com/maps/place/B-Hu
 **Thursday**  
 Room: [Campus Valla, House B, Room Odén](https://www.google.com/maps/place/B-Huset,+Link%C3%B6pings+Universitet,+581+83+Link%C3%B6ping,+Sweden/@58.3999874,15.5760839,18z/data=!3m1!5s0x46596f6fb2197c83:0xb96430f10c01d745!4m2!3m1!1s0x46596f6f9949a0e1:0xbdc92e871aaeee08?hl=en-US)  
 **09:00-10.00** [Lecture: ChIP sequencing and data analysis] (Agata Smialowska)  
-**10.00-12:00** [Exercise: ChIP sequencing and data analysis part I] (Agata Smialowska, Mihaela Martis)   
+**10.00-12:00** [Exercise: ChIP sequencing and data analysis part I](labs/chipseq) (Agata Smialowska, Mihaela Martis)   
 **12.00-13.00** Lunch at [Universitetsklubben](https://www.google.se/maps/place/Vallfarten/@58.3974049,15.5710066,17z/data=!3m1!4b1!4m2!3m1!1s0x46596f6fe1880d25:0xe7c64832ae4a3048)  
-**13.00-17:00** [Exercise: ChIP sequencing and data analysis part II] (Agata Smialowska, Mihaela Martis)
+**13.00-17:00** [Exercise: ChIP sequencing and data analysis part II](labs/chipseq) (Agata Smialowska, Mihaela Martis)
 
 **Friday**  
 Room: [Campus Valla, House B, Room Odén](https://www.google.com/maps/place/B-Huset,+Link%C3%B6pings+Universitet,+581+83+Link%C3%B6ping,+Sweden/@58.3999874,15.5760839,18z/data=!3m1!5s0x46596f6fb2197c83:0xb96430f10c01d745!4m2!3m1!1s0x46596f6f9949a0e1:0xbdc92e871aaeee08?hl=en-US)  
