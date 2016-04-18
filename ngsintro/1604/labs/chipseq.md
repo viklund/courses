@@ -225,7 +225,8 @@ scp <LOGIN>@milou.uppmax.uu.se:~/chipseq/analysis/<FOLDER_NAME>/*pdf ./
 
 |Figure 1. <br> HeLa, REST ChIP  <br>  replicate 1, QScore:2 | Figure 2. <br> HeLa, REST ChIP <br> replicate 2, QScore:2  | Figure 3. <br> HeLa, input <br> QScore:-1                                         |
 | -- | ----------- | --------- |
-|<img src="files/chipseq_fig/ENCFF000PEDxcorrelationplot.pdf" alt="xcor, hela chip" style="width: 200px;"/>| <img src="files/chipseq_fig/ENCFF000PEExcorrelationplot.pdf" alt="xcor, hela chip" style="width: 200px;"/>| <img src="files/chipseq_fig/ENCFF000PETxcorrelationplot.pdf" alt="xcor, hela input" style="width: 200px;"/>|
+|<img src="files/chipseq_fig/ENCFF000PEDxcorrelationplot.pdf" alt="xcor, hela chip" style="width: 200px;"/>| <img src="files/chipseq_fig/ENCFF000PEExcorrelationplot.pdf" alt="xcor, hela chip" style="width: 200px;"/>| <img src="files/chipseq_fig/ENCFF000PETxcorrelationplot.pdf" alt="xcor, hela input" style="width: 200px;"/> <iframe src="http://docs.google.com/gview?url=files/chipseq_fig/ENCFF000PETxcorrelationplot.pdf&embedded=true" style="width:718px; height:700px;" frameborder="0"></iframe>
+|
 
 
 |Figure 4. <br> HepG2, REST ChIP  <br>  replicate 1, QScore:0 | Figure 2. <br> HepG2, REST ChIP <br> replicate 2, QScore:1  | Figure 3. <br> HepG2, input <br> QScore:0                                        |
