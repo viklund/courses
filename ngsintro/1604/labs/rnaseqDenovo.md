@@ -46,7 +46,7 @@ $ Trinity --seqType (fq for fastq or fa for fast) --left ~/path/to/reads_1.fq --
 Get yourself familiar with Trinity by having a look at the manual: http://trinityrnaseq.sourceforge.net/
 
 Have a look at the example data used in this exercise.
-The data is obtained from mouse dendritic cells (mouse_left.fasta and mouse_right.fasta and) and a whitefly (whitefly_both.fasta), and the files are located in `/proj/g2016001/labs/transcriptome_assembly/`.
+The data is obtained from mouse dendritic cells (mouse_left.fasta and mouse_right.fasta and) and a whitefly (whitefly_both.fasta), and the files are located in `/sw/courses/ngsintro/transcriptome_assembly/`.
 The mouse data is strand-specific (RF), the whitefly data is unstranded.
 For strand-specific data, specify the library type.
 There are four library types:
@@ -63,6 +63,7 @@ By setting the --SS_lib_type parameter to one of the above, you are indicating t
 By default, reads are treated as not strand-specific.
 
 ### Trinity on Uppmax example command line:
+
 ```bash
 $ salloc -A g2016001 -t 04:00:00 -p core -n 8 --no-shell --reservation=g2016001_20160129 &
 $ module load bioinfo-tools java/sun_jdk1.7.0_25 bowtie/1.1.0 samtools/0.1.19 trinity/2014-07-17
@@ -82,9 +83,11 @@ Transcripts are grouped as follows: * components: the set of all sequences that 
 2.1 Count the number of sequences in the Trinity.fasta file (hint: use 'grep' and 'wc')
 
 2.2 Get basic information about the assembly with TrinityStats.
+
 ```bash
 $ /sw/apps/bioinfo/trinity/2014-07-17/milou/util/TrinityStats.pl Trinity.fasta
 ```
+
 - How many "genes" did Trinity assemble? 
 - How many transcripts?
 - How large is the assembly? (nr of bases)
@@ -93,6 +96,7 @@ $ /sw/apps/bioinfo/trinity/2014-07-17/milou/util/TrinityStats.pl Trinity.fasta
 2.3 Filter out sequences shorter than 1000 nucleotides (hint: do a web search for appropriate tools. Someone else must have had the exact same problem.). Count the number of sequences again.
 
 One solution is to use FastX
+
 ```bash
 $ module load Fastx
 $ fasta_formatter -i Trinity.fasta -o Trinity.formated  
