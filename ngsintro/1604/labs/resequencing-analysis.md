@@ -27,7 +27,7 @@ salloc -A g2016008 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2016008_2
 
 Make sure you ony do this once, otherwise you will take away resources from the other course participants! 
 Once your job allocation has been granted you can connect to the node you got using ssh, just like in the [Uppmax Introduction exercise](uppmax-intro.md) yesterday. I.e. use 
-```bash
+```
 squeue -u username
 ```
 to find out the name of your node, and then 
