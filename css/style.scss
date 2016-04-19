@@ -33,6 +33,10 @@ table th, table td {
     border: 1px solid #ddd;
 }
 
-tbody tr:nth-child(odd) {
+thead tr:nth-child(odd) {
+    background-color: #ddd;
+}
+
+tbody tr:nth-child(even) {
     background-color: #ddd;
 }
