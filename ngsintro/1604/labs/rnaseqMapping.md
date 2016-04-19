@@ -44,14 +44,14 @@ Note: Do not simply copy the various unix commands quoted throughout this tutori
 Many include placeholders, e.g. folder names, so make sure you alter
 the command to actually reflect whatever file names you have created.
 
-## Tophat
+## Tophat short description
 
 Tophat is a script pipeline built on-top of the popular short-read aligner Bowtie.
 It is used for aligning RNA-Seq reads to a reference genome and can identify exon-exon splice junctions.
 More specifically, it produces data that we can use not only to study the expression of genes, but also the expression patterns across different isoforms.
 You will have a bit of waiting time during the exercises as the more complex analyses are running, so please check out some of the details of [tophat](http://ccb.jhu.edu/software/tophat/index.shtml) when waiting.
 
-## Cufflinks
+## Cufflinks short description
 
 Cufflinks is a collection of programs that perform different steps in the analysis of aligned RNA-seq reads ([Details](http://cole-trapnell-lab.github.io/cufflinks/cufflinks/index.html)).
 The output is usually a list of transcribed loci (primarily ‘genes’) and their expression levels within and/or between samples.
@@ -62,9 +62,7 @@ For the analysis of multiple data sets, the general workflow in cufflinks consis
   Homo_sapiens.GRCh38_Chr1.77.gtf)
 * Cuffdiff: Compare read data across samples, guided by consensus annotation, and determine differential expression of loci, test for significance. The main output we are interested in comes from the cuffdiff analysis and consists of differential expression estimates for a set of genes.
 
-In the following, we will be going through the necessary steps to accomplish this.
-
-### Step-by-Step
+### Step-by-Step Tutorial
 
 1. Prepare your data
 1. Load software
