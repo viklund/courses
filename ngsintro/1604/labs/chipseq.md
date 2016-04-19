@@ -571,7 +571,7 @@ Inspect the plot; does it indicate good sample quality (i.e. enrichment in ChIP 
 For comparison, similar plots generated for other samples used in this exercise are presented in figures 7 and 8.
 
 
-|Figure 7. <br> Cumulative enrichment for REST ChIP and corresponding inputs <br> in HepG2 cells | Figure 8. <br> Cumulative enrichment for REST ChIP and corresponding inputs <br> in SK-N-SH cells |
+|Figure 7. <br> Cumulative enrichment for REST ChIP and corresponding inputs    <br> in HepG2 cells | Figure 8. <br> Cumulative enrichment for REST ChIP and corresponding inputs    <br> in SK-N-SH cells |
 | --- | ----------- |
 |<img src="files/chipseq_fig/hepg2fingerprint.png" alt="fingerprint, hepg2" style="width: 280px;"/>| <img src="files/chipseq_fig/sknshfingerprint.png" alt="fingerprint, sknsh" style="width: 280px;"/>|
 
@@ -725,13 +725,13 @@ The workflow presented in this exercise is similar to a typical one used for ana
 
 | No |  Accession  | Cell line | Replicate |    Input    |
 | --- | ----------- | --------- | --------- | ----------- |
-| 1  | ENCFF000PED | HeLa      | 1         | ENCFF000PET | 
-| 2  | ENCFF000PEE | HeLa      | 2         | ENCFF000PET | 
-| 3  | ENCFF000PMG | HepG2     | 1         | ENCFF000POM | 
-| 4  | ENCFF000PMJ | HepG2     | 2         | ENCFF000PON | 
-| 5  | ENCFF000OWQ | neural    | 1         | ENCFF000OXB | 
-| 6  | ENCFF000OWM | neural    | 2         | ENCFF000OXE | 
-| 7  | ENCFF000RAG | SK-N-SH   | 1         | ENCFF000RBT | 
+| 1  | ENCFF000PED | HeLa      | 1         | ENCFF000PET |
+| 2  | ENCFF000PEE | HeLa      | 2         | ENCFF000PET |
+| 3  | ENCFF000PMG | HepG2     | 1         | ENCFF000POM |
+| 4  | ENCFF000PMJ | HepG2     | 2         | ENCFF000PON |
+| 5  | ENCFF000OWQ | neural    | 1         | ENCFF000OXB |
+| 6  | ENCFF000OWM | neural    | 2         | ENCFF000OXE |
+| 7  | ENCFF000RAG | SK-N-SH   | 1         | ENCFF000RBT |
 | 8  | ENCFF000RAH | SK-N-SH   | 2         | ENCFF000RBU |
 
 Table 2. ENCODE accession numbers for samples used in this exercise.
