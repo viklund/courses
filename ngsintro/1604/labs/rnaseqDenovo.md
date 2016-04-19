@@ -65,7 +65,6 @@ By default, reads are treated as not strand-specific.
 ### Trinity on Uppmax example command line:
 
 ```bash
-$ salloc -A g2016001 -t 04:00:00 -p core -n 8 --no-shell --reservation=g2016001_20160129 &
 $ module load bioinfo-tools java/sun_jdk1.7.0_25 bowtie/1.1.0 samtools/0.1.19 trinity/2014-07-17
 $ Trinity --seqType fa --left /proj/g2016001/labs/transcriptome_assembly/mouse_left.fasta --right /proj/g2016001/labs/transcriptome_assembly/mouse_right.fasta --SS_lib_type RF --CPU 8 --JM 16G --output trinity_out/
 ```
