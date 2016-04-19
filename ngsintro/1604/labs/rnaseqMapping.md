@@ -53,11 +53,12 @@ You will have a bit of waiting time during the exercises as the more complex ana
 Cufflinks is a collection of programs that perform different steps in the analysis of aligned RNA-seq reads ([Details](http://cole-trapnell-lab.github.io/cufflinks/cufflinks/index.html)).
 The output is usually a list of transcribed loci (primarily ‘genes’) and their expression levels within and/or between samples.
 For the analysis of multiple data sets, the general workflow in cufflinks consists of the following steps:
-* Cufflinks: Assemble the aligned reads of a given sample, identify transcribed loci and determine expression
-* Cuffmerge: Reconcile data on transcribed loci across multiple
+
+* **Cufflinks:** Assemble the aligned reads of a given sample, identify transcribed loci and determine expression
+* **Cuffmerge:** Reconcile data on transcribed loci across multiple
   samples to produce a consensus annotation of loci (Note that if a good annotation is available this can be stepped, e.g. here one can use the prepared
   Homo_sapiens.GRCh38_Chr1.77.gtf)
-* Cuffdiff: Compare read data across samples, guided by consensus annotation, and determine differential expression of loci, test for significance. The main output we are interested in comes from the cuffdiff analysis and consists of differential expression estimates for a set of genes.
+* **Cuffdiff:** Compare read data across samples, guided by consensus annotation, and determine differential expression of loci, test for significance. The main output we are interested in comes from the cuffdiff analysis and consists of differential expression estimates for a set of genes.
 
 ## Step-by-Step Tutorial
 
