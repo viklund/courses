@@ -336,29 +336,10 @@ $ grep yes gene_exp.diff >> results.txt
 (This copies the header of the output file as well as all rows tagged as significant into a new text file - open this file in a text editor or spread sheet program).
 
 
-### Where to go next - Visualize the results
+### Where to go next: summarizing and visualizing the results
+After obtaing the differential expression output, the data analysis part begins. Quite often, one is interested in summarizing the differential expression results, e.g. reporting number of down- and up-regulated genes given a significance and fold change threshold or showign the results in a graphical form. There are no standard and easy solutions here and the data analysis part tend to be guided by the specific biological questions. Here, quite often a custom-written R and Python scripts are used. 
 
-So now you have analyzed the expression of genes between two samples.
-However, usually the work does not end here.
-For example, you may want to perform a thorough analysis of your output, visualize distributions and obtain statictics.
-This can, for example, be done either through clever scripting in R, or by use of a recently developed software suite called [CummeRbund](http://compbio.mit.edu/cummeRbund/).
-cummeRbund reads the native output from Cuffdiff, parses it into a database and provide ample options for in-depth analysis of the data.
-
-For this part you need graphics, so you need to log in to Uppmax using thinlinc (as you have done before) or by using the -Y parameter when using ssh. 
-
-```bash
-$ module load RStudio
-$ rstudio /proj/g2016001/labs/transcriptome_cummeRbund/cummeRbund_course_code.R
-
-```
-Installing cummeRbund in R or Rstudio takes a bit of time, so a good idea is to start the installation before taking a break.
-In the R Studio environment, you need to make two changes in the R script.
-1. Change the working directory to your own transcriptome directory
-2. Change the cufflinks directory to the one you generated earlier.
-
-Optional: Using the _EnsEMBL_ accession numbers of the significant genes, you can go to [http://www.ensembl.org](http://www.ensembl.org/) to retrieve information on the function of these genes and see whether you can draw any conclusions as to why these genes would be differentially expressed in the two tissues.
-
-As an alternative to CummeRbund I have prepared a simple, dependency-free R script that you may run from the command line to summarize the Cuffdiff results and create a Volcano plot.
+To give you a feel of running one of such scripts for a very basic results summary and visualization, a very simple, dependency-free R script is available (summarizeDE.R). It can be run from the command line to summarize the Cuffdiff results and create a Volcano plot (what is Volcano plot? Google it).
 
 ```bash
 $ cd ~glob/transcriptome
