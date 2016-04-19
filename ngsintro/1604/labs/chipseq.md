@@ -571,7 +571,7 @@ Inspect the plot; does it indicate good sample quality (i.e. enrichment in ChIP 
 For comparison, similar plots generated for other samples used in this exercise are presented in figures 7 and 8.
 
 
-|Figure 7. <br> Cumulative enrichment for REST ChIP and corresponding inputs in HepG2 cells | Figure 8. <br> Cumulative enrichment for REST ChIP and corresponding inputs in SK-N-SH cells |
+|Figure 7. <br> Cumulative enrichment for REST ChIP and corresponding inputs <br> in HepG2 cells | Figure 8. <br> Cumulative enrichment for REST ChIP and corresponding inputs <br> in SK-N-SH cells |
 | --- | ----------- |
 |<img src="files/chipseq_fig/hepg2fingerprint.png" alt="fingerprint, hepg2" style="width: 280px;"/>| <img src="files/chipseq_fig/sknshfingerprint.png" alt="fingerprint, sknsh" style="width: 280px;"/>|
 
