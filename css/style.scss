@@ -27,3 +27,9 @@ body {
 html {
   overflow-y: scroll;
 }
+
+table th, .markdown-body table td {
+    padding: 6px 13px;
+    border: 1px solid #ddd;
+}
+
