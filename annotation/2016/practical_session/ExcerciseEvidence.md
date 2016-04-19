@@ -36,10 +36,15 @@ Go to Biomart at [http://www.ensembl.org/biomart/martview](http://www.ensembl.or
 Before going into the exercises below, you should create in your home folder a specific folder for this practical session and add a symbolic link to a folder with the course data using:  
 
 *cd ~/*
+
 *mkdir annotation_course*
+
 *cd annotation_course*
+
 *ln -s /proj/g2016007/course\_material* 
-*mkdir practical1*  
+
+*mkdir practical1* 
+
 *cd practical1*  
  
 
@@ -54,6 +59,7 @@ This browser already has a number of tracks preloaded for you, but you can also 
 **_Exercise 5_ - Augustus:**
 
 First you need to install librabry you will need to perform the following analyses 
+
 *./home/login/annotation_course/course_material/lib/install_perllib_missing.sh*
 
 First load the needed modules using:  
@@ -69,7 +75,8 @@ The gff-format of Augustus is non-standard (looks like gtf) so to view it in a g
 
 Do this to convert your Augustus-file:
 
-*Module load Bioperl*
+*module load Bioperl*
+
 */home/login/annotation_course/course_material/git/GAAS/annotation/Tools/Converter/gtf2gff3_universal.pl -gtf augustus_drosophila.gtf -o augustus_drosophila.gff3*
 
 Transfer the augustus\_drosophila.gff3 to your computer using scp:    
