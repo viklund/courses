@@ -343,7 +343,7 @@ To give you a feel of running one of such scripts for a very basic results summa
 
 ```bash
 $ cd ~glob/transcriptome
-$ cp /proj/g2016001/extra/summarizeDE.R ~glob/transcriptome
+$ cp /sw/courses/ngsintro/transcriptome_map/extras/summarizeDE.R ~glob/transcriptome
 $ Rscript summarizeDE.R ~glob/transcriptome/cuffdiff.brain_vs_kidney/gene_exp.diff 0.1 1
 ```
 where,
