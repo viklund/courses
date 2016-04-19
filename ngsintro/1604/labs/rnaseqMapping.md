@@ -9,23 +9,14 @@ title:  'RNAseq'
 
 # Reference-genome based: Tophat and Cufflinks
 
-A common problem in the analysis of RNA-seq data is to relate it to a known genome sequence and use that information to study the expression of genes: within a sample or across multiple conditions, such as tissues or time points.
-A popular pipeline to perform such an analysis is the Tuxedo protocol, which consists of set of programs that can be used to go from mapping short reads to the reference genomes all the way to the detection of differentially expressed genes. 
-The two main programs included in the package are i) Tophat, a short read mapper and ii) Cufflinks, performing analysis of the mapped reads.
+A common problem in the analysis of RNA-seq data is to relate it to a known genome sequence and use that information to study the expression of genes: within a sample or across multiple conditions, such as tissues or time points. A popular pipeline to perform such an analysis is the **Tuxedo protocol**, which consists of set of programs that can be used to go from mapping short reads to the reference genomes all the way to the detection of differentially expressed genes. The two main programs included in the package are i) **Tophat**, a short read mapper and ii) **Cufflinks**, performing analysis of the mapped reads.
+
 In this exercise you will learn how to use some of these tools to study gene expression differences between different human tissues.
+**The main goal is to find genes that are differentially expressed between two different tissues.**
 
-Note: Do not simply copy the various unix commands quoted throughout this tutorial.
-Many include placeholders, e.g. folder names, so make sure you alter
-the command to actually reflect whatever file names you have created.
+We will use data that come from Illumina Bodymap2.0. [Illumina Bodymap2.0](http://www.ebi.ac.uk/gxa/experiments/E-MTAB-513) data consists of 16 human tissues that were sequenced using both single-end (SE) and pair-end (PE) technologies. The mapped reads can be visualised in the genome browser, e.g. [Ensembl genome browser](http://www.ensembl.info/blog/2011/05/24/human-bodymap-2-0-data-from-illumina/) or [IGV](https://www.broadinstitute.org/igv/)
 
-[Illumina Bodymap2.0](http://www.ebi.ac.uk/gxa/experiments/E-MTAB-513) data consists of 16 human tissues that were sequenced using both single-end (SE) and pair-end (PE) technologies.
-The mapped reads can be visualised at the [Ensembl genome browser](http://www.ensembl.info/blog/2011/05/24/human-bodymap-2-0-data-from-illumina/) or using [IGV](https://www.broadinstitute.org/igv/)
-
-In this tutorial, due to time constraints, we will focus on a limited number of tissues and narrow down analyses to one chromosome, chromosme 1 of the human genome.
-
-**The main goal of this tutorial is to find genes that are differentially expressed between two different tissues.**
-
-For all included tissues there is one single-end library and one pair-end library available. In order to test for identify signficially different genes, differentially expressed,  more than one replicate from each tissue is needed. We will therefore use the two different library types as replicates, e.g. for comparing brain and kidney one should include in the analyses both single-end (ERR030890) and pair-end (ERR030882) libraries for brain and single-end (ERR030893) and pair-end (ERR030885) libraries for kidney.
+In this tutorial, due to time constraints, we will focus on a limited number of tissues and narrow down analyses to one chromosome, chromosme 1 of the human genome. For all included tissues there is one single-end library and one pair-end library available. In order to identify signficially different genes, differentially expressed bewteen tissues, more than one replicate from each tissue is needed. We will therefore use the two different library types as replicates. For instace, for comparing brain and kidney one should include in the analyses both single-end (ERR030890) and pair-end (ERR030882) libraries for brain and single-end (ERR030893) and pair-end (ERR030885) libraries for kidney.
 
 Here is the summary of the data and tissues available:
 
@@ -48,6 +39,10 @@ Here is the summary of the data and tissues available:
 
 <font color="red">**Please start by testing Brain vs Kidney!**</font> 
 Afterwards you can go back and test more tissues against each other.
+
+Note: Do not simply copy the various unix commands quoted throughout this tutorial.
+Many include placeholders, e.g. folder names, so make sure you alter
+the command to actually reflect whatever file names you have created.
 
 ## Tophat
 
