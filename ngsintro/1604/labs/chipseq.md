@@ -228,7 +228,10 @@ scp <LOGIN>@milou.uppmax.uu.se:~/chipseq/analysis/<FOLDER_NAME>/*pdf ./
 |<img src="files/chipseq_fig/ENCFF000PEDxcorrelationplot.png" alt="xcor, hela chip" style="width: 200px;"/>| <img src="files/chipseq_fig/ENCFF000PEExcorrelationplot.png" alt="xcor, hela chip" style="width: 200px;"/>| <img src="files/chipseq_fig/ENCFF000PETxcorrelationplot.png" alt="xcor, hela input" style="width: 200px;"/>|
 
 
-|Figure 4. <br> HepG2, REST ChIP  <br>  replicate 1, QScore:0 | Figure 2. <br> HepG2, REST ChIP <br> replicate 2, QScore:1  | Figure 3. <br> HepG2, input <br> QScore:0                                        |
+----
+
+
+|Figure 4. <br> HepG2, REST ChIP  <br>  replicate 1, QScore:0 | Figure 5. <br> HepG2, REST ChIP <br> replicate 2, QScore:1  | Figure 6. <br> HepG2, input <br> QScore:0                                        |
 | --- | ----------- | --------- |
 |<img src="files/chipseq_fig/ENCFF000PMGppqtxcorrelationplot.png" alt="xcor, hepg2 chip" style="width: 200px;"/>| <img src="files/chipseq_fig/ENCFF000PMJppqtxcorrelationplot.png" alt="xcor, hepg2 chip" style="width: 200px;"/>| <img src="files/chipseq_fig/ENCFF000POMppqtxcorrelationplot.png" alt="xcor, hepg2 input" style="width: 200px;"/>|
 
