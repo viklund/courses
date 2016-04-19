@@ -372,7 +372,7 @@ Likewise, the read data we have used was strand-unspecific.
 This has some drawbacks, specifically with respect to accuracy in the isoform analysis.
 Or perhaps you are not interested in comparing expression between pairs of samples but in a time series.
 For this reason as well as others, you may need to adjust one or several parameters to get the best results - depending on the nature of your data.
-<font color="red">We therefore highly recommend you to carefully read the manuals (and the original publications)  to familiarize yourself with these additional options.<\font>
+<font color="red">We therefore highly recommend you to carefully read the manuals (and the original publications)  to familiarize yourself with these additional options.</font> 
 
 ### Other alternatives
 
