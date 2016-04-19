@@ -60,14 +60,14 @@ This browser already has a number of tracks preloaded for you, but you can also 
 
 First you need to install librabry you will need to perform the following analyses 
 
-*./home/login/annotation_course/course_material/lib/install_perllib_missing.sh*
+*./home/__login__/annotation_course/course_material/lib/install_perllib_missing.sh*
 
 First load the needed modules using:  
 _module load bioinfo-tools_  
 _module load augustus_
 
 Run Augustus on your genome file using:  
-*augustus --species=fly /home/login/annotation\_course/course\_material/data/dmel/chromosome\_4/chromosome/4.fa > augustus\_drosophila.gtf*
+*augustus --species=fly /home/__login__/annotation\_course/course\_material/data/dmel/chromosome\_4/chromosome/4.fa > augustus\_drosophila.gtf*
 
 Take a look at the result file using ‘less augustus\_drosophila.gff’. What kinds of features have been annotated? Does it tell you anything about UTRs?
 
@@ -77,7 +77,7 @@ Do this to convert your Augustus-file:
 
 *module load Bioperl*
 
-*/home/login/annotation\_course/course\_material/git/GAAS/annotation/Tools/Converter/gtf2gff3_universal.pl -gtf augustus_drosophila.gtf -o augustus_drosophila.gff3*
+*/home/__login__/annotation\_course/course\_material/git/GAAS/annotation/Tools/Converter/gtf2gff3_universal.pl -gtf augustus_drosophila.gtf -o augustus_drosophila.gff3*
 
 Transfer the augustus\_drosophila.gff3 to your computer using scp:    
 *scp __login__@milou.uppmax.uu.se:/home/__login__/annotation\_course/practical1/augustus\_drosophila.gff3 .*  
