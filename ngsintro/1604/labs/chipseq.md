@@ -143,7 +143,7 @@ cd xcor
 
 module load phantompeakqualtools/1.1
 
-run_spp.R -c=../../data/ENCFF000PED.chr12.bam -savp=hela1_xcor.pdf 
+run_spp.R -c=../../data/ENCFF000PED.chr12.bam -savp=hela1_xcor.pdf \
 -out=xcor_metrics_hela.txt
 
 module unload phantompeakqualtools/1.1
@@ -221,19 +221,18 @@ If this above command does not work for you (there may be problems, depending on
 scp <LOGIN>@milou.uppmax.uu.se:~/chipseq/analysis/<FOLDER_NAME>/*pdf ./
 ```
 
-*****
+-----
 
 |Figure 1. <br> HeLa, REST ChIP  <br>  replicate 1, QScore:2 | Figure 2. <br> HeLa, REST ChIP <br> replicate 2, QScore:2  | Figure 3. <br> HeLa, input <br> QScore:-1                                         |
-| -- | ----------- | --------- |
-|<img src="files/chipseq_fig/ENCFF000PEDxcorrelationplot.pdf" alt="xcor, hela chip" style="width: 200px;"/>| <img src="files/chipseq_fig/ENCFF000PEExcorrelationplot.pdf" alt="xcor, hela chip" style="width: 200px;"/>| <img src="files/chipseq_fig/ENCFF000PETxcorrelationplot.pdf" alt="xcor, hela input" style="width: 200px;"/>
-|
+| --- | ----------- | --------- |
+|<img src="files/chipseq_fig/ENCFF000PEDxcorrelationplot.png" alt="xcor, hela chip" style="width: 200px;"/>| <img src="files/chipseq_fig/ENCFF000PEExcorrelationplot.png" alt="xcor, hela chip" style="width: 200px;"/>| <img src="files/chipseq_fig/ENCFF000PETxcorrelationplot.png" alt="xcor, hela input" style="width: 200px;"/>|
 
 
 |Figure 4. <br> HepG2, REST ChIP  <br>  replicate 1, QScore:0 | Figure 2. <br> HepG2, REST ChIP <br> replicate 2, QScore:1  | Figure 3. <br> HepG2, input <br> QScore:0                                        |
-| -- | ----------- | --------- |
-|<img src="files/chipseq_fig/ENCFF000PMGppqtxcorrelationplot.pdf" alt="xcor, hepg2 chip" style="width: 200px;"/>| <img src="files/chipseq_fig/ENCFF000PMJppqtxcorrelationplot.pdf" alt="xcor, hepg2 chip" style="width: 200px;"/>| <img src="files/chipseq_fig/ENCFF000POMppqtxcorrelationplot.pdf" alt="xcor, hepg2 input" style="width: 200px;"/>|
+| --- | ----------- | --------- |
+|<img src="files/chipseq_fig/ENCFF000PMGppqtxcorrelationplot.png" alt="xcor, hepg2 chip" style="width: 200px;"/>| <img src="files/chipseq_fig/ENCFF000PMJppqtxcorrelationplot.png" alt="xcor, hepg2 chip" style="width: 200px;"/>| <img src="files/chipseq_fig/ENCFF000POMppqtxcorrelationplot.png" alt="xcor, hepg2 input" style="width: 200px;"/>|
 
-****
+-----
 
 The usual questions to ask after performing this step are:
 How would you rate these particular two data sets? Are all samples of good enough quality? Which data set would you rate higher in terms of how successful the ChIP was? Would any of the samples fail this QC step? Why? In short: did the ChIP(-seq) experiment work?
@@ -407,7 +406,7 @@ bedtools intersect -a hela_1_peaks.chr12.bed -b hela_2_peaks.chr12.bed -f 0.50 -
 wc -l peaks_hela.chr12.bed
 ```
 
-This way you can compare peaks from replicates of the same condition, and peaks present in different conditions. You will need to create files with peaks common to replicates for the cell types you wish to compare. You can inspect which peaks were reproducibly found in two different cell lines, for example:
+This way you can compare peaks from replicates of the same condition, and peaks present in different conditions. You will need to create files with peaks common to replicates for the cell types you wish to compare (as in the example above). You can inspect which peaks were reproducibly found in two different cell lines, for example:
 
 ```bash
 bedtools intersect -a peaks_hepg2.chr12.bed -b peaks_hela.chr12.bed -f 0.50 -r \
@@ -439,7 +438,7 @@ module unload BEDOPS/2.4.3
 wc -l REST_peaks.chr12.bed 
 ```
 
-In case things go wrong at this stage, you can find the merged list of all peaks in the /results directory. Link the file to your current directory
+In case things go wrong at this stage, you can find the merged list of all peaks in the `/results` directory. Link the file to your current directory
 
 
 ```bash
@@ -530,7 +529,7 @@ In IGV, in menu "File": "Load from file", select files you want to visualise. Lo
 
 You can change the signal display mode in the tracks in the left hand side panel. Right click in the bam file track, select from the menu "display" - squishy; "color by" - read strand and "group by" - read strand.
 
-Is the read distribution in the peaks (bam file tracks) consistent with the expected bimodal distribution? Are there genes are associated with the detected peaks?
+Is the read distribution in the peaks (bam file tracks) consistent with the expected bimodal distribution? Are the detected peaks associated with annotated genes?
 
 
 [//]: #
@@ -569,15 +568,16 @@ Inspect the plot; does it indicate good sample quality (i.e. enrichment in ChIP 
 For comparison, similar plots generated for other samples used in this exercise are presented in figures 7 and 8.
 
 
-|Figure 7. <br> Cumulative enrichment for REST ChIP and corresponding inputs in HepG2 cells | Figure 8. <br> Cumulative enrichment for REST ChIP and corresponding inputs in SK-N-SH cells |                                      |
-| -- | ----------- |
-|<img src="files/chipseq_fig/hepg2fingerprint.pdf" alt="fingerprint, hepg2" style="width: 300px;"/>| <img src="files/chipseq_fig/sknshfingerprint.pdf" alt="fingerprint, sknsh" style="width: 300px;"/>|
+|Figure 7. <br> Cumulative enrichment for REST ChIP and corresponding inputs in HepG2 cells | Figure 8. <br> Cumulative enrichment for REST ChIP and corresponding inputs in SK-N-SH cells |
+| --- | ----------- |
+|<img src="files/chipseq_fig/hepg2fingerprint.png" alt="fingerprint, hepg2" style="width: 280px;"/>| <img src="files/chipseq_fig/sknshfingerprint.png" alt="fingerprint, sknsh" style="width: 280px;"/>|
 
 Can you tell which samples are ChIP and which are input? Are the cumulative enrichment plots in agreement with the cross-correlation metrics computed earlier?
 
 ### Sample clustering
 
-To assess overall similarity between libraries from different samples and data sets, you will compute sample clustering heatmaps using multiBamSummary and plotCorrelation in bins mode from deepTools.
+To assess overall similarity between libraries from different samples and data sets, you will compute sample clustering heatmaps using multiBamSummary and plotCorrelation in bins mode from deepTools. In this method the genome is divided into bins of specified size (--binSize parameter) and reads mapped to each bin are counted; the resulting signal profiles are used to cluster libraries to identify groups of similar signal profile.
+
 This section is performed using data subset to chromosomes 1 and 2.
 
 First, to avoid very long paths in the command line, create subdirectories and link preprocessed bam files:
@@ -587,10 +587,11 @@ mkdir hela
 mkdir hepg2
 mkdir sknsh
 mkdir neural
-ln -s /home/teacher8/chipseq/data/bam/hela/* ./hela
-ln -s /home/teacher8/chipseq/data/bam/hepg2/* ./hepg2
-ln -s /home/teacher8/chipseq/data/bam/sknsh/* ./sknsh
-ln -s /home/teacher8/chipseq/data/bam/neural/* ./neural
+ln -s /sw/courses/ngsintro/chipseq/data/bam/hela/* ./hela
+ln -s /sw/courses/ngsintro/chipseq/data/bam/hepg2/* ./hepg2
+ln -s /sw/courses/ngsintro/chipseq/data/bam/sknsh/* ./sknsh
+ln -s /sw/courses/ngsintro/chipseq/data/bam/neural/* ./neural
+
 ```
 
 
@@ -720,7 +721,7 @@ The workflow presented in this exercise is similar to a typical one used for ana
 
 
 | No |  Accession  | Cell line | Replicate |    Input    |
-| -- | ----------- | --------- | --------- | ----------- |
+| --- | ----------- | --------- | --------- | ----------- |
 | 1  | ENCFF000PED | HeLa      | 1         | ENCFF000PET | 
 | 2  | ENCFF000PEE | HeLa      | 2         | ENCFF000PET | 
 | 3  | ENCFF000PMG | HepG2     | 1         | ENCFF000POM | 
@@ -735,40 +736,65 @@ Table 2. ENCODE accession numbers for samples used in this exercise.
 
 ### Figures generated during class
 
-<img src="files/chipseq_fig/resENCFF000PEDchr12xcor.pdf" alt="" style="width: 400px;"/>
+<img src="files/chipseq_fig/resENCFF000PEDchr12xcor.png" alt="" style="width: 400px;"/><br>
+
 Figure 9. Cross correlation plot for REST ChIP in Hela cells, replicate 1, chromosome 1 and 2
-***
 
-<img src="files/chipseq_fig/peaksbedchr12pears.pdf" alt="" style="width: 400px;"/>
+
+----
+
+<img src="files/chipseq_fig/peaksbedchr12pears.png" alt="" style="width: 400px;"/><br>
+
 Figure 10. Sample clustering (pearson) by reads mapped in merged peaks; only chromosomes 1 and 2 included
-***
 
-<img src="files/chipseq_fig/resHelaChr12Fingerprint.pdf" alt="" style="width: 400px;"/>
+
+----
+
+<img src="files/chipseq_fig/resHelaChr12Fingerprint.png" alt="" style="width: 400px;"/><br>
+
 Figure 11. Fingerprint plot for REST ChIP in Hela cells, replicate 1, chromosome 1 and 2
-***
 
-<img src="files/chipseq_fig/bin5kchr12spear.pdf" alt="" style="width: 400px;"/>
+
+----
+
+<img src="files/chipseq_fig/bin5kchr12spear.png" alt="" style="width: 400px;"/><br>
+
+
 Figure 12. Sample clustering (spearman) by reads mapped in bins genome-wide; only chromosomes 1 and 2 included
-***
 
-<img src="files/chipseq_fig/resHelaProfileTSS.pdf" alt="" style="height: 400px;"/>
+
+----
+
+<img src="files/chipseq_fig/resHelaProfileTSS.png" alt="" style="height: 400px;"/><br>
+
 Figure 13. Binding profile in HeLa replicate 1, centered on TSS; data subset to chromosome 1 and 2
 
+
+----
 
 ### Figures generated using the full (i.e. not subset) data set
 
 
-<img src="files/chipseq_fig/helaprocfingerprint.pdf" alt="" style="width: 400px;"/>
+<img src="files/chipseq_fig/helaprocfingerprint.png" alt="" style="width: 400px;"/><br>
+
 Figure 14. Cumulative enrichment in  HeLa replicate 1, aka bam fingerprint
-***
 
-<img src="files/chipseq_fig/bin5kspear.pdf" alt="" style="width: 400px;"/>
+
+----
+
+<img src="files/chipseq_fig/bin5kspear.png" alt="" style="width: 400px;"/><br>
+
 Figure 15. Sample clustering (spearman) by reads mapped in bins genome-wide
-***
 
-<img src="files/chipseq_fig/peaksbedpears.pdf" alt="" style="width: 400px;"/>
+
+----
+
+<img src="files/chipseq_fig/peaksbedpears.png" alt="" style="width: 400px;"/><br>
+
 Figure 16. Sample clustering (pearson) by reads mapped in merged peaks
-***
+
+
+----
 
 
 
