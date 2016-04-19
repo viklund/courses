@@ -67,7 +67,7 @@ _module load bioinfo-tools_
 _module load augustus_
 
 Run Augustus on your genome file using:  
-*augustus --species=fly course\_data/dmel/chromosome\_4/chromosome/4.fa > augustus\_drosophila.gtf*
+*augustus --species=fly /home/login/annotation\_course/course\_material/data/dmel/chromosome\_4/chromosome/4.fa > augustus\_drosophila.gtf*
 
 Take a look at the result file using ‘less augustus\_drosophila.gff’. What kinds of features have been annotated? Does it tell you anything about UTRs?
 
@@ -77,10 +77,10 @@ Do this to convert your Augustus-file:
 
 *module load Bioperl*
 
-*/home/login/annotation_course/course_material/git/GAAS/annotation/Tools/Converter/gtf2gff3_universal.pl -gtf augustus_drosophila.gtf -o augustus_drosophila.gff3*
+*/home/login/annotation\_course/course\_material/git/GAAS/annotation/Tools/Converter/gtf2gff3_universal.pl -gtf augustus_drosophila.gtf -o augustus_drosophila.gff3*
 
 Transfer the augustus\_drosophila.gff3 to your computer using scp:    
-*scp login@milou.uppmax.uu.se:/home/__login__/practical1/augustus\_drosophila.gff3 .*  
+*scp login@milou.uppmax.uu.se:/home/__login__/annotation\_course/practical1/augustus\_drosophila.gff3 .*  
 
 Load the file in [Webapollo](http://bils-web.imbim.uu.se/drosophila_melanogaster), also display the track ‘EnsEMBLprotein’ by selecting it from the table on the left. [Here find the WebApollo instruction](UsingWebapollo)   
 How does the Augustus annotation compare with the Ensembl annotation? Are they identical?
