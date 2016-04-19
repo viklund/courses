@@ -25,15 +25,9 @@ In this tutorial, due to time constraints, we will focus on a limited number of 
 
 **The main goal of this tutorial is to find genes that are differentially expressed between two different tissues.**
 
-For all included tissues there is one single-end library and one pair-end library available.
-In order to test for significance in gene expression more than one replicate from each tissue is needed and we will
-in this lab use the two different library types as replicates in the
-detection of differential gene expression. So if you choose to compare
-brain and kidney, you will have to the analysis for both single-end (ERR030890)
-and pair-end (ERR030882) libraries for brain and compare to
-single-end (ERR030893) and pair-end (ERR030885) libraries for kidney.
+For all included tissues there is one single-end library and one pair-end library available. In order to test for identify signficially different genes, differentially expressed,  more than one replicate from each tissue is needed. We will therefore use the two different library types as replicates, e.g. for comparing brain and kidney one should include in the analyses both single-end (ERR030890) and pair-end (ERR030882) libraries for brain and single-end (ERR030893) and pair-end (ERR030885) libraries for kidney.
 
-Below is a summary of the data and tissues available.
+Here is the summary of the data and tissues available:
 
 * Single-end reads, 75bp
     * ERR030888: Female adipose
