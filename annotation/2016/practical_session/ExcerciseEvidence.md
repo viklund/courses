@@ -35,10 +35,13 @@ Go to Biomart at [http://www.ensembl.org/biomart/martview](http://www.ensembl.or
 
 Before going into the exercises below, you should create in your home folder a specific folder for this practical session and add a symbolic link to a folder with the course data using:  
 
-*cd ~/*  
+*cd ~/*
+*mkdir annotation_course*
+*cd annotation_course*
+*ln -s /proj/g2016007/course\_material* 
 *mkdir practical1*  
 *cd practical1*  
-*ln -s /proj/g2016007/course\_data*  
+ 
 
 When you are done, you should have a folder called course\_data in your *practical1* folder. This course\_data folder is write-proteced, it is only a resource for you to obtain data from, but not where you are writing your own outputs to!  
 NOTE! We do not supply full paths in all of the exercises below. You will need to find the files yourself, which will be easy since you are an expert Linux-hacker. :)
