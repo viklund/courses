@@ -372,7 +372,7 @@ Likewise, the read data we have used was strand-unspecific.
 This has some drawbacks, specifically with respect to accuracy in the isoform analysis.
 Or perhaps you are not interested in comparing expression between pairs of samples but in a time series.
 For this reason as well as others, you may need to adjust one or several parameters to get the best results - depending on the nature of your data.
-We therefore highly recommend you to carefully read the manuals (and the original publications) so as to familiarize yourself with these additional options.
+<font color="red">We therefore highly recommend you to carefully read the manuals (and the original publications)  to familiarize yourself with these additional options.<\font>
 
 ### Other alternatives
 
@@ -400,8 +400,8 @@ Most software suitable for detection of differential gene expression
 are developed in R and available as add-on packages to R at
 [bioconductor](http:/www.bioconductor.org)
 
-* edgeR
-* DEseq2
-* Limma
-* DEXseq, specifically made for detection of differential usage of
-exons
+* [edgeR](https://bioconductor.org/packages/release/bioc/html/edgeR.html)
+* [DESeq2](https://bioconductor.org/packages/release/bioc/html/DESeq2.html)
+* [Limma](https://bioconductor.org/packages/release/bioc/html/limma.html)
+* [DEXseq](http://bioconductor.org/packages/release/bioc/html/DEXSeq.html)
+
