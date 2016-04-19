@@ -19,13 +19,12 @@ Many include placeholders, e.g. folder names, so make sure you alter
 the command to actually reflect whatever file names you have created.
 
 [Illumina Bodymap2.0](http://www.ebi.ac.uk/gxa/experiments/E-MTAB-513) data consists of 16 human tissues that were sequenced using both single-end (SE) and pair-end (PE) technologies.
-The mapped reads can be visualised at the [Ensembl genome browser](http://www.ensembl.info/blog/2011/05/24/human-bodymap-2-0-data-from-illumina/)
+The mapped reads can be visualised at the [Ensembl genome browser](http://www.ensembl.info/blog/2011/05/24/human-bodymap-2-0-data-from-illumina/) or using [IGV](https://www.broadinstitute.org/igv/)
 
-In this tutorial we will due to time constraints focus on a limited set of tissues and only do the analysis for chromosome 1 of the human genome.
-In addition, the files we use are just subsets of the original files
-as the analysis of the full files undoable within the time frame of a course lab.
+In this tutorial, due to time constraints, we will focus on a limited number of tissues and narrow down analyses to one chromosome, chromosme 1 of the human genome.
 
-The main goal goal with this tutorial is to detect differential gene expression between two different tissues (pick any two tissues that you want to compare).
+**The main goal of this tutorial is to find genes that are differentially expressed between two different tissues.**
+
 For all included tissues there is one single-end library and one pair-end library available.
 In order to test for significance in gene expression more than one replicate from each tissue is needed and we will
 in this lab use the two different library types as replicates in the
