@@ -9,16 +9,16 @@ title:  'RNAseq'
 
 # Reference-genome based: Tophat and Cufflinks
 
-A common problem in the analysis of RNA-seq data is to relate it to a known genome sequence and use that information to study the expression of genes - within a sample or across multiple conditions, such as tissues or time points.
-A popular pipeline to perform such an analysis is the Tuxedo protocol, which consist of set of programs that can be used to go from mapping of short reads to reference genomes all the way to detection of differential gene expression.
-The two main programs included in the package are Tophat - a short read mapper and Cufflinks that performs analysis of the mapped reads.
+A common problem in the analysis of RNA-seq data is to relate it to a known genome sequence and use that information to study the expression of genes: within a sample or across multiple conditions, such as tissues or time points.
+A popular pipeline to perform such an analysis is the Tuxedo protocol, which consists of set of programs that can be used to go from mapping short reads to the reference genomes all the way to the detection of differentially expressed genes. 
+The two main programs included in the package are i) Tophat, a short read mapper and ii) Cufflinks, performing analysis of the mapped reads.
 In this exercise you will learn how to use some of these tools to study gene expression differences between different human tissues.
 
 Note: Do not simply copy the various unix commands quoted throughout this tutorial.
-Many include placeholders (folder names etc), so make sure you alter
+Many include placeholders, e.g. folder names, so make sure you alter
 the command to actually reflect whatever file names you have created.
 
-[Illumina Bodymap2.0](http://www.ebi.ac.uk/gxa/experiments/E-MTAB-513) data consists of 16 human tissues that were sequenced using both single-end and pair-end technologies.
+[Illumina Bodymap2.0](http://www.ebi.ac.uk/gxa/experiments/E-MTAB-513) data consists of 16 human tissues that were sequenced using both single-end (SE) and pair-end (PE) technologies.
 The mapped reads can be visualised at the [Ensembl genome browser](http://www.ensembl.info/blog/2011/05/24/human-bodymap-2-0-data-from-illumina/)
 
 In this tutorial we will due to time constraints focus on a limited set of tissues and only do the analysis for chromosome 1 of the human genome.
