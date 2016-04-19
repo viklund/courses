@@ -101,9 +101,9 @@ $ mkdir results
 * sym-link the required files and folders (this will create a symbolic link to the original folders/files and saves you the trouble of always typing the full path - BUT: Do not write into these linked folders, because that data is shared across everyone working with these folders...)
 
 ```bash
-ln -s /proj/g2016001/labs/transcriptome_map/reads/PE
-ln -s /proj/g2016001/labs/transcriptome_map/reads/SE
-ln -s /proj/g2016001/labs/transcriptome_map/reference
+ln -s /sw/courses/ngsintro/transcriptome_map/reads/PE
+ln -s /sw/courses/ngsintro/transcriptome_map/reads/SE
+ln -s /sw/courses/ngsintro/transcriptome_map/reference
 ```
 
 Your directory structure should look like this:
