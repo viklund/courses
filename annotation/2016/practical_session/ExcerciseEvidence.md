@@ -37,9 +37,13 @@ Before going into the exercises below, you should create in your home folder a s
 
 *cd ~/*
 *mkdir annotation_course*
+
 *cd annotation_course*
+
 *ln -s /proj/g2016007/course\_material* 
+
 *mkdir practical1*  
+
 *cd practical1*  
  
 
