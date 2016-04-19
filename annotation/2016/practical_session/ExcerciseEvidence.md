@@ -80,7 +80,7 @@ Do this to convert your Augustus-file:
 */home/login/annotation_course/course_material/git/GAAS/annotation/Tools/Converter/gtf2gff3_universal.pl -gtf augustus_drosophila.gtf -o augustus_drosophila.gff3*
 
 Transfer the augustus\_drosophila.gff3 to your computer using scp:    
-*scp __login__@milou.uppmax.uu.se:/home/__login__/practical1/augustus\_drosophila.gff3 .*  
+*scp login@milou.uppmax.uu.se:/home/__login__/practical1/augustus\_drosophila.gff3 .*  
 
 Load the file in [Webapollo](http://bils-web.imbim.uu.se/drosophila_melanogaster), also display the track ‘EnsEMBLprotein’ by selecting it from the table on the left. [Here find the WebApollo instruction](UsingWebapollo)   
 How does the Augustus annotation compare with the Ensembl annotation? Are they identical?
