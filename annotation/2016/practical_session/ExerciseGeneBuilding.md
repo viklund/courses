@@ -11,10 +11,13 @@ title:  'Exercise Gene Building'
 ## First of all
 Before going into the exercises below, you should create in your home folder a specific folder for this practical session and add a symbolic link to a folder with the course data using:  
 
-*cd ~/*  
+*cd ~/*
+
+*cd annotation_course/*
+
 *mkdir practical2*  
+
 *cd practical2*  
-*ln -s /proj/g2015008/course\_data*  
 
 This course\_data folder is write-proteced, it is only a resource for you to obtain data from, but not where you are writing your own outputs to!
 
