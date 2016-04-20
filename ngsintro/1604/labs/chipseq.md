@@ -36,7 +36,7 @@ In the interest of time, all steps are performed using a scaled down data set (c
 
 ### Methods
 
-After mapping the reads to the genome using a preferred short read aligner performing **__ungapped (global)__** alignment (bowtie in this example), the bam files are preprocessed to remove reads which could confound the subsequent analysis. The files you are working with are mapped by the ENCODE consortium, and only the reads with **__one best alignment__** are reported (in some sources these are referred to as "unique alignments" or "uniquely aligned reads"). This means that alignments of reads mapped to multiple locations in the genome are not present in the data. If other mapping strategy is used, such multi-mapping reads need to be removed from the data prior to analyses.
+After mapping the reads to the genome using a preferred short read aligner performing **ungapped (global)** alignment (bowtie in this example), the bam files are preprocessed to remove reads which could confound the subsequent analysis. The files you are working with are mapped by the ENCODE consortium, and only the reads with **one best alignment** are reported (in some sources these are referred to as "unique alignments" or "uniquely aligned reads"). This means that alignments of reads mapped to multiple locations in the genome are not present in the data. If other mapping strategy is used, such multi-mapping reads need to be removed from the data prior to analyses.
 
 Initial steps of data analysis in a ChIP-seq experiment are focused on addressing two questions:
 
@@ -69,15 +69,15 @@ Integrative genome browser [IGV](https://www.broadinstitute.org/igv/) is an easy
 
 6. Additional exercises (part 3 of this class):
 
-6.1. Computing cumulative enrichment as another metric to assess enrichment on ChIP-seq (deepTools).
+	6.1. Computing cumulative enrichment as another metric to assess enrichment on ChIP-seq (deepTools).
 
-6.2. Computing correlation between libraries in bins mode: in this method the genome is divided into bins of specified size and reads mapped to each bin are counted; the resulting signal profiles are used to cluster libraries to identify groups of similar signal profile (deepTools).
+	6.2. Computing correlation between libraries in bins mode: in this method the genome is divided into bins of specified size and reads mapped to each bin are counted; the resulting signal profiles are used to cluster libraries to identify groups of similar signal profile (deepTools).
 
-6.3. Alternative method for post-peak calling QC (R script, library ChIPQC).
+	6.3. Alternative method for post-peak calling QC (R script, library ChIPQC).
 
-6.5. Peak annotation and differential occupancy (R script, libraries ChIPpeakAnno and DiffBind).
+	6.5. Peak annotation and differential occupancy (R script, libraries ChIPpeakAnno and DiffBind).
 
-6.6. Visualisation of the ChIP signal associated with genomic regions (deepTools).
+	6.6. Visualisation of the ChIP signal associated with genomic regions (deepTools).
 
 
 Please note that all methods used in this exercise perform significantly better when used on complete (i.e. non-subset) data sets. Their accuracy most often scales with the number of mapped reads in each library, but so does the run time. As a reference, for some of the steps, plots generated analysing the complete data set are also presented in the Appendix of this document.
@@ -131,7 +131,7 @@ cd analysis
 [//]: # (x correlation)
 [//]: #
 
-## Part 1: Quality conrol and alignment processing
+## Part 1: Quality control and alignment processing
 
 ### Assessment of the enrichment in the ChIP-seq data by computing cross correlation
 
