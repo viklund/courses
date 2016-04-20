@@ -9,7 +9,7 @@ title:  'Exercise Gene Building'
 **Maker2** is a computational pipeline to automatically generate annotations from a range of input data - including proteins, ESTs, RNA-seq transcripts and ab-initio gene predictions. During this exercise, you will learn how to use Maker with different forms of input data, and how to judge the quality of the resulting annotations.
 
 ## First of all
-Before going into the exercises below, you should create in your home folder a specific folder for this practical session and add a symbolic link to a folder with the course data using:  
+Before going into the exercises below, you should create in your home folder a specific folder for this practical session 2 using:  
 
 *cd ~/*
 
@@ -19,7 +19,7 @@ Before going into the exercises below, you should create in your home folder a s
 
 *cd practical2*  
 
-This course\_data folder is write-proteced, it is only a resource for you to obtain data from, but not where you are writing your own outputs to!
+This course\_material folder is write-proteced, it is only a resource for you to obtain data from, but not where you are writing your own outputs to!
 
 ## Getting the input data
 
@@ -41,11 +41,11 @@ We will therefore first run our annotation project in the traditional way, with 
 
 ## Organizing the data
 
-The data we are providing for the course is organized in the following way (assuming you have sym-linked it to a folder name 'data':
+The data we are providing for the course is organized in the following way in the folder annotation\_course:
 
-course\_data/human
+course\_material/data/human
 
-course\_data/dmel
+course\_material/data/dmel
 
 - chromosome_4/
 
@@ -67,11 +67,19 @@ course\_data/dmel
 
   - raw/
 
-course\_data/blastdb/
+course\_material/data/blastdb/
 
-course\_data/scripts/
+course\_material/scripts/
 
-The folder scripts contains perl scripts that we will use to format some data (referred to as **$SCRIPT_PATH**). The Blastdb folder will be used for the functional annotation exercise tomorrow.
+course\_material/git/
+
+course\_material/lib/
+
+The folder scripts and git contains scripts that we will use to analyse or format data. 
+the folder lib contains perl library required by perl script.
+The Blastdb folder will be used for the functional annotation exercise tomorrow.
+
+
 ## Loading Maker
 
 Maker strings together a range of different tools into a complex pipeline (e.g. blast, exonerate, repeatmasker, augustus...). On Uppmax, loading all these tools and Maker into your global PATH is done simply by typing:
@@ -106,7 +114,7 @@ The first exercise will be a very short one in which you will create a gene buil
 
 Running Maker on a full genome, even of an invertebrate, can take a considerable amount of time - especially if only few processing cores are available. We have therefore generate the genome-wide raw computes prior to the course. You can find the in the folder you have symlinked earlier under
 
-*ln -s course\_data/dmel/chromosome_4/raw*
+*annotation\_course/course\_material/data/dmel/chromosome_4/raw*
 
 Ab-initio guided or evidence-based
 
