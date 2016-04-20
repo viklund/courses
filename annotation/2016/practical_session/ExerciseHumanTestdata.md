@@ -58,7 +58,7 @@ protein\_gff= #aligned protein homology evidence from an external GFF3 file
 ...
 
 \#-----Repeat Masking (leave values blank to skip repeat masking)  
-model\_org=human #select a model organism for RepBase masking in RepeatMasker  
+model\_org=**human** #select a model organism for RepBase masking in RepeatMasker  
 rmlib= #provide an organism specific repeat library in fasta format for RepeatMasker   
 repeat\_protein=/pica/sw/apps/bioinfo/maker/2.31/milou/data/te\_proteins.fasta #provide a fasta file of transposable element proteins for RepeatRunner  
 rm\_gff= #pre-identified repeat elements from an external GFF3 file  
