@@ -24,7 +24,7 @@ Room: [Campus Valla, House B, Room Odén](https://www.google.com/maps/place/B-Hu
 **Wednesday**  
 Room: [Campus Valla, House B, Room Odén](https://www.google.com/maps/place/B-Huset,+Link%C3%B6pings+Universitet,+581+83+Link%C3%B6ping,+Sweden/@58.3999874,15.5760839,18z/data=!3m1!5s0x46596f6fb2197c83:0xb96430f10c01d745!4m2!3m1!1s0x46596f6f9949a0e1:0xbdc92e871aaeee08?hl=en-US)  
 **09.00-11.30** [Lecture: Next Generation Sequencing Overview](slides/Sequencing_OVP 2015_a.pdf) (Olga Vinnere Pettersson)  
-**11:30-12.00** [Lecture: The National Bioinformatics Infrastructure Sweden] (Malin Larsson)  
+**11:30-12.00** [Lecture: The National Bioinformatics Infrastructure Sweden](slides/BioinfoPresApril2016.pdf) (Malin Larsson)  
 **12.00-13.00** Lunch at [Universitetsklubben](https://www.google.se/maps/place/Vallfarten/@58.3974049,15.5710066,17z/data=!3m1!4b1!4m2!3m1!1s0x46596f6fe1880d25:0xe7c64832ae4a3048)  
 **13.00-14.00** [Lecture: NGS and bioinformatics analysis pipelines] (Adam Ameur)  
 **14.00-17.00** [Project discussion](slides/Group_discussions.pdf) (Olga Vinnere Pettersson, Adam Ameur, Malin Larsson, Mihaela Martis, Agata Smialowska)  
