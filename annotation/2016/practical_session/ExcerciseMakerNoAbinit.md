@@ -28,8 +28,8 @@ In addition, you will also need the genome sequence. Sym-link it from the the da
 *ln -s /path/to/chromosome\_4/chromosome/4.fa*
 
 To finish, you will also need EST set file and a protein set file:  
-* ln -s course\_data/dmel/chromosome\_4/evidence/est.chr4.fa*   
-* ln -s course\_data/dmel/chromosome\_4/evidence/protein.chr4.fa *  
+* ln -s ~/annotation\_course/course\_material/data/dmel/chromosome\_4/evidence/est.chr4.fa*   
+* ln -s ~/annotation\_course/course\_material/data/dmel/chromosome\_4/evidence/protein.chr4.fa *  
 
 You should now have 1 raw compute, 1 EST file, 1 protein file and the genome sequence in the working directory. For Maker to use this information, we need create the three config files, as discussed above (maker -CTL). You can leave the two files controlling external software behavious untouched. In the actual maker options file, we need to provide:
 
