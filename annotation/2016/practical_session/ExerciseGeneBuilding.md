@@ -69,13 +69,11 @@ course\_material/data/dmel
 
 course\_material/data/blastdb/
 
-course\_material/scripts/
-
 course\_material/git/
 
 course\_material/lib/
 
-The folder scripts and git contains scripts that we will use to analyse or format data. 
+The folder git contains scripts that we will use to analyse or format data. 
 the folder lib contains perl library required by perl script.
 The Blastdb folder will be used for the functional annotation exercise tomorrow.
 
