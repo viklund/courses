@@ -129,9 +129,9 @@ The main annotation file is 'NT\_010783%2E15.gff' - including both the finished 
 
 You have two options now for gathering the output in some usable form - copy select files by hand to wherever you want them. Or you can use a script that does the job for you (we have included an example in the script folder).
 
-From your Maker folder, run the script called 'maker\_merge\_outputs.pl' to create an output file for all annotations and protein files:
+From your Maker folder, run the script called 'maker\_merge\_outputs\_from\_index.pl' to create an output file for all annotations and protein files:
 
-$SCRIPT\_PATH/maker\_merge\_outputs.pl
+*/home/__login__/annotation_course/course_material/git/GAAS/annotation/Tools/Maker/maker_merge_outputs_from_datastore.pl* 
 
 This will create a directory called "annotations" containing:
 
@@ -171,7 +171,7 @@ This should contains a bunch of files, including '**maker.gff**' - which contain
 
 Next, we load the GenomeTools package:
 
-_module load genometools/1.3.5_  
+_module load GenomeTools/1.3.5_  
 (In the case which you have a conflict with another module. Unload the problematic one. Don't forget to reload the inactivated module once you finished with GenomeTools)
 
 
