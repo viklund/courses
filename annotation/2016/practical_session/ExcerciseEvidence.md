@@ -107,13 +107,27 @@ As Webapollo doesn't like the gtf format file you should convert it in gff3 form
 
 ##4. Checking the gene space of your assembly.
 
-Cegma is a program that includes sequences of 248 core proteins. These proteins are conserved and should be present in all eukaryotes. Cegma will try to align these proteins to your genomic sequence and report to you the number of proteins that are successfully aligned. This percentage can be used as a measure of how complete your assembly is.  
-***Note:*** In a real-world scenario, this step should come first and foremost. Indeed, if the result is under your expectation you might be required to enhance your assembly before to go further. As this task is taking a while, we have chosen to do it at the end of this practical session. The result should be available after the lunch.  
+Cegma is a program that includes sequences of 248 core proteins. These proteins are conserved and should be present in all eukaryotes. Cegma will try to align these proteins to your genomic sequence and report to you the number of proteins that are successfully aligned. This percentage can be used as a measure of how complete your assembly is. 
 
-**_Exercise 8_ - Cegma:**  
+BUSCO provides measures for quantitative assessment of genome assembly, gene set, and transcriptome completeness. Genes that make up the BUSCO sets for each major lineage are selected from orthologous groups with genes present as single-copy orthologs in at least 90% of the species. It includes 2,675 genes for arthropods, 3,023 for vertebrates, 843 for metazoans, 1,438 for fungi, 429 for eukaryotes and for bacteria 40 universal marker genes.
+
+***Note:*** In a real-world scenario, this step should come first and foremost. Indeed, if the result is under your expectation you might be required to enhance your assembly before to go further. As running Cegma is taking a while, we have chosen to do it at the end of this practical session. You should also open a new tab and launch BUSCO. The results should be available after the lunch.  
+
+**_Exercise 8_ - Cegma -:**  
+
 Here you will try Cegma on Chromosome 4 of Drosophila melanogaster.First, load cegma by typing 'module load cegma'. The problem is that the file ‘4.fa’ has fasta-headers that are only numbers, and Cegma won’t accept that. Can you figure out how to change the fasta header to ‘chr4’ rather than just ‘4’ using the linux command sed? Ask the teachers if you are having problems, or cheat by using the already parsed file 4_parsed.fa. :)
 
-_cegma -g 4.fa -T 8_
+*cegma -g /home/__login__/annotation\_course/course\_material/data/dmel/chromosome\_4/chromosome/4\_parsed.fa -T 8*
 
 When done, check the output.completeness_report. How many proteins are reported as complete? Does this sound reasonable?
 
+**_Exercise 9_ - BUSCO -:**
+
+You will run BUSCO on chromosome 4 of Drosophila melanogaster. We will select the lineage set of arthropoda.
+
+_module load bioinfo-tools_
+_module load BUSCO_
+
+*BUSCO -g /home/__login__/annotation\_course/course\_material/data/dmel/chromosome\_4/chromosome/4.fa -o 4\_dmel_busco -c 16 -l /sw/apps/bioinfo/BUSCO/1.1b1/lineage_sets/arthropoda*
+
+When done, check the short\_summary\_4\_dmel\_busco. How many proteins are reported as complete? Does this sound reasonable?
