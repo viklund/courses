@@ -59,26 +59,26 @@ When sequencing small RNAs we are working with very short RNA fragments, typical
 
 Look at any fastq file, e.g. using less:
 
-	less in.fastq
+	less <in.fastq>
 
 Just by looking the nucleotide sequence, can you guess what the adaptor is? (This is actually a useful exercise. Many datasets are poorly annotated, and no information is given about the adaptor sequence.  When analyzing such data the only option is to infer the adaptor from the sequence data.)
 
 There are many programs available for trimming adaptors. We will use a program called [cutadapt](https://cutadapt.readthedocs.org/en/stable/). You can run it with the following command:
 
-	cutadapt -a adaptor --trimmed-only in.fastq --minimum-length=17 > trimmed.fastq
+	cutadapt -a <adaptor> --trimmed-only <in.fastq> --minimum-length=17 > <trimmed.fastq>
 
 This trims the sequence given in adaptor from the reads in in.fastq and prints the results to a new file trimmed.fastq. It also applies the following filters: only reads where the adaptor was trimmed are printed to the output, and only reads that are at least 17 nucleotides after trimming are printed. For the data in this exercise, use the adaptor sequence CTGTAGGCACCATC.
 
 Run this program on each of the 6 fastq files. This takes a few minutes per file. Make sure you give the resulting files good names (e.g. kc167_TRIM.fastq) so you can keep track of all files.
 
-How many reads were removed because they didn't have the adaptor sequence or because they were to short?
+**How many reads were removed because they didn't have the adaptor sequence or because they were to short?**
 
 Mapping
 =======
 
 The next step is to align (map) the reads to the genome sequence around the microRNA loci. We will use the program [bowtie](http://bowtie-bio.sourceforge.net/index.shtml) to do this. We will map the reads against the entire *Drosophila* genome. To be able to map millions of reads very fast, bowtie uses an index of the sequence we map against. You find an index of the *Drosophila* genome at ``/sw/data/uppnex/igenomes/Drosophila_melanogaster/UCSC/dm3/Sequence/BowtieIndex/genome``. To map all reads we use the following command: ::
 
-	bowtie -q -v 0 -k 10 -S -t index.name small_rna.fastq out.sam
+	bowtie -q -v 0 -k 10 -S -t <index.name> <small_rna.fastq> <out.sam>
 
 Here, index.name is the bowtie index above, small_rna.fastq is the file with the small RNA data (after trimming!) and out.sam is the resulting file. This maps the reads with the following settings: input is a fastq file (-q), no mismatches are allowed (-v 0), max 10 hits are reported for each read (-k 10), output is a sam file (-S) and the time the mapping took is printed to the screen (-t).  Run this command once for every file with trimmed reads. It takes around one minute for each data set.
 
@@ -93,9 +93,9 @@ To load a file you first select the correct genome ("D. melanogaster r5.22") in 
 
 Type the name of a microRNA, e.g "mir-124", to go to that locus. You can see that the read mapping patterns are very distinct: (Almost) only the processed microRNAs end in the sequencing libraries, and you can see reads from both arms of the hairpin structure. 
 
-While many microRNAs occur alone in the genome, other are arranged in clusters. Type "let-7" to browse such a cluster. How many microRNAs do you see in this region?
+While many microRNAs occur alone in the genome, other are arranged in clusters. Type "let-7" to browse such a cluster. **How many microRNAs do you see in this region?**
 
-(To see something weird, go to "3R:18,118,436-18,118,767". Do you have any idea what this could be?)
+(To see something weird, go to "3R:18,118,436-18,118,767". **Do you have any idea what this could be?**)
 
 
 Quantification of microRNAs
@@ -103,13 +103,13 @@ Quantification of microRNAs
 
 We can now summarize the mapped reads to see which microRNAs are expressed in the different samples, and to do some global comparisons. For this, we use the sam files created by bowtie. If you have not seen a sam file before, have a look at one of the files, for example by running:
 
-	less out.sam
+	less <out.sam>
 
 Press space to scroll down into the file and q to exit the viewer. 
 
 We are only interested in the reads mapping to known microRNA loci in [mirBase](http://www.mirbase.org), which is the "official" data base of microRNAs in many different species. The file ``/proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/smallRNA/mirbase/dme_mirbase_FORMAT2016.gff3`` contains the locations of all microRNAs on the fly genome. Use ``less`` to have a look at this file. [featureCounts](http://bioinf.wehi.edu.au/featureCounts/) is a useful program for counting reads mapping to different genomic regions. Run it like this, for all sam file at once:
 
-	featureCounts -t miRNA -g Name -O -s 1 -M -a mirbasefile -o outfile samfiles 
+	featureCounts -t miRNA -g Name -O -s 1 -M -a <mirbasefile> -o <outfile> <samfiles> 
 
 Here we only look at loci that are "miRNA", and we use the "Name" attribute to name the loci. The -O flag tells the program that reads that map to several overlapping microRNAs should be assigned to all of them. The -s 1 flag tells the probram to only count reads that map to the same strand as the microRNA, and the -M flag makes sure we count multi mapping reads. The output will be a list with the number of reads mapping to each microRNA. ``featureCounts`` takes around a few minutes to run. When the program has finished, look at the results with ``less``. 
 
@@ -119,7 +119,7 @@ Once the reads mapping to each microRNA have been counted, we can analyze the mi
 
 You will see a different prompt, since you are now typing commands to R. You can always exit R with quit(). To combine the files you just created into an expression table, use the following commands:
 
-	count.file <- "path to the output of featureCounts"
+	count.file <- "<path to the output of featureCounts>"
 	count.data <- read.table(count.file, sep="\t", header=TRUE)
 	exp.data <- count.data[,-1*1:6]      ## remove first 6 columns
 	rownames(exp.data) <- count.data[,1] ## use names of microRNAs as rownames in the table
@@ -161,7 +161,7 @@ We can use principal component analysis (PCA) to get a global look of how simila
 	plot(mir.pca$x[,1], mir.pca$x[,2])  ## plot  PC1 and PC2
 	text(mir.pca$x[,1], mir.pca$x[,2], rownames(mir.pca$x), cex=0.7, pos=4, col="red")
 
-You should now see a plot on the screen. What can we learn from looking at the PCA plot?
+You should now see a plot on the screen. **What can we learn from looking at this PCA plot?**
 
 We can also look at the loadings, i.e. how much each microRNA contributes to each principal component. To see which microRNAs are highly expressed in samples with high PC1, type:
 
@@ -178,7 +178,7 @@ Another way to get a global overview of the data is to use clustering and plot h
 
 	heatmap(norm.data, scale="none", cexRow=0.2, cexCol=0.6)
 
-In the resulting plot each library is a column and each microRNA is a row. The color indicates the expression levels, with red being no reads and more yellow indicating higher expression. The dendrogram at the top shows how the libraries cluster together. What can you learn from looking at this plot? 
+In the resulting plot each library is a column and each microRNA is a row. The color indicates the expression levels, with red being no reads and more yellow indicating higher expression. The dendrogram at the top shows how the libraries cluster together. **What can you learn from looking at this plot?**
 
 (There are some problems displaying plots etc. on UPPMAX when running in interactive mode. If you have trouble viewing the PCA plots and heatmaps, try:
 
