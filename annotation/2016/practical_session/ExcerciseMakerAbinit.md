@@ -22,7 +22,7 @@ Create a new folder for this Maker run:
 Now link the raw computes you want to use into your folder:
 
  - repeatmasker.chr4.gff (coordinates of repeatmasked regions)  
- - cufflinks2maker.chr4.gff (EST hints created from assembled transcripts)
+ - cufflinks2genome.chr4.gff (EST hints created from assembled transcripts)
 
 In addition, you will also need the genome sequence and a protein set. Sym-link it from the the data directory created earlier:
 
@@ -48,6 +48,6 @@ We probably expect this to take a little bit longer than before, since we have a
 
 When Maker has finished, compile the output:
 
-<i>$SCRIPT\_PATH/maker\_merge\_outputs.pl --outdir maker\_abinitio</i>  
+<i>/home/lucile/annotation\_course/course\_material/git/GAAS/annotation/Tools/Maker/maker\_merge\_outputs\_from\_datastore.pl --output maker\_with\_abinitio</i>  
 
 And again, it is probably best to link the resulting output (maker.gff) to a result folder (the same as defined in the previous exercise e.g. dmel\_results), under a descriptive name.
