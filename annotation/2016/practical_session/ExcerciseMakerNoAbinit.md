@@ -59,7 +59,7 @@ This will take a little while and process a lot of output to the screen. Luckily
 
 Once Maker is finished, compile the annotation:
 
-*$SCRIPT\_PATH/maker\_merge\_outputs.pl --outdir maker\_no\_abinitio*
+*~/annotation\_course/course\_material/git/GAAS/annotation/Tools/Maker/maker\_merge\_outputs\_from\_datastore.pl --output maker\_no\_abinitio*
 
 We have specified a name for the output directory - unlike before - since we will be creating more than one annotation and need to be able to tell them apart.  
 
