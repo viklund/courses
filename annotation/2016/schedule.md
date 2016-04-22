@@ -13,10 +13,10 @@ Room: E10:1309
 **09.00-9.15** Introduction  
 **09.15-10.00** [Lecture: Understanding Annotation](files/Annotation_course_apr2015.pdf) (Henrik Lantz)  
 **10.00-10.20** Coffee break  
-**10.20-12.00** [Practical 1: Preparing evidence data for annotation](practical_session/ExcerciseEvidence) (Henrik Lantz, Jacques Dainat, Martin Norling, Mahesh Panchal)  
+**10.20-12.00** [Practical 1: Preparing evidence data for annotation](practical_session/ExcerciseEvidence) (Henrik Lantz, Jacques Dainat, Martin Norling, Mahesh Panchal, Lucile Soler)  
 **12.00-12.40** Lunch  
 **12.40-13.40** [Lecture: Structural annotation programs and pipelines](files/BILS_Annot_Methods_2015_pipelines.pdf) (Jacques Dainat)  
-**13.40-17.00** [Practical 2: Structural annotation of eukaryote genomes (incl. coffee break)](practical_session/ExerciseGeneBuilding) (Henrik Lantz, Jacques Dainat, Martin Norling, Mahesh Panchal)  
+**13.40-17.00** [Practical 2: Structural annotation of eukaryote genomes (incl. coffee break)](practical_session/ExerciseGeneBuilding) (Henrik Lantz, Jacques Dainat, Martin Norling, Mahesh Panchal, Lucile Soler)  
 
 **18.00** Course dinner at [Koh Phangan](http://www.kohphangan.se/#) restaurant
 
@@ -25,9 +25,9 @@ Room: E10:1309
 Room: E10:1309  
 **09.00-10.00** [Lecture: Functional annotation](files/Functional_annotation_Apr2015.pdf) (Henrik Lantz)  
 **10.00-10.20** Coffee break  
-**10.20-12.00** [Practical 3: Manual curation](practical_session/ExerciseManCuration) (Henrik Lantz, Jacques Dainat, Martin Norling, Mahesh Panchal)  
+**10.20-12.00** [Practical 3: Manual curation](practical_session/ExerciseManCuration) (Henrik Lantz, Jacques Dainat, Martin Norling, Mahesh Panchal, Lucile Soler)  
 **12.00-12.40** Lunch  
-**12.40-17.00** [Practical 4: Functional annotation and annotation analysis contd. (incl. coffee break)](practical_session/ExerciseFuncAnnotInterp) (Henrik Lantz, Jacques Dainat, Martin Norling, Mahesh Panchal)  
+**12.40-17.00** [Practical 4: Functional annotation and annotation analysis contd. (incl. coffee break)](practical_session/ExerciseFuncAnnotInterp) (Henrik Lantz, Jacques Dainat, Martin Norling, Mahesh Panchal, Lucile Soler)  
 
 
 <br/>
