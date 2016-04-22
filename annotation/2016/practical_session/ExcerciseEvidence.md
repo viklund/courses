@@ -58,9 +58,12 @@ This browser already has a number of tracks preloaded for you, but you can also 
 
 **_Exercise 5_ - Augustus:**
 
-First you need to install librabry you will need to perform the following analyses 
+First you need to write the librabries path you will need in .bash_profile to perform the following analyses. 
 
 *./home/__login__/annotation_course/course_material/lib/install_perllib_missing.sh*
+
+*source ~/.bash\_profile*
+
 
 First load the needed modules using:  
 _module load bioinfo-tools_  
