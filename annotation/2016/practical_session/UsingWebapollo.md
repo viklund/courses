@@ -5,7 +5,7 @@ title:  'Using webapollo'
 
 ### Using WebApollo to view annotations
 
-For this course, we have set up a WebApollo installation - as a reminder, the url is [http://bils-web.imbim.uu.se/drosophila\_melanogaster](http://bils-web.imbim.uu.se/drosophila_melanogaster) and the login information are your first and last name, the way you provided them during registration to the course.  
+For this course, we have set up a WebApollo installation - as a reminder, the url is [http://annotation-prod.scilifelab.se:8080/NBIS_gp1/](http://annotation-prod.scilifelab.se:8080/NBIS_gp1/) and the login information are your first and last name, the way you provided them during registration to the course.  
 
 When logged in to the page, select the chromosome you have been working on from the list - this will open another page that provides access to the actual genome viewer.
 
