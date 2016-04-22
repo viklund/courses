@@ -15,7 +15,7 @@ Evaluating an annotation can be done in two ways - in comparison with another an
 
 As with many tasks within bioinformatics, it is always a great idea to first look around for existing solutions. In the case of comparing annotations, there are in fact options already out there. One such example is genometools, which we have briefly used before.
 
-First you need to install the path of librabries in the bash\profile you will need to perform the following analyses.
+First you need to write the path of librabries,  you will need,  in the bash\_profile to perform the following analyses.
 
 *~/annotation\_course/course\_material/lib/install\_perllib\_missing.sh*
 
@@ -38,7 +38,7 @@ you need to unload Bioperl to be able to load GenomeTools
 *gt gff3 -sort maker\_no\_abinitio.gff &gt; maker\_no\_abinitio.sorted.gff* (repeat for the other files)
 ### Counting features
 
-Next, we get the feature counts for both annotations and the reference from EnsEMBL:
+Next, we get the feature counts for the three annotations and the reference from EnsEMBL:
 
 *gt stat maker\_no\_abinitio.gff* (or whatever you decided to name the file(s). The use of the sorted file or the original one changes nothing here)
 
