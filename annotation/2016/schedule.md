@@ -11,7 +11,7 @@ title:  'Schedule'
 
 Room: E10:1309  
 **09.00-9.15** Introduction  
-**09.15-10.00** [Lecture: Understanding Annotation](files/Annotation_course_apr2015.pdf) (Henrik Lantz)  
+**09.15-10.00** [Lecture: Understanding Annotation](files/Annotation_course_apr2016.ppt) (Henrik Lantz)  
 **10.00-10.20** Coffee break  
 **10.20-12.00** [Practical 1: Preparing evidence data for annotation](practical_session/ExcerciseEvidence) (Henrik Lantz, Jacques Dainat, Martin Norling, Mahesh Panchal, Lucile Soler)  
 **12.00-12.40** Lunch  
