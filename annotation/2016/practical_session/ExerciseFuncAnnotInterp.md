@@ -5,26 +5,26 @@ title:  'Exercise - Functional annotation'
 
 # Functional annotation
 
-Functional annotation is the process during which we try to put names to faces - what do the genes do that we have annotated and curated? Basically all existing approaches accomplish this by means of similarity. If a translation product has strong similarity to a protein that has previously been assigned a function, the rationale is that the function in this newly annotated transcript is probably the same. Of course, this thinking is a bit problematic (where do other functional annotations come from...?) and the method will break down the more distant a newly annotated genome is to existing reference data. A complementary strategy is to scan for more limited similarity - specifically to look for the motifs of functionally characterized protein domains. It doesn't directy tell you what the protein is doing exactly, but it can provide some first indication.
+Functional annotation is the process during which we try to put names to faces - what do genes that we have annotated and curated? Basically all existing approaches accomplish this by means of similarity. If a translation product has strong similarity to a protein that has previously been assigned a function, the rationale is that the function in this newly annotated transcript is probably the same. Of course, this thinking is a bit problematic (where do other functional annotations come from...?) and the method will break down the more distant a newly annotated genome is to existing reference data. A complementary strategy is to scan for more limited similarity - specifically to look for the motifs of functionally characterized protein domains. It doesn't directy tell you what the protein is doing exactly, but it can provide some first indication.
 
 In this exercise we will use an approach that combines the search for full-sequence simliarity by means of 'Blast' against large public databases with more targeted characterization of functional elements through the InterproScan pipeline. Interproscan is a meta-search engine that can compare protein queries against numerous databases. The output from Blast and Interproscan can then be used to add some information to our annotation.
 
 ##Prepare the input data
+
 Since we do not wish to spend too much time on this, we will again limit our analysis to chromosome 4. It is also probably best to choose the analysis with ab-initio predictions enabled (unless you found the other build to be more convincing). Maker produces a protein fasta file (called "annotations.proteins.fa") together with the annotation and this file should be located in your maker directory.
 
 create a new folder for this exercise:  
-*cd ~/*  
+*cd ~/annotation_course/*  
 *mkdir practical4*  
 *cd practical4*  
-*ln -s /proj/g2015008/course\_data*
 
 Now link the annotation folder you choose to work with. The command will looks like:
-*ln -s ../practical2/maker_with_abinitio/annotations/*  
+*ln -s ~/annotation\_course/practical2/maker\_dmel\_with\_abinitio/maker\_with\_abinitio/*  
 
 ## Interproscan approach
  Interproscan combines a number of searches for conserved motifs and curated data sets of protein clusters etc. This step may take fairly long time. It is recommended to paralellize it for huge amount of data by doing analysis of chunks of tens or hundreds proteins.
 
-### Perform [InterproScan](https://github.com/ebi-pf-team/interproscan/wiki/HowToRun) analysis
+### Perform [InterproScan](https://github.com/ebi-pf-team/interproscan/wiki) analysis
 InterproScan can be run through a website or from the command line on a linux server. Here we are interested in the command line approach.
 <u>Interproscan allows to look up pathways, families, domains, sites, repeats, structural domains and other sequence features.</u>  
 
@@ -36,19 +36,21 @@ Launch Interproscan without any option if you want have a look about all the par
 - The option '-pa' provides mappings from matches to pathway information (MetaCyc,UniPathway,KEGG,Reactome).
 
 *module load InterProScan/5.10-50.0*  
-*interproscan.sh --input annotations/annotations.proteins.fa --seqtype p -dp -pa -appl PfamA-27.0,ProDom-2006.1,SuperFamily-1.75,PIRSF-3.01 -goterms -iprlookup*
+*interproscan.sh -i maker\_with\_abinitio/annotations.proteins.fa -t p -dp -pa -appl PfamA-27.0,ProDom-2006.1,SuperFamily-1.75,PIRSF-3.01 --goterms --iprlookup*
 
-The analysis shoud take 2-3 secs per protein request - depending on how many sequences you have submitted, you can make a fairly educted guess regarding the running time.  
-You will obtain 3 result files with the following extension '.gff3', '.tsv' and '.xml'. Explanation of these output are availabke [>>here<<](https://code.google.com/p/interproscan/wiki/OutputFormats).
+The analysis shoud take 2-3 secs per protein request - depending on how many sequences you have submitted, you can make a fairly deducted guess regarding the running time.  
+You will obtain 3 result files with the following extension '.gff3', '.tsv' and '.xml'. Explanation of these output are availabke [>>here<<](https://github.com/ebi-pf-team/interproscan/wiki/OutputFormats).
 
 
 ### load the retrieved functional information in your annotation file:
-Next, you could write scripts of your own to merge interproscan output into your annotation. Incidentially, Maker comes with utility scripts that can take InterProscan output and add it to a Maker annotation file.  
+Next, you could write scripts of your own to merge interproscan output into your annotation. Incidentially, Maker comes with utility scripts that can take InterProscan output and add it to a Maker annotation file (you need to load maker).  
 
 - ipr\_update\_gff: adds searchable tags to the gene and mRNA features in the GFF3 files.  
-- iprscan2gff3: adds physical viewable features for daomains that can be displayed in JBrowse, Gbrowse, and Web Apollo.
+- iprscan2gff3: adds physical viewable features for domains that can be displayed in JBrowse, Gbrowse, and Web Apollo.
 
-If you now copy the .tsv file into the same folder where the corresponding Maker gene annotation lives:
+now create a link with the maker.gff
+
+*ln -s ln -s maker\_with\_abinitio/annotationByType/maker.gff*
 
 *$SCRIPT\_PATH/ipr\_update\_gff maker.gff interproscan.tsv &gt; maker.with\_interpro.gff*
 
