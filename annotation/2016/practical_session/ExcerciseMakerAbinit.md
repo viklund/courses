@@ -28,12 +28,14 @@ In addition, you will also need the genome sequence and a protein set. Sym-link 
 
 *ln -s /path/to/chromosome\_4/chromosome/4.fa*
 
-This time, we do specify a reference species to be used by augustus, which will enable ab-initio gene finding:
+This time, we do specify a reference species to be used by augustus, which will enable ab-initio gene finding and keep_preds=1 will also show abinitio prediction not supported by any evidences :
 
 *augustus\_species=fly* #Augustus gene prediction species model  
 ...  
 <i>protein2genome=0</i>  
 <i>est2genome=0</i>
+
+*keep_preds=1 *
 
 With these settings, Maker will run augustus to predict gene loci, but inform these predictions with information from the protein and est alignments. Note that if you are tempted to run both ab-initio predictions and gene model calling from evidence, you are out of luck. While Maker won't complain when trying to do this, it will simply not create hints for the ab-initio predictions. And in most cases, this will result in problems.
 ## Run Maker with ab-initio predictions
