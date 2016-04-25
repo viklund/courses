@@ -24,7 +24,7 @@ Now link the annotation folder you choose to work with. The command will looks l
 ## Interproscan approach
  Interproscan combines a number of searches for conserved motifs and curated data sets of protein clusters etc. This step may take fairly long time. It is recommended to paralellize it for huge amount of data by doing analysis of chunks of tens or hundreds proteins.
 
-### Perform [InterproScan](https://code.google.com/p/interproscan/wiki/DevDocIntroduction) analysis
+### Perform [InterproScan](https://github.com/SciLifeLab/courses) analysis
 InterproScan can be run through a website or from the command line on a linux server. Here we are interested in the command line approach.
 <u>Interproscan allows to look up pathways, families, domains, sites, repeats, structural domains and other sequence features.</u>  
 
