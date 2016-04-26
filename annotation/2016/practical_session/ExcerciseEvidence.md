@@ -78,7 +78,7 @@ The gff-format of Augustus is non-standard (looks like gtf) so to view it in a g
 
 Do this to convert your Augustus-file:
 
-*module load Bioperl*
+*module load BioPerl*
 
 *~/annotation\_course/course\_material/git/GAAS/annotation/Tools/Converter/gtf2gff3_universal.pl -gtf augustus_drosophila.gtf -o augustus_drosophila.gff3*
 
