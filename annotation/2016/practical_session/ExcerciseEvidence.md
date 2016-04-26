@@ -52,7 +52,7 @@ When you are done, you should have a folder called course\_material in your *ann
 NOTE! We do not supply full paths in all of the exercises below. You will need to find the files yourself, which will be easy since you are an expert Linux-hacker. :)
 
 Also, we have made a genome browser called Webapollo available for you on the address [http://annotation-prod.scilifelab.se:8080/NBIS_gp1/](http://annotation-prod.scilifelab.se:8080/NBIS_gp1/)  called drosophila\_melanogaster\_course.
-This browser already has a number of tracks preloaded for you, but you can also load data you have generated yourself using the ‘file” menu and then ‘open’ and ‘local files’. First time you go there you need to log in using the email adress provided to register the course and your last name as password (lower case and if more than one last name separated by _ eg: lastname1_lastname2).
+This browser can already has a number of tracks preloaded for you, but you can also load data you have generated yourself using the ‘file” menu and then ‘open’ and ‘local files’. First time you go there you need to log in using the email adress provided to register the course and your last name as password (lower case and if more than one last name separated by _ eg: lastname1_lastname2).
 
 <u>**Ab initio gene finders:**</u> These methods have been around for a very long time, and there are many different programs to try. We will in this exercise focus on the gene finder Augustus. These gene finders use likelihoods to find the most likely genes in the genome. They are aware of start and stop codons and splice sites, and will only try to predict genes that follow these rules. The most important factor here is that the gene finder needs to be trained on the organism you are running the program on, otherwise the probabilities for introns, exons, etc. will not be correct. Luckily, these training files are available for Drosophila.
 
@@ -80,7 +80,7 @@ Do this to convert your Augustus-file:
 
 *module load Bioperl*
 
-*/home/__login__/annotation\_course/course\_material/git/GAAS/annotation/Tools/Converter/gtf2gff3_universal.pl -gtf augustus_drosophila.gtf -o augustus_drosophila.gff3*
+*~/annotation\_course/course\_material/git/GAAS/annotation/Tools/Converter/gtf2gff3_universal.pl -gtf augustus_drosophila.gtf -o augustus_drosophila.gff3*
 
 Transfer the augustus\_drosophila.gff3 to your computer using scp:    
 *scp __login__@milou.uppmax.uu.se:/home/__login__/annotation\_course/practical1/augustus\_drosophila.gff3 .*  
