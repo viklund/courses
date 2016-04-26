@@ -55,8 +55,6 @@ course\_material/data/dmel
 
   - evidence/
 
-  - maker/
-
   - raw_computes/
   
   - annotation/
