@@ -85,7 +85,7 @@ Do this to convert your Augustus-file:
 Transfer the augustus\_drosophila.gff3 to your computer using scp:    
 *scp __login__@milou.uppmax.uu.se:/home/__login__/annotation\_course/practical1/augustus\_drosophila.gff3 .*  
 
-Load the file in [Webapollo](http://bils-web.imbim.uu.se/drosophila_melanogaster), also display the track ‘EnsEMBLprotein’ by selecting it from the table on the left. [Here find the WebApollo instruction](UsingWebapollo)   
+Load the file in [Webapollo](http://bils-web.imbim.uu.se/drosophila_melanogaster). [Here find the WebApollo instruction](UsingWebapollo) Load the Ensembl annotation available in  ~/annotation\_course/course\_material/dmel/chromosome\_4/annotation
 How does the Augustus annotation compare with the Ensembl annotation? Are they identical?
 
 **_Exercise 6 -_ Augustus with yeast models:**  
