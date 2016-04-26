@@ -72,7 +72,7 @@ _module load augustus_
 Run Augustus on your genome file using:  
 *augustus --species=fly /home/__login__/annotation\_course/course\_material/data/dmel/chromosome\_4/chromosome/4.fa > augustus\_drosophila.gtf*
 
-Take a look at the result file using ‘less augustus\_drosophila.gff’. What kinds of features have been annotated? Does it tell you anything about UTRs?
+Take a look at the result file using ‘less augustus\_drosophila.gtf’. What kinds of features have been annotated? Does it tell you anything about UTRs?
 
 The gff-format of Augustus is non-standard (looks like gtf) so to view it in a genome browser you need to convert it. You can do this using genometools which is available on Uppmax.
 
