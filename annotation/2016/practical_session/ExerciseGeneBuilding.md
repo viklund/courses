@@ -63,7 +63,7 @@ course\_material/data/dmel
   
   - cegma/
 
-- full_genome
+- full_genome/
 
 
 course\_material/data/blastdb/
