@@ -132,6 +132,6 @@ You will run BUSCO on chromosome 4 of Drosophila melanogaster. We will select th
 _module load bioinfo-tools_
 _module load BUSCO_
 
-*BUSCO -g /home/__login__/annotation\_course/course\_material/data/dmel/chromosome\_4/chromosome/4.fa -o 4\_dmel_busco -c 16 -l /sw/apps/bioinfo/BUSCO/1.1b1/lineage_sets/arthropoda*
+*BUSCO -g /home/__login__/annotation\_course/course\_material/data/dmel/chromosome\_4/chromosome/4.fa -o 4\_dmel_busco -c 8 -l /sw/apps/bioinfo/BUSCO/1.1b1/lineage_sets/arthropoda*
 
 When done, check the short\_summary\_4\_dmel\_busco. How many proteins are reported as complete? Does this sound reasonable?
