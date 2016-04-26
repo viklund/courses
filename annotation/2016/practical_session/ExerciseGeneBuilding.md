@@ -55,17 +55,16 @@ course\_material/data/dmel
 
   - evidence/
 
-  - maker
+  - maker/
 
-  - raw_computes
+  - raw_computes/
+  
+  - annotation/
+  
+  - cegma/
 
 - full_genome
 
-  - evidence/
-
-  - genome/
-
-  - raw/
 
 course\_material/data/blastdb/
 
