@@ -60,7 +60,7 @@ This browser can already has a number of tracks preloaded for you, but you can a
 
 First you need to write the librabries path you will need in .bash_profile to perform the following analyses. 
 
-*./home/__login__/annotation_course/course_material/lib/install_perllib_missing.sh*
+*/home/__login__/annotation_course/course_material/lib/install_perllib_missing.sh*
 
 *source ~/.bash\_profile*
 
