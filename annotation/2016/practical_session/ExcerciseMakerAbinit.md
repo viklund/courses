@@ -50,6 +50,6 @@ We probably expect this to take a little bit longer than before, since we have a
 
 When Maker has finished, compile the output:
 
-<i>/home/lucile/annotation\_course/course\_material/git/GAAS/annotation/Tools/Maker/maker\_merge\_outputs\_from\_datastore.pl --output maker\_with\_abinitio</i>  
+<i>~/annotation\_course/course\_material/git/GAAS/annotation/Tools/Maker/maker\_merge\_outputs\_from\_datastore.pl --output maker\_with\_abinitio</i>  
 
 And again, it is probably best to link the resulting output (maker.gff) to a result folder (the same as defined in the previous exercise e.g. dmel\_results), under a descriptive name.
