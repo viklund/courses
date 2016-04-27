@@ -36,7 +36,7 @@ Launch Interproscan without any option if you want have a look about all the par
 - The option '-pa' provides mappings from matches to pathway information (MetaCyc,UniPathway,KEGG,Reactome).
 
 *module load InterProScan/5.10-50.0*  
-*interproscan.sh -i maker\_with\_abinitio/annotations.proteins.fa -t p -dp -pa -appl PfamA-27.0,ProDom-2006.1,SuperFamily-1.75,PIRSF-3.01 --goterms --iprlookup*
+*interproscan.sh -i maker\_with\_abinitio/annotations.proteins.fa -t p -dp -pa -appl PfamA-27.0,ProDom-2006.1,SuperFamily-1.75,PIRSF-3.01 -\-goterms -\-iprlookup*
 
 The analysis shoud take 2-3 secs per protein request - depending on how many sequences you have submitted, you can make a fairly deducted guess regarding the running time.  
 You will obtain 3 result files with the following extension '.gff3', '.tsv' and '.xml'. Explanation of these output are availabke [>>here<<](https://github.com/ebi-pf-team/interproscan/wiki/OutputFormats).
