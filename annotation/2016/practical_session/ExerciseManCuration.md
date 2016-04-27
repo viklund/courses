@@ -43,17 +43,17 @@ A genomic region of the chrosmosome is assigned to each of you. Your aim is to m
 NOTES: Isoforms are allowed. Start each gene annotation by dragging-and-dropping the gene model that you think be the best. 
 
 Alejandro     	50 000 - 151 500
-Andrea	        151 500	- 253 000
-Andreas	        253 000	- 354 500
-Fabien	        354 500 - 456 000
-Helen	          456 000	- 557 500
-Hugo	          557 500	- 659 000
-Jörg	          659 000	- 760 500
-Nikolay	        760 500	- 862 000
-Patricia	      862 000	- 963 500
-Sandra	        963 500	- 1 065 000
-Sofia	          1 065 000	- 1 166 500
-Sofie	          1 166 500	- 1 268 000 
+<br/>Andrea	        151 500	- 253 000
+<br/>Andreas	        253 000	- 354 500
+<br/>Fabien	        354 500 - 456 000
+<br/>Helen	          456 000	- 557 500
+<br/>Hugo	          557 500	- 659 000
+<br/>Jörg	          659 000	- 760 500
+<br/>Nikolay	        760 500	- 862 000
+<br/>Patricia	      862 000	- 963 500
+<br/>Sandra	        963 500	- 1 065 000
+<br/>Sofia	          1 065 000	- 1 166 500
+<br/>Sofie	          1 166 500	- 1 268 000 
 
 
 The work you performed was only on small genome portion (1,3 Mbp). That gives you a flavour of the time cost to do a manual curation on a small genome, and an idea of the amount of work needed to manually curate a big genome (>1 Gbp).
