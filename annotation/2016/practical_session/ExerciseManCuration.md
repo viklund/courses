@@ -33,10 +33,10 @@ For this exercise, we have set up a specific [Webapollo](http://annotation-prod.
 The tracks available are:  
 
 - Augustus : a pure ab initio annotation using Augustus.
-- maker\_Cuff\_Prot\_Abinit : A maker annotation using Ab initio and Evidence-based approach.  
-- uniprot_swissprot : track of reviewed proteins aligned by Maker (Swissprot 01/2015). 
-- dmel_larva3.chr4 : RNAseq data (bam file) aligned to the genome by tophat.  
-- cufflinks_larva4 : A cufflinks transcript assembly aligned by maker during the annotation process  
+- Maker\_with\_abinitio : A maker annotation using Ab initio and Evidence-based approach.  
+- Proteins : track of reviewed proteins aligned by Maker (Swissprot 01/2015). 
+- eye_RNAseq : RNAseq data (bam file) aligned to the genome by tophat.  
+- Cufflinks : A cufflinks transcript assembly aligned by maker during the annotation process  
 
 A genomic region of the chrosmosome is assigned to each of you. Your aim is to manualy annotate your assigned part using all the information available in the different tracks. Genomic region has been assigned without any biological consideratio. So, if genes straddle two regions don't stop you at the end of yours :).  
 
