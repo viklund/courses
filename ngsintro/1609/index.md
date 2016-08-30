@@ -1,21 +1,21 @@
 ---
 layout: default
-title:  'Introduction to Bioinformatics Using NGS Data - April 2016'
+title:  'Introduction to Bioinformatics Using NGS Data - September 2016'
 ---
 
 
 # Introduction to Bioinformatics Using NGS Data
 
-Held in Linköping April 18-22, 2016.
+Held in Uppsala September 19-23, 2016.
 
 ## Important Links
 [Pre-course material](precourse)   
 [Schedule](schedule)  
 
 ## Maps & Travel Info
-[Map over Linköping](http://www.visitlinkoping.se/sites/visitlinkoping/files/public/linkoping_bk_14_low.pdf)  
-[Map over Campus Valla](https://liu.se/om-liu/till-liu/kartor/campus-valla/1.666177/LiU-Valla-151009.pdf)  
-[Travel Info](http://www.visitlinkoping.se/en/travel/travel-linkoping)  
+[Map over Uppsala](https://www.google.se/maps/@59.8557755,17.6369985,13.5z)  
+[Map over Uppsala Biomedical Centre (BMC)](../common/images/bmc_map.jpg)  
+[Travel Info](travel)   
 
 ## Helpful Things
 [Linux cheat sheet](../common/images/linux-cheat-sheet.pdf)  
