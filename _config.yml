@@ -12,6 +12,7 @@ google_analytics: 'UA-23985298-11'
 markdown: kramdown
 
 # pygments: true
+highlighter: rouge
 
 sass:
   sass_dir: css
