@@ -215,11 +215,13 @@ Try viewing the index file with `less` and see how it looks.
 The samtools type of index contains one row per fasta record in the reference file.
 In this case there is only one record for the adenovirus genome, and it's called `ad2` in the fasta file.
 The human reference genome typically have one record per chromosome, so a index of the human genome would then have 24 rows.
+
 The numbers after the record name specifies how many bases the record has, how far into the file (in bytes) the record starts, the number of bases on each line in the record, and how many bytes each line takes up in the file.
 Using this information the program can quickly jump to the start location of each record, without having to read the file from the first row every time.
 
 Other aligners might use more complex indexing of the file to speed up the alignment process even further, e.g. creating an index over where it can find all possible "words" that you can form with 5 or so bases, making it easier to find possible matching sites for reads.
 If the read starts with `ATGTT` you can quickly look in the index and see all places in the geonome that contains this word and start looking if the rest of the read matches the area around the word.
+
 This greatly decreases the number of places you have to look when looking for a match.
 These types of indexes usually take a long time to create (5+ hours maybe), but since you only have to do it once per reference genome it's easily worth it, seeing how the alignment process probably would take 100s of hours without the index, instead of 6-12 hours.
 
@@ -277,9 +279,11 @@ $ ll 2_bam
 
 The created BAM file is an exact copy of the SAM file, but stored in a much more efficient format.
 Aligners usually have an option to output BAM format directly, saving you the trouble to convert it yourself, but not all tools can do this (they really should though).
+
 Have a look at the difference in file size, though in this example it's quite an extreme difference (2.9 MB vs 0.3 MB).
 The quality score of all reads is the same (BBBBBBBBB..), and files with less differences are easier to compress.
 Usually the BAM file is about 25% of the size of the SAM file.
+
 Since the BAM format is a binary format we can't look at it with less.
 We would have to use a tool, like **samtools** which you will probably see later in the week, to first convert the file back to a SAM file before we can read it.
 In that case we can just look at the SAM file before converting it since they will be the same.
@@ -372,13 +376,18 @@ Press **"File - Load from File..."** again and select you annotation file in **0
 This will show you the reference genome, how all the reads are aligned to it, and all the annotation data.
 Try zooming in on an area and have a look at the reads and annotations.
 The figures you see in the picture are all derived from the data in the files you have given it.
+
 At the top of the window you have the overview of the current chromosome you are looking at, which tells you the scale you are zoomed at for the moment.
 When you zoom in you will see a red rectangle apper which shows you which portion of the chromosome you are looking at.
+
 Just below the scale you'll see the coverage graph, which tells you how many reads cover each position along the reference genome.
 The colored bands you see here and there are SNPs, i.e. positions where the reads of your sample does not match the reference genome.
+
 All the reads, the larger area in the middle of the window, are drawn from the data in the BAM file using the chromosome name, the starting position and the ending position of each read.
 When you zoom in more you will be able to see individual reads and how they are aligned.
+
 The annotation in GTF format are all plotted using the data in the GTF file, visible just under all the reads, are shown as blue rectangles.
+
 The reference genome, a fasta file containing the DNA sequence of the reference genome, is visible at the bottom of the window if you zoom to the smallest level so you can see the bases of the genome.
 
 ## 5. Create a CRAM file
