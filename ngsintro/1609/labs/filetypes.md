@@ -239,9 +239,10 @@ Do that using **align_reads**, and give the arguments
 
 ```bash
 Syntax: align_reads -r <reference genome> -i <fastq file with reads> -o <name of the output file>
-
-$ align_reads -r 0_ref/ad2.fa -i 0_seq/ad2.fq -o 1_alignment/ad2.sam
 ```
+Answer below in white text:
+<font color="white">$ align_reads -r 0_ref/ad2.fa -i 0_seq/ad2.fq -o 1_alignment/ad2.sam
+</font>
 
 This will create a SAM file in **1_alignment** called **ad2.sam**.
 Have a look at it with less.
@@ -261,9 +262,9 @@ To do that we will use the dummy program **sambam_tools**, telling it we want to
 
 ```bash
 Syntax: sambam_tool -f bam -i <sam file> -o <bam>
-
-$ sambam_tool -f bam -i 1_alignment/ad2.sam -o 2_bam/ad2.bam
 ```
+Answer below in white text:
+<font color="white">$ sambam_tool -f bam -i 1_alignment/ad2.sam -o 2_bam/ad2.bam</font>
 
 Have a look in the **2_bam** folder.
 
@@ -289,9 +290,9 @@ To sort the BAM file we'll use the **sambam_tool** again, but specifying a diffe
 
 ```bash
 Syntax: sambam_tool -f sort -i <unsorted bam file> -o <sorted bam file>
-
-$ sambam_tool -f sort -i 2_bam/ad2.bam -o 3_sorted/ad2.sorted.bam
 ```
+Answer below in white text:
+<font color="white">$ sambam_tool -f sort -i 2_bam/ad2.bam -o 3_sorted/ad2.sorted.bam</font>
 
 This will sort the ad2.bam file and create a new BAM file which is sorted, called **ad2.sorted.bam**.
 
@@ -300,9 +301,9 @@ Use the command
 
 ```bash
 Syntax: sambam_tool -f index -i <sorted bam file>
-
-$ sambam_tool -f index -i 3_sorted/ad2.sorted.bam
 ```
+Answer below in white text:
+<font color="white">$ sambam_tool -f index -i 3_sorted/ad2.sorted.bam</font>
 
 This will create an index named **ad2.sorted.bam.bai** in the same folder as the ad2.sorted.bam file is located.
 It's nicer to have the .bam and .bai named to the same "prefix", so rename the .bai file to not have the .bam in its name.
@@ -378,9 +379,9 @@ Tell samtools that you want CRAM output (**-C**) and specify which reference gen
 
 ```bash
 Syntax: samtools view -C -T <reference genome> -o <name of cram file> <bam file to convert>
-
-$ samtools view -C -T 0_ref/ad2.fa -o 4_cram/ad2.cram 3_sorted/ad2.sorted.bam
 ```
+Answer below in white text:
+<font color="white">$ samtools view -C -T 0_ref/ad2.fa -o 4_cram/ad2.cram 3_sorted/ad2.sorted.bam</font>
 
 Compare the sizes of the convered BAM file and the newly created CRAM file:
 
