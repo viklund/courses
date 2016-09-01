@@ -38,8 +38,6 @@ Now your screen should look something like this:
 
 ## 2. Getting a node of your own
 
-()
-
 Usually you would do most of the work in this lab directly on one of the login nodes at uppmax, but we have arranged for you to have one core each to avoid disturbances.
 This was covered briefly in the lecture notes.
 
@@ -173,7 +171,7 @@ You don't use dollar signs when  **assigning**  values to variables, and you alw
 If you have 2 terminals open, only the terminal you typed it in will have a modified path.
 If you close that terminal and open a new one, it will not have the modified path.
 
-### 1. Building an index
+#### 1. Building an index
 
 1. **Build an index for the reference genome.**
 1. Align the reads.
@@ -214,7 +212,7 @@ $ ll 0_ref
 The new file you see is the index file created by reference_indexer.
 We are now ready to align our reads.
 
-### 2. Align the reads
+#### 2. Align the reads
 
 1. Build an index for the reference genome.
 1. **Align the reads.**
@@ -235,7 +233,7 @@ $ align_reads -r 0_ref/ad2.fa -i 0_seq/ad2.fq -o 1_alignment/ad2.sam
 This will create a SAM file in **1_alignment** called **ad2.sam**.
 Have a look at it with less.
 
-###3. Convert to BAM
+#### 3. Convert to BAM
 
 1. Build an index for the reference genome.
 1. Align the reads.
@@ -262,7 +260,7 @@ $ ll 2_bam
 
 The created BAM file is an exact copy of the SAM file, but stored in a much more efficient format.
 
-### 4. Sort and index the BAM file
+#### 4. Sort and index the BAM file
 
 1. Build an index for the reference genome.
 1. Align the reads.
@@ -300,7 +298,7 @@ It's nicer to have the .bam and .bai named to the same "prefix", so rename the .
 $ mv 3_sorted/ad2.sorted.bam.bai 3_sorted/ad2.sorted.bai
 ```
 
-### 5. View the data with a genome viewer
+#### 5. View the data with a genome viewer
 
 1. Build an index for the reference genome.
 1. Align the reads.
