@@ -73,7 +73,7 @@ $ ssh -Y q34
 ## 3. Copying files needed for laboratory
 To be able to do parts of this lab, you will need some files.
 To avoid all the course participants editing the same file all at once, undoing each other's edits, each participant will get their own copy of the needed files.
-The files are located in the folder `/sw/courses/ngsintro/uppmax_pipeline_exercise`
+The files are located in the folder `/sw/courses/ngsintro/uppmax_pipeline_exercise/data`
 
 Next, copy the lab files from this folder.
 -r means recursively, which means all the files including sub-folders of the source folder.
@@ -86,7 +86,7 @@ Ex.
 ```bash
 $ cp -r <source> <destination>
 
-$ cp -r /sw/courses/ngsintro/uppmax_pipeline_exercise ~/glob/ngs-intro/
+$ cp -r /sw/courses/ngsintro/uppmax_pipeline_exercise/data ~/glob/ngs-intro/uppmax_pipeline_exercise
 ```
 
 Have a look in `~/glob/ngs-intro/uppmax_pipeline_exercise`:
@@ -122,7 +122,7 @@ $ nano
 ```
 
 how does the computer know which program to start? You gave it the name 'nano', but that could refer to any file named nano in the computer, yet it starts the correct one every time.
-The answer is that it looks in the directories stored in the $PATH variable. 
+The answer is that it looks in the directories stored in the $PATH variable.
 
 To see which directories that are available by default, type
 
@@ -214,14 +214,14 @@ $ cd ~/glob/ngs-intro/uppmax_pipeline_exercise/exomeSeq
 In there you will find a folder called `raw_data`, containing a fastq file: `my_reads.rawdata.fastq` .
 This file contains the raw data that you will analyse.
 
-* Filter the raw data using the program filter_reads, to get rid of low quality reads.
-* Align the filtered reads with the program align_reads, to the human reference genome located here:
+* Filter the raw data using the program `filter_reads`, to get rid of low quality reads.
+* Align the filtered reads with the program `align_reads`, to the human reference genome located here:
 
 ```bash
 /sw/data/uppnex/reference/Homo_sapiens/hg19/concat_rm/Homo_sapiens.GRCh37.57.dna_rm.concat.fa
 ```  
 
-* Find SNPs in your aligned data with the program find_snps.
+* Find SNPs in your aligned data with the program `find_snps`.
 To find SNPs we have to have a reference to compare our data with.
 The same reference genome as you aligned to is the one to use.
 
@@ -251,7 +251,7 @@ $ cd ~/glob/ngs-intro/uppmax_pipeline_exercise/exomeSeq
 $ nano exome_analysis_script.sh
 ```
 
-The .sh ending is commonly used for shell scripts (shell..) which is what we are creating.
+The .sh ending is commonly used for **sh**ell scripts which is what we are creating. The default shell at UPPMAX is as we know called bash, so whenever we write `sh` the computer will use bash. If the default shell at UPPMAX would change for some reason, mayby to zsh or any other type of shell, `sh` would point the the new shell instead.
 
 ![](files/uppmax-pipeline/dualTerminals.png)
 
@@ -290,21 +290,24 @@ The options needed by the queue are, as we learned yesterday:
 
 SLURM is also a bit strict when it comes formalities.
 It requires that you specify which program should be used to run the submitted script file.
-The standard program for this is sh, but we have to specify it on the first line of the script non the less.
-This is done by having the first like in the script looking link this:
+The standard program for this is bash, but we have to specify it on the first line of the script non the less.
+This is done by having the first line in the script looking link this:
 
 ```bash
-#!/bin/sh
+#!/bin/bash -l
 ```
 
 This is how Linux knows which program should open a file, since it does not care about the file ending like Windows commonly does (.ppt, .pdf, .html might be familiar file endings).
 The #! indicates that the next words will be the path to the program that should open the file.
 It could be #!/bin/bash, or #!/bin/python, or any other path to a executable program.
+(The -l after bash is a flag that tells bash that the script should be treated as a login shell, so everything behaves as when you are logged in.
+Without it commands like `module` and some other would not work.
+If it's not a login shell, it's running as a script, and then it does not need to bother making the interface human friendly so it will skip things to make it start faster and consume less resources.)
 
-In SLURM words, this would be
+The next couple of rows will contain all the options you want to give SLURM:
 
 ```bash
-#!/bin/sh
+#!/bin/bash -l
 #SBATCH -A g2016008
 #SBATCH -t 00:05:00
 #SBATCH -p core
@@ -335,8 +338,8 @@ Typical RNAseq analysis consists of multiple samples / time points:
 * Do a differential expression analysis by comparing multiple samples.
 
 The difficulty here is that you have not just 1 sample, you have 3 of them.
-And they all needs to be filtered and aligned, and then compared to each other.
-The program that does the differential expression analysis in this exercise is called diff_exp and is located in the same directory as the previous scripts.
+And they all need to be filtered and aligned separately, and then compared to each other.
+The program that does the differential expression analysis in this exercise is called `diff_exp` and is located in the same directory as the previous scripts.
 
 **Hints:**
 The samples are filtered and aligned individually.

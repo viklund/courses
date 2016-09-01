@@ -64,7 +64,7 @@ When it reaches the time limit you requested (3 hours in this case) the session 
 Connect to this node from within uppmax.
 
 ```bash
-$ ssh -Y q34 
+$ ssh -Y q34
 ```
 
 **Note:** there is a uppmax specific tool called jobinfo that supplies the same kind of information as squeue that you can use as well (```$ jobinfo -u username```).
@@ -89,14 +89,14 @@ $ cp -r <source> <destination>
 $ cp -r /sw/courses/ngsintro/filetypes ~/glob/ngs-intro/
 ```
 
-Have a look in **~/glob/ngs-intro/uppmax_tutorial:**
+Have a look in **~/glob/ngs-intro/filetypes:**
 
 ```bash
 $ cd ~/glob/ngs-intro/filetypes
 $ tree
 ```
 
-This will print a file tree, which gives you a nice overview of the folders where you are standing.
+This will print a file tree, which gives you a nice overview of the folders where you are standing in.
 As you can see, you have a couple of files and a couple of empty folders.
 In the **0_ref** folder you have a reference genome in fasta format and annotations for the genome in GTF format.
 In **0_seq** you have a fastq file containing the reads we will align.
@@ -104,7 +104,8 @@ In **0_seq** you have a fastq file containing the reads we will align.
 ## 4. Running a mini pipeline
 
 The best way to see all the different file formats is to run a small pipeline and see which files we encounter along the way.
-The pipeline is roughly the same steps you'll do in the resequencing part of the course, so the focus now is not to learn how the programs work.
+The pipeline is roughly the same steps you'll do in the resequencing part of the course, so for now we'll stick with the dummy pipeline which some of you might have encoutered in the extra material for the UPPMAX exercise.
+The programs in the dummy pipeline does not actually do any analysis but they work the same way as the real deal, although slightly simplified, to get you familiar with how to work with analysis programs.
 The data is from a sequencing of the adenovirus genome, which is tiny compared to the human genome (36kb vs 3gb).
 
 The starting point of the pipeline is reads fresh from the sequencing machine in fastq format, and a reference genome in fasta format.
@@ -113,7 +114,7 @@ The goal of the exercise is to look at our aligned reads in a genome viewer toge
 First, let's go through the steps of the pipeline:
 
 1. **Build an index for the reference genome.**
-   * This will speed up the alignment process. Not possible to do without it.
+   * This will speed up the alignment process. Not possible to do the analysis without it.
 1. **Align the reads.**
    * Yepp.
 1. **Convert the SAM file to a BAM file.**
@@ -124,12 +125,54 @@ First, let's go through the steps of the pipeline:
    * We have to index it to make it fast to access the data in the file.
 1. **View the aligned data together with the annotations.**
 
-Before we do any steps, we have to load the modules for the programs we will be running.
+The first thing you usually do is to load the modules for the programs you want to run.
+During this exercise we'll only run my dummy scripts that don't actually do any analysis, so they don't have a module of their own.
+What we can do instead is to manually do what module loading usually does: to modify the **$PATH variable**.
+
+The $PATH variable specifies directories where the computer should look for programs.
+For instance, when you type
 
 ```bash
-$ module load bioinfo-tools bwa/0.7.8 samtools/1.1 IGV/2.3.17
+$ nano
 ```
- 
+
+how does the computer know which program to start? You gave it the name 'nano', but that could refer to any file named nano in the computer, yet it starts the correct one every time.
+The answer is that it looks in the directories stored in the $PATH variable.
+
+To see which directories that are available by default, type
+
+```bash
+$ echo $PATH
+```
+
+It should give you something like this, a list of directories, separated by colon signs:
+
+![](files/uppmax-pipeline/echoPath.png)
+
+Try loading a module, and then look at the $PATH variable again.
+You'll see that there are a few extra directories there now, after the module has been loaded.
+
+```bash
+$ module load bioinfo-tools samtools
+$ echo $PATH
+```
+
+![](files/uppmax-pipeline/echoPathPostModuleLoad.png)
+
+To pretend that we are loading a module, we will just add a the directory containing my dummy scripts to the $PATH variable, and it will be like we loaded the module for them.
+
+```bash
+$ export PATH=$PATH:/sw/courses/ngsintro/uppmax_pipeline_exercise/dummy_scripts
+```
+
+This will set the $PATH variable to whatever it is at the moment, and add a directory at the end of it.
+Note the lack of a dollar sign infront of the variable name directly after "export".
+You don't use dollar signs when  **assigning**  values to variables, and you always use dollar signs when **getting** values from variables.
+
+**IMPORTANT:** The export command affects only the terminal you type it in.
+If you have 2 terminals open, only the terminal you typed it in will have a modified path.
+If you close that terminal and open a new one, it will not have the modified path.
+
 ### 1. Building an index
 
 1. **Build an index for the reference genome.**
@@ -142,7 +185,7 @@ $ module load bioinfo-tools bwa/0.7.8 samtools/1.1 IGV/2.3.17
 All aligners will have to index the reference genome you are aligning your data against.
 This is only done once per reference genome, and then you reuse that index whenever you need it.
 All aligners have their own kind of index unfortunately, so you will have to build one index for each aligner you want to use.
-In this lab we will use BWA, so we will build a BWA index.
+In this lab we will use the dummy aligher called align_reads, and we will build a index using it's indexing progam, called reference_indexer.
 
 First, have a look in the 0_ref folder
 
@@ -151,12 +194,12 @@ $ ll 0_ref
 ```
 
 You should see 2 files: the fasta file, the gtf file.
-Have a look at each of them with less, just to see how they look inside.
+Have a look at each of them with less, just to see how they look inside. To do the actual indexing of the genome:
 
 ```bash
-Syntax: bwa index <name of the fasta file you want to index>
+Syntax: reference_indexer -r <name of the fasta file you want to index>
 
-$ bwa index 0_ref/ad2.fa
+$ reference_indexer -r 0_ref/ad2.fa
 ```
 
 Since the genome is so small this should only take a second or so.
@@ -168,7 +211,7 @@ Look in the 0_ref folder again and see if anything has changed.
 $ ll 0_ref
 ```
 
-The new files you see are the index files created by BWA.
+The new file you see is the index file created by reference_indexer.
 We are now ready to align our reads.
 
 ### 2. Align the reads
@@ -181,24 +224,12 @@ We are now ready to align our reads.
 1. View the aligned data together with the annotations.
 
 Now we have a reference genome that has been indexed, and reads that we should align.
-Do that using BWA, and give the arguments
+Do that using **align_reads**, and give the arguments
 
 ```bash
-Syntax: bwa aln <reference genome> <fastq file with reads> > <name of the output file>
+Syntax: align_reads -r <reference genome> -i <fastq file with reads> -o <name of the output file>
 
-$ bwa aln 0_ref/ad2.fa 0_seq/ad2.fq > 1_alignment/ad2.sai
-```
-
-For some reason BWA doesn't create a SAM file directly.
-It creates a .sai file which contains only the coordinates for where each read aligns.
-This format can't be used by any other program, so we have to convert it to a SAM file.
-For this, we have to give the program the reference genome we aligned to, the reads we aligned, and the .sai file.
-It will use the data stored in these files to construct a SAM file.
-
-```bash
-Syntax: bwa samse <reference genome> <the .sai file> <the fastq reads file> > <the sam file>
-
-$ bwa samse 0_ref/ad2.fa 1_alignment/ad2.sai 0_seq/ad2.fq > 1_alignment/ad2.sam
+$ align_reads -r 0_ref/ad2.fa -i 0_seq/ad2.fq -o 1_alignment/ad2.sam
 ```
 
 This will create a SAM file in **1_alignment** called **ad2.sam**.
@@ -215,12 +246,12 @@ Have a look at it with less.
 
 The next step is to convert the SAM file to a BAM file.
 This is more or less just compressing the file, like creating a zip file.
-To do that we will use **samtools**, telling it that the input is in SAM format (**-S**), and that it should output in BAM format (**-b**).
+To do that we will use the dummy program **sambam_tools**, telling it we want to convert a file to BAM (**-f bam**), which file we want to convert (**-i**), where it should save the resulting BAM file (**-o**).
 
 ```bash
-Syntax: samtools view -S -b <sam file> > <bam file>
+Syntax: sambam_tool -f bam -i <sam file> -o <bam>
 
-$ samtools view -S -b 1_alignment/ad2.sam > 2_bam/ad2.bam 
+$ sambam_tool -f bam -i 1_alignment/ad2.sam -o 2_bam/ad2.bam
 ```
 
 Have a look in the **2_bam** folder.
@@ -243,27 +274,26 @@ The created BAM file is an exact copy of the SAM file, but stored in a much more
 A BAM file is taking up much less space than the SAM file, but we can still improve performance.
 An indexed BAM file is infinitely faster for programs to work with, but before we can index it, we have to sort it since it's impossible (no gains performance wise) to index an unsorted file.
 
-To sort the BAMf file use the following command:
+To sort the BAM file we'll use the **sambam_tool** again, but specifying a different function, **-f sort** instead:
 
 ```bash
-Syntax: samtools sort <bam file to sort> <prefix of the outfile>
+Syntax: sambam_tool -f sort -i <unsorted bam file> -o <sorted bam file>
 
-$ samtools sort 2_bam/ad2.bam 3_sorted/ad2.sorted
+$ sambam_tool -f sort -i 2_bam/ad2.bam -o 3_sorted/ad2.sorted.bam
 ```
 
 This will sort the ad2.bam file and create a new BAM file which is sorted, called **ad2.sorted.bam**.
-The .bam file ending will be added automatically, so you should not specify it, unless you want your file named ad2.sorted.bam.bam (you don't).
 
 Now when we have a sorted BAM file, we can index it.
 Use the command
 
 ```bash
-Syntax: samtools index <bam file to index>
+Syntax: sambam_tool -f index -i <sorted bam file>
 
-$ samtools index 3_sorted/ad2.sorted.bam
+$ sambam_tool -f index -i 3_sorted/ad2.sorted.bam
 ```
 
-This will create an index named **ad2.sorted.bam.bai** .
+This will create an index named **ad2.sorted.bam.bai** in the same folder as the ad2.sorted.bam file is located.
 It's nicer to have the .bam and .bai named to the same "prefix", so rename the .bai file to not have the .bam in its name.
 
 ```bash
@@ -288,11 +318,17 @@ $ less -S 0_ref/ad2.gtf
 
 The **-S** will tell less to not wrap the lines, and instead show one line per line.
 If the line is longer than the window, you can user the left and right arrow to scroll to the left and right.
-Many tabular files are extremely more readable when using the -S option.
+Many tabular files are much more readable when using the -S option.
 Try viewing the file without it and see the difference.
 
 To view the file, we will use the program **IGV** (Integrated Genome Viewer).
-You have already loaded the module for this program at the start of the lab, so start it by typing the following command (now we'll find out if you used -Y in all your ssh connections!):
+Before we can do this, we have to load the module for IGV.
+
+```bash
+$ module load bioinfo-tools IGV/2.3.17
+```
+
+Start it by typing the following command (now we'll find out if you used -Y in all your ssh connections!):
 
 ```bash
 $ igv.sh
@@ -300,7 +336,7 @@ $ igv.sh
 
 If you notice that IGV over Xforwarding is excruciatingly slow, you can try to use tha web based ThinLinc client instead. Go to the address [https://milou-gui.uppmax.uu.se](https://milou-gui.uppmax.uu.se) and login with your normal UPPMAX username and password. This will get you a remote desktop on one of the login nodes, and you can open a terminal and run IGV there instead.
 
-This will start IGV.
+Once IGV is started, either using Xforwarding or the remote desktop in your web browser, we are ready to go.
 There are 3 files we have to load in IGV.
 The first is the reference genome.
 Press the menu button located at **"Genomes - Load Genome from File..."** and find your reference genome in **0_ref/ad2.fa**.
@@ -321,13 +357,18 @@ The chromosome name, the starting position, the ending position, and the additio
 
 ## 5. Create a CRAM file
 The CRAM format is even more efficient than the BAM format.
-To create a CRAM file, use samtools.
+To create a CRAM file we'll have to use samtools, so we will load the module for it.
+
+```bash
+$ module load bioinfo-tools samtools/1.3
+```
+
 Tell samtools that you want CRAM output (**-C**) and specify which reference genome it should use to do the CRAM conversion (**-T**)
 
 ```bash
-Syntax: samtools view -C -T <reference genome> <bam file to convert> > <name of cram file>
+Syntax: samtools view -C -T <reference genome> -o <name of cram file> <bam file to convert>
 
-$ samtools view -C -T 0_ref/ad2.fa 3_sorted/ad2.sorted.bam > 4_cram/ad2.cram
+$ samtools view -C -T 0_ref/ad2.fa -o 4_cram/ad2.cram 3_sorted/ad2.sorted.bam
 ```
 
 Compare the sizes of the convered BAM file and the newly created CRAM file:
@@ -339,5 +380,5 @@ $ ll -h 3_sorted/ad2.sorted.bam 4_cram/ad2.cram
 This will list both the files, and print the file size in a human readable format (**-h**).
 The CRAM file is roughly 1/3 of the size of the BAM file.
 This is probably because all the reads in the simulated data has the same quality value (BBBBBBBBBB).
-Fewer types of quality values are easier to compress, hence the amazing compression ratio.
-Real data will have much more diverse quality scores, and the CRAM file would be pethaps 0.7-0.8 time the original BAM file.
+Fewer types of quality values are easier to compress, hence this amazing compression ratio.
+Real data will have much more diverse quality scores, and the CRAM file would be pethaps 0.7-0.8 of the original BAM file.

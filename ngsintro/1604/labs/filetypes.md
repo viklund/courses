@@ -64,7 +64,7 @@ When it reaches the time limit you requested (3 hours in this case) the session 
 Connect to this node from within uppmax.
 
 ```bash
-$ ssh -Y q34 
+$ ssh -Y q34
 ```
 
 **Note:** there is a uppmax specific tool called jobinfo that supplies the same kind of information as squeue that you can use as well (```$ jobinfo -u username```).
@@ -129,7 +129,7 @@ Before we do any steps, we have to load the modules for the programs we will be 
 ```bash
 $ module load bioinfo-tools bwa/0.7.8 samtools/1.1 IGV/2.3.17
 ```
- 
+
 ### 1. Building an index
 
 1. **Build an index for the reference genome.**
@@ -220,7 +220,7 @@ To do that we will use **samtools**, telling it that the input is in SAM format 
 ```bash
 Syntax: samtools view -S -b <sam file> > <bam file>
 
-$ samtools view -S -b 1_alignment/ad2.sam > 2_bam/ad2.bam 
+$ samtools view -S -b 1_alignment/ad2.sam > 2_bam/ad2.bam
 ```
 
 Have a look in the **2_bam** folder.
