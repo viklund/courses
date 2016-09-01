@@ -151,7 +151,7 @@ Try loading a module, and then look at the $PATH variable again.
 You'll see that there are a few extra directories there now, after the module has been loaded.
 
 ```bash
-$ module load bioinfo-tools samtools
+$ module load bioinfo-tools samtools/1.3
 $ echo $PATH
 ```
 
@@ -199,6 +199,7 @@ Syntax: reference_indexer -r <name of the fasta file you want to index>
 
 $ reference_indexer -r 0_ref/ad2.fa
 ```
+<font color="red">This is some text!</font>
 
 Since the genome is so small this should only take a second or so.
 The human genome will probably take a couple of hours.
@@ -210,6 +211,19 @@ $ ll 0_ref
 ```
 
 The new file you see is the index file created by reference_indexer.
+This index is in the same format as you would get from the real program **samtools**.
+Try viewing the index file with `less` and see how it looks.
+The samtools type of index contains one row per fasta record in the reference file.
+In this case there is only one record for the adenovirus genome, and it's called `ad2` in the fasta file.
+The human reference genome typically have one record per chromosome, so a index of the human genome would then have 24 rows.
+The numbers after the record name specifies how many bases the record has, how far into the file (in bytes) the record starts, the number of bases on each line in the record, and how many bytes each line takes up in the file.
+Using this information the program can quickly jump to the start location of each record, without having to read the file from the first row every time.
+
+Other aligners might use more complex indexing of the file to speed up the alignment process even further, e.g. creating an index over where it can find all possible "words" that you can form with 5 or so bases, making it easier to find possible matching sites for reads.
+If the read starts with `ATGTT` you can quickly look in the index and see all places in the geonome that contains this word and start looking if the rest of the read matches the area around the word.
+This greatly decreases the number of places you have to look when looking for a match.
+These types of indexes usually take a long time to create (5+ hours maybe), but since you only have to do it once per reference genome it's easily worth it, seeing how the alignment process probably would take 100s of hours without the index, instead of 6-12 hours.
+
 We are now ready to align our reads.
 
 #### 2. Align the reads
