@@ -235,7 +235,7 @@ We are now ready to align our reads.
 1. View the aligned data together with the annotations.
 
 Now we have a reference genome that has been indexed, and reads that we should align.
-Do that using **align_reads**, and give the arguments
+Do that using **align_reads**, naming the output file **ad2.sam**, placed in the **1_alignment** folder.
 
 ```bash
 Syntax: align_reads -r <reference genome> -i <fastq file with reads> -o <name of the output file>
@@ -246,6 +246,9 @@ Answer below in white text:
 
 This will create a SAM file in **1_alignment** called **ad2.sam**.
 Have a look at it with less.
+If you think the file looks messy, add a -S after less to make it stop wrapping long lines, `less -S 1_alignment/ad2.sam` and scroll sideways using the arrow keys.
+As you can see there is one row per aligned read in this file.
+Each row contains information about the read, like the name of the read, where in the reference genome it aligned, and also a copy of the reads sequence and quality score, among other things.
 
 #### 3. Convert to BAM
 
@@ -258,7 +261,7 @@ Have a look at it with less.
 
 The next step is to convert the SAM file to a BAM file.
 This is more or less just compressing the file, like creating a zip file.
-To do that we will use the dummy program **sambam_tools**, telling it we want to convert a file to BAM (**-f bam**), which file we want to convert (**-i**), where it should save the resulting BAM file (**-o**).
+To do that we will use the dummy program **sambam_tools**, telling it we want to convert a file to BAM (**-f bam**), which file we want to convert (**-i**), where it should save the resulting BAM file (**-o**). Save the BAM file in the **2_bam** folder and name it **ad2.bam**.
 
 ```bash
 Syntax: sambam_tool -f bam -i <sam file> -o <bam>
@@ -273,6 +276,13 @@ $ ll 2_bam
 ```
 
 The created BAM file is an exact copy of the SAM file, but stored in a much more efficient format.
+Aligners usually have an option to output BAM format directly, saving you the trouble to convert it yourself, but not all tools can do this (they really should though).
+Have a look at the difference in file size, though in this example it's quite an extreme difference (2.9 MB vs 0.3 MB).
+The quality score of all reads is the same (BBBBBBBBB..), and files with less differences are easier to compress.
+Usually the BAM file is about 25% of the size of the SAM file.
+Since the BAM format is a binary format we can't look at it with less.
+We would have to use a tool, like **samtools** which you will probably see later in the week, to first convert the file back to a SAM file before we can read it.
+In that case we can just look at the SAM file before converting it since they will be the same.
 
 #### 4. Sort and index the BAM file
 
@@ -284,9 +294,9 @@ The created BAM file is an exact copy of the SAM file, but stored in a much more
 1. View the aligned data together with the annotations.
 
 A BAM file is taking up much less space than the SAM file, but we can still improve performance.
-An indexed BAM file is infinitely faster for programs to work with, but before we can index it, we have to sort it since it's impossible (no gains performance wise) to index an unsorted file.
+An indexed BAM file is infinitely faster for programs to work with, but before we can index it, we have to sort it since it's not possible to index an unsorted file in any meaningful way.
 
-To sort the BAM file we'll use the **sambam_tool** again, but specifying a different function, **-f sort** instead:
+To sort the BAM file we'll use the **sambam_tool** again, but specifying a different function, **-f sort** instead. Tell it to store the sorted BAM file in the **3_sorted** folder and name the file **ad2.sorted.bam**
 
 ```bash
 Syntax: sambam_tool -f sort -i <unsorted bam file> -o <sorted bam file>
@@ -362,10 +372,14 @@ Press **"File - Load from File..."** again and select you annotation file in **0
 This will show you the reference genome, how all the reads are aligned to it, and all the annotation data.
 Try zooming in on an area and have a look at the reads and annotations.
 The figures you see in the picture are all derived from the data in the files you have given it.
-The reference genome, a fasta file containing the DNA sequence of the reference genome, is visible if you zoom to the smallest level.
-All the reads are drawn from the data in the BAM file using the chromosome name, the starting position and the ending position of each read.
-The annotation in GTF format are all plotted using the data in the GTF file.
-The chromosome name, the starting position, the ending position, and the additional information in the rest of the fields (strand, name of the annotation, etc).
+At the top of the window you have the overview of the current chromosome you are looking at, which tells you the scale you are zoomed at for the moment.
+When you zoom in you will see a red rectangle apper which shows you which portion of the chromosome you are looking at.
+Just below the scale you'll see the coverage graph, which tells you how many reads cover each position along the reference genome.
+The colored bands you see here and there are SNPs, i.e. positions where the reads of your sample does not match the reference genome.
+All the reads, the larger area in the middle of the window, are drawn from the data in the BAM file using the chromosome name, the starting position and the ending position of each read.
+When you zoom in more you will be able to see individual reads and how they are aligned.
+The annotation in GTF format are all plotted using the data in the GTF file, visible just under all the reads, are shown as blue rectangles.
+The reference genome, a fasta file containing the DNA sequence of the reference genome, is visible at the bottom of the window if you zoom to the smallest level so you can see the bases of the genome.
 
 ## 5. Create a CRAM file
 The CRAM format is even more efficient than the BAM format.
