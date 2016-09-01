@@ -196,10 +196,8 @@ Have a look at each of them with less, just to see how they look inside. To do t
 
 ```bash
 Syntax: reference_indexer -r <name of the fasta file you want to index>
-
-$ reference_indexer -r 0_ref/ad2.fa
 ```
-<font color="red">This is some text!</font>
+<font color="white">$ reference_indexer -r 0_ref/ad2.fa</font>
 
 Since the genome is so small this should only take a second or so.
 The human genome will probably take a couple of hours.
