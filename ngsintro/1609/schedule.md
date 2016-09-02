@@ -17,10 +17,10 @@ Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)
 **Tuesday**  
 Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)   
 **09.00-09.30** Lecture: File types in bioinformatics (Martin Dahlö)  
-**09.30-12.00** Exercise: File types in bioinformatics (Martin Dahlö, Sebastian DiLorenzo, Anders Larsson, Per Unneberg)  
+**09.30-12.00** Exercise: File types in bioinformatics (Martin Dahlö, Pall Olason, Anders Larsson, Per Unneberg)  
 **12.00-13.00** Lunch at BMC restaurant  
 **13:00-14:00** Lecture: Advanced Linux usage (Martin Dahlö)  
-**14:00-17:00** Exercise: Advanced Linux usage (Martin Dahlö, Sebastian DiLorenzo, Anders Larsson, Per Unneberg)  
+**14:00-17:00** Exercise: Advanced Linux usage (Martin Dahlö, Pall Olason, Anders Larsson, Per Unneberg)  
 
 **Wednesday**  
 Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)  
@@ -28,13 +28,13 @@ Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)
 **11:00-12.00** Lecture: NGS and bioinformatics analysis pipelines (Adam Ameur)   
 **12.00-13.00** Lunch at BMC restaurant   
 **13.00-14.00** Lecture: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats (Anna Johansson)  
-**14.00-17.00** Exercise: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part I (Anna Johansson, Pall Olason, Johan Reimegård, Lucile Soler) 
+**14.00-17.00** Exercise: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part I (Anna Johansson, Johan Reimegård, Sebastian DiLorenzo, Lucile Soler) 
 
 **18:00-** Course dinner at TBA  
 
 **Thursday**  
 Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)   
-**09:00-10.00** Exercise: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part II (Anna Johansson, Pall Olason, Johan Reimegård, Lucile Soler)  
+**09:00-10.00** Exercise: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part II (Anna Johansson, Sebastian DiLorenzo, Johan Reimegård, Lucile Soler)  
 **10.00-12:00**   
 **12.00-13.00** Lunch at BMC restaurant  
 **13.00-14:00** Lecture: RNA sequencing, transcriptome and expression quantification (Thomas Källman)  
