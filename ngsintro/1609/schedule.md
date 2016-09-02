@@ -12,7 +12,7 @@ Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)
 **10.00-12.00** Exercise: Introduction to Linux] (Martin Dahlö, Alvaro Martinez Barrio, Johan Viklund, Frederic Haziza)  
 **12.00-13.00** Lunch at BMC restaurant  
 **13.00-14.00** Lecture: Introduction to UPPMAX/UPPNEX (Martin Dahlö)  
-**14.00-17.00** Exercise: Introduction to UPPMAX/UPPNEX (Martin Dahlö, Alvaro Martinez Barrio, Johan Viklund, Frederic Haziza)   
+**14.00-17.00** Exercise: Introduction to UPPMAX/UPPNEX (Martin Dahlö, Alvaro Martinez Barrio, Johan Viklund, Frederic Haziza)  
 
 **Tuesday**  
 Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)   
