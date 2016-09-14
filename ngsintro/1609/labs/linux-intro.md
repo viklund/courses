@@ -39,7 +39,7 @@ Usually you would do most of the work in this lab directly on one of the login n
 This was covered briefly in the lecture notes.
 
 ```bash
-$ salloc -A g2016008 -t 07:00:00 -p core -n 1 --no-shell --reservation=g2016008_1 &
+$ salloc -A g2016017 -t 07:00:00 -p core -n 1 --no-shell --reservation=g2016017_monday &
 ```
 
 check which node you got (replace **username** with your uppmax user name)
@@ -113,12 +113,12 @@ This is how everyone's glob folder looks before you start putting files there.
 Next, let's move to the course's project folder.
 A project folder is like a home folder, but it is shared between all the members of the project.
 It is the common file area in the project, and the place where you will store your raw data and important analysis results.
-This course's project id is **g2016008**, so the path to the project folder is **/proj/g2016008**
+This course's project id is **g2016017**, so the path to the project folder is **/proj/g2016017**
 
 **NOTE: Remember to tab-complete to avoid typos and too much writing.**
 
 ```bash
-$ cd /proj/g2016008
+$ cd /proj/g2016017
 ```
 
 Look at what is in the folder (please ignore the old project id, there are limit to how many pictures I want to spend the time to edit..):

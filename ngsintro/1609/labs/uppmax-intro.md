@@ -36,7 +36,7 @@ Usually you would do most of the work in this lab directly on one of the login n
 
 ```bash
 # ONLY IF YOU DON'T ALREADY HAVE AN ACTIVE ALLOCATION SINCE BEFORE
-$ salloc -A g2016008 -t 04:30:00 -p core -n 1 --no-shell --reservation=g2016008_1 &
+$ salloc -A g2016017 -t 04:30:00 -p core -n 1 --no-shell --reservation=g2016017_monday &
 ```
 
 check which node you got (replace **username** with your uppmax user name)
@@ -246,7 +246,7 @@ This will create a booking for you which has a higher priority than the jobs sub
 Try closing down your current session on the reserved node you connected to in the beginning of the lab by typing exit. Then make a new booking using interactive:
 
 ```bash
-$ interactive -A g2016008 -t 02:00:00 -p core
+$ interactive -A g2016017 -t 02:00:00 -p core
 ```
 
 Congratulations, you are now ready to be let loose on the cluster!
