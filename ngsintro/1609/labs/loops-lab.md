@@ -203,11 +203,11 @@ Try to implement this on your own.
 If you get stuck, the solution will be below here in white text.
 
 <font color='white'>  
-for secondsToGo in {10..0};  
-do  
-  echo $secondsToGo  
-  sleep 1  
-done  
+for secondsToGo in {10..0};<br>  
+do<br>  
+  echo $secondsToGo<br>  
+  sleep 1<br>  
+done<br>  
 </font>  
 
 
