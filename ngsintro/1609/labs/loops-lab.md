@@ -230,22 +230,22 @@ It's as easy to use as the sequence expressions; instead of writing {1..10} just
 If you get stuck, the solution will be below here in white text.
 
 <font color='white'>
-# set the number you want to calculate the factorial of
-n=10<br>
+# set the number you want to calculate the factorial of<br><br>
+n=10<br><br>
 
-# you have to initialize a variable before you can start using it. Leaving this empty would lead to the first iteration of the loop trying to use a variable that has no value, which would cause it to crash
-factorial=1<br>
+# you have to initialize a variable before you can start using it. Leaving this empty would lead to the first iteration of the loop trying to use a variable that has no value, which would cause it to crash<br><br>
+factorial=1<br><br>
 
-# declare the values the loop will loop over (1 to whatever $n is)
+# declare the values the loop will loop over (1 to whatever $n is)<br><br>
 for i in $( seq 1 $n );<br>
-do<br>
+do<br><br>
 
-# set factorial to whatever factorial is a the moment, multiplied with the variable $i
-&nbsp;&nbsp;factorial=$(( $factorial * $i ))<br>
+# set factorial to whatever factorial is a the moment, multiplied with the variable $i<br><br>
+&nbsp;&nbsp;factorial=$(( $factorial * $i ))<br><br>
 
-done<br>
+done<br><br>
 
-# print the result
+# print the result<br><br>
 echo The factorial of $n is $factorial<br>
 </font>
 
