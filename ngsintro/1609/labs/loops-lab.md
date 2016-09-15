@@ -229,13 +229,13 @@ It's as easy to use as the sequence expressions; instead of writing {1..10} just
 If you get stuck, the solution will be below here in white text.
 
 <font color='white'>
-n=20
-factorial=1
+n=20<br>
+factorial=1<br>
 for i in $(seq 1 $n);<br>
 do<br>
 &nbsp;&nbsp;factorial=$factorial*$n<br>
 done<br>
-echo The factorial of $n is $factorial
+echo The factorial of $n is $factorial<br>
 </font>
 
 
