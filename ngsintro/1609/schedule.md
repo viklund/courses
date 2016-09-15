@@ -41,6 +41,6 @@ Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)
 
 **Friday**  
 Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)   
-**09:00-12:00** Exercise: RNA sequencing, transcriptome and expression quantification part II (Thomas Källman, Agata Smialowska, Olga Dethlefsen, Åsa Björklund)  
+**09:00-12:00** Exercise: [RNA sequencing, transcriptome and expression quantification part II](labs/rnaseq_tutorial_in_progress.md) (Thomas Källman, Agata Smialowska, Olga Dethlefsen, Åsa Björklund)  
 **12.00-13.00** Lunch at BMC restaurant  
 **13:00-15.00** Data management and open discussions (Olga Vinnere Pettersson, Adam Ameur, Agata Smialowska, Olga Dethlefsen, Henrik Lantz)     
