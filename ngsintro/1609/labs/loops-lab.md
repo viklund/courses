@@ -203,11 +203,16 @@ Try to implement this on your own.
 If you get stuck, the solution will be below here in white text.
 
 <font color='white'>
+# declare the values the loop will loop over<br><br>
 for secondsToGo in {10..0};<br>
-do<br>
+do<br><br>
+
+# print out the current number, then sleep for 1 second<br><br>
 &nbsp;&nbsp;echo $secondsToGo<br>
-&nbsp;&nbsp;sleep 1<br>
+&nbsp;&nbsp;sleep 1<br><br>
 done<br>
+
+# declare the start of a new year, festivly<br><br>
 echo Happy New Year!!
 </font>
 
