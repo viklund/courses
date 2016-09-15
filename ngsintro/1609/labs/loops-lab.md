@@ -137,12 +137,12 @@ $ echo $a squared is $(($a*$a))
 
 If you get stuck, the solution will be below here in white text.
 
-<font color='white'>
+<font color='white'>  
 $ x=4  
 $ y=5  
 $ z=10  
 $ echo The volume of the rectangular cuboid with the sides $x,$y,$z is $(($x*$y*$z)).  
-</font>
+</font>  
 
 ## 5. Looping over lists
 First off, let's open another terminal to uppmax so that you have 2 of them open. 
@@ -202,13 +202,13 @@ The point of using `sleep` is to tell the computer to wait for 1 second after pr
 Try to implement this on your own.
 If you get stuck, the solution will be below here in white text.
 
-<font color='white'>
+<font color='white'>  
 for secondsToGo in {10..0};  
 do  
   echo $secondsToGo  
   sleep 1  
 done  
-</font>
+</font>  
 
 
 
