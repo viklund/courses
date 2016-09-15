@@ -208,6 +208,7 @@ do<br>
 &nbsp;&nbsp;echo $secondsToGo<br>
 &nbsp;&nbsp;sleep 1<br>
 done<br>
+echo Happy New Year!!
 </font>
 
 **Exercise 2**
