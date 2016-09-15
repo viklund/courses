@@ -234,7 +234,7 @@ n=20<br>
 factorial=1<br>
 for i in $(seq 1 $n);<br>
 do<br>
-&nbsp;&nbsp;factorial=$factorial*$n<br>
+&nbsp;&nbsp;factorial=$(($factorial*$n))<br>
 done<br>
 echo The factorial of $n is $factorial<br>
 </font>
