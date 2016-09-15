@@ -1,9 +1,9 @@
 ---
 layout: default
-title:  'Advanced Linux Usage - Loops'
+title:  'Advanced Linux Usage - Variables and Loops'
 ---
 
-# Advanced Linux Usage - Loops
+# Advanced Linux Usage - Variables and Loops
 **NOTE:** in syntax examples, the dollar sign ($) is not to be printed. The dollar sign is usually an indicator that the text following it should be typed in a terminal window.
 
 ## 1. Connecting to UPPMAX
@@ -138,10 +138,11 @@ $ echo $a squared is $(($a*$a))
 If you get stuck, the solution will be below here in white text.
 
 <font color='white'>
-$ x=4
-$ y=5
-$ z=10
-$ echo The volume of the rectangular cuboid with the sides $x,$y,$z is $(($x*$y*$z)).</font>
+$ x=4  
+$ y=5  
+$ z=10  
+$ echo The volume of the rectangular cuboid with the sides $x,$y,$z is $(($x*$y*$z)).  
+</font>
 
 ## 5. Looping over lists
 First off, let's open another terminal to uppmax so that you have 2 of them open. 
@@ -161,9 +162,6 @@ do
   echo $i
 done
 ```
-
->! A multi-line spoiler  
->! has ! multiple times
 
 which will print the value of `$i` in each iteration of the loop. 
 Write this loop in the file you are editing with nano, save the file, and then run it in the other terminal you have open.
@@ -205,11 +203,11 @@ Try to implement this on your own.
 If you get stuck, the solution will be below here in white text.
 
 <font color='white'>
-for secondsToGo in {10..0};
-do
-  echo $secondsToGo
-  sleep 1
-done
+for secondsToGo in {10..0};  
+do  
+  echo $secondsToGo  
+  sleep 1  
+done  
 </font>
 
 
