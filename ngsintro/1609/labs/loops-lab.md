@@ -202,16 +202,40 @@ The point of using `sleep` is to tell the computer to wait for 1 second after pr
 Try to implement this on your own.
 If you get stuck, the solution will be below here in white text.
 
-<font color='white'>  
-for secondsToGo in {10..0};<br>  
-do<br>  
-&nbsp;&nbsp;echo $secondsToGo<br>  
-&nbsp;&nbsp;sleep 1<br>  
-done<br>  
-</font>  
+<font color='white'>
+for secondsToGo in {10..0};<br>
+do<br>
+&nbsp;&nbsp;echo $secondsToGo<br>
+&nbsp;&nbsp;sleep 1<br>
+done<br>
+</font>
 
 **Exercise 2**
+Maths and programming are usually a very good combination, so many of the examples of programming you'll see involve some kind of maths.
+Now we will write a loop that will calculate the factorial of a number.
+As [wikipedia will tell you](https://en.wikipedia.org/wiki/Factorial), "the factorial of a non-negative integer n, denoted by n!, is the product of all positive integers less than or equal to n", i.e. multiply all the integers, starting from 1, leading up to and including a number with each other.
+Doing this by hand would start taking its time even after a couple of steps, but since we know how to loop that should not be a problem anymore.
+Write a loop that will calculate the factorial of a given number stored in the variable `$n`.
 
+A problem you will encounter is that the sequence expression, {1..10}, from before doesn't handle varaibles.
+This is because of the way bash is built.
+The sequence expressions are handled before handling the variables so when bash tries to generate the sequence, the variable names have not yet been replaced with the values they contain.
+This leads to bash trying to create a sequence from 1 to $n, which of course doesn't mean anything.
+
+To get around this we can use a different way of generating sequences (there are **always** alternatives).
+There is a program called `seq` that does pretty much the same thing as the sequence expression, and since it is a program it will be executed **after** the variables have been handled.
+It's as easy to use as the sequence expressions; instead of writing {1..10} just write `seq 1 10`.
+
+If you get stuck, the solution will be below here in white text.
+
+<font color='white'>
+n=20
+for i in {1..$n};<br>
+do<br>
+&nbsp;&nbsp;echo $secondsToGo<br>
+&nbsp;&nbsp;sleep 1<br>
+done<br>
+</font>
 
 
 
