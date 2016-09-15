@@ -232,9 +232,9 @@ If you get stuck, the solution will be below here in white text.
 <font color='white'>
 n=10<br>
 factorial=1<br>
-for i in $(seq 1 $n);<br>
+for i in $( seq 1 $n );<br>
 do<br>
-&nbsp;&nbsp;echo factorial=$(($factorial*$n))<br>
+&nbsp;&nbsp;factorial=$(( $factorial * $i ))<br>
 done<br>
 echo The factorial of $n is $factorial<br>
 </font>
