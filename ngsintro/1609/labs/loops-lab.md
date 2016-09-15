@@ -137,12 +137,11 @@ $ echo $a squared is $(($a*$a))
 
 If you get stuck, the solution will be below here in white text.
 
-<font color='white'>  
-<pre>
-$ x=4  
-  $ y=5  
-$ z=10  
-$ echo The volume of the rectangular cuboid with the sides $x,$y,$z is $(($x*$y*$z)).  </pre>
+<font color='white'>
+$ x=4<br>
+$ y=5<br>
+$ z=10<br>
+$ echo The volume of the rectangular cuboid with the sides $x,$y,$z is $(($x*$y*$z)).<br>
 </font>  
 
 ## 5. Looping over lists
