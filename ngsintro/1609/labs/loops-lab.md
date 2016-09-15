@@ -190,7 +190,7 @@ do
   echo $whatevernameyouwant  
 done  
 ```
-
+**Exercise 1**
 Now that we know how to use variables and create loops, it's time we start doing something with them.
 Let's say it's New Year's Eve and you want to impress your friends with a computerized countdown of the last 10 seconds of the year (haven't we all?).
 Start off with getting a loop to count down from 10 to 0 first.
@@ -210,6 +210,7 @@ do<br>
 done<br>  
 </font>  
 
+**Exercise 2**
 
 
 
