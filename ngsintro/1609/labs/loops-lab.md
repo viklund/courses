@@ -212,7 +212,7 @@ do<br><br>
 &nbsp;&nbsp;sleep 1<br><br>
 done<br>
 
-# declare the start of a new year, festivly<br><br>
+# declare the start of a new year, in a festive manner<br><br>
 echo Happy New Year!!
 </font>
 
