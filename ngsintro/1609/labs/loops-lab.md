@@ -230,11 +230,12 @@ If you get stuck, the solution will be below here in white text.
 
 <font color='white'>
 n=20
-for i in {1..$n};<br>
+factorial=1
+for i in $(seq 1 $n);<br>
 do<br>
-&nbsp;&nbsp;echo $secondsToGo<br>
-&nbsp;&nbsp;sleep 1<br>
+&nbsp;&nbsp;factorial=$factorial*$n<br>
 done<br>
+echo The factorial of $n is $factorial
 </font>
 
 
