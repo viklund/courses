@@ -184,11 +184,11 @@ As you might guess, this way of writing the list of numbers to iterate over will
 Fortunately, the creators of bash (and most other computer languages) saw this probelm coming a mile away and did something about it.
 To quickly create a list of numbers in bash, you can use something called a sequence expression to create the list for you.
  
- ```bash
-for whatevernameyouwant in {12..72};
-do
-  echo $whatevernameyouwant
-done
+```bash
+for whatevernameyouwant in {12..72};  
+do  
+  echo $whatevernameyouwant  
+done  
 ```
 
 Now that we know how to use variables and create loops, it's time we start doing something with them.
