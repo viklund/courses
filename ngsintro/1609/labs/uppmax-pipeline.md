@@ -41,7 +41,7 @@ This was covered briefly in the lecture notes.
 <font color='red'>Check with squeue -u username if you still have your reservation since before lunch running.
 If it is running, skip this step and connect to that reservation.</font>
 
-(We only have 20 reserved cores, so if someone has two, someone else will not get one..)
+(We only have 30 reserved cores, so if someone has two, someone else will not get one..)
 
 ```bash
 # ONLY IF YOU DON'T ALREADY HAVE AN ACTIVE ALLOCATION SINCE BEFORE
@@ -163,7 +163,7 @@ Let's try the scripts out!
 
 ## Running the programs
 Let's pretend that we want to run an exome analysis.
-You will learn how to do this for real next week.
+You will learn how to do this for real later this week.
 This kind of analysis usually has the following steps:
 
 1. Filter out low quality reads.
