@@ -466,7 +466,7 @@ echo "Finished"
 done
 
 # remove the temporary file now that everything has been submitted
-rm tmp.sbatch
+rrm tmp.sbatch
 {% endhighlight %}
 </details> 
 <br><br>
