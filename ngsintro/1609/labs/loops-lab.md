@@ -192,7 +192,7 @@ do
     echo $whatevernameyouwant  
 done  
 ```
-**Exercise 1**
+**Exercise 1**  
 Now that we know how to use variables and create loops, it's time we start doing something with them.
 Let's say it's New Year's Eve and you want to impress your friends with a computerized countdown of the last 10 seconds of the year (haven't we all?).
 Start off with getting a loop to count down from 10 to 0 first.
@@ -223,7 +223,7 @@ echo Happy New Year everyone!!
 </details> 
 <br><br>
 
-**Exercise 2**
+**Exercise 2**  
 Let's try to do something similar to the example in the lecture slides, to run the same commands on multiple files.
 In the [Uppmax intro](uppmax-intro) we learned how to use samtools to convert bam files to sam files so that humans can read them.
 In real life you will never do this, instead you will most likely always do it the other way around.
@@ -281,7 +281,7 @@ done
 </details> 
 <br><br>
 
-**Exercise 3**
+**Exercise 3**  
 Let's add a small thing to the exercise we just did.
 If there already exists a bam file with the same name as the sam file it's not necessary to convert it again.
 Let's use an if statement to check if the file already exists before we do the conversion. 
@@ -366,7 +366,7 @@ done
 </details> 
 <br><br>
 
-**Bonus exercise 1**
+**Bonus exercise 1**  
 Maths and programming are usually a very good combination, so many of the examples of programming you'll see involve some kind of maths.
 Now we will write a loop that will calculate the factorial of a number.
 As [wikipedia will tell you](https://en.wikipedia.org/wiki/Factorial), "the factorial of a non-negative integer n, denoted by n!, is the product of all positive integers less than or equal to n", i.e. multiply all the integers, starting from 1, leading up to and including a number with each other.
@@ -408,7 +408,7 @@ echo The factorial of $n is $factorial
 </details> 
 <br><br>
 
-**Bonus exercise 2**
+**Bonus exercise 2**  
 Now, let's combine everything you've learned so far in this course.
 Write a script that runs the pipeline from the [file types exercise](file types) for each fastq file in a specified directory, using the same reference genome as in the file type exercise.
 If that sounds too easy, make the script submit a slurm job for each sample that will run the pipeline for that sample on a calculation node (1 core, 5 minutes each).
