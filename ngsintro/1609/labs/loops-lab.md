@@ -206,24 +206,24 @@ If you get stuck, the solution will be below.
 
 <details>
 <summary>:key: Click to see how</summary> 
-{% highlight bash %} 
-# declare the values the loop will loop over
-
+{% highlight bash %}# declare the values the loop will loop over
 for secondsToGo in {10..0};
 do
 
-    # print out the current number, then sleep for 1 second
-
+    # print out the current number
     echo $secondsToGo
+    
+    # sleep for 1 second
     sleep 1
 
 done
 
 # declare the start of a new year in a festive manner
-
 echo Happy New Year everyone!!
 {% endhighlight %}
 </details> 
+<br>
+<br>
 
 **Exercise 2**
 Let's try to do something similar to the example in the lecture slides, to run the same commands on multiple files.
@@ -258,7 +258,7 @@ do
 done
 {% endhighlight %}
 </details> 
-
+<br><br>
 
 Advanced, with bonus points:
 
@@ -283,6 +283,7 @@ do
 done
 {% endhighlight %}
 </details> 
+<br><br>
 
 **Exercise 3**
 Let's add a small thing to the exercise we just did.
@@ -360,6 +361,7 @@ done
 echo The factorial of $n is $factorial
 {% endhighlight %}
 </details> 
+<br><br>
 
 **Bonus exercise 2**
 Now, let's combine everything you've learned so far in this course.
@@ -470,3 +472,4 @@ done
 rm tmp.sbatch
 {% endhighlight %}
 </details> 
+<br><br>
