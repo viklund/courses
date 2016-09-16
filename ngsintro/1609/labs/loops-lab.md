@@ -249,7 +249,7 @@ module load bioinfo-tools samtools/1.3
 
 # use ls to get the list to iterate over.
 # You have to be standing in the correct directory for the script to work
-for file in $(ls \*.sam);
+for file in $(ls *.sam);
 do
     # do the actual converting, just slapping on .bam at the end of the name
     samtools view -bS $file > $file.bam
@@ -267,16 +267,16 @@ module load bioinfo-tools samtools/1.3
 
 # use ls to get the list to iterate over.
 # $1 contains the first argument given to the program
-for file in $(ls $1/\*.sam);
+for file in $(ls $1/*.sam);
 do
 
     # print a message to the screen so that the user knows what's happening.
-    # ${file%.\*} means that it will take the file name and remove everything
+    # ${file%.*} means that it will take the file name and remove everything
     # after the last punctuation in the name. 
-    echo "Converting $file to ${file%.\*}.bam"
+    echo "Converting $file to ${file%.*}.bam"
   
     # do the actual converting
-    samtools view -bS $file > ${file%.\*}.bam
+    samtools view -bS $file > ${file%.*}.bam
 done
 {% endhighlight %}
 </details> 
@@ -376,7 +376,7 @@ Basic solution:
 
 <details>
 <summary>:key: Click to see how</summary> 
-<pre># make the dummy pipeline available
+{% highlight bash %}# make the dummy pipeline available
 export PATH=$PATH:/sw/courses/ngsintro/uppmax_pipeline_exercise/dummy_scripts
 
 # index the reference genome
@@ -386,7 +386,7 @@ reference_indexer -r ~/glob/ngs-intro/filetypes/0_ref/ad2.fa
 cd $1
 
 # loop over all the fastq files
-for file in $(ls \*.fastq);
+for file in $(ls *.fastq);
 do
 
     # save the file name without the path information for convenience
@@ -405,7 +405,7 @@ do
     sambam_tool -f index -i $file_basename.sorted.bam
 
 done
-</pre>
+{% endhighlight %}
 </details> 
 <br><br>
 
