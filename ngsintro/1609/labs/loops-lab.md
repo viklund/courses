@@ -414,7 +414,7 @@ do
     file_prefix=${file_basename%.*}
 
     # print a temporary script file that will be submitted to slurm
-    echo \"#!/bin/bash -l
+    echo """#!/bin/bash -l
 #SBATCH -A g2016017
 #SBATCH -p core
 #SBATCH -n 1
@@ -458,7 +458,7 @@ cp $file_prefix.sorted.bam.bai $input_absolute_path/$file_prefix.sorted.bai
 
 
 echo "Finished"
-    \" > tmp.sbatch
+    """ > tmp.sbatch
 
     # submit the temporary script file
     sbatch tmp.sbatch
