@@ -55,6 +55,7 @@ Reading manuals, trying different tools/options, finding solutions to problems a
 
 ## Preparing a working directory
 To get going, let's book a node, create a working folder in the _glob_ directory and link the raw sequencing files .fastq.gz
+
 * :computer: **Book a node.** As for other tutorials in this course we have reserved half a node per person. If you have not done it yet today book a node now as otherwise you will take away resources from your fellow course participants.
  <details>
   <summary>:key: Click to see how to book a node</summary>
