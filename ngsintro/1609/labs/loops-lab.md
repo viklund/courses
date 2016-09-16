@@ -203,19 +203,19 @@ Try to implement this on your own.
 If you get stuck, the solution will be below here in white text.
 
 <font color='white'>
-\# declare the values the loop will loop over<br><br>
+# declare the values the loop will loop over<br><br>
 
 for secondsToGo in {10..0};<br>
 do<br><br>
 
-&nbsp;&nbsp;\# print out the current number, then sleep for 1 second<br><br>
+&nbsp;&nbsp;# print out the current number, then sleep for 1 second<br><br>
 
 &nbsp;&nbsp;echo $secondsToGo<br>
 &nbsp;&nbsp;sleep 1<br><br>
 
 done<br>
 
-\# declare the start of a new year, in a festive manner<br><br>
+# declare the start of a new year, in a festive manner<br><br>
 
 echo Happy New Year!!<br>
 </font>
@@ -239,14 +239,14 @@ If not, look for another solution and try that one instead.
 Basic, without bonus points:
 
 <font color='white'>
-\# load the modules needed for samtools<br>
+# load the modules needed for samtools<br>
 module load bioinfo-tools samtools/1.3<br><br>
 
-\# use ls to get the list to iterate over.<br>
-\# You have to be standing in the correct directory for the script to work<br>
+# use ls to get the list to iterate over.<br>
+# You have to be standing in the correct directory for the script to work<br>
 for file in $(ls \*.sam);<br>
 do<br>
-&nbsp;&nbsp;\# do the actual converting, just slapping on .bam at the end of the name<br>
+&nbsp;&nbsp;# do the actual converting, just slapping on .bam at the end of the name<br>
 &nbsp;&nbsp;samtools view -bS $file > $file.bam<br>
 done<br>
 </font>
@@ -308,22 +308,22 @@ It's as easy to use as the sequence expressions; instead of writing {1..10} just
 If you get stuck, the solution will be below here in white text.
 
 <font color='white'>
-\# set the number you want to calculate the factorial of<br><br>
+# set the number you want to calculate the factorial of<br><br>
 n=10<br><br>
 
-\# you have to initialize a variable before you can start using it. Leaving this empty would lead to the first iteration of the loop trying to use a variable that has no value, which would cause it to crash<br><br>
+# you have to initialize a variable before you can start using it. Leaving this empty would lead to the first iteration of the loop trying to use a variable that has no value, which would cause it to crash<br><br>
 factorial=1<br><br>
 
-\# declare the values the loop will loop over (1 to whatever $n is)<br><br>
+# declare the values the loop will loop over (1 to whatever $n is)<br><br>
 for i in $( seq 1 $n );<br>
 do<br><br>
 
-&nbsp;&nbsp;\# set factorial to whatever factorial is at the moment, multiplied with the variable $i<br><br>
+&nbsp;&nbsp;# set factorial to whatever factorial is at the moment, multiplied with the variable $i<br><br>
 &nbsp;&nbsp;factorial=$(( $factorial * $i ))<br><br>
 
 done<br><br>
 
-\# print the result<br><br>
+# print the result<br><br>
 echo The factorial of $n is $factorial<br>
 </font>
 
