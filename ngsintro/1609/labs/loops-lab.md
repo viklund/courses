@@ -76,7 +76,7 @@ Ex.
 ```bash
 $ cp -r <source> <destination>
 
-$ cp -r /sw/courses/ngsintro/loops/data ~/glob/ngs-intro/loops
+$ cp -r /sw/courses/ngsintro/loops/ ~/glob/ngs-intro/loops
 ```
 
 Have a look in `~/glob/ngs-intro/loops`:
@@ -146,12 +146,12 @@ $ echo The volume of the rectangular cuboid with the sides $x,$y,$z is $(($x*$y*
 
 ## 5. Looping over lists
 First off, let's open another terminal to uppmax so that you have 2 of them open. 
-Scripting is a lot easier if you have one terminal on the command line, ready to run commands and test things, and another one with a text editor where you write the actual code. 
+Scripting is a lot easier if you have one terminal on the command line ready to run commands and test things, and another one with a text editor where you write the actual code. 
 That way you will never have to close down the text editor when you want to run the script you are writing on, and then open it up again when you want to continue editing the code. 
 So open a new terminal window, connect it to uppmax and then connect it to the node you have booked.
 Make sure both terminals are in the `~/glob/ngs-intro/loops` directory, and start editing a new file with nano where you write your script.
 Name the file whatever you want, but in the examples I will refer to it as `loop_01.sh`.
-Write your loops to this file and test run it in the other terminal.
+Write your loops to this file (or create a new file for each new example) and test run it in the other terminal.
 
 The most simple loops are the ones that loop over a predefined list. 
 You saw examples of this in the lecture slides, for example:
@@ -159,7 +159,7 @@ You saw examples of this in the lecture slides, for example:
 ```bash
 for i in "Print these words" one by one;
 do
-  echo $i
+    echo $i
 done
 ```
 
@@ -175,7 +175,7 @@ As you see, the words inside the quotation marks are treated as a single unit, u
 ```bash
 for number in 1 2 3;
 do
-  echo $number
+    echo $number
 done
 ```
 
@@ -187,7 +187,7 @@ To quickly create a list of numbers in bash, you can use something called a sequ
 ```bash
 for whatevernameyouwant in {12..72};  
 do  
-  echo $whatevernameyouwant  
+    echo $whatevernameyouwant  
 done  
 ```
 **Exercise 1**
@@ -208,16 +208,16 @@ If you get stuck, the solution will be below here in white text.
 for secondsToGo in {10..0};<br>
 do<br><br>
 
-&nbsp;&nbsp;# print out the current number, then sleep for 1 second<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;# print out the current number, then sleep for 1 second<br><br>
 
-&nbsp;&nbsp;echo $secondsToGo<br>
-&nbsp;&nbsp;sleep 1<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;echo $secondsToGo<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sleep 1<br><br>
 
 done<br>
 
-# declare the start of a new year, in a festive manner<br><br>
+# declare the start of a new year in a festive manner<br><br>
 
-echo Happy New Year!!<br>
+echo Happy New Year everyone!!<br>
 </font>
 
 **Exercise 2**
@@ -228,12 +228,12 @@ Sam files take up ~4x more space on the harddrive compared to the same file in b
 If you have many sam files that needs converting you don't want to sit there and type all the commands by hand like some kind of animal.
 
 
-  Write a script that converts all the sam files in a specified directory to bam files.
-  Bonus points if you make the program take the specified directory as an argument, and another bonus point if you get the program to name the resulting bam file to the same name as the sam file but with a .bam ending instead.
+Write a script that converts all the sam files in a specified directory to bam files.
+Bonus points if you make the program take the specified directory as an argument, and another bonus point if you get the program to name the resulting bam file to the same name as the sam file but with a .bam ending instead.
 
 Remember, Google is a good place to get help. If you get stuck, google "bash remove file ending" or "bash argument to script" and look for hits from Stackoverflow/Stackexchange or similar pages.
 There are always many different way to solve a problem.
-Try finding the ones you understand what they do and test if you can get them to work the way you want.
+Try finding one you understand what they do and test if you can get them to work the way you want.
 If not, look for another solution and try that one instead.
 
 Basic, without bonus points:
@@ -246,8 +246,8 @@ module load bioinfo-tools samtools/1.3<br><br>
 # You have to be standing in the correct directory for the script to work<br>
 for file in $(ls \*.sam);<br>
 do<br>
-&nbsp;&nbsp;# do the actual converting, just slapping on .bam at the end of the name<br>
-&nbsp;&nbsp;samtools view -bS $file > $file.bam<br>
+&nbsp;&nbsp;&nbsp;&nbsp;# do the actual converting, just slapping on .bam at the end of the name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;samtools view -bS $file > $file.bam<br>
 done<br>
 </font>
 
@@ -263,32 +263,52 @@ module load bioinfo-tools samtools/1.3<br><br>
 for file in $(ls $1/\*.sam);<br>
 do<br><br>
 
-&nbsp;&nbsp;# print a message to the screen so that the user knows what's happening.<br>
-&nbsp;&nbsp;# ${file%.\*} means that it will take the file name and remove everything<br>
-&nbsp;&nbsp;# after the last punctuation in the name. <br>
-&nbsp;&nbsp;echo "Converting $file to ${file%.\*}.bam"<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;# print a message to the screen so that the user knows what's happening.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;# ${file%.\*} means that it will take the file name and remove everything<br>
+&nbsp;&nbsp;&nbsp;&nbsp;# after the last punctuation in the name. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;echo "Converting $file to ${file%.\*}.bam"<br><br>
   
-&nbsp;&nbsp;# do the actual converting<br>
-&nbsp;&nbsp;samtools view -bS $file > ${file%.\*}.bam<br>
+&nbsp;&nbsp;&nbsp;&nbsp;# do the actual converting<br>
+&nbsp;&nbsp;&nbsp;&nbsp;samtools view -bS $file > ${file%.\*}.bam<br>
 done<br>
 </font>
 
+**Exercise 3**
+Let's add a small thing to the exercise we just did.
+If there already exists a bam file with the same name as the sam file it's not necessary to convert it again.
+Let's use an if statement to check if the file already exists before we do the conversion. 
+The following if statement will check if a given filename extists, and prints a message depending on if it exists or not.
+
+```bash
+FILE=$1
+
+if [ -f $FILE ];
+then
+   echo "File $FILE exists."
+else
+   echo "File $FILE does not exist."
+fi
+```
+
+What we want to do is to check if the file **doesn't** exists.
+The way to do that is to invert the answer of the check if the file does exist.
+To do that in bash, and many other languages, is to use the exclamation sign, which in these kinds of logical situations means "not" or "the opposite of".
+
+```bash
+FILE=$1
+
+if [ ! -f $FILE ];
+then
+    echo "File $FILE does not exist."
+fi
+```
+
+Now, modify the previous exercise to not do the conversion if a file with the intended name of the bam file already exists. I.e. if you have a.sam and want to create a bam file named a.bam, first check if a.bam already exists and only do the conversion if it does not exist.
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-**Bonus exercise**
+**Bonus exercise 1**
 Maths and programming are usually a very good combination, so many of the examples of programming you'll see involve some kind of maths.
 Now we will write a loop that will calculate the factorial of a number.
 As [wikipedia will tell you](https://en.wikipedia.org/wiki/Factorial), "the factorial of a non-negative integer n, denoted by n!, is the product of all positive integers less than or equal to n", i.e. multiply all the integers, starting from 1, leading up to and including a number with each other.
@@ -318,8 +338,8 @@ factorial=1<br><br>
 for i in $( seq 1 $n );<br>
 do<br><br>
 
-&nbsp;&nbsp;# set factorial to whatever factorial is at the moment, multiplied with the variable $i<br><br>
-&nbsp;&nbsp;factorial=$(( $factorial * $i ))<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;# set factorial to whatever factorial is at the moment, multiplied with the variable $i<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;factorial=$(( $factorial * $i ))<br><br>
 
 done<br><br>
 
@@ -327,12 +347,107 @@ done<br><br>
 echo The factorial of $n is $factorial<br>
 </font>
 
+**Bonus exercise 2**
+Now, let's combine everything you've learned so far in this course.
+Write a script that runs the pipeline from the [file types exercise](filetypes) for each fastq file in a specified directory, using the same reference genome as in the file type exercise.
+If that sounds too easy, make the script submit a slurm job for each sample that will run the pipeline for that sample on a calculation node (1 core, 5 minutes each).
+And if that is too easy, add that the pipeline will use the local harddrive on the calculation node for all files used in the analysis.
+When the analysis is done, only fastq files and sorted and indexed bam files should be in your glob folder.
+Read more about the `$SNIC_TMP` variable in the [milou user guide](http://www.uppmax.uu.se/support-sv/user-guides/milou-user-guide/).
+
+There are a bunch of fastq files in the directory `~/glob/ngs-intro/loops/fastq/` that is to be used for this exercise.
+
+
+Basic solution:
 
 
 
 
+Advanced solution:
+
+# make the dummy pipeline available in this script
+export PATH=$PATH:/sw/courses/ngsintro/uppmax_pipeline_exercise/dummy_scripts
+
+# index the reference genome once if needed
+if [ ! -f ~/glob/ngs-intro/filetypes/0_ref/ad2.fa.idx ];
+then
+&nbsp;&nbsp;&nbsp;&nbsp;reference_indexer -r ~/glob/ngs-intro/filetypes/0_ref/ad2.fa
+fi
+
+
+# find out the absolute path to the input files
+cd $1
+input_absolute_path=$(pwd)
+
+# go back to the previous directory now that the absolute path has been saved
+cd -
 
 
 
-## 4. Complete the pipeline exercise
-If you did not reach the [Uppmax pipeline exercise](uppmax-pipeline) yesterday, please switch to that exercise and complete the first 5 chapters of it. Stop when you have completed the 5th chapter, "5. Scripting a dummy pipeline" and come back here.
+# loop over all the fastq files
+for file in $(ls $input_absolute_path/*.fastq);
+do
+
+&nbsp;&nbsp;&nbsp;&nbsp;# print status report
+&nbsp;&nbsp;&nbsp;&nbsp;echo Processing $file
+
+&nbsp;&nbsp;&nbsp;&nbsp;# save the file name without the path information for convenience
+&nbsp;&nbsp;&nbsp;&nbsp;file_basename=$(basename $file)
+
+&nbsp;&nbsp;&nbsp;&nbsp;# save the file name without the file ending for convenience
+&nbsp;&nbsp;&nbsp;&nbsp;file_prefix=${file_basename%.*}
+
+&nbsp;&nbsp;&nbsp;&nbsp;# print a temporary script file that will be submitted to slurm
+&nbsp;&nbsp;&nbsp;&nbsp;echo "#!/bin/bash -l
+#SBATCH -A g2016017
+#SBATCH -p core
+#SBATCH -n 1
+#SBATCH -t 00:05:00
+#SBATCH -J $file_basename
+
+# make the dummy pipeline available on the calculation node
+echo "Loading modules"
+export PATH=\$PATH:/sw/courses/ngsintro/uppmax_pipeline_exercise/dummy_scripts
+
+# copy the reference genome, index and sample file to the nodes local harddrive.
+# You have to escape the dollar sign in SNIC_TMP to keep bash from resolving
+# it to it's value in the submitter script already.
+echo "Copying data to node local harddrive"
+cp ~/glob/ngs-intro/filetypes/0_ref/ad2.fa* $file \$SNIC_TMP/
+
+# go the the nodes local harddrive
+echo "Changing directory to node local harddrive"
+cd \$SNIC_TMP
+
+# align the reads
+echo "Aligning the reads"
+align_reads -r ad2.fa -i $file_basename -o $file_prefix.sam
+
+# convert the sam file to a bam file
+echo "Converting sam to bam"
+sambam_tool -f bam -i $file_prefix.sam -o $file_prefix.bam
+
+# sort the bam file
+echo "Sorting the bam file"
+sambam_tool -f sort -i $file_prefix.bam -o $file_prefix.sorted.bam
+
+# index the bam file
+echo "Indexing the sorted bam file"
+sambam_tool -f index -i $file_prefix.sorted.bam
+
+# copy back the files you want to keep
+echo "Copying results back to network storage"
+cp $file_prefix.sorted.bam $input_absolute_path/
+cp $file_prefix.sorted.bam.bai $input_absolute_path/$file_prefix.sorted.bai
+
+
+echo "Finished"
+&nbsp;&nbsp;&nbsp;&nbsp;" > tmp.sbatch
+
+&nbsp;&nbsp;&nbsp;&nbsp;# submit the temporary script file
+&nbsp;&nbsp;&nbsp;&nbsp;sbatch tmp.sbatch
+
+done
+
+# remove the temporary file now that everything has been submitted
+rm tmp.sbatch

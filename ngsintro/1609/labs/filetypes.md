@@ -102,7 +102,7 @@ In **0_seq** you have a fastq file containing the reads we will align.
 ## 4. Running a mini pipeline
 
 The best way to see all the different file formats is to run a small pipeline and see which files we encounter along the way.
-The pipeline is roughly the same steps you'll do in the resequencing part of the course, so for now we'll stick with the dummy pipeline which some of you might have encoutered in the extra material for the UPPMAX exercise.
+The pipeline is roughly the same steps you'll do in the resequencing part of the course, so for now we'll stick with the dummy pipeline which some of you might have encoutered in the [extra material](uppmax-pipeline) for the UPPMAX exercise.
 The programs in the dummy pipeline does not actually do any analysis but they work the same way as the real deal, although slightly simplified, to get you familiar with how to work with analysis programs.
 The data is from a sequencing of the adenovirus genome, which is tiny compared to the human genome (36kb vs 3gb).
 
