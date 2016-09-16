@@ -139,8 +139,7 @@ If you get stuck, the solution will be below.
 
 <details>
 <summary>:key: Click to see how</summary> 
-{% highlight bash %} 
-$ x=4
+{% highlight bash %}$ x=4
 $ y=5
 $ z=10
 $ echo The volume of the rectangular cuboid with the sides $x,$y,$z is $(($x*$y*$z)).
@@ -203,9 +202,11 @@ That won't do if it's seconds we want to be counting down.
 Try looking the man page for the `sleep` command (`man sleep`) and figure out how to use it.
 The point of using `sleep` is to tell the computer to wait for 1 second after printing the number, instead of rushing to the next iteration in the loop directly.
 Try to implement this on your own.
-If you get stuck, the solution will be below here in white text.
+If you get stuck, the solution will be below.
 
-<font color='white'>
+<details>
+<summary>:key: Click to see how</summary> 
+{% highlight bash %} 
 # declare the values the loop will loop over
 
 for secondsToGo in {10..0};
@@ -221,7 +222,8 @@ done
 # declare the start of a new year in a festive manner
 
 echo Happy New Year everyone!!
-</font>
+{% endhighlight %}
+</details> 
 
 **Exercise 2**
 Let's try to do something similar to the example in the lecture slides, to run the same commands on multiple files.
