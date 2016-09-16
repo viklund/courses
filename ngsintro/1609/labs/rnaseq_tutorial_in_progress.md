@@ -19,6 +19,7 @@ RNA-seq has become a powerful approach to study the continually changing cellula
   * build statistical model to find DE genes using edgeR from a **prepared R script**
 
 As discussed during the lecture, RNA-seq experiment does not end with a list of DE genes. If you have time after completing the main exercise, try one (or more) of the bonus exercises. The bonus exercises can be run independently of each other, so choose the one that matches your interest.
+
 * In the **bonus section** you can find additional exercises
   * **BEx. 01 Functional annotation** how to put DE genes in the biological context of functional annotations
   * **BEx. 02 Exon usage** how to perform analysis of differential exon usage and study alternative splicing
