@@ -222,8 +222,7 @@ done
 echo Happy New Year everyone!!
 {% endhighlight %}
 </details> 
-<br>
-<br>
+<br><br>
 
 **Exercise 2**
 Let's try to do something similar to the example in the lecture slides, to run the same commands on multiple files.
@@ -245,8 +244,7 @@ Basic, without bonus points:
 
 <details>
 <summary>:key: Click to see how</summary> 
-{% highlight bash %} 
-# load the modules needed for samtools
+{% highlight bash %}# load the modules needed for samtools
 module load bioinfo-tools samtools/1.3
 
 # use ls to get the list to iterate over.
@@ -264,8 +262,7 @@ Advanced, with bonus points:
 
 <details>
 <summary>:key: Click to see how</summary> 
-{% highlight bash %} 
-# load the modules needed for samtools
+{% highlight bash %}# load the modules needed for samtools
 module load bioinfo-tools samtools/1.3
 
 # use ls to get the list to iterate over.
@@ -341,8 +338,7 @@ If you get stuck, the solution will be below here in white text.
 
 <details>
 <summary>:key: Click to see how</summary> 
-{% highlight bash %} 
-# set the number you want to calculate the factorial of
+{% highlight bash %}# set the number you want to calculate the factorial of
 n=10
 
 # you have to initialize a variable before you can start using it. Leaving this empty would lead to the first iteration of the loop trying to use a variable that has no value, which would cause it to crash
@@ -383,8 +379,7 @@ Advanced solution:
 
 <details>
 <summary>:key: Click to see how</summary> 
-{% highlight bash %} 
-# make the dummy pipeline available in this script
+{% highlight bash %}# make the dummy pipeline available in this script
 export PATH=$PATH:/sw/courses/ngsintro/uppmax_pipeline_exercise/dummy_scripts
 
 # index the reference genome once if needed
