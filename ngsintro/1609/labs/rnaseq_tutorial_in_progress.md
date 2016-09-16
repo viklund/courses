@@ -60,6 +60,15 @@ To get going, let's book a node, create a working folder in the _glob_ directory
   <pre> salloc -A g2016017 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2016017_4 & </pre>
  </details>
 
+* :computer: To perform the functional annotation you can use a wrapper script *deu.R*,
+<details>
+<summary>:key: Click to see how</summary>
+{% highlight ruby %}
+def foo
+ puts 'foo'
+end
+{% endhighlight %}
+</details>
 
 
 
