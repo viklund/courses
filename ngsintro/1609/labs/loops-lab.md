@@ -135,14 +135,17 @@ $ echo $a squared is $(($a*$a))
 
 **Exercise:** Write a echo command that will print out the volume of a [rectangular cuboid](https://www.mathsisfun.com/cuboid.html), with the side lenghts specified by variables named `x`, `y`, and `z`. To see that it works correctly, the volume of a rectangular cuboid with sides 5,5,5 is 125, and for 4,5,10 is 200.
 
-If you get stuck, the solution will be below here in white text.
+If you get stuck, the solution will be below.
 
-<font color='white'>
-$ x=4<br>
-$ y=5<br>
-$ z=10<br>
-$ echo The volume of the rectangular cuboid with the sides $x,$y,$z is $(($x*$y*$z)).<br>
-</font>  
+<details>
+<summary>:key: Click to see how</summary> 
+{% highlight bash %} 
+$ x=4
+$ y=5
+$ z=10
+$ echo The volume of the rectangular cuboid with the sides $x,$y,$z is $(($x*$y*$z)).
+{% endhighlight %}
+</details> 
 
 ## 5. Looping over lists
 First off, let's open another terminal to uppmax so that you have 2 of them open. 
@@ -203,21 +206,21 @@ Try to implement this on your own.
 If you get stuck, the solution will be below here in white text.
 
 <font color='white'>
-# declare the values the loop will loop over<br><br>
+# declare the values the loop will loop over
 
-for secondsToGo in {10..0};<br>
-do<br><br>
+for secondsToGo in {10..0};
+do
 
-&nbsp;&nbsp;&nbsp;&nbsp;# print out the current number, then sleep for 1 second<br><br>
+    # print out the current number, then sleep for 1 second
 
-&nbsp;&nbsp;&nbsp;&nbsp;echo $secondsToGo<br>
-&nbsp;&nbsp;&nbsp;&nbsp;sleep 1<br><br>
+    echo $secondsToGo
+    sleep 1
 
-done<br>
+done
 
-# declare the start of a new year in a festive manner<br><br>
+# declare the start of a new year in a festive manner
 
-echo Happy New Year everyone!!<br>
+echo Happy New Year everyone!!
 </font>
 
 **Exercise 2**
@@ -239,38 +242,38 @@ If not, look for another solution and try that one instead.
 Basic, without bonus points:
 
 <font color='white'>
-# load the modules needed for samtools<br>
-module load bioinfo-tools samtools/1.3<br><br>
+# load the modules needed for samtools
+module load bioinfo-tools samtools/1.3
 
-# use ls to get the list to iterate over.<br>
-# You have to be standing in the correct directory for the script to work<br>
-for file in $(ls \*.sam);<br>
-do<br>
-&nbsp;&nbsp;&nbsp;&nbsp;# do the actual converting, just slapping on .bam at the end of the name<br>
-&nbsp;&nbsp;&nbsp;&nbsp;samtools view -bS $file > $file.bam<br>
-done<br>
+# use ls to get the list to iterate over.
+# You have to be standing in the correct directory for the script to work
+for file in $(ls \*.sam);
+do
+    # do the actual converting, just slapping on .bam at the end of the name
+    samtools view -bS $file > $file.bam
+done
 </font>
 
 
 Advanced, with bonus points:
 
 <font color='white'>
-# load the modules needed for samtools<br>
-module load bioinfo-tools samtools/1.3<br><br>
+# load the modules needed for samtools
+module load bioinfo-tools samtools/1.3
 
-# use ls to get the list to iterate over.<br>
-# $1 contains the first argument given to the program<br>
-for file in $(ls $1/\*.sam);<br>
-do<br><br>
+# use ls to get the list to iterate over.
+# $1 contains the first argument given to the program
+for file in $(ls $1/\*.sam);
+do
 
-&nbsp;&nbsp;&nbsp;&nbsp;# print a message to the screen so that the user knows what's happening.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;# ${file%.\*} means that it will take the file name and remove everything<br>
-&nbsp;&nbsp;&nbsp;&nbsp;# after the last punctuation in the name. <br>
-&nbsp;&nbsp;&nbsp;&nbsp;echo "Converting $file to ${file%.\*}.bam"<br><br>
+    # print a message to the screen so that the user knows what's happening.
+    # ${file%.\*} means that it will take the file name and remove everything
+    # after the last punctuation in the name. 
+    echo "Converting $file to ${file%.\*}.bam"
   
-&nbsp;&nbsp;&nbsp;&nbsp;# do the actual converting<br>
-&nbsp;&nbsp;&nbsp;&nbsp;samtools view -bS $file > ${file%.\*}.bam<br>
-done<br>
+    # do the actual converting
+    samtools view -bS $file > ${file%.\*}.bam
+done
 </font>
 
 **Exercise 3**
@@ -328,23 +331,23 @@ It's as easy to use as the sequence expressions; instead of writing {1..10} just
 If you get stuck, the solution will be below here in white text.
 
 <font color='white'>
-# set the number you want to calculate the factorial of<br><br>
-n=10<br><br>
+# set the number you want to calculate the factorial of
+n=10
 
-# you have to initialize a variable before you can start using it. Leaving this empty would lead to the first iteration of the loop trying to use a variable that has no value, which would cause it to crash<br><br>
-factorial=1<br><br>
+# you have to initialize a variable before you can start using it. Leaving this empty would lead to the first iteration of the loop trying to use a variable that has no value, which would cause it to crash
+factorial=1
 
-# declare the values the loop will loop over (1 to whatever $n is)<br><br>
-for i in $( seq 1 $n );<br>
-do<br><br>
+# declare the values the loop will loop over (1 to whatever $n is)
+for i in $( seq 1 $n );
+do
 
-&nbsp;&nbsp;&nbsp;&nbsp;# set factorial to whatever factorial is at the moment, multiplied with the variable $i<br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;factorial=$(( $factorial * $i ))<br><br>
+    # set factorial to whatever factorial is at the moment, multiplied with the variable $i
+    factorial=$(( $factorial * $i ))
 
-done<br><br>
+done
 
-# print the result<br><br>
-echo The factorial of $n is $factorial<br>
+# print the result
+echo The factorial of $n is $factorial
 </font>
 
 **Bonus exercise 2**
@@ -371,7 +374,7 @@ export PATH=$PATH:/sw/courses/ngsintro/uppmax_pipeline_exercise/dummy_scripts
 # index the reference genome once if needed
 if [ ! -f ~/glob/ngs-intro/filetypes/0_ref/ad2.fa.idx ];
 then
-&nbsp;&nbsp;&nbsp;&nbsp;reference_indexer -r ~/glob/ngs-intro/filetypes/0_ref/ad2.fa
+    reference_indexer -r ~/glob/ngs-intro/filetypes/0_ref/ad2.fa
 fi
 
 
@@ -388,17 +391,17 @@ cd -
 for file in $(ls $input_absolute_path/*.fastq);
 do
 
-&nbsp;&nbsp;&nbsp;&nbsp;# print status report
-&nbsp;&nbsp;&nbsp;&nbsp;echo Processing $file
+    # print status report
+    echo Processing $file
 
-&nbsp;&nbsp;&nbsp;&nbsp;# save the file name without the path information for convenience
-&nbsp;&nbsp;&nbsp;&nbsp;file_basename=$(basename $file)
+    # save the file name without the path information for convenience
+    file_basename=$(basename $file)
 
-&nbsp;&nbsp;&nbsp;&nbsp;# save the file name without the file ending for convenience
-&nbsp;&nbsp;&nbsp;&nbsp;file_prefix=${file_basename%.*}
+    # save the file name without the file ending for convenience
+    file_prefix=${file_basename%.*}
 
-&nbsp;&nbsp;&nbsp;&nbsp;# print a temporary script file that will be submitted to slurm
-&nbsp;&nbsp;&nbsp;&nbsp;echo "#!/bin/bash -l
+    # print a temporary script file that will be submitted to slurm
+    echo "#!/bin/bash -l
 #SBATCH -A g2016017
 #SBATCH -p core
 #SBATCH -n 1
@@ -442,10 +445,10 @@ cp $file_prefix.sorted.bam.bai $input_absolute_path/$file_prefix.sorted.bai
 
 
 echo "Finished"
-&nbsp;&nbsp;&nbsp;&nbsp;" > tmp.sbatch
+    " > tmp.sbatch
 
-&nbsp;&nbsp;&nbsp;&nbsp;# submit the temporary script file
-&nbsp;&nbsp;&nbsp;&nbsp;sbatch tmp.sbatch
+    # submit the temporary script file
+    sbatch tmp.sbatch
 
 done
 
