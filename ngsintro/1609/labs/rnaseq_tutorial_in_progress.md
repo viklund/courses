@@ -617,6 +617,136 @@ OBS: the following part is not yet ready, the R packages are not installed in th
 
 # Bonus exercise: further data analyses and visualization
 
+# Introduction<a id="orgheadline1"></a>
+
+Data visualisation is important to be able to clearly convey results,
+but can also be very helpful as tool for identifying issues and
+noteworthy patterns in the data. In this part you will use the bam
+files you created earlier in the RNA-seq lab and use IGV (Integrated
+Genomic Viewer) to visualize the mapped reads and genome
+annotations. In addition we will produce high quality plots of both
+the mapped read data and the results from differential gene
+expression.
+
+# IGV<a id="orgheadline2"></a>
+
+If you are already familiar with IGV you can load the mouse genome and
+at least one bam file from each of the treatments that you created
+earlier. The functionality of IGV is the same as if you look at
+genomic data, but there are a few of the features that are more
+interesting to use for RNA-seq data.
+
+[Integrated genomics viewer](http://software.broadinstitute.org/software/igv/) from Broad Institute is a nice graphical
+interface to view bam files and genome annotations. It also has tools
+to export data and some functionality to look at splicing patterns in
+RNA-seq data sets. Even though it allows for some basic types of
+analysis it should be used more as a nice way to look at your mapped
+data. Looking at data in this way might seem like a daunting approach
+as you can not check more than a few regions, but in in many cases it
+can reveal mapping patterns that are hard to catch with just summary
+statistics.
+
+For this tutorial you can chose to run IGV directly on your own computer
+or on uppmax. If you chose to run it on your own computer you will
+have to download some of the bam files (and the corresponding index
+files) from upppmax. If you have not yet installed IGV you also
+have to get a copy of the program. 
+
+<details>
+  <summary>:key: Click to see how to transfer files from uppmax</summary>
+
+    scp scp username@milou.uppmax.uu.se:~/glob/bamfile.bam .
+
+</details>
+
+If you instead choose to run on uppmax you need to make sure that you
+log on in a way so that the generated graphics are exported via the
+network to your screen. This can be done in two different ways. The
+first method requires you to log in to uppmax with the following
+command.
+
+    ssh -Y username@milou.uppmax.uu.se
+    ssh -Y computenode
+
+These two steps makes sure that any graphical interface that you start
+on your compute node, will be exported to your computer. Note that as
+the graphics is exported over the network it can be fairly slow in
+redrawing windows and the experience can be fairly poor.
+
+The second and superior way is to go to [Milou-gui](https://milou-gui.uppmax.uu.se/main/)
+
+Once you log into this interface you will have a linux desktop
+interface in a browser window. This interface is running on the login
+node so if you want to do any heavy lifting you need to login to your
+reserved compute node also here. This is done by opening a terminal in
+the running linux envirolnment and log on to your compute node as before
+NB! If you have no active reservation you have to do that first.
+
+    ssh -Y computenode
+
+Once at the compute node we can load necessary modules and open an IGV
+session.
+
+    module load bioinfo-tools
+    module load IGV/2.3.40
+    igv-core
+
+This should start the IGV so that it is visible on your screen. If not please try to
+reconnect to uppmax or consider running IGV locally as that is often
+the fastest and most convinient solution. 
+
+Once we have the program running you select the genome that you would
+like to load. As seen in the image below. 
+
+![img](Figures/IGV-genome.png)
+
+Note that if you are working with a genome that are not part of the
+available genomes in IGV, one can create genome files from within
+IGV. Please check the manual of IGV for more information on that.
+
+To open your bam files click on File and chose the option "Load from
+file&#x2026;" select your bam file and make sure that you have a .bai index
+for that bam file in the same folder. You can repeat this and open
+multiple bam files in the same window, which makes it easy to compare
+samples. For every file you open a number of panels are opened that
+visualize the data in different ways. The first panel named "Coverage"
+summarize the coverage of basepairs in the window you have zoomed
+to. The second that ends with the name "Junctions" show how reads were
+spliced to map, eg. reads that stretch over multiple exons are split
+and mapped one part in one exon and the next in another exon. The
+third panel shows the reads as they are mapped to the genome. If one
+right click with the mouse on the read panel there many options to
+group and color reads. 
+
+To see actual reads you have to zoom in until the reads are
+drawn on screen. If you have a gene of interest you can also use
+the search box to directly go to that gene. 
+
+If you for example search for the gene "Mocs2" you should see a decent
+amount of reads mapping to this region. For more detailed information
+on the splice reads you can instead of just looking at the splice
+panel right click on the read panel and select "Sashimi plots" This
+will open a new window showing in an easy readable fashion how reads
+are spliced in mapping and you will also be able to see that there are
+differences in between what locations reads are spliced. This can
+hence represents reads that originate from different isoforms of the
+gene.
+
+To try some of the features available in IGV you can try to address the following
+questions. 
+
+Q1: Are the reads you mapped from a stranded or unstranded library?
+
+Q2: Pick a gene from the toplist of most significant genes from the DE
+analysis and search for it using the search box in IGV. Would you say that
+the pattern you see here confirms the gene as differentially expressed
+between treatments?
+
+Q3: One can visualize all genes in a given pathway using the gene list
+option under "Regions" in the menu. Would you agree with what they
+state in the paper about certain pathways being down-regulated. If you need
+hints for how to proceed see [Gene List tutorial at Broad](http://software.broadinstitute.org/software/igv/gene_list_view).
+
 # Closing remarks
 It is not possible to learn RNA-seq data processing and analysis in one day... The good news is that there are many available tools and well-written tutorial with examples to learn from. In this tutorial we have covered the most important data processing steps that may be enough when the libraries are good. If not, there is plenty of trouble-shooting that one can try before discarding the data. And once the count table are in place, the biostatistical and data mining begins. There are no well-defined solutions here, all depends on the experiment and questions to be asked, but we strongly advise learning R. Not only to use the specifically designed statistical packages to analyze NGS count data, but also to be able to handle the data and results as well as to generate high-quality plots. There is no better way of learning than to try...
 
