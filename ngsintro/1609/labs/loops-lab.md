@@ -203,23 +203,48 @@ Try to implement this on your own.
 If you get stuck, the solution will be below here in white text.
 
 <font color='white'>
-# declare the values the loop will loop over<br><br>
+\# declare the values the loop will loop over<br><br>
+
 for secondsToGo in {10..0};<br>
 do<br><br>
 
-# print out the current number, then sleep for 1 second<br><br>
+&nbsp;&nbsp;\# print out the current number, then sleep for 1 second<br><br>
+
 &nbsp;&nbsp;echo $secondsToGo<br>
 &nbsp;&nbsp;sleep 1<br><br>
+
 done<br>
 
-# declare the start of a new year, in a festive manner<br><br>
-echo Happy New Year!!
+\# declare the start of a new year, in a festive manner<br><br>
+
+echo Happy New Year!!<br>
 </font>
 
 **Exercise 2**
+Let's try to do something similar to the example in the lecture slides, to run the same commands on multiple files.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**Bonus exercise**
 Maths and programming are usually a very good combination, so many of the examples of programming you'll see involve some kind of maths.
 Now we will write a loop that will calculate the factorial of a number.
 As [wikipedia will tell you](https://en.wikipedia.org/wiki/Factorial), "the factorial of a non-negative integer n, denoted by n!, is the product of all positive integers less than or equal to n", i.e. multiply all the integers, starting from 1, leading up to and including a number with each other.
+The factorial of 5, written 5!, would be 1 \* 2 \* 3 \* 4 \* 5 = 120  
 Doing this by hand would start taking its time even after a couple of steps, but since we know how to loop that should not be a problem anymore.
 Write a loop that will calculate the factorial of a given number stored in the variable `$n`.
 
@@ -235,22 +260,22 @@ It's as easy to use as the sequence expressions; instead of writing {1..10} just
 If you get stuck, the solution will be below here in white text.
 
 <font color='white'>
-# set the number you want to calculate the factorial of<br><br>
+\# set the number you want to calculate the factorial of<br><br>
 n=10<br><br>
 
-# you have to initialize a variable before you can start using it. Leaving this empty would lead to the first iteration of the loop trying to use a variable that has no value, which would cause it to crash<br><br>
+\# you have to initialize a variable before you can start using it. Leaving this empty would lead to the first iteration of the loop trying to use a variable that has no value, which would cause it to crash<br><br>
 factorial=1<br><br>
 
-# declare the values the loop will loop over (1 to whatever $n is)<br><br>
+\# declare the values the loop will loop over (1 to whatever $n is)<br><br>
 for i in $( seq 1 $n );<br>
 do<br><br>
 
-# set factorial to whatever factorial is a the moment, multiplied with the variable $i<br><br>
+&nbsp;&nbsp;\# set factorial to whatever factorial is at the moment, multiplied with the variable $i<br><br>
 &nbsp;&nbsp;factorial=$(( $factorial * $i ))<br><br>
 
 done<br><br>
 
-# print the result<br><br>
+\# print the result<br><br>
 echo The factorial of $n is $factorial<br>
 </font>
 
