@@ -381,7 +381,7 @@ Advanced solution:
 
 <details>
 <summary>:key: Click to see how</summary> 
-<pre># make the dummy pipeline available in this script
+<pre><code># make the dummy pipeline available in this script
 export PATH=$PATH:/sw/courses/ngsintro/uppmax_pipeline_exercise/dummy_scripts
 
 # index the reference genome once if needed
@@ -467,6 +467,6 @@ done
 
 # remove the temporary file now that everything has been submitted
 rm tmp.sbatch
-</pre>
+</code></pre>
 </details> 
 <br><br>
