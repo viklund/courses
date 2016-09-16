@@ -99,7 +99,7 @@ $ a=5
 ```
 
 Now the values 5 is stored in the variable named `a`.
-To use the variabe we have to put a $ sign in front of it so that bash knows we are referring to the variable `a` and not just typing the letter a.
+To use the variable we have to put a $ sign in front of it so that bash knows we are referring to the variable `a` and not just typing the letter a.
 To see the result of using the variable, we can use the program `echo`, which prints whatever you give it to the terminal:
 
 ```bash
@@ -126,14 +126,14 @@ So without changing anything in the echo statement, we can make it output differ
 This is one of the main points of using variables, that you don't have to change the code or script but you can still make it behave differently depending on the values of the variables.
 
 You can also do mathematics with variables, but we have to tell bash that we want to do calculations first.
-We do this by wrapping the calculations inside a dollar sign (telling bash it's a vaiable) and double parantasese, i.e. $((5+5))
+We do this by wrapping the calculations inside a dollar sign (telling bash it's a variable) and double parentheses, i.e. $((5+5))
 
 ```bash
 $ a=4
 $ echo $a squared is $(($a*$a))
 ```
 
-**Exercise:** Write a echo command that will print out the volume of a [rectangular cuboid](https://www.mathsisfun.com/cuboid.html), with the side lenghts specified by variables named `x`, `y`, and `z`. To see that it works correctly, the volume of a rectangular cuboid with sides 5,5,5 is 125, and for 4,5,10 is 200.
+**Exercise:** Write a echo command that will print out the volume of a [rectangular cuboid](https://www.mathsisfun.com/cuboid.html), with the side lengths specified by variables named `x`, `y`, and `z`. To see that it works correctly, the volume of a rectangular cuboid with sides 5,5,5 is 125, and for 4,5,10 is 200.
 
 If you get stuck, the solution will be below.
 
@@ -183,7 +183,7 @@ done
 
 If everything worked correctly you should have botten the number 1 2 3 printed to the screen.
 As you might guess, this way of writing the list of numbers to iterate over will not be usable once you have more than 10 or so numbers you want to loop over.
-Fortunately, the creators of bash (and most other computer languages) saw this probelm coming a mile away and did something about it.
+Fortunately, the creators of bash (and most other computer languages) saw this problem coming a mile away and did something about it.
 To quickly create a list of numbers in bash, you can use something called a sequence expression to create the list for you.
  
 ```bash
@@ -226,9 +226,9 @@ echo Happy New Year everyone!!
 
 **Exercise 2**
 Let's try to do something similar to the example in the lecture slides, to run the same commands on multiple files.
-In the [Uppmax intro](uppmax-intro) we learned how to use samtoosl to convert bam files to sam files so that humans can read them.
-In real life you will never do this, instead you will most likely always do it the otherway around.
-Sam files take up ~4x more space on the harddrive compared to the same file in bam format, so as soon as you see a sam file you should convert it to a bam file instead to conserve harddrive space.
+In the [Uppmax intro](uppmax-intro) we learned how to use samtools to convert bam files to sam files so that humans can read them.
+In real life you will never do this, instead you will most likely always do it the other way around.
+Sam files take up ~4x more space on the hard drive compared to the same file in bam format, so as soon as you see a sam file you should convert it to a bam file instead to conserve hard drive space.
 If you have many sam files that needs converting you don't want to sit there and type all the commands by hand like some kind of animal.
 
 
@@ -286,7 +286,7 @@ done
 Let's add a small thing to the exercise we just did.
 If there already exists a bam file with the same name as the sam file it's not necessary to convert it again.
 Let's use an if statement to check if the file already exists before we do the conversion. 
-The following if statement will check if a given filename extists, and prints a message depending on if it exists or not.
+The following if statement will check if a given filename exists, and prints a message depending on if it exists or not.
 
 ```bash
 FILE=$1
@@ -314,8 +314,58 @@ fi
 
 Now, modify the previous exercise to not do the conversion if a file with the intended name of the bam file already exists. I.e. if you have a.sam and want to create a bam file named a.bam, first check if a.bam already exists and only do the conversion if it does not exist.
 
+Basic:
 
+<details>
+<summary>:key: Click to see how</summary> 
+{% highlight bash %}# load the modules needed for samtools
+module load bioinfo-tools samtools/1.3
 
+# use ls to get the list to iterate over.
+# You have to be standing in the correct directory for the script to work
+for file in $(ls *.sam);
+do
+    # check if the intended output file doesn't already exists
+    if [! -f $file.bam ];
+    then
+        # do the actual converting, just slapping on .bam at the end of the name
+        samtools view -bS $file > $file.bam
+    fi
+done
+{% endhighlight %}
+</details> 
+<br><br>
+
+Advanced:
+
+<details>
+<summary>:key: Click to see how</summary> 
+{% highlight bash %}# load the modules needed for samtools
+module load bioinfo-tools samtools/1.3
+
+# use ls to get the list to iterate over.
+# $1 contains the first argument given to the program
+for file in $(ls $1/*.sam);
+do
+    
+    # check if the intended output file doesn't already exists
+    if [! -f $file.bam ];
+    then
+
+        # print a message to the screen so that the user knows what's happening.
+        # ${file%.*} means that it will take the file name and remove everything
+        # after the last punctuation in the name. 
+        echo "Converting $file to ${file%.*}.bam"
+      
+        # do the actual converting
+        samtools view -bS $file > ${file%.*}.bam
+        
+    else
+        echo "Skipping conversion of $file as ${file%.*}.bam already exist"
+done
+{% endhighlight %}
+</details> 
+<br><br>
 
 **Bonus exercise 1**
 Maths and programming are usually a very good combination, so many of the examples of programming you'll see involve some kind of maths.
@@ -325,7 +375,7 @@ The factorial of 5, written 5!, would be 1 \* 2 \* 3 \* 4 \* 5 = 120
 Doing this by hand would start taking its time even after a couple of steps, but since we know how to loop that should not be a problem anymore.
 Write a loop that will calculate the factorial of a given number stored in the variable `$n`.
 
-A problem you will encounter is that the sequence expression, {1..10}, from before doesn't handle varaibles.
+A problem you will encounter is that the sequence expression, {1..10}, from before doesn't handle variables.
 This is because of the way bash is built.
 The sequence expressions are handled before handling the variables so when bash tries to generate the sequence, the variable names have not yet been replaced with the values they contain.
 This leads to bash trying to create a sequence from 1 to $n, which of course doesn't mean anything.
@@ -363,9 +413,9 @@ echo The factorial of $n is $factorial
 
 **Bonus exercise 2**
 Now, let's combine everything you've learned so far in this course.
-Write a script that runs the pipeline from the [file types exercise](filetypes) for each fastq file in a specified directory, using the same reference genome as in the file type exercise.
+Write a script that runs the pipeline from the [file types exercise](file types) for each fastq file in a specified directory, using the same reference genome as in the file type exercise.
 If that sounds too easy, make the script submit a slurm job for each sample that will run the pipeline for that sample on a calculation node (1 core, 5 minutes each).
-And if that is too easy, add that the pipeline will use the local harddrive on the calculation node for all files used in the analysis.
+And if that is too easy, add that the pipeline will use the local hard drive on the calculation node for all files used in the analysis.
 When the analysis is done, only fastq files and sorted and indexed bam files should be in your glob folder.
 Read more about the `$SNIC_TMP` variable in the [milou user guide](http://www.uppmax.uu.se/support-sv/user-guides/milou-user-guide/).
 
@@ -460,14 +510,14 @@ do
 echo "Loading modules"
 export PATH=\$PATH:/sw/courses/ngsintro/uppmax_pipeline_exercise/dummy_scripts
 
-# copy the reference genome, index and sample file to the nodes local harddrive.
+# copy the reference genome, index and sample file to the nodes local hard drive.
 # You have to escape the dollar sign in SNIC_TMP to keep bash from resolving
 # it to it's value in the submitter script already.
-echo "Copying data to node local harddrive"
+echo "Copying data to node local hard drive"
 cp ~/glob/ngs-intro/filetypes/0_ref/ad2.fa* $file \$SNIC_TMP/
 
-# go the the nodes local harddrive
-echo "Changing directory to node local harddrive"
+# go the the nodes local hard drive
+echo "Changing directory to node local hard drive"
 cd \$SNIC_TMP
 
 # align the reads
