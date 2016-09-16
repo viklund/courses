@@ -57,8 +57,10 @@ To get going, let's book a node, create a working folder in the _glob_ directory
 *  :computer: **Book a node.** As for other tutorials in this course we have reserved half a node per person. If you have not done it yet today book a node now as otherwise you will take away resources from your fellow course participants.
  <details>
   <summary>:key: Click to see how to book a node</summary>
-  `salloc -A g2016017 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2016017_4 &`
+  <pre> salloc -A g2016017 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2016017_4 & </pre>
  </details>
+
+
 
 
 * :computer: **Create a folder** named _transcriptome_ for your project in your _glob_ directory. **Create  a sub-folder**  called _DATA_.
