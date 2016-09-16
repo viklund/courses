@@ -243,7 +243,9 @@ If not, look for another solution and try that one instead.
 
 Basic, without bonus points:
 
-<font color='white'>
+<details>
+<summary>:key: Click to see how</summary> 
+{% highlight bash %} 
 # load the modules needed for samtools
 module load bioinfo-tools samtools/1.3
 
@@ -254,12 +256,15 @@ do
     # do the actual converting, just slapping on .bam at the end of the name
     samtools view -bS $file > $file.bam
 done
-</font>
+{% endhighlight %}
+</details> 
 
 
 Advanced, with bonus points:
 
-<font color='white'>
+<details>
+<summary>:key: Click to see how</summary> 
+{% highlight bash %} 
 # load the modules needed for samtools
 module load bioinfo-tools samtools/1.3
 
@@ -276,7 +281,8 @@ do
     # do the actual converting
     samtools view -bS $file > ${file%.\*}.bam
 done
-</font>
+{% endhighlight %}
+</details> 
 
 **Exercise 3**
 Let's add a small thing to the exercise we just did.
@@ -332,7 +338,9 @@ It's as easy to use as the sequence expressions; instead of writing {1..10} just
 
 If you get stuck, the solution will be below here in white text.
 
-<font color='white'>
+<details>
+<summary>:key: Click to see how</summary> 
+{% highlight bash %} 
 # set the number you want to calculate the factorial of
 n=10
 
@@ -350,7 +358,8 @@ done
 
 # print the result
 echo The factorial of $n is $factorial
-</font>
+{% endhighlight %}
+</details> 
 
 **Bonus exercise 2**
 Now, let's combine everything you've learned so far in this course.
@@ -370,6 +379,9 @@ Basic solution:
 
 Advanced solution:
 
+<details>
+<summary>:key: Click to see how</summary> 
+{% highlight bash %} 
 # make the dummy pipeline available in this script
 export PATH=$PATH:/sw/courses/ngsintro/uppmax_pipeline_exercise/dummy_scripts
 
@@ -456,3 +468,5 @@ done
 
 # remove the temporary file now that everything has been submitted
 rm tmp.sbatch
+{% endhighlight %}
+</details> 
