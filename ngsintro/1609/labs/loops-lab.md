@@ -222,6 +222,20 @@ echo Happy New Year!!<br>
 
 **Exercise 2**
 Let's try to do something similar to the example in the lecture slides, to run the same commands on multiple files.
+In the [Uppmax intro](uppmax-intro) we learned how to use samtoosl to convert bam files to sam files so that humans can read them.
+In real life you will never do this, instead you will most likely always do it the otherway around.
+Sam files take up ~4x more space on the harddrive compared to the same file in bam format, so as soon as you see a sam file you should convert it to a bam file instead to conserve harddrive space.
+If you have many sam files that needs converting you don't want to sit there and type all the commands by hand like some kind of animal.
+
+
+  Write a script that converts all the sam files in a specified directory to bam files.
+  Bonus points if you make the program take the specified directory as an argument, and another bonus point if you get the program to name the resulting bam file to the same name as the sam file but with a .bam ending instead.
+
+Remember, Google is a good place to get help. If you get stuck, google "bash remove file ending" or "bash argument to script" and look for hits from Stackoverflow/Stackexchange or similar pages.
+There are always many different way to solve a problem.
+Try finding the ones you understand what they do and test if you can get them to work the way you want.
+If not, look for another solution and try that one instead.
+
 
 
 
