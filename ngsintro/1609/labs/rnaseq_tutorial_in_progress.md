@@ -19,6 +19,7 @@ RNA-seq has become a powerful approach to study the continually changing cellula
   * build statistical model to find DE genes using edgeR from a **prepared R script**
 
 As discussed during the lecture, RNA-seq experiment does not end with a list of DE genes. If you have time after completing the main exercise, try one (or more) of the bonus exercises. The bonus exercises can be run independently of each other, so choose the one that matches your interest.
+
 * In the **bonus section** you can find additional exercises
   * **BEx. 01 Functional annotation** how to put DE genes in the biological context of functional annotations
   * **BEx. 02 Exon usage** how to perform analysis of differential exon usage and study alternative splicing
@@ -54,27 +55,36 @@ Reading manuals, trying different tools/options, finding solutions to problems a
 
 ## Preparing a working directory
 To get going, let's book a node, create a working folder in the _glob_ directory and link the raw sequencing files .fastq.gz
-*  :computer: **Book a node.** As for other tutorials in this course we have reserved half a node per person. If you have not done it yet today book a node now as otherwise you will take away resources from your fellow course participants.
+
+* :computer: **Book a node.** As for other tutorials in this course we have reserved half a node per person. If you have not done it yet today book a node now as otherwise you will take away resources from your fellow course participants.
  <details>
-  <summary>:key: Click to see how to book a node</summary>
-  <pre> salloc -A g2016017 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2016017_4 & </pre>
+ <summary>:key: Click to see how to book a node</summary>
+ {% highlight ruby %}
+ salloc -A g2016017 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2016017_4 &
+ {% endhighlight %}
  </details>
 
 
-
-
 * :computer: **Create a folder** named _transcriptome_ for your project in your _glob_ directory. **Create  a sub-folder**  called _DATA_.
+
  <details>
-  <summary>:key: Click to see suggested commands</summary>
-  `cd ~/glob; mkdir transcriptome; mkdir transcriptome/DATA`
+ {% highlight ruby %}
+ <summary>:key: Click to see suggested commands</summary>
+ cd ~/glob
+ mkdir transcriptome
+ mkdir transcriptome/DATA`
+ {% endhighlight %}
  </details>
 
 
 * :computer: **Sym-link** the .fastq.gz files located in /sw/courses/ngsintro/rnaseq_2016/DATA/p25. :bulb: A great chance to practice your bash loop skills.
- <details>
- <summary>:key: Click to see suggested commands</summary>
- `cd ~/glob/transcriptome/DATA/; for i in /sw/courses/ngsintro/rnaseq_2016/DATA/p25/*; do ln -s $i; done`
- </details>
+<details>
+{% highlight ruby %}
+<summary>:key: Click to see suggested commands</summary>
+cd ~/glob/transcriptome/DATA/
+for i in /sw/courses/ngsintro/rnaseq_2016/DATA/p25/*; do ln -s $i; done
+{% endhighlight %}
+</details>
 
 
 ## <a name="fastqc"></a> FastQC: quality check of the raw sequencing reads
