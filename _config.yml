@@ -17,6 +17,10 @@ highlighter: rouge
 sass:
   sass_dir: css
   style:    expanded
+  
+# enable emojis
+gems:
+  - jemoji
 
 
 
