@@ -341,7 +341,9 @@ If you get stuck, the solution will be below here in white text.
 {% highlight bash %}# set the number you want to calculate the factorial of
 n=10
 
-# you have to initialize a variable before you can start using it. Leaving this empty would lead to the first iteration of the loop trying to use a variable that has no value, which would cause it to crash
+# you have to initialize a variable before you can start using it.
+# Leaving this empty would lead to the first iteration of the loop trying 
+# to use a variable that has no value, which would cause it to crash
 factorial=1
 
 # declare the values the loop will loop over (1 to whatever $n is)
