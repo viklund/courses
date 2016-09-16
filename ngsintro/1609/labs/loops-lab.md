@@ -236,8 +236,39 @@ There are always many different way to solve a problem.
 Try finding the ones you understand what they do and test if you can get them to work the way you want.
 If not, look for another solution and try that one instead.
 
+Basic, without bonus points:
+
+\# load the modules needed for samtools
+module load bioinfo-tools samtools/1.3
+
+\# use ls to get the list to iterate over.
+\# You have to be standing in the correct directory for the script to work
+for file in $(ls *.sam);
+do
+  \# do the actual converting, just slapping on .bam at the end of the name
+  samtools view -bS $file > $file.bam
+done
 
 
+
+Advanced, with bonus points:
+
+\# load the modules needed for samtools
+module load bioinfo-tools samtools/1.3
+
+\# use ls to get the list to iterate over.
+\# $1 contains the first argument given to the program
+for file in $(ls $1/*.sam);
+do
+
+  \# print a message to the screen so that the user knows what's happening.
+  \# ${file%.*} means that it will take the file name and remove everything
+  \# after the last punctuation in the name. 
+  echo "Converting $file to ${file%.*}.bam"
+  
+  \# do the actual converting
+  samtools view -bS $file > ${file%.*}.bam
+done
 
 
 
