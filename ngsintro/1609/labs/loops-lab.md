@@ -238,37 +238,37 @@ If not, look for another solution and try that one instead.
 
 Basic, without bonus points:
 
-\# load the modules needed for samtools
-module load bioinfo-tools samtools/1.3
+\# load the modules needed for samtools<br>
+module load bioinfo-tools samtools/1.3<br><br>
 
-\# use ls to get the list to iterate over.
-\# You have to be standing in the correct directory for the script to work
-for file in $(ls *.sam);
-do
-  \# do the actual converting, just slapping on .bam at the end of the name
-  samtools view -bS $file > $file.bam
-done
+\# use ls to get the list to iterate over.<br>
+\# You have to be standing in the correct directory for the script to work<br>
+for file in $(ls *.sam);<br>
+do<br>
+&nbsp;&nbsp;\# do the actual converting, just slapping on .bam at the end of the name<br>
+&nbsp;&nbsp;samtools view -bS $file > $file.bam<br>
+done<br>
 
 
 
 Advanced, with bonus points:
 
-\# load the modules needed for samtools
-module load bioinfo-tools samtools/1.3
+\# load the modules needed for samtools<br>
+module load bioinfo-tools samtools/1.3<br><br>
 
-\# use ls to get the list to iterate over.
-\# $1 contains the first argument given to the program
-for file in $(ls $1/*.sam);
-do
+\# use ls to get the list to iterate over.<br>
+\# $1 contains the first argument given to the program<br>
+for file in $(ls $1/*.sam);<br>
+do<br><br>
 
-  \# print a message to the screen so that the user knows what's happening.
-  \# ${file%.*} means that it will take the file name and remove everything
-  \# after the last punctuation in the name. 
-  echo "Converting $file to ${file%.*}.bam"
+&nbsp;&nbsp;\# print a message to the screen so that the user knows what's happening.<br>
+&nbsp;&nbsp;\# ${file%.*} means that it will take the file name and remove everything<br>
+&nbsp;&nbsp;\# after the last punctuation in the name. <br>
+&nbsp;&nbsp;echo "Converting $file to ${file%.*}.bam"<br><br>
   
-  \# do the actual converting
-  samtools view -bS $file > ${file%.*}.bam
-done
+&nbsp;&nbsp;\# do the actual converting<br>
+&nbsp;&nbsp;samtools view -bS $file > ${file%.*}.bam<br>
+done<br>
 
 
 
