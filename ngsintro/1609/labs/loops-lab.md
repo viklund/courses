@@ -381,7 +381,7 @@ Advanced solution:
 
 <details>
 <summary>:key: Click to see how</summary> 
-{% highlight bash %}# make the dummy pipeline available in this script
+<pre># make the dummy pipeline available in this script
 export PATH=$PATH:/sw/courses/ngsintro/uppmax_pipeline_exercise/dummy_scripts
 
 # index the reference genome once if needed
@@ -414,59 +414,59 @@ do
     file_prefix=${file_basename%.*}
 
     # print a temporary script file that will be submitted to slurm
-    echo """#!/bin/bash -l\
-#SBATCH -A g2016017\
-#SBATCH -p core\
-#SBATCH -n 1\
-#SBATCH -t 00:05:00\
-#SBATCH -J $file_basename\
-\
-# make the dummy pipeline available on the calculation node\
-echo "Loading modules"\
-export PATH=\$PATH:/sw/courses/ngsintro/uppmax_pipeline_exercise/dummy_scripts\
-\
-# copy the reference genome, index and sample file to the nodes local harddrive.\
-# You have to escape the dollar sign in SNIC_TMP to keep bash from resolving\
-# it to it's value in the submitter script already.\
-echo "Copying data to node local harddrive"\
-cp ~/glob/ngs-intro/filetypes/0_ref/ad2.fa* $file \$SNIC_TMP/\
-\
-# go the the nodes local harddrive\
-echo "Changing directory to node local harddrive"\
-cd \$SNIC_TMP\
-\
-# align the reads\
-echo "Aligning the reads"\
-align_reads -r ad2.fa -i $file_basename -o $file_prefix.sam\
-\
-# convert the sam file to a bam file\
-echo "Converting sam to bam"\
-sambam_tool -f bam -i $file_prefix.sam -o $file_prefix.bam\
-\
-# sort the bam file\
-echo "Sorting the bam file"\
-sambam_tool -f sort -i $file_prefix.bam -o $file_prefix.sorted.bam\
-\
-# index the bam file\
-echo "Indexing the sorted bam file"\
-sambam_tool -f index -i $file_prefix.sorted.bam\
-\
-# copy back the files you want to keep\
-echo "Copying results back to network storage"\
-cp $file_prefix.sorted.bam $input_absolute_path/\
-cp $file_prefix.sorted.bam.bai $input_absolute_path/$file_prefix.sorted.bai\
-\
-\
-echo "Finished"\
-    """ > tmp.sbatch\
-\
-    # submit the temporary script file\
-    sbatch tmp.sbatch\
-\
-done\
-\
-# remove the temporary file now that everything has been submitted\
-rm tmp.sbatch\
-{% endhighlight %}
+    echo "#!/bin/bash -l
+#SBATCH -A g2016017
+#SBATCH -p core
+#SBATCH -n 1
+#SBATCH -t 00:05:00
+#SBATCH -J $file_basename
+
+# make the dummy pipeline available on the calculation node
+echo "Loading modules"
+export PATH=\$PATH:/sw/courses/ngsintro/uppmax_pipeline_exercise/dummy_scripts
+
+# copy the reference genome, index and sample file to the nodes local harddrive.
+# You have to escape the dollar sign in SNIC_TMP to keep bash from resolving
+# it to it's value in the submitter script already.
+echo "Copying data to node local harddrive"
+cp ~/glob/ngs-intro/filetypes/0_ref/ad2.fa* $file \$SNIC_TMP/
+
+# go the the nodes local harddrive
+echo "Changing directory to node local harddrive"
+cd \$SNIC_TMP
+
+# align the reads
+echo "Aligning the reads"
+align_reads -r ad2.fa -i $file_basename -o $file_prefix.sam
+
+# convert the sam file to a bam file
+echo "Converting sam to bam"
+sambam_tool -f bam -i $file_prefix.sam -o $file_prefix.bam
+
+# sort the bam file
+echo "Sorting the bam file"
+sambam_tool -f sort -i $file_prefix.bam -o $file_prefix.sorted.bam
+
+# index the bam file
+echo "Indexing the sorted bam file"
+sambam_tool -f index -i $file_prefix.sorted.bam
+
+# copy back the files you want to keep
+echo "Copying results back to network storage"
+cp $file_prefix.sorted.bam $input_absolute_path/
+cp $file_prefix.sorted.bam.bai $input_absolute_path/$file_prefix.sorted.bai
+
+
+echo "Finished"
+    " > tmp.sbatch
+
+    # submit the temporary script file
+    sbatch tmp.sbatch
+
+done
+
+# remove the temporary file now that everything has been submitted
+rm tmp.sbatch
+</pre>
 </details> 
 <br><br>
