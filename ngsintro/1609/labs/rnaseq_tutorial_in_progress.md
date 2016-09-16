@@ -63,10 +63,9 @@ To get going, let's book a node, create a working folder in the _glob_ directory
 * :computer: To perform the functional annotation you can use a wrapper script *deu.R*,
 <details>
 <summary>:key: Click to see how</summary>
-{% highlight bash %}
-def foo
- puts 'foo'
-end
+{% highlight ruby %}
+salloc -A g2016017 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2016017_4 &
+salloc -A g2016017 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2016017_4 &
 {% endhighlight %}
 </details>
 
