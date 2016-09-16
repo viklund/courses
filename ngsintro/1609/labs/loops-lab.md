@@ -374,6 +374,41 @@ There are a bunch of fastq files in the directory `~/glob/ngs-intro/loops/fastq/
 
 Basic solution:
 
+<details>
+<summary>:key: Click to see how</summary> 
+<pre># make the dummy pipeline available
+export PATH=$PATH:/sw/courses/ngsintro/uppmax_pipeline_exercise/dummy_scripts
+
+# index the reference genome
+reference_indexer -r ~/glob/ngs-intro/filetypes/0_ref/ad2.fa
+
+# go to the input files
+cd $1
+
+# loop over all the fastq files
+for file in $(ls \*.fastq);
+do
+
+    # save the file name without the path information for convenience
+    file_basename=$(basename $file)
+
+    # align the reads
+    align_reads -r ~/glob/ngs-intro/filetypes/0_ref/ad2.fa -i $file_basename -o $file_basename.sam
+
+    # convert the sam file to a bam file
+    sambam_tool -f bam -i $file_basename.sam -o $file_basename.bam
+
+    # sort the bam file
+    sambam_tool -f sort -i $file_basename.bam -o $file_basename.sorted.bam
+
+    # index the bam file
+    sambam_tool -f index -i $file_basename.sorted.bam
+
+done
+</pre>
+</details> 
+<br><br>
+
 
 
 
@@ -384,7 +419,7 @@ Advanced solution:
 <pre># make the dummy pipeline available in this script
 export PATH=$PATH:/sw/courses/ngsintro/uppmax_pipeline_exercise/dummy_scripts
 
-# index the reference genome once if needed
+# index the reference genome once, only if needed
 if [ ! -f ~/glob/ngs-intro/filetypes/0_ref/ad2.fa.idx ];
 then
     reference_indexer -r ~/glob/ngs-intro/filetypes/0_ref/ad2.fa
