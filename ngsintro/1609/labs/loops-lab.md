@@ -3,44 +3,6 @@ layout: default
 title:  'Advanced Linux Usage - Variables and Loops'
 ---
 
-
-* :computer: To perform the functional annotation you can use a wrapper script *deu.R*,
-<details>
-<summary>:key: Click to see how</summary>
-<pre>Rscript deu.R</pre>
-</details>
-
-* :computer: To perform the functional annotation you can use a wrapper script *deu.R*,
-<details>
-<summary>:key: Click to see how</summary>
-```
-function test() {
-  console.log("notice the blank line before this function?");
-}
-```
-</details>
-
-* :computer: To perform the functional annotation you can use a wrapper script *deu.R*,
-<details>
-<summary>:key: Click to see how</summary>
-```ruby
-require 'redcarpet'
-markdown = Redcarpet.new("Hello World!")
-puts markdown.to_html
-```
-</details>
-
-* :computer: To perform the functional annotation you can use a wrapper script *deu.R*,
-<details>
-<summary>:key: Click to see how</summary>
-{% highlight ruby %}
-def foo
-  puts 'foo'
-end
-{% endhighlight %}
-</details>
-
-
 # Advanced Linux Usage - Variables and Loops
 **NOTE:** in syntax examples, the dollar sign ($) is not to be printed. The dollar sign is usually an indicator that the text following it should be typed in a terminal window.
 
