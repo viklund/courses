@@ -63,7 +63,7 @@ To get going, let's book a node, create a working folder in the _glob_ directory
 * :computer: To perform the functional annotation you can use a wrapper script *deu.R*,
 <details>
 <summary>:key: Click to see how</summary>
-{% highlight ruby %}
+{% highlight bash %}
 def foo
  puts 'foo'
 end
