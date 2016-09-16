@@ -238,37 +238,40 @@ If not, look for another solution and try that one instead.
 
 Basic, without bonus points:
 
+<font color='white'>
 \# load the modules needed for samtools<br>
 module load bioinfo-tools samtools/1.3<br><br>
 
 \# use ls to get the list to iterate over.<br>
 \# You have to be standing in the correct directory for the script to work<br>
-for file in $(ls *.sam);<br>
+for file in $(ls \*.sam);<br>
 do<br>
 &nbsp;&nbsp;\# do the actual converting, just slapping on .bam at the end of the name<br>
 &nbsp;&nbsp;samtools view -bS $file > $file.bam<br>
 done<br>
-
+</font>
 
 
 Advanced, with bonus points:
 
+<font color='white'>
 \# load the modules needed for samtools<br>
 module load bioinfo-tools samtools/1.3<br><br>
 
 \# use ls to get the list to iterate over.<br>
 \# $1 contains the first argument given to the program<br>
-for file in $(ls $1/*.sam);<br>
+for file in $(ls $1/\*.sam);<br>
 do<br><br>
 
 &nbsp;&nbsp;\# print a message to the screen so that the user knows what's happening.<br>
-&nbsp;&nbsp;\# ${file%.*} means that it will take the file name and remove everything<br>
+&nbsp;&nbsp;\# ${file%.\*} means that it will take the file name and remove everything<br>
 &nbsp;&nbsp;\# after the last punctuation in the name. <br>
-&nbsp;&nbsp;echo "Converting $file to ${file%.*}.bam"<br><br>
+&nbsp;&nbsp;echo "Converting $file to ${file%.\*}.bam"<br><br>
   
 &nbsp;&nbsp;\# do the actual converting<br>
-&nbsp;&nbsp;samtools view -bS $file > ${file%.*}.bam<br>
+&nbsp;&nbsp;samtools view -bS $file > ${file%.\*}.bam<br>
 done<br>
+</font>
 
 
 
