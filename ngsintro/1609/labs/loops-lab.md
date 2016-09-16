@@ -135,7 +135,7 @@ $ echo $a squared is $(($a*$a))
 
 **Exercise:** Write a echo command that will print out the volume of a [rectangular cuboid](https://www.mathsisfun.com/cuboid.html), with the side lengths specified by variables named `x`, `y`, and `z`. To see that it works correctly, the volume of a rectangular cuboid with sides 5,5,5 is 125, and for 4,5,10 is 200.
 
-If you get stuck, the solution will be below.
+Give it a couple of tries on your own first. If you get completely stuck you can see a suggested solution below.
 
 <details>
 <summary>:key: Click to see how</summary> 
@@ -202,7 +202,6 @@ That won't do if it's seconds we want to be counting down.
 Try looking the man page for the `sleep` command (`man sleep`) and figure out how to use it.
 The point of using `sleep` is to tell the computer to wait for 1 second after printing the number, instead of rushing to the next iteration in the loop directly.
 Try to implement this on your own.
-If you get stuck, the solution will be below.
 
 <details>
 <summary>:key: Click to see how</summary> 
@@ -383,8 +382,6 @@ This leads to bash trying to create a sequence from 1 to $n, which of course doe
 To get around this we can use a different way of generating sequences (there are **always** alternatives).
 There is a program called `seq` that does pretty much the same thing as the sequence expression, and since it is a program it will be executed **after** the variables have been handled.
 It's as easy to use as the sequence expressions; instead of writing {1..10} just write `seq 1 10`.
-
-If you get stuck, the solution will be below here in white text.
 
 <details>
 <summary>:key: Click to see how</summary> 
