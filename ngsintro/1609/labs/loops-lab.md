@@ -33,7 +33,11 @@ puts markdown.to_html
 * :computer: To perform the functional annotation you can use a wrapper script *deu.R*,
 <details>
 <summary>:key: Click to see how</summary>
-`Rscript deu.R`
+{% highlight ruby %}
+def foo
+  puts 'foo'
+end
+{% endhighlight %}
 </details>
 
 
