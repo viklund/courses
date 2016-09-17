@@ -12,11 +12,11 @@ RNA-seq has become a powerful approach to study the continually changing cellula
 
 * in the **main exercise**, we will,
   * check the quality of the raw reads with [FastQC](#fastqc)
-  * map the reads to the reference genome using **Star**
-  * convert between SAM and BAM files format using **Samtools**
-  * assess the post-alignment reads quality using **QualiMap**
-  * count the reads overlapping with genes regions using **featureCounts**
-  * build statistical model to find DE genes using edgeR from a **prepared R script**
+  * map the reads to the reference genome using [Star](#star)
+  * convert between SAM and BAM files format using [Samtools](#samtools)
+  * assess the post-alignment reads quality using [QualiMap](#qualimap)
+  * count the reads overlapping with genes regions using [featureCounts](#featurecounts)
+  * build statistical model to find DE genes using edgeR from a [prepared R script](#descripts)
 
 As discussed during the lecture, RNA-seq experiment does not end with a list of DE genes. If you have time after completing the main exercise, try one (or more) of the bonus exercises. The bonus exercises can be run independently of each other, so choose the one that matches your interest.
 
@@ -118,7 +118,7 @@ After receiving raw reads from a high throughput sequencing centre it is essenti
 
  * :open_mouth: Discuss whether you'd be happy when receiving this very data from the sequencing facility.
 
-## STAR: aligning reads to a reference genome
+## <a name="star"></a> STAR: aligning reads to a reference genome
 After verifying that the quality of the raw sequencing reads is acceptable we can map the reads to the reference genome. There are many mappers / aligners available, so it may be good to choose one that is adequate for your type of data. Here, we will use Spliced Transcripts Alignment to a Reference (STAR) as it is good for generic purposes, fast, easy to use and has been shown to outperform many of the other tools when aligning 2x76bp paired-end data (2012). Before we begin mapping, we need to obtain genome reference (.fasta) and annotation (.gtf) files and build a STAR index. Due to time constrains, we will practice on chromosome 11 only. Then we will use the prepared index for the entire genome to do the mapping.
 
 ### Accessing reference genome and genome annotation file
@@ -217,7 +217,7 @@ Now we are ready to map our reads to the reference genome, via STAR index.
   </details>
 
 
-### Samtools: converting between SAM and BAM
+###<a name="samtools"></a> Samtools: converting between SAM and BAM
 Before we proceed further with our data processing, let's convert our mapped reads from STAR, saved in the default .SAM text format, into the binary .BAM format. Why? BAM files take less space so it is easier to store them and they are the most commonly required file format for many of the down-stream bioinformatics tools. In addition, they can be sorted and indexed shortening the time needed to proceed them in comparison with .SAM format. Also, then they will be ready for exploration in IGV, the Integrative Genomic Viewer.
 
 * :mag: **Read** through [Samtools](http://www.htslib.org/doc/samtools.html) documentation and see if you can figure it out how to:
@@ -293,7 +293,7 @@ Before we proceed further with our data processing, let's convert our mapped rea
 
 
 
-### QualiMap: post-alignment quality control
+###<a name="qualimap"></a>QualiMap: post-alignment quality control
 Some important quality aspects, such as saturation of sequencing depth, read distribution between different genomic features or coverage uniformity along transcripts, can be measured only after mapping reads to the reference genome. One of the tools to perform this post-alignment quality control is QualiMap. QualiMap examines sequencing alignment data in SAM/BAM files according to the features of the mapped reads and provides an overall view of the data that helps to the detect biases in the sequencing and/or mapping of the data and eases decision-making for further analysis.
 
 * :mag: **Read** through [QuliMap](http://qualimap.bioinfo.cipf.es/doc_html/intro.html) documentation and see if you can figure it out how to run it to assess post-alignment quality on the RNA-seq mapped samples. The tool is already installed on Uppmax and available as QuliMap module
@@ -328,7 +328,7 @@ Some important quality aspects, such as saturation of sequencing depth, read dis
 * :open_mouth: **Check the QualiMap results**. What do you think? Are the samples of good quality? How can you tell?
 
 
-### featureCounts: counting reads
+###<a name="featurecounts"></a> featureCounts: counting reads
 After ensuring mapping quality we can count the reads to obtain a raw count table. We could count the reads by hand, opening the BAM in the IGV along the genome annotation file, and counting the reads overlapping with the regions of interest. This of course would take forever for the entire genome but it is never a bad idea to see how the data look like for the selected few genes of interest. For get the counts for the entire genome one can use many of the already available tools doing just that. Here we will use featureCounts, an ultrafast and accurate read summarization program, that can count mapped reads for genomic features such as genes, exons, promoter, gene bodies, genomic bins and chromosomal locations.
 
 * :mag: **Read** [featureCounts](http://bioinf.wehi.edu.au/featureCounts/) documentation and see if you can figure it out how to run summarize paired-end reads and count fragments overlapping with exonic regions.
@@ -389,7 +389,7 @@ After ensuring mapping quality we can count the reads to obtain a raw count tabl
 
 * :open_mouth: **Transfer** the MultiQC report to your computer and have a look at it.  What can you notice?
 
-### Differential expression
+###<a name="descript"></a> Differential expression
 As mentioned during the lecture, the best way to perform differential expression is to use one of the statistical packages, within **R environment**, that were specifically designed for analyses of read counts arising from RNA-seq, SAGE and similar technologies. Here, we will one of such packages called [edgeR](https://bioconductor.org/packages/release/bioc/html/edgeR.html). Learning R is beyond the scope of this course so we prepared basic ready to run scripts from a command line scripts to find DE genes between Ko and Wt.
 
 * :computer: **Create** _DE_ sub-folder in the _transcriptome_ directory and **navigate** there
