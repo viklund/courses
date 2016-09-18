@@ -86,8 +86,7 @@ After receiving raw reads from a high throughput sequencing centre it is essenti
 cd ~/glob/transcriptome
 mkdir fastqc
 cd fastqc
-{% endhighlight %}
-</details>
+{% endhighlight %} </details>
 
 * :computer: **Load** _bioinfo-tools_ and _FastQC_ modules
 <details>
@@ -95,8 +94,7 @@ cd fastqc
 {% highlight shell %} 
 module load bioinfo-tools 
 module load FastQC/0.11.5
-{% endhighlight %}
-</details>
+{% endhighlight %} </details>
 
 * :computer: **Run** FastQC on all the .fastq.gz files located in the _transcriptome/DATA_. **Direct the output** to the  _fastqc_ folder. :bulb: Check the FastQC option for input and output files. :bulb: The bash loop comes handy again.
 <details>
@@ -719,7 +717,7 @@ available genomes in IGV, one can create genome files from within
 IGV. Please check the manual of IGV for more information on that.
 
 To open your bam files click on File and chose the option "Load from
-file&#x2026;" select your bam file and make sure that you have a .bai index
+file" select your bam file and make sure that you have a .bai index
 for that bam file in the same folder. You can repeat this and open
 multiple bam files in the same window, which makes it easy to compare
 samples. For every file you open a number of panels are opened that
@@ -742,9 +740,7 @@ on the splice reads you can instead of just looking at the splice
 panel right click on the read panel and select "Sashimi plots" This
 will open a new window showing in an easy readable fashion how reads
 are spliced in mapping and you will also be able to see that there are
-differences in between what locations reads are spliced. This can
-hence represents reads that originate from different isoforms of the
-gene.
+differences in between what locations reads are spliced. This hence gives some indication on the isoform usage of the gene.
 
 To try some of the features available in IGV you can try to address the following
 questions. 
@@ -761,9 +757,10 @@ option under "Regions" in the menu. Would you agree with what they
 state in the paper about certain pathways being down-regulated. If you need
 hints for how to proceed see [Gene List tutorial at Broad](http://software.broadinstitute.org/software/igv/gene_list_view).
 
-# Closing remarks
+# Closing remarks and where to go next
 It is not possible to learn RNA-seq data processing and analysis in one day... The good news is that there are many available tools and well-written tutorial with examples to learn from. In this tutorial we have covered the most important data processing steps that may be enough when the libraries are good. If not, there is plenty of trouble-shooting that one can try before discarding the data. And once the count table are in place, the biostatistical and data mining begins. There are no well-defined solutions here, all depends on the experiment and questions to be asked, but we strongly advise learning R. Not only to use the specifically designed statistical packages to analyze NGS count data, but also to be able to handle the data and results as well as to generate high-quality plots. There is no better way of learning than to try...
 
+For those interested in RNA-seq analysis Scilifelab offer a more advanced course in RNA-sequnence analysis each semester. If you also have in interest in learning R we do for the first time this year offer a one-week introduction course in R programming. For more information on both of of these courses see [Courses offered by Scilifelab](https://www.scilifelab.se/education/courses/)
 
 # About authors
 Thomas Källman :neckbeard:, Agata Smialowska :smiling_imp:, Olga Dethlefsen :angel: @ NBIS, National Bioinformatics Infrastructure, Sweden
