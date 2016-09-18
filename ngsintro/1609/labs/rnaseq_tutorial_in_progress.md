@@ -66,17 +66,17 @@ To get going, let's book a node, create a working folder in the _glob_ directory
 
  <details>
  <summary>:key: Click to see suggested commands</summary>
- {% highlight ruby %}
+ {% highlight shell %}
  cd ~/glob
  mkdir transcriptome
- mkdir transcriptome/DATA`
+ mkdir transcriptome/DATA
  {% endhighlight %}
  </details>
 
 * :computer: **Sym-link** the .fastq.gz files located in /sw/courses/ngsintro/rnaseq_2016/DATA/p25. :bulb: A great chance to practice your bash loop skills.
 <details>
 <summary>:key: Click to see suggested commands</summary>
-{% highlight ruby %}
+{% highlight shell %}
 cd ~/glob/transcriptome/DATA/
 for i in /sw/courses/ngsintro/rnaseq_2016/DATA/p25/*; do ln -s $i; done
 {% endhighlight %}
@@ -88,55 +88,55 @@ After receiving raw reads from a high throughput sequencing centre it is essenti
 * :mag: **Read** more on [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/). Can you figure out how to run it on Uppmax?
 
 * :computer: **Create** _fastqc_ folder in your _transcriptome_ directory. **Navigate to _fastqc_ folder**.
- <details>
- <summary>:key: Click to see suggested commands</summary>
-{% highlight ruby %} 
+<details>
+<summary>:key: Click to see suggested commands</summary>
+{% highlight shell %} 
 cd ~/glob/transcriptome; mkdir fastqc; cd fastqc`
 {% endhighlight %}
 </details>
 
-
 * :computer: **Load** _bioinfo-tools_ and _FastQC_ modules
-  <details>
-  <summary>:key: Click to see suggested commands</summary>
-  {% highlight ruby %} 
-  module load bioinfo-tools 
-  module load FastQC/0.11.5`
-  {% endhighlight %}
-  </details>
+<details>
+<summary>:key: Click to see suggested commands</summary>
+{% highlight shell %} 
+module load bioinfo-tools 
+module load FastQC/0.11.5`
+{% endhighlight %}
+</details>
 
- * :computer: **Run** FastQC on all the .fastq.gz files located in the _transcriptome/DATA_. **Direct the output** to the _fastqc_ folder. :bulb: Check the FastQC option for input and output files. :bulb: The bash loop comes handy again.
-  <details>
-  <summary>:key: Click to see suggested commands</summary>
-  {% highlight ruby %}
-  for i in ~/glob/transcriptome/DATA/* 
-  do 
-  fastqc $i -o ~/glob/transcriptome/fastqc/ 
-  done
-  {% endhighlight %}
-  </details>
+* :computer: **Run** FastQC on all the .fastq.gz files located in the _transcriptome/DATA_. **Direct the output** to the  _fastqc_ folder. :bulb: Check the FastQC option for input and output files. :bulb: The bash loop comes handy again.
+<details>
+<summary>:key: Click to see suggested commands</summary>
+{% highlight shell %}
+for i in ~/glob/transcriptome/DATA/* 
+do 
+fastqc $i -o ~/glob/transcriptome/fastqc/ 
+done
+{% endhighlight %}
+</details>
 
- * :mag: **Open** the FastQC for the proceeded sample. **Go back** to the [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) website and **compare** your report with [Example Report for the Good Illumina Data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html) and [Example Report for the Bad Illumina Data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html) data.
+* :mag: **Open** the FastQC for the proceeded sample. **Go back** to the [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) website and **compare** your report with [Example Report for the Good Illumina Data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html) and [Example Report for the Bad Illumina Data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html) data.
 
- * :open_mouth: Discuss whether you'd be happy when receiving this very data from the sequencing facility.
+* :open_mouth: Discuss whether you'd be happy when receiving this very data from the sequencing facility.
 
 ## <a name="star"></a> STAR: aligning reads to a reference genome
-After verifying that the quality of the raw sequencing reads is acceptable we can map the reads to the reference genome. There are many mappers / aligners available, so it may be good to choose one that is adequate for your type of data. Here, we will use Spliced Transcripts Alignment to a Reference (STAR) as it is good for generic purposes, fast, easy to use and has been shown to outperform many of the other tools when aligning 2x76bp paired-end data (2012). Before we begin mapping, we need to obtain genome reference (.fasta) and annotation (.gtf) files and build a STAR index. Due to time constrains, we will practice on chromosome 11 only. Then we will use the prepared index for the entire genome to do the mapping.
+After verifying that the quality of the raw sequencing reads is acceptable we can map the reads to the reference genome. There are many mappers/aligners available, so it may be good to choose one that is adequate for your type of data. Here, we will use a software called STAR (Spliced Transcripts Alignment to a Reference) as it is good for generic purposes, fast, easy to use and has been shown to outperform many of the other tools when aligning 2x76bp paired-end data (2012). Before we begin mapping, we need to obtain genome reference sequence (.fasta file) and a corresponding annotation file (.gtf) and build a STAR index. Due to time constrains, we will practice on chromosome 11 only. Then we will use the prepared index for the entire genome to do the actual mapping.
 
 ### Accessing reference genome and genome annotation file
-It is best if the reference genome (.fasta) and annotation (.gtf) files come from the same source to avoid potential naming conventions problems. It is also good to check in the aligner manual for hints what type of files are needed to do the mapping.
+It is best if the reference genome (.fasta) and annotation (.gtf) files come from the same source to avoid potential naming conventions problems. It is also good to check in the manual of the aligner you use for hints on what type of files are needed to do the mapping.
 
 * :mag: **Check** [STAR](https://github.com/alexdobin/STAR) manual what files are needed for the mapping.
-
 
 * :open_mouth: What is the idea behind building STAR index? What files are needed to build one? Where do we take them from? Could one use a STAR index that was generated before?
 
 
 * :computer: **Create** the _reference_ sub-folder in _transcriptome_ directory
-  <details>
-  <summary>:key: Click to see how to create the directory </summary>
-  `mkdir ~/glob/transcriptome/reference `
-  </details>
+<details>
+<summary>:key: Click to see how to create the directory </summary>
+{% highlight shell %}
+mkdir ~/glob/transcriptome/reference
+{% endhighlight %}
+</details>
 
 
 * :computer: **Download** the reference genome .fasta file for chromosome 11, mouse and the corresponding genome annotation .gtf file from Ensmeble webite.
