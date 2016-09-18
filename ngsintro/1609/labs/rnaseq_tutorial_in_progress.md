@@ -8,7 +8,7 @@ title:  'RNAseq'
 
 # RNA-seq data processing and analysis tutorial
 
-RNA-seq has become a powerful approach to study the continually changing cellular transcriptome. Here, one of the most common questions is to identify genes that are differentially expressed between two conditions, e.g. controls and treatment. The **main** exercise in this tutorial will take you through a basic bioinformatics and data analysis pipeline to answer just that, that is it will show you how to find differentially expressed (DE) genes. Briefly,
+RNA-seq has become a powerful approach to study the continually changing cellular transcriptome. Here, one of the most common questions is to identify genes that are differentially expressed between two conditions, e.g. controls and treatment. The **main** exercise in this tutorial will take you through a basic bioinformatic analysis pipeline to answer just that, it will show you how to find differentially expressed (DE) genes. Briefly,
 
 * in the **main exercise**, we will,
   * check the quality of the raw reads with [FastQC](#fastqc)
@@ -16,7 +16,7 @@ RNA-seq has become a powerful approach to study the continually changing cellula
   * convert between SAM and BAM files format using [Samtools](#samtools)
   * assess the post-alignment reads quality using [QualiMap](#qualimap)
   * count the reads overlapping with genes regions using [featureCounts](#featurecounts)
-  * build statistical model to find DE genes using edgeR from a [prepared R script](#descripts)
+  * build statistical model to find DE genes using edgeR from a [prepared R script](#descript)
 
 As discussed during the lecture, RNA-seq experiment does not end with a list of DE genes. If you have time after completing the main exercise, try one (or more) of the bonus exercises. The bonus exercises can be run independently of each other, so choose the one that matches your interest.
 
@@ -24,12 +24,12 @@ As discussed during the lecture, RNA-seq experiment does not end with a list of 
   * **BEx. 01 Functional annotation** how to put DE genes in the biological context of functional annotations
   * **BEx. 02 Exon usage** how to perform analysis of differential exon usage and study alternative splicing
   * **BEx. 03 _De novo_ transcriptome assembly**  how to assembly transcriptome if no reference is present
-  * **BEx. 04 Visualizaition** how to present DE results
+  * **BEx. 04 Visualisation** how to view RNA-seq bam files and present DE results with graphics
 
 
 # Data description
 
-The data you will be using in this exercise is from a recent paper "YAP and TAZ control peripheral myelination and the expression of laminin receptors in Schwann cells" (Poitelon et al, Nature Neurosci. 2016). In the experiments performed in this study, YAP and TAZ were knocked-down in Schwann cells to study myelination, using the sciatic nerve in mice as a model.
+The data you will be using in this exercise is from the recent paper [YAP and TAZ control peripheral myelination and the expression of laminin receptors in Schwann cells. Poitelon et al. Nature Neurosci. 2016](http://www.nature.com/neuro/journal/v19/n7/abs/nn.4316.html). In the experiments performed in this study, YAP and TAZ were knocked-down in Schwann cells to study myelination, using the sciatic nerve in mice as a model.
 
 Myelination is essential for nervous system function. Schwann cells interact with neurons and the basal lamina to myelinate axons using receptors, signals and transcription factors. Hippo pathway is an evolutionary conserved pathway involved in cell contact inhibition, and it acts to promote cell proliferation and inhibits apoptosis. The pathway integrates mechanical signals (cell polarity, mechanotransduction, membrane tension) and gene expression response. In addition to its role in organ size control, the Hippo pathway has been implicated in tumorigenesis, for example its deregulation occurs in a broad range of human carcinomas. Transcription co-activators YAP and TAZ are two major downstream effectors of the Hippo pathway, and have redundant roles in transcriptional activation.
 
@@ -48,10 +48,8 @@ The material for RNA-seq was collected from 2 conditions (wt and YAP(kd)TAZ(kd))
 
 For the purpose of this tutorial,  that is to shorten the time needed to run various bioinformatics steps, we have down-sampled the original files. We randomly sampled, without replacement, 25% reads from each sample, using fastq-sample from the [fastq-tools](http://homes.cs.washington.edu/~dcjones/fastq-tools/) tools.
 
-
-
 # Bioinformatics: processing raw sequencing files
-Reading manuals, trying different tools/options, finding solutions to problems are daily bioinformatician work. By now you should have some experience with using command line and various bioinformatics tools, so in order to feel like a pro we encourage you to try your own solutions to the problems below, before checking the answer key. Click to see the suggested answers to compare them with your own solutions. Discuss with person next to you and ask us when in doubt. Have fun!
+Reading manuals, trying different tools/options, finding solutions to problems are daily routine work for bioinformaticians. By now you should have some experience with using command line and various bioinformatic tools, so in order to feel like a pro we encourage you to try your own solutions to the problems below, before checking the solution key. Click to see the suggested answers to compare them with your own solutions. Discuss with person next to you and ask us when in doubt. Remember that there are more than one way to skin a cat. Have fun!
 
 ## Preparing a working directory
 To get going, let's book a node, create a working folder in the _glob_ directory and link the raw sequencing files .fastq.gz
@@ -59,7 +57,7 @@ To get going, let's book a node, create a working folder in the _glob_ directory
 * :computer: **Book a node.** As for other tutorials in this course we have reserved half a node per person. If you have not done it yet today book a node now as otherwise you will take away resources from your fellow course participants.
  <details>
  <summary>:key: Click to see how to book a node</summary>
- {% highlight ruby %}
+ {% highlight shell %}
  salloc -A g2016017 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2016017_4 &
  {% endhighlight %}
  </details>
