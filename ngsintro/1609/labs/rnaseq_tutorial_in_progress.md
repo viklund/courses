@@ -62,55 +62,59 @@ To get going, let's book a node, create a working folder in the _glob_ directory
  {% endhighlight %}
  </details>
 
-
 * :computer: **Create a folder** named _transcriptome_ for your project in your _glob_ directory. **Create  a sub-folder**  called _DATA_.
 
  <details>
- {% highlight ruby %}
  <summary>:key: Click to see suggested commands</summary>
+ {% highlight ruby %}
  cd ~/glob
  mkdir transcriptome
  mkdir transcriptome/DATA`
  {% endhighlight %}
  </details>
 
-
 * :computer: **Sym-link** the .fastq.gz files located in /sw/courses/ngsintro/rnaseq_2016/DATA/p25. :bulb: A great chance to practice your bash loop skills.
 <details>
-{% highlight ruby %}
 <summary>:key: Click to see suggested commands</summary>
+{% highlight ruby %}
 cd ~/glob/transcriptome/DATA/
 for i in /sw/courses/ngsintro/rnaseq_2016/DATA/p25/*; do ln -s $i; done
 {% endhighlight %}
 </details>
-
 
 ## <a name="fastqc"></a> FastQC: quality check of the raw sequencing reads
 After receiving raw reads from a high throughput sequencing centre it is essential to check their quality. Why waste your time on data analyses of the poor quality data? FastQC provide a simple way to do some quality control check on raw sequence data. It provides a modular set of analyses which you can use to get a quick impression of whether your data has any problems of which you should be aware before doing any further analysis.
 
 * :mag: **Read** more on [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/). Can you figure out how to run it on Uppmax?
 
-
 * :computer: **Create** _fastqc_ folder in your _transcriptome_ directory. **Navigate to _fastqc_ folder**.
  <details>
  <summary>:key: Click to see suggested commands</summary>
- `cd ~/glob/transcriptome; mkdir fastqc; cd fastqc`
- </details>
+{% highlight ruby %} 
+cd ~/glob/transcriptome; mkdir fastqc; cd fastqc`
+{% endhighlight %}
+</details>
 
 
 * :computer: **Load** _bioinfo-tools_ and _FastQC_ modules
   <details>
   <summary>:key: Click to see suggested commands</summary>
-  `module load bioinfo-tools; module load FastQC/0.11.5`
+  {% highlight ruby %} 
+  module load bioinfo-tools 
+  module load FastQC/0.11.5`
+  {% endhighlight %}
   </details>
-
 
  * :computer: **Run** FastQC on all the .fastq.gz files located in the _transcriptome/DATA_. **Direct the output** to the _fastqc_ folder. :bulb: Check the FastQC option for input and output files. :bulb: The bash loop comes handy again.
   <details>
   <summary>:key: Click to see suggested commands</summary>
-  `for i in ~/glob/transcriptome/DATA/*; do fastqc $i -o  ~/glob/transcriptome/fastqc/; done`
+  {% highlight ruby %}
+  for i in ~/glob/transcriptome/DATA/* 
+  do 
+  fastqc $i -o ~/glob/transcriptome/fastqc/ 
+  done
+  {% endhighlight %}
   </details>
-
 
  * :mag: **Open** the FastQC for the proceeded sample. **Go back** to the [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) website and **compare** your report with [Example Report for the Good Illumina Data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html) and [Example Report for the Bad Illumina Data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html) data.
 
