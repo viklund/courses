@@ -63,7 +63,6 @@ To get going, let's book a node, create a working folder in the _glob_ directory
  </details>
 
 * :computer: **Create a folder** named _transcriptome_ for your project in your _glob_ directory. **Create  a sub-folder**  called _DATA_.
-
  <details>
  <summary>:key: Click to see suggested commands</summary>
  {% highlight shell %}
@@ -90,8 +89,10 @@ After receiving raw reads from a high throughput sequencing centre it is essenti
 * :computer: **Create** _fastqc_ folder in your _transcriptome_ directory. **Navigate to _fastqc_ folder**.
 <details>
 <summary>:key: Click to see suggested commands</summary>
-{% highlight shell %} 
-cd ~/glob/transcriptome; mkdir fastqc; cd fastqc`
+{% highlight shell %}
+cd ~/glob/transcriptome
+mkdir fastqc
+cd fastqc
 {% endhighlight %}
 </details>
 
@@ -100,7 +101,7 @@ cd ~/glob/transcriptome; mkdir fastqc; cd fastqc`
 <summary>:key: Click to see suggested commands</summary>
 {% highlight shell %} 
 module load bioinfo-tools 
-module load FastQC/0.11.5`
+module load FastQC/0.11.5
 {% endhighlight %}
 </details>
 
@@ -138,95 +139,113 @@ mkdir ~/glob/transcriptome/reference
 {% endhighlight %}
 </details>
 
-
 * :computer: **Download** the reference genome .fasta file for chromosome 11, mouse and the corresponding genome annotation .gtf file from Ensmeble webite.
-  <details>
-  <summary>:key: Click for the link to the Ensemble website </summary>
-  http://www.ensembl.org/info/data/ftp/index.html
-  </details>
-  </details>
-  <details>
-  <summary>:key: Click to see file names to be downloaded </summary>
-  *Mus\_musculus.GRCm38.dna.chromosome.11.fa*: chromosome 11 reference; *Mus\_musculus.GRCm38.85.gtf*: genome annotation
-  </details>
-  <details>
-  <summary>:key: Click to see how to transfer files from your computer to Uppmax </summary>
-  Mac/Linux: scp Mus\_musculus.GRCm38.dna.chromosome.11.fa Mus\_musculus.GRCm38.85.gtf username@milou.uppmax.uu.se:~/glob/transcriptome/reference;
-  Windows: try [WinSCP](https://winscp.net/eng/index.php) or other secure file transfer software
-  </details>
+<details>
+<summary>:key: Click for the link to the Ensemble website </summary>
+http://www.ensembl.org/info/data/ftp/index.html
+</details>
+</details>
+<details>
+<summary>:key: Click to see file names to be downloaded </summary>
+*Mus\_musculus.GRCm38.dna.chromosome.11.fa*: chromosome 11 reference; *Mus\_musculus.GRCm38.85.gtf*: genome annotation
+</details>
+<details>
+<summary>:key: Click to see how to transfer files from your computer to Uppmax </summary>
+Mac/Linux:
+{% highlight shell %}
+scp Mus\_musculus.GRCm38.dna.chromosome.11.fa Mus\_musculus.GRCm38.85.gtf username@milou.uppmax.uu.se:~/glob/transcriptome/reference
+{% endhighlight %}
+Windows: try [WinSCP](https://winscp.net/eng/index.php) or other secure file transfer software
+</details>
 
-
-  You should now have *Mus\_musculus.GRCm38.dna.chromosome.11.fa* and *Mus\_musculus.GRCm38.85.gtf* in the sub-folder _reference_
+You should now have *Mus\_musculus.GRCm38.dna.chromosome.11.fa* and *Mus\_musculus.GRCm38.85.gtf* in the sub-folder _reference_
 
 ### preparing index
 
 * :computer: **Create _indexChr11_ sub-folder** in the _transcriptome_ directory
-  <details>
-  <summary>:key: Click to see how to create directory</summary>
-  `mkdir ~/glob/transcriptome/indexChr11; cd ~/glob/transcriptome/indexChr11;`
-  </details>
+<details>
+<summary>:key: Click to see how to create directory</summary>
+mkdir ~/glob/transcriptome/indexChr11; cd ~/glob/transcriptome/indexChr11;`
+</details>
 
 
 * :computer: **Load STAR module** on Uppmax. :bulb: Use _module spider star_ to check which version of STAR are available and load the latest one.
-  <details>
-  <summary>:key: Click to see how to load module</summary>
-  `module load star/2.5.1b;`
-  </details>
+<details>
+<summary>:key: Click to see how to load module</summary>
+{% highlight shell %}
+module load star/2.5.1b
+{% endhighlight %}
+</details>
 
 
 * :computer: **Build STAR index** for chromosome 11 using the downloaded reference .fasta and gene annotation .gtf files. :bulb: Check STAR manual for details
-  <details>
-  <summary>:key: Click again to see suggested commands</summary>
-  `star --runMode genomeGenerate --runThreadN 8 --genomeDir ~/glob/transcriptome/indexChr11 --genomeFastaFiles ~/glob/transcriptome/reference/Mus_musculus.GRCm38.dna.chromosome.11.fa --sjdbGTFfile ~/glob/transcriptome/reference/Mus_musculus.GRCm38.81_chr11.gtf  `
-  </details>
+<details>
+<summary>:key: Click again to see suggested commands</summary>
+{% highlight shell %}  
+star --runMode genomeGenerate --runThreadN 8 --genomeDir ~/glob/transcriptome/indexChr11 --genomeFastaFiles ~/glob/transcriptome/reference/Mus_musculus.GRCm38.dna.chromosome.11.fa --sjdbGTFfile ~/glob/transcriptome/reference/Mus_musculus.GRCm38.85_chr11.gtf  `
+{% endhighlight %}
+</details>
 
+* :computer: **Sym-link STAR index** to for the entire genome into the _transcriptome_ directory. The index for the whole genome was prepared for us before class in the very same way as for the chromosome 11 in steps above. It just requires more time (ca. 4h) to run. The index can be found here: */sw/courses/ngsintro/rnaseq\_2016/index*
 
-* :computer: **Sym-link STAR index** to for the entire genome into the _transcriptome_ directory. The index for the whole genome was prepared for us before class in the very same way as for the chromosome 11 in steps above. It just requires more  time (ca. 4h) to run. The index can be found here: */sw/courses/ngsintro/rnaseq\_2016/index*
-    <details>
-    <summary>:key: Click again to see how to link the index</summary>
-    `cd ~/glob/transcriptome/; ln -s /sw/courses/ngsintro/rnaseq_2016/index`
-    </details>
-
+<details>
+<summary>:key: Click again to see how to link the index</summary>
+{% highlight shell %}
+cd ~/glob/transcriptome/
+ln -s /sw/courses/ngsintro/rnaseq_2016/index
+{% endhighlight%}
+</details>
 
 ### mapping
 Now we are ready to map our reads to the reference genome, via STAR index.
 * :computer: **Create _star_ sub-folder** in the _transcriptome_ directory. **Create sub-sub-folder named _SRR3222409_** to save the mapping results for the sample SRR3222409.
-  <details>
-  <summary>:key: Click to see how to create folders </summary>
-  `mkdir ~/glob/transcriptome/star; mkdir ~/glob/transcriptome/star/SRR3222409 `
-  </details>
 
+<details>
+<summary>:key: Click to see how to create folders </summary>
+{% highlight shell %}
+mkdir ~/glob/transcriptome/star
+mkdir ~/glob/transcriptome/star/SRR3222409
+{% endhighlight %}
+</details>
 
 * :computer: **Map reads** to the reference genome for SRR3222409 sample. Do not forget that we are working with paired-end reads so each sample has two matching reads file. **Check** the STAR manual for the parameters to:
-  * use index for the entire genome
-  * to read in zipped .fastq.gz files for both forward and reverse reads
-  * to run the job on the 8 allocated cores
-  * to direct the mapping results to the _SRR3222409_ sub-sub folder
-  * to give the results prefix _SRR3222409_
+ * use index for the entire genome
+ * to read in zipped .fastq.gz files for both forward and reverse reads
+ * to run the job on the 8 allocated cores  
+ * to direct the mapping results to the _SRR3222409_ sub-sub folder
+ * to give the results prefix _SRR3222409_
 
-  <summary>:key: Click to see how to write the mapping command with the above parameters</summary>
-  `star --genomeDir ~/glob/transcriptome/index/complete --readFilesIn ~/glob/transcriptome/DATA/SRR3222409_1.fastq.gz ~/glob/transcriptome/DATA/SRR3222409_2.fastq.gz --runThreadN 8 --readFilesCommand zcat --outFileNamePrefix ~/glob/transcriptome/star/SRR3222409/SRR322409_`
+ <summary>:key: Click to see how to write the mapping command with the above parameters</summary>
+ {% highlight shell %}
+ star --genomeDir ~/glob/transcriptome/index/complete --readFilesIn ~/glob/transcriptome/DATA/SRR3222409_1.fastq.gz ~/glob/transcriptome/DATA/SRR3222409_2.fastq.gz --runThreadN 8 --readFilesCommand zcat --outFileNamePrefix ~/glob/transcriptome/star/SRR3222409/SRR322409_
+ {% endhighlight%}
   </details>
 
-* :computer: **Map or copy over**. Map the remaining samples in the analogous way. Running short of time? Copy over the results that we have prepared for you before the class.  They are here: */sw/courses/ngsintro/rnaseq\_2016/main/Star*
-  <details>
-  <summary>:key: Click to see how to copy results, sample by sample</summary>
-  `cp -r /sw/courses/ngsintro/rnaseq_2016/main/star/SRR3222410/ ~/glob/transcriptome/star/`
-  </details>
-  <details>
-  <summary>:key: Click to see how to copy results using bash loop</summary>
-  `for i in SRR3222411 SRR3222412 SRR3222413 SRR3222414; do cp -r /sw/courses/ngsintro/rnaseq_2016/main/star/$i ~/glob/transcriptome/star/; done`
-  </details>
+* :computer: **Map or copy over**. Map the remaining samples in the analogous way. Running short of time? Copy over the results that we have prepared for you before the class. They are here: */sw/courses/ngsintro/rnaseq\_2016/main/Star*
+<details>
+<summary>:key: Click to see how to copy results, sample by sample</summary>
+{% highlight shell %}  
+cp -r /sw/courses/ngsintro/rnaseq_2016/main/star/SRR3222410/ ~/glob/transcriptome/star/
+{% endhighlight%}
+</details>
 
+<details>
+<summary>:key: Click to see how to copy results using bash loop</summary>
+{% highlight shell %}
+for i in SRR3222411 SRR3222412 SRR3222413 SRR3222414
+do
+cp -r /sw/courses/ngsintro/rnaseq_2016/main/star/$i ~/glob/transcriptome/star/
+done
+{% endhighlight%}
+</details>
 
 ###<a name="samtools"></a> Samtools: converting between SAM and BAM
 Before we proceed further with our data processing, let's convert our mapped reads from STAR, saved in the default .SAM text format, into the binary .BAM format. Why? BAM files take less space so it is easier to store them and they are the most commonly required file format for many of the down-stream bioinformatics tools. In addition, they can be sorted and indexed shortening the time needed to proceed them in comparison with .SAM format. Also, then they will be ready for exploration in IGV, the Integrative Genomic Viewer.
 
 * :mag: **Read** through [Samtools](http://www.htslib.org/doc/samtools.html) documentation and see if you can figure it out how to:
- * convert SAM into BAM
- * sort BAM files
- * index BAM files
-
+* convert SAM into BAM
+* sort BAM files
+* index BAM files
 
 * :computer: **Create _bams_ sub-folder** in _transcriptome_, **navigate to _bams_ sub-folder** and **load samtools module**
 <details>
