@@ -3,9 +3,6 @@ layout: default
 title:  'RNAseq'
 ---
 
-
-
-
 # RNA-seq data processing and analysis tutorial
 
 RNA-seq has become a powerful approach to study the continually changing cellular transcriptome. Here, one of the most common questions is to identify genes that are differentially expressed between two conditions, e.g. controls and treatment. The **main** exercise in this tutorial will take you through a basic bioinformatic analysis pipeline to answer just that, it will show you how to find differentially expressed (DE) genes. Briefly,
@@ -26,7 +23,6 @@ As discussed during the lecture, RNA-seq experiment does not end with a list of 
   * **BEx. 03 _De novo_ transcriptome assembly**  how to assembly transcriptome if no reference is present
   * **BEx. 04 Visualisation** how to view RNA-seq bam files and present DE results with graphics
 
-
 # Data description
 
 The data you will be using in this exercise is from the recent paper [YAP and TAZ control peripheral myelination and the expression of laminin receptors in Schwann cells. Poitelon et al. Nature Neurosci. 2016](http://www.nature.com/neuro/journal/v19/n7/abs/nn.4316.html). In the experiments performed in this study, YAP and TAZ were knocked-down in Schwann cells to study myelination, using the sciatic nerve in mice as a model.
@@ -34,7 +30,6 @@ The data you will be using in this exercise is from the recent paper [YAP and TA
 Myelination is essential for nervous system function. Schwann cells interact with neurons and the basal lamina to myelinate axons using receptors, signals and transcription factors. Hippo pathway is an evolutionary conserved pathway involved in cell contact inhibition, and it acts to promote cell proliferation and inhibits apoptosis. The pathway integrates mechanical signals (cell polarity, mechanotransduction, membrane tension) and gene expression response. In addition to its role in organ size control, the Hippo pathway has been implicated in tumorigenesis, for example its deregulation occurs in a broad range of human carcinomas. Transcription co-activators YAP and TAZ are two major downstream effectors of the Hippo pathway, and have redundant roles in transcriptional activation.
 
 The material for RNA-seq was collected from 2 conditions (wt and YAP(kd)TAZ(kd)), each in 3 biological replicates (see table below).
-
 
 |  Accession  | Condition | Replicate |
 | --- | ----------- | --------- |
@@ -44,7 +39,6 @@ The material for RNA-seq was collected from 2 conditions (wt and YAP(kd)TAZ(kd))
 | SRR3222412 |  WT  | 1 |
 | SRR3222413 |  WT  | 2 |
 | SRR3222414 |  WT  | 3 |
-
 
 For the purpose of this tutorial,  that is to shorten the time needed to run various bioinformatics steps, we have down-sampled the original files. We randomly sampled, without replacement, 25% reads from each sample, using fastq-sample from the [fastq-tools](http://homes.cs.washington.edu/~dcjones/fastq-tools/) tools.
 
@@ -59,9 +53,7 @@ To get going, let's book a node, create a working folder in the _glob_ directory
   <summary>:key: Click to see how to book a node</summary>
   {% highlight shell %}
   salloc -A g2016017 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2016017_4 &
-  {% endhighlight %}
-  </details>
-
+  {% endhighlight %} </details>
 
 * :computer: **Create a folder** named _transcriptome_ for your project in your _glob_ directory. **Create  a sub-folder**  called _DATA_.
   <details>
@@ -70,8 +62,7 @@ To get going, let's book a node, create a working folder in the _glob_ directory
   cd ~/glob
   mkdir transcriptome
   mkdir transcriptome/DATA
-  {% endhighlight %}
-  </details>
+  {% endhighlight %} </details>
 
 * :computer: **Sym-link** the .fastq.gz files located in /sw/courses/ngsintro/rnaseq_2016/DATA/p25. :bulb: A great chance to practice your bash loop skills.
   <details>
@@ -81,8 +72,7 @@ To get going, let's book a node, create a working folder in the _glob_ directory
   for i in /sw/courses/ngsintro/rnaseq_2016/DATA/p25/*
   do ln -s $i
   done
-  {% endhighlight %}
-  </details>
+  {% endhighlight %} </details>
 
 ## <a name="fastqc"></a> FastQC: quality check of the raw sequencing reads
 After receiving raw reads from a high throughput sequencing centre it is essential to check their quality. Why waste your time on data analyses of the poor quality data? FastQC provide a simple way to do some quality control check on raw sequence data. It provides a modular set of analyses which you can use to get a quick impression of whether your data has any problems of which you should be aware before doing any further analysis.
