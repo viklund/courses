@@ -390,7 +390,7 @@ This leads to bash trying to create a sequence from 1 to $n, which of course doe
 
 To get around this we can use a different way of generating sequences (there are **always** alternatives).
 There is a program called `seq` that does pretty much the same thing as the sequence expression, and since it is a program it will be executed **after** the variables have been handled.
-It's as easy to use as the sequence expressions; instead of writing {1..10} just write `seq 1 10`.
+It's as easy to use as the sequence expressions; instead of writing {1..10} just write `$( seq 1 10 )`.
 
 <details>
 <summary>:key: Click to see how</summary> 
@@ -423,9 +423,9 @@ Write a script that runs the pipeline from the [file types exercise](file types)
 If that sounds too easy, make the script submit a slurm job for each sample that will run the pipeline for that sample on a calculation node (1 core, 5 minutes each).
 And if that is too easy, add that the pipeline will use the local hard drive on the calculation node for all files used in the analysis.
 When the analysis is done, only fastq files and sorted and indexed bam files should be in your glob folder.
-Read more about the `$SNIC_TMP` variable in the [milou user guide](http://www.uppmax.uu.se/support-sv/user-guides/milou-user-guide/).
+Read more about the `$SNIC_TMP` variable in the [disk storage guide](http://www.uppmax.uu.se/support/user-guides/disk-storage-guide/) on the UPPMAX homepage.
 
-There are a bunch of fastq files in the directory `~/glob/ngs-intro/loops/fastq/` that is to be used for this exercise.
+There is a bunch of fastq files in the directory `~/glob/ngs-intro/loops/fastq/` that is to be used for this exercise.
 
 
 Basic solution:
