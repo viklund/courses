@@ -49,33 +49,32 @@ Reading manuals, trying different tools/options, finding solutions to problems a
 To get going, let's book a node, create a working folder in the _glob_ directory and link the raw sequencing files .fastq.gz
 
 * :computer: **Book a node.** As for other tutorials in this course we have reserved half a node per person. If you have not done it yet today book a node now as otherwise you will take away resources from your fellow course participants.
-  <details>
-  <summary>:key: Click to see how to book a node</summary>
-  {% highlight bash %}
-  salloc -A g2016017 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2016017_4 &
-  {% endhighlight %} 
-  </details>
+<details>
+<summary>:key: Click to see how to book a node</summary>
+{% highlight bash %}
+salloc -A g2016017 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2016017_4 &
+{% endhighlight %} 
+</details>
 
-* :computer: **Create a folder** named _transcriptome_ for your project in your _glob_ directory. **Create  a sub-folder**  called _DATA_.
-  <details>
-  <summary>:key: Click to see suggested commands</summary>
-  {% highlight bash %}
-  cd ~/glob
-  mkdir transcriptome
-  mkdir transcriptome/DATA
-  {% endhighlight %} 
-  </details>
-
+* :computer: **Create a folder** named _transcriptome_ for your project in your _glob_ directory. **Create  a sub-folder** called _DATA_.
+<details>
+<summary>:key: Click to see suggested commands</summary>
+{% highlight bash %}
+cd ~/glob
+mkdir transcriptome
+mkdir transcriptome/DATA
+{% endhighlight %} 
+</details>
 * :computer: **Sym-link** the .fastq.gz files located in _/sw/courses/ngsintro/rnaseq\_2016/DATA/p25_. :bulb: A great chance to practice your bash loop skills.
-  <details>
-  <summary>:key: Click to see suggested commands</summary>
-  {% highlight bash %}
-  cd ~/glob/transcriptome/DATA/
-  for i in /sw/courses/ngsintro/rnaseq_2016/DATA/p25/*
-  do ln -s $i
-  done
-  {% endhighlight %} 
-  </details>
+<details>
+<summary>:key: Click to see suggested commands</summary>
+{% highlight bash %}
+cd ~/glob/transcriptome/DATA/
+for i in /sw/courses/ngsintro/rnaseq_2016/DATA/p25/*
+do ln -s $i
+done
+{% endhighlight %} 
+</details>
 
 ## <a name="fastqc"></a> FastQC: quality check of the raw sequencing reads
 After receiving raw reads from a high throughput sequencing centre it is essential to check their quality. Why waste your time on data analyses of the poor quality data? FastQC provide a simple way to do some quality control check on raw sequence data. It provides a modular set of analyses which you can use to get a quick impression of whether your data has any problems of which you should be aware before doing any further analysis.
