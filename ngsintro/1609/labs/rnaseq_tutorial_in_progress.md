@@ -310,6 +310,7 @@ Before we proceed further with our data processing, let's convert our mapped rea
   <summary>:key: Click to see how to copy over sample by sample</summary>
   {% highlight bash %}
   cp /sw/courses/ngsintro/rnaseq_2016/main/bams/out/SRR3222410_Aligned.out.bam ~/glob/transcriptome/bams/
+  {% endhighlight %}
   </details>
   <details>
   <summary>:key: Click to see how to copy over using a bit more advanced bash loop</summary>
