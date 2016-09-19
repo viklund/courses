@@ -62,6 +62,8 @@ To get going, let's book a node, create a working folder in the _glob_ directory
   <summary>:key: Click to see suggested commands</summary>
   {% highlight bash %}
   cd ~/glob
+  mkdir transcriptome
+  mkdir transcriptome/DATA
   {% endhighlight %} 
   </details>
 
