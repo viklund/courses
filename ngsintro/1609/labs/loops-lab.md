@@ -231,7 +231,7 @@ Sam files take up ~4x more space on the hard drive compared to the same file in 
 If you have many sam files that needs converting you don't want to sit there and type all the commands by hand like some kind of animal.
 
 Write a script that converts all the sam files in a specified directory to bam files.
-Incidentally you can find 50 sam files in need of conversion in the folder called `sam` in the folder you copied to your glob folder earlier in this lab (~/glob/ngs-intro/loops/sam/).
+Incidentally you can find 50 sam files in need of conversion in the folder called `sam` in the folder you copied to your glob folder earlier in this lab (`~/glob/ngs-intro/loops/sam/`).
 Bonus points if you make the program take the specified directory as an argument, and another bonus point if you get the program to name the resulting bam file to the same name as the sam file but with a .bam ending instead.
 
 Remember that you have to load the samtools module to be able to run it. The way you get samtools to convert a sam file to a bam file is by typing the following command:
@@ -307,7 +307,7 @@ fi
 
 What we want to do is to check if the file **doesn't** exists.
 The way to do that is to invert the answer of the check if the file does exist.
-To do that in bash, and many other languages, is to use the exclamation sign, which in these kinds of logical situations means "not" or "the opposite of".
+To do that in bash, and many other languages, is to use the exclamation mark, which in these kinds of logical situations means "not" or "the opposite of".
 
 ```bash
 FILE=$1
@@ -318,7 +318,7 @@ then
 fi
 ```
 
-Now, modify the previous exercise to not do the conversion if a file with the intended name of the bam file already exists. I.e. if you have a.sam and want to create a bam file named a.bam, first check if a.bam already exists and only do the conversion if it does not exist.
+Now, modify the previous exercise to only do the conversion if a file with the intended name of the bam file doesn't already exists. I.e. if you have a.sam and want to create a bam file named a.bam, first check if a.bam already exists and only do the conversion if it does not exist.
 
 Basic:
 
@@ -332,7 +332,7 @@ module load bioinfo-tools samtools/1.3
 for file in $(ls *.sam);
 do
     # check if the intended output file doesn't already exists
-    if [! -f $file.bam ];
+    if [ ! -f $file.bam ];
     then
         # do the actual converting, just slapping on .bam at the end of the name
         samtools view -bS $file > $file.bam
@@ -355,7 +355,7 @@ for file in $(ls $1/*.sam);
 do
     
     # check if the intended output file doesn't already exists
-    if [! -f $file.bam ];
+    if [ ! -f $file.bam ];
     then
 
         # print a message to the screen so that the user knows what's happening.
