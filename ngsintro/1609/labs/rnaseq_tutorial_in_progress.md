@@ -3,20 +3,17 @@ layout: default
 title:  'RNAseq'
 ---
 
-
-
-
 # RNA-seq data processing and analysis tutorial
 
-RNA-seq has become a powerful approach to study the continually changing cellular transcriptome. Here, one of the most common questions is to identify genes that are differentially expressed between two conditions, e.g. controls and treatment. The **main** exercise in this tutorial will take you through a basic bioinformatics and data analysis pipeline to answer just that, that is it will show you how to find differentially expressed (DE) genes. Briefly,
+RNA-seq has become a powerful approach to study the continually changing cellular transcriptome. Here, one of the most common questions is to identify genes that are differentially expressed between two conditions, e.g. controls and treatment. The **main** exercise in this tutorial will take you through a basic bioinformatic analysis pipeline to answer just that, it will show you how to find differentially expressed (DE) genes. Briefly,
 
 * in the **main exercise**, we will,
   * check the quality of the raw reads with [FastQC](#fastqc)
-  * map the reads to the reference genome using **Star**
-  * convert between SAM and BAM files format using **Samtools**
-  * assess the post-alignment reads quality using **QualiMap**
-  * count the reads overlapping with genes regions using **featureCounts**
-  * build statistical model to find DE genes using edgeR from a **prepared R script**
+  * map the reads to the reference genome using [Star](#star)
+  * convert between SAM and BAM files format using [Samtools](#samtools)
+  * assess the post-alignment reads quality using [QualiMap](#qualimap)
+  * count the reads overlapping with genes regions using [featureCounts](#featurecounts)
+  * build statistical model to find DE genes using edgeR from a [prepared R script](#descript)
 
 As discussed during the lecture, RNA-seq experiment does not end with a list of DE genes. If you have time after completing the main exercise, try one (or more) of the bonus exercises. The bonus exercises can be run independently of each other, so choose the one that matches your interest.
 
@@ -24,17 +21,15 @@ As discussed during the lecture, RNA-seq experiment does not end with a list of 
   * **BEx. 01 Functional annotation** how to put DE genes in the biological context of functional annotations
   * **BEx. 02 Exon usage** how to perform analysis of differential exon usage and study alternative splicing
   * **BEx. 03 _De novo_ transcriptome assembly**  how to assembly transcriptome if no reference is present
-  * **BEx. 04 Visualizaition** how to present DE results
-
+  * **BEx. 04 Visualisation** how to view RNA-seq bam files and present DE results with graphics
 
 # Data description
 
-The data you will be using in this exercise is from a recent paper "YAP and TAZ control peripheral myelination and the expression of laminin receptors in Schwann cells" (Poitelon et al, Nature Neurosci. 2016). In the experiments performed in this study, YAP and TAZ were knocked-down in Schwann cells to study myelination, using the sciatic nerve in mice as a model.
+The data you will be using in this exercise is from the recent paper [YAP and TAZ control peripheral myelination and the expression of laminin receptors in Schwann cells. Poitelon et al. Nature Neurosci. 2016](http://www.nature.com/neuro/journal/v19/n7/abs/nn.4316.html). In the experiments performed in this study, YAP and TAZ were knocked-down in Schwann cells to study myelination, using the sciatic nerve in mice as a model.
 
 Myelination is essential for nervous system function. Schwann cells interact with neurons and the basal lamina to myelinate axons using receptors, signals and transcription factors. Hippo pathway is an evolutionary conserved pathway involved in cell contact inhibition, and it acts to promote cell proliferation and inhibits apoptosis. The pathway integrates mechanical signals (cell polarity, mechanotransduction, membrane tension) and gene expression response. In addition to its role in organ size control, the Hippo pathway has been implicated in tumorigenesis, for example its deregulation occurs in a broad range of human carcinomas. Transcription co-activators YAP and TAZ are two major downstream effectors of the Hippo pathway, and have redundant roles in transcriptional activation.
 
 The material for RNA-seq was collected from 2 conditions (wt and YAP(kd)TAZ(kd)), each in 3 biological replicates (see table below).
-
 
 |  Accession  | Condition | Replicate |
 | --- | ----------- | --------- |
@@ -45,186 +40,203 @@ The material for RNA-seq was collected from 2 conditions (wt and YAP(kd)TAZ(kd))
 | SRR3222413 |  WT  | 2 |
 | SRR3222414 |  WT  | 3 |
 
-
 For the purpose of this tutorial,  that is to shorten the time needed to run various bioinformatics steps, we have down-sampled the original files. We randomly sampled, without replacement, 25% reads from each sample, using fastq-sample from the [fastq-tools](http://homes.cs.washington.edu/~dcjones/fastq-tools/) tools.
 
-
-
 # Bioinformatics: processing raw sequencing files
-Reading manuals, trying different tools/options, finding solutions to problems are daily bioinformatician work. By now you should have some experience with using command line and various bioinformatics tools, so in order to feel like a pro we encourage you to try your own solutions to the problems below, before checking the answer key. Click to see the suggested answers to compare them with your own solutions. Discuss with person next to you and ask us when in doubt. Have fun!
+Reading manuals, trying different tools/options, finding solutions to problems are daily routine work for bioinformaticians. By now you should have some experience with using command line and various bioinformatic tools, so in order to feel like a pro we encourage you to try your own solutions to the problems below, before checking the solution key. Click to see the suggested answers to compare them with your own solutions. Discuss with person next to you and ask us when in doubt. Remember that there are more than one way to skin a cat. Have fun!
 
 ## Preparing a working directory
 To get going, let's book a node, create a working folder in the _glob_ directory and link the raw sequencing files .fastq.gz
 
 * :computer: **Book a node.** As for other tutorials in this course we have reserved half a node per person. If you have not done it yet today book a node now as otherwise you will take away resources from your fellow course participants.
- <details>
- <summary>:key: Click to see how to book a node</summary>
- {% highlight ruby %}
- salloc -A g2016017 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2016017_4 &
- {% endhighlight %}
- </details>
-
+  <details>
+  <summary>:key: Click to see how to book a node</summary>
+  {% highlight shell %}
+  salloc -A g2016017 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2016017_4 &
+  {% endhighlight %} </details>
 
 * :computer: **Create a folder** named _transcriptome_ for your project in your _glob_ directory. **Create  a sub-folder**  called _DATA_.
-
- <details>
- {% highlight ruby %}
- <summary>:key: Click to see suggested commands</summary>
- cd ~/glob
- mkdir transcriptome
- mkdir transcriptome/DATA`
- {% endhighlight %}
- </details>
-
+  <details>
+  <summary>:key: Click to see suggested commands</summary>
+  {% highlight shell %}
+  cd ~/glob
+  mkdir transcriptome
+  mkdir transcriptome/DATA
+  {% endhighlight %} </details>
 
 * :computer: **Sym-link** the .fastq.gz files located in /sw/courses/ngsintro/rnaseq_2016/DATA/p25. :bulb: A great chance to practice your bash loop skills.
-<details>
-{% highlight ruby %}
-<summary>:key: Click to see suggested commands</summary>
-cd ~/glob/transcriptome/DATA/
-for i in /sw/courses/ngsintro/rnaseq_2016/DATA/p25/*; do ln -s $i; done
-{% endhighlight %}
-</details>
-
+  <details>
+  <summary>:key: Click to see suggested commands</summary>
+  {% highlight shell %}
+  cd ~/glob/transcriptome/DATA/
+  for i in /sw/courses/ngsintro/rnaseq_2016/DATA/p25/*
+  do ln -s $i
+  done
+  {% endhighlight %} </details>
 
 ## <a name="fastqc"></a> FastQC: quality check of the raw sequencing reads
 After receiving raw reads from a high throughput sequencing centre it is essential to check their quality. Why waste your time on data analyses of the poor quality data? FastQC provide a simple way to do some quality control check on raw sequence data. It provides a modular set of analyses which you can use to get a quick impression of whether your data has any problems of which you should be aware before doing any further analysis.
 
 * :mag: **Read** more on [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/). Can you figure out how to run it on Uppmax?
 
-
 * :computer: **Create** _fastqc_ folder in your _transcriptome_ directory. **Navigate to _fastqc_ folder**.
- <details>
- <summary>:key: Click to see suggested commands</summary>
- `cd ~/glob/transcriptome; mkdir fastqc; cd fastqc`
- </details>
-
+<details>
+<summary>:key: Click to see suggested commands</summary>
+{% highlight shell %}
+cd ~/glob/transcriptome
+mkdir fastqc
+cd fastqc
+{% endhighlight %} </details>
 
 * :computer: **Load** _bioinfo-tools_ and _FastQC_ modules
-  <details>
-  <summary>:key: Click to see suggested commands</summary>
-  `module load bioinfo-tools; module load FastQC/0.11.5`
-  </details>
+<details>
+<summary>:key: Click to see suggested commands</summary>
+{% highlight shell %} 
+module load bioinfo-tools 
+module load FastQC/0.11.5
+{% endhighlight %} </details>
 
+* :computer: **Run** FastQC on all the .fastq.gz files located in the _transcriptome/DATA_. **Direct the output** to the  _fastqc_ folder. :bulb: Check the FastQC option for input and output files. :bulb: The bash loop comes handy again.
+<details>
+<summary>:key: Click to see suggested commands</summary>
+{% highlight shell %}
+for i in ~/glob/transcriptome/DATA/* 
+do 
+fastqc $i -o ~/glob/transcriptome/fastqc/ 
+done
+{% endhighlight %}
+</details>
 
- * :computer: **Run** FastQC on all the .fastq.gz files located in the _transcriptome/DATA_. **Direct the output** to the _fastqc_ folder. :bulb: Check the FastQC option for input and output files. :bulb: The bash loop comes handy again.
-  <details>
-  <summary>:key: Click to see suggested commands</summary>
-  `for i in ~/glob/transcriptome/DATA/*; do fastqc $i -o  ~/glob/transcriptome/fastqc/; done`
-  </details>
+* :mag: **Open** the FastQC for the proceeded sample. **Go back** to the [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) website and **compare** your report with [Example Report for the Good Illumina Data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html) and [Example Report for the Bad Illumina Data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html) data.
 
+* :open_mouth: Discuss whether you'd be happy when receiving this very data from the sequencing facility.
 
- * :mag: **Open** the FastQC for the proceeded sample. **Go back** to the [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) website and **compare** your report with [Example Report for the Good Illumina Data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html) and [Example Report for the Bad Illumina Data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html) data.
-
- * :open_mouth: Discuss whether you'd be happy when receiving this very data from the sequencing facility.
-
-## STAR: aligning reads to a reference genome
-After verifying that the quality of the raw sequencing reads is acceptable we can map the reads to the reference genome. There are many mappers / aligners available, so it may be good to choose one that is adequate for your type of data. Here, we will use Spliced Transcripts Alignment to a Reference (STAR) as it is good for generic purposes, fast, easy to use and has been shown to outperform many of the other tools when aligning 2x76bp paired-end data (2012). Before we begin mapping, we need to obtain genome reference (.fasta) and annotation (.gtf) files and build a STAR index. Due to time constrains, we will practice on chromosome 11 only. Then we will use the prepared index for the entire genome to do the mapping.
+## <a name="star"></a> STAR: aligning reads to a reference genome
+After verifying that the quality of the raw sequencing reads is acceptable we can map the reads to the reference genome. There are many mappers/aligners available, so it may be good to choose one that is adequate for your type of data. Here, we will use a software called STAR (Spliced Transcripts Alignment to a Reference) as it is good for generic purposes, fast, easy to use and has been shown to outperform many of the other tools when aligning 2x76bp paired-end data (2012). Before we begin mapping, we need to obtain genome reference sequence (.fasta file) and a corresponding annotation file (.gtf) and build a STAR index. Due to time constrains, we will practice on chromosome 11 only. Then we will use the prepared index for the entire genome to do the actual mapping.
 
 ### Accessing reference genome and genome annotation file
-It is best if the reference genome (.fasta) and annotation (.gtf) files come from the same source to avoid potential naming conventions problems. It is also good to check in the aligner manual for hints what type of files are needed to do the mapping.
+It is best if the reference genome (.fasta) and annotation (.gtf) files come from the same source to avoid potential naming conventions problems. It is also good to check in the manual of the aligner you use for hints on what type of files are needed to do the mapping.
 
 * :mag: **Check** [STAR](https://github.com/alexdobin/STAR) manual what files are needed for the mapping.
-
 
 * :open_mouth: What is the idea behind building STAR index? What files are needed to build one? Where do we take them from? Could one use a STAR index that was generated before?
 
 
 * :computer: **Create** the _reference_ sub-folder in _transcriptome_ directory
-  <details>
-  <summary>:key: Click to see how to create the directory </summary>
-  `mkdir ~/glob/transcriptome/reference `
-  </details>
-
+<details>
+<summary>:key: Click to see how to create the directory </summary>
+{% highlight shell %}
+mkdir ~/glob/transcriptome/reference
+{% endhighlight %}
+</details>
 
 * :computer: **Download** the reference genome .fasta file for chromosome 11, mouse and the corresponding genome annotation .gtf file from Ensmeble webite.
-  <details>
-  <summary>:key: Click for the link to the Ensemble website </summary>
-  http://www.ensembl.org/info/data/ftp/index.html
-  </details>
-  </details>
-  <details>
-  <summary>:key: Click to see file names to be downloaded </summary>
-  *Mus\_musculus.GRCm38.dna.chromosome.11.fa*: chromosome 11 reference; *Mus\_musculus.GRCm38.85.gtf*: genome annotation
-  </details>
-  <details>
-  <summary>:key: Click to see how to transfer files from your computer to Uppmax </summary>
-  Mac/Linux: scp Mus\_musculus.GRCm38.dna.chromosome.11.fa Mus\_musculus.GRCm38.85.gtf username@milou.uppmax.uu.se:~/glob/transcriptome/reference;
-  Windows: try [WinSCP](https://winscp.net/eng/index.php) or other secure file transfer software
-  </details>
+<details>
+<summary>:key: Click for the link to the Ensemble website </summary>
+http://www.ensembl.org/info/data/ftp/index.html
+</details>
+</details>
+<details>
+<summary>:key: Click to see file names to be downloaded </summary>
+*Mus\_musculus.GRCm38.dna.chromosome.11.fa*: chromosome 11 reference; *Mus\_musculus.GRCm38.85.gtf*: genome annotation
+</details>
+<details>
+<summary>:key: Click to see how to transfer files from your computer to Uppmax </summary>
+Mac/Linux:
+{% highlight shell %}
+scp Mus\_musculus.GRCm38.dna.chromosome.11.fa Mus\_musculus.GRCm38.85.gtf username@milou.uppmax.uu.se:~/glob/transcriptome/reference
+{% endhighlight %}
+Windows: try [WinSCP](https://winscp.net/eng/index.php) or other secure file transfer software
+</details>
 
-
-  You should now have *Mus\_musculus.GRCm38.dna.chromosome.11.fa* and *Mus\_musculus.GRCm38.85.gtf* in the sub-folder _reference_
+You should now have *Mus\_musculus.GRCm38.dna.chromosome.11.fa* and *Mus\_musculus.GRCm38.85.gtf* in the sub-folder _reference_
 
 ### preparing index
 
 * :computer: **Create _indexChr11_ sub-folder** in the _transcriptome_ directory
-  <details>
-  <summary>:key: Click to see how to create directory</summary>
-  `mkdir ~/glob/transcriptome/indexChr11; cd ~/glob/transcriptome/indexChr11;`
-  </details>
+<details>
+<summary>:key: Click to see how to create directory</summary>
+mkdir ~/glob/transcriptome/indexChr11; cd ~/glob/transcriptome/indexChr11;`
+</details>
 
 
 * :computer: **Load STAR module** on Uppmax. :bulb: Use _module spider star_ to check which version of STAR are available and load the latest one.
-  <details>
-  <summary>:key: Click to see how to load module</summary>
-  `module load star/2.5.1b;`
-  </details>
+<details>
+<summary>:key: Click to see how to load module</summary>
+{% highlight shell %}
+module load star/2.5.1b
+{% endhighlight %}
+</details>
 
 
 * :computer: **Build STAR index** for chromosome 11 using the downloaded reference .fasta and gene annotation .gtf files. :bulb: Check STAR manual for details
-  <details>
-  <summary>:key: Click again to see suggested commands</summary>
-  `star --runMode genomeGenerate --runThreadN 8 --genomeDir ~/glob/transcriptome/indexChr11 --genomeFastaFiles ~/glob/transcriptome/reference/Mus_musculus.GRCm38.dna.chromosome.11.fa --sjdbGTFfile ~/glob/transcriptome/reference/Mus_musculus.GRCm38.81_chr11.gtf  `
-  </details>
+<details>
+<summary>:key: Click again to see suggested commands</summary>
+{% highlight shell %}  
+star --runMode genomeGenerate --runThreadN 8 --genomeDir ~/glob/transcriptome/indexChr11 --genomeFastaFiles ~/glob/transcriptome/reference/Mus_musculus.GRCm38.dna.chromosome.11.fa --sjdbGTFfile ~/glob/transcriptome/reference/Mus_musculus.GRCm38.85_chr11.gtf  `
+{% endhighlight %}
+</details>
 
+* :computer: **Sym-link STAR index** to for the entire genome into the _transcriptome_ directory. The index for the whole genome was prepared for us before class in the very same way as for the chromosome 11 in steps above. It just requires more time (ca. 4h) to run. The index can be found here: */sw/courses/ngsintro/rnaseq\_2016/index*
 
-* :computer: **Sym-link STAR index** to for the entire genome into the _transcriptome_ directory. The index for the whole genome was prepared for us before class in the very same way as for the chromosome 11 in steps above. It just requires more  time (ca. 4h) to run. The index can be found here: */sw/courses/ngsintro/rnaseq\_2016/index*
-    <details>
-    <summary>:key: Click again to see how to link the index</summary>
-    `cd ~/glob/transcriptome/; ln -s /sw/courses/ngsintro/rnaseq_2016/index`
-    </details>
-
+<details>
+<summary>:key: Click again to see how to link the index</summary>
+{% highlight shell %}
+cd ~/glob/transcriptome/
+ln -s /sw/courses/ngsintro/rnaseq_2016/index
+{% endhighlight%}
+</details>
 
 ### mapping
 Now we are ready to map our reads to the reference genome, via STAR index.
 * :computer: **Create _star_ sub-folder** in the _transcriptome_ directory. **Create sub-sub-folder named _SRR3222409_** to save the mapping results for the sample SRR3222409.
-  <details>
-  <summary>:key: Click to see how to create folders </summary>
-  `mkdir ~/glob/transcriptome/star; mkdir ~/glob/transcriptome/star/SRR3222409 `
-  </details>
 
+<details>
+<summary>:key: Click to see how to create folders </summary>
+{% highlight shell %}
+mkdir ~/glob/transcriptome/star
+mkdir ~/glob/transcriptome/star/SRR3222409
+{% endhighlight %}
+</details>
 
 * :computer: **Map reads** to the reference genome for SRR3222409 sample. Do not forget that we are working with paired-end reads so each sample has two matching reads file. **Check** the STAR manual for the parameters to:
-  * use index for the entire genome
-  * to read in zipped .fastq.gz files for both forward and reverse reads
-  * to run the job on the 8 allocated cores
-  * to direct the mapping results to the _SRR3222409_ sub-sub folder
-  * to give the results prefix _SRR3222409_
+ * use index for the entire genome
+ * to read in zipped .fastq.gz files for both forward and reverse reads
+ * to run the job on the 8 allocated cores  
+ * to direct the mapping results to the _SRR3222409_ sub-sub folder
+ * to give the results prefix _SRR3222409_
 
-  <summary>:key: Click to see how to write the mapping command with the above parameters</summary>
-  `star --genomeDir ~/glob/transcriptome/index/complete --readFilesIn ~/glob/transcriptome/DATA/SRR3222409_1.fastq.gz ~/glob/transcriptome/DATA/SRR3222409_2.fastq.gz --runThreadN 8 --readFilesCommand zcat --outFileNamePrefix ~/glob/transcriptome/star/SRR3222409/SRR322409_`
+ <summary>:key: Click to see how to write the mapping command with the above parameters</summary>
+ {% highlight shell %}
+ star --genomeDir ~/glob/transcriptome/index/complete --readFilesIn ~/glob/transcriptome/DATA/SRR3222409_1.fastq.gz ~/glob/transcriptome/DATA/SRR3222409_2.fastq.gz --runThreadN 8 --readFilesCommand zcat --outFileNamePrefix ~/glob/transcriptome/star/SRR3222409/SRR322409_
+ {% endhighlight%}
   </details>
 
-* :computer: **Map or copy over**. Map the remaining samples in the analogous way. Running short of time? Copy over the results that we have prepared for you before the class.  They are here: */sw/courses/ngsintro/rnaseq\_2016/main/Star*
-  <details>
-  <summary>:key: Click to see how to copy results, sample by sample</summary>
-  `cp -r /sw/courses/ngsintro/rnaseq_2016/main/star/SRR3222410/ ~/glob/transcriptome/star/`
-  </details>
-  <details>
-  <summary>:key: Click to see how to copy results using bash loop</summary>
-  `for i in SRR3222411 SRR3222412 SRR3222413 SRR3222414; do cp -r /sw/courses/ngsintro/rnaseq_2016/main/star/$i ~/glob/transcriptome/star/; done`
-  </details>
+* :computer: **Map or copy over**. Map the remaining samples in the analogous way. Running short of time? Copy over the results that we have prepared for you before the class. They are here: */sw/courses/ngsintro/rnaseq\_2016/main/Star*
+<details>
+<summary>:key: Click to see how to copy results, sample by sample</summary>
+{% highlight shell %}  
+cp -r /sw/courses/ngsintro/rnaseq_2016/main/star/SRR3222410/ ~/glob/transcriptome/star/
+{% endhighlight%}
+</details>
 
+<details>
+<summary>:key: Click to see how to copy results using bash loop</summary>
+{% highlight shell %}
+for i in SRR3222411 SRR3222412 SRR3222413 SRR3222414
+do
+cp -r /sw/courses/ngsintro/rnaseq_2016/main/star/$i ~/glob/transcriptome/star/
+done
+{% endhighlight%}
+</details>
 
-### Samtools: converting between SAM and BAM
+###<a name="samtools"></a> Samtools: converting between SAM and BAM
 Before we proceed further with our data processing, let's convert our mapped reads from STAR, saved in the default .SAM text format, into the binary .BAM format. Why? BAM files take less space so it is easier to store them and they are the most commonly required file format for many of the down-stream bioinformatics tools. In addition, they can be sorted and indexed shortening the time needed to proceed them in comparison with .SAM format. Also, then they will be ready for exploration in IGV, the Integrative Genomic Viewer.
 
 * :mag: **Read** through [Samtools](http://www.htslib.org/doc/samtools.html) documentation and see if you can figure it out how to:
- * convert SAM into BAM
- * sort BAM files
- * index BAM files
-
+* convert SAM into BAM
+* sort BAM files
+* index BAM files
 
 * :computer: **Create _bams_ sub-folder** in _transcriptome_, **navigate to _bams_ sub-folder** and **load samtools module**
 <details>
@@ -293,7 +305,7 @@ Before we proceed further with our data processing, let's convert our mapped rea
 
 
 
-### QualiMap: post-alignment quality control
+###<a name="qualimap"></a>QualiMap: post-alignment quality control
 Some important quality aspects, such as saturation of sequencing depth, read distribution between different genomic features or coverage uniformity along transcripts, can be measured only after mapping reads to the reference genome. One of the tools to perform this post-alignment quality control is QualiMap. QualiMap examines sequencing alignment data in SAM/BAM files according to the features of the mapped reads and provides an overall view of the data that helps to the detect biases in the sequencing and/or mapping of the data and eases decision-making for further analysis.
 
 * :mag: **Read** through [QuliMap](http://qualimap.bioinfo.cipf.es/doc_html/intro.html) documentation and see if you can figure it out how to run it to assess post-alignment quality on the RNA-seq mapped samples. The tool is already installed on Uppmax and available as QuliMap module
@@ -328,7 +340,7 @@ Some important quality aspects, such as saturation of sequencing depth, read dis
 * :open_mouth: **Check the QualiMap results**. What do you think? Are the samples of good quality? How can you tell?
 
 
-### featureCounts: counting reads
+###<a name="featurecounts"></a> featureCounts: counting reads
 After ensuring mapping quality we can count the reads to obtain a raw count table. We could count the reads by hand, opening the BAM in the IGV along the genome annotation file, and counting the reads overlapping with the regions of interest. This of course would take forever for the entire genome but it is never a bad idea to see how the data look like for the selected few genes of interest. For get the counts for the entire genome one can use many of the already available tools doing just that. Here we will use featureCounts, an ultrafast and accurate read summarization program, that can count mapped reads for genomic features such as genes, exons, promoter, gene bodies, genomic bins and chromosomal locations.
 
 * :mag: **Read** [featureCounts](http://bioinf.wehi.edu.au/featureCounts/) documentation and see if you can figure it out how to run summarize paired-end reads and count fragments overlapping with exonic regions.
@@ -389,7 +401,7 @@ After ensuring mapping quality we can count the reads to obtain a raw count tabl
 
 * :open_mouth: **Transfer** the MultiQC report to your computer and have a look at it.  What can you notice?
 
-### Differential expression
+###<a name="descript"></a> Differential expression
 As mentioned during the lecture, the best way to perform differential expression is to use one of the statistical packages, within **R environment**, that were specifically designed for analyses of read counts arising from RNA-seq, SAGE and similar technologies. Here, we will one of such packages called [edgeR](https://bioconductor.org/packages/release/bioc/html/edgeR.html). Learning R is beyond the scope of this course so we prepared basic ready to run scripts from a command line scripts to find DE genes between Ko and Wt.
 
 * :computer: **Create** _DE_ sub-folder in the _transcriptome_ directory and **navigate** there
@@ -705,7 +717,7 @@ available genomes in IGV, one can create genome files from within
 IGV. Please check the manual of IGV for more information on that.
 
 To open your bam files click on File and chose the option "Load from
-file&#x2026;" select your bam file and make sure that you have a .bai index
+file" select your bam file and make sure that you have a .bai index
 for that bam file in the same folder. You can repeat this and open
 multiple bam files in the same window, which makes it easy to compare
 samples. For every file you open a number of panels are opened that
@@ -728,9 +740,7 @@ on the splice reads you can instead of just looking at the splice
 panel right click on the read panel and select "Sashimi plots" This
 will open a new window showing in an easy readable fashion how reads
 are spliced in mapping and you will also be able to see that there are
-differences in between what locations reads are spliced. This can
-hence represents reads that originate from different isoforms of the
-gene.
+differences in between what locations reads are spliced. This hence gives some indication on the isoform usage of the gene.
 
 To try some of the features available in IGV you can try to address the following
 questions. 
@@ -747,9 +757,10 @@ option under "Regions" in the menu. Would you agree with what they
 state in the paper about certain pathways being down-regulated. If you need
 hints for how to proceed see [Gene List tutorial at Broad](http://software.broadinstitute.org/software/igv/gene_list_view).
 
-# Closing remarks
+# Closing remarks and where to go next
 It is not possible to learn RNA-seq data processing and analysis in one day... The good news is that there are many available tools and well-written tutorial with examples to learn from. In this tutorial we have covered the most important data processing steps that may be enough when the libraries are good. If not, there is plenty of trouble-shooting that one can try before discarding the data. And once the count table are in place, the biostatistical and data mining begins. There are no well-defined solutions here, all depends on the experiment and questions to be asked, but we strongly advise learning R. Not only to use the specifically designed statistical packages to analyze NGS count data, but also to be able to handle the data and results as well as to generate high-quality plots. There is no better way of learning than to try...
 
+For those interested in RNA-seq analysis Scilifelab offer a more advanced course in RNA-sequnence analysis each semester. If you also have in interest in learning R we do for the first time this year offer a one-week introduction course in R programming. For more information on both of of these courses see [Courses offered by Scilifelab](https://www.scilifelab.se/education/courses/)
 
 # About authors
 Thomas Källman :neckbeard:, Agata Smialowska :smiling_imp:, Olga Dethlefsen :angel: @ NBIS, National Bioinformatics Infrastructure, Sweden
