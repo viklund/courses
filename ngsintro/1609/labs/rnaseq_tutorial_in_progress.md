@@ -518,12 +518,16 @@ This module can be performed on Uppmax, or on your local computer if you have in
 *  You will need to copy the directory to your working space, whether working on Uppmax:
  <details>
  <summary>:key: Click to see an example command</summary>
- `cp -r /sw/courses/ngsintro/rnaseq_2016/bonus/funannot ./`
+ {% highlight bash %}
+ cp -r /sw/courses/ngsintro/rnaseq_2016/bonus/funannot ./
+ {% endhighlight %}
  </details>
  or on your local computer:
  <details>
  <summary>:key: Click to see an example of command</summary>
- `scp -r YOUR_LOGIN@milou.uppmax.uu.se:/sw/courses/ngsintro/rnaseq_2016/bonus/funannot ./`
+ {% highlight bash %}
+ scp -r YOUR_LOGIN@milou.uppmax.uu.se:/sw/courses/ngsintro/rnaseq_2016/bonus/funannot ./
+ {% endhighlight %}
  </details>
 
 
@@ -566,10 +570,12 @@ Alternatively, you can open the script in RStudio (or a text editor such as Atom
 
 * If you are performing the exercise in an intercative R session (on your local computer or on Uppmax), the results are collected in the following objects:
 
- `go.dn.adj
+{% highlight bash %}
+go.dn.adj
 go.up.adj
 react.dn.adj.annot
-react.up.adj.annot`
+react.up.adj.annot
+{% endhighlight %}
 
   You can explore the results either by printing them all on the screen
 
@@ -603,13 +609,13 @@ transcripts from the same genomic sequence. Differences in the relative expressi
 
 It is important to distinguish differential transcript usage from gene-level differential expression (which was covered in the main part of the exercise) and from transcript-level differential expression. DTU considers changes in the **proportions** of the isoforms of a gene that are expressed as opposed to changes of the individual transcript levels.
 
-Although the main units of interest are the transcripts, it has been difficult to obtain accurate and precise transcript-level expression estimates due to the extensive overlap between different transcripts. To circumvent that, number of methods have been developed that instead of estimating expression levels of transcripts, analyse levels of transcript building blocks (exons).  Hence, differential exon usage can be viewed as a proxy to the differential transcript usage.
+Although the main units of interest are the transcripts, it has been difficult to obtain accurate and precise transcript-level expression estimates due to the extensive overlap between different transcripts. To circumvent that, number of methods have been developed that instead of estimating expression levels of transcripts, analyse levels of transcript building blocks (exons).  Hence, differential exon usage (DEU) can be viewed as a proxy to the differential transcript usage.
 
-Note that DEU is a more general concept than alternative splicing, since it also includes changes in the usage of alternative transcript start sites and polyadenylation sites, which can cause differential usage of exons at the 5' and 3' boundary of transcripts.
+Note that DEU is a more general concept than alternative splicing, since it also includes changes in the usage of alternative transcript start sites and polyadenylation sites, which can cause differential usage of exons at the 5' and 3' boundary of transcripts.
 
-The Bioconductor package **DEXSeq** implements a method to test for differential exon usage (DEU) in comparative
-RNA-Seq experiments. By differential exon usage, we mean changes in the **relative** usage
-of exons caused by the experimental condition. The relative usage of an exon is defined as number of transcripts from the gene that contain this exon vs. number of all transcripts from the gene.
+The Bioconductor package **DEXSeq** implements a method to test for differential exon usage in comparative
+RNA-Seq experiments. By differential exon usage, we mean changes in the **relative** usage
+of exons caused by the experimental condition. The relative usage of an exon is defined as number of transcripts from the gene that contain this exon vs. number of all transcripts from the gene.
 
 In this exercise we will use reads mapped to chromosome 11 only (performing this analysis on entire data set is quite time consuming and requires considerable computing power). The starting point are files with reads summarised per each annotated exon, prepared beforehand by us.
 
