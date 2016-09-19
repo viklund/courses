@@ -181,7 +181,7 @@ do
 done
 ```
 
-If everything worked correctly you should have botten the number 1 2 3 printed to the screen.
+If everything worked correctly you should have gotten the numbers 1 2 3 printed to the screen.
 As you might guess, this way of writing the list of numbers to iterate over will not be usable once you have more than 10 or so numbers you want to loop over.
 Fortunately, the creators of bash (and most other computer languages) saw this problem coming a mile away and did something about it.
 To quickly create a list of numbers in bash, you can use something called a sequence expression to create the list for you.
@@ -230,9 +230,16 @@ In real life you will never do this, instead you will most likely always do it t
 Sam files take up ~4x more space on the hard drive compared to the same file in bam format, so as soon as you see a sam file you should convert it to a bam file instead to conserve hard drive space.
 If you have many sam files that needs converting you don't want to sit there and type all the commands by hand like some kind of animal.
 
-
 Write a script that converts all the sam files in a specified directory to bam files.
+Incidentally you can find 50 sam files in need of conversion in the folder called `sam` in the folder you copied to your glob folder earlier in this lab (~/glob/ngs-intro/loops/sam/).
 Bonus points if you make the program take the specified directory as an argument, and another bonus point if you get the program to name the resulting bam file to the same name as the sam file but with a .bam ending instead.
+
+Remember that you have to load the samtools module to be able to run it. The way you get samtools to convert a sam file to a bam file is by typing the following command:
+
+```bash
+samtools view -bS sample_01.sam > sample_01.bam
+```
+The `-b` option tells samtools to output bam format, and the `-S` option tells samtools that the input is in sam format.
 
 Remember, Google is a good place to get help. If you get stuck, google "bash remove file ending" or "bash argument to script" and look for hits from Stackoverflow/Stackexchange or similar pages.
 There are always many different way to solve a problem.
