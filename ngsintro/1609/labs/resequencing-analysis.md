@@ -22,7 +22,7 @@ We have reserved half a node for each student during this course.
 By now, you are probably already familiar with the procedure:
 
 ```bash
-salloc -A g2016008 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2016008_2
+salloc -A g2016017 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2016017_wednesday
 ```
 
 Make sure you ony do this once, otherwise you will take away resources from the other course participants! 
@@ -513,6 +513,7 @@ You can look at just the calls you made, or you can look at the calls from the f
 You can even load these data all together.
 Are there calls that were made using only one or two samples that were not made in the full data set or vice versa?
 
+Try to browse around in your data and get a feeling for the called variants. How 
 ## [Extra labs](resequencing-extra)
 
 If you have more time there are a couple of extra exercises where you will perform downstream analysis of the called variants in your .vcf file. [Extra labs](resequencing-extra)
