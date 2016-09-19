@@ -301,9 +301,7 @@ Before we proceed further with our data processing, let's convert our mapped rea
 * :computer: **Convert SAM to BAM**: for the first sample *SRR3222409\_Aligned.out.sam* into *SRR3222409\_Aligned.out.bam*
   <details>
   <summary>:key: Click to see the suggested commands</summary>
-  {% highlight bash %}
   samtools view -bS SRR3222409_Aligned.out.sam > SRR3222409_Aligned.out.bam
-  {% endhighlight %}
   </details>
 
 
