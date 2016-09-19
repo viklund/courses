@@ -4,7 +4,7 @@ title:  'RNAseq'
 ---
 
 # RNA-seq data processing and analysis tutorial
-
+Kontroll
 RNA-seq has become a powerful approach to study the continually changing cellular transcriptome. Here, one of the most common questions is to identify genes that are differentially expressed between two conditions, e.g. controls and treatment. The **main** exercise in this tutorial will take you through a basic bioinformatic analysis pipeline to answer just that, it will show you how to find differentially expressed (DE) genes. Briefly,
 
 * in the **main exercise**, we will,
@@ -158,6 +158,7 @@ It is best if the reference genome (.fasta) and annotation (.gtf) files come fro
   <details>
   <summary>:key: Click to see how to transfer files from your computer to Uppmax </summary>
   Mac/Linux:
+  
   {% highlight bash %}
   scp Mus\_musculus.GRCm38.dna.chromosome.11.fa Mus\_musculus.GRCm38.85.gtf username@milou.uppmax.uu.se:~/glob/transcriptome/reference
   {% endhighlight %}
@@ -184,8 +185,10 @@ You should now have *Mus\_musculus.GRCm38.dna.chromosome.11.fa* and *Mus\_muscul
 * :computer: **Create _indexChr11_ sub-folder** in the _transcriptome_ directory
   <details>
   <summary>:key: Click to see how to create directory</summary>
+  {% highlight bash %}
   mkdir ~/glob/transcriptome/indexChr11
   cd ~/glob/transcriptome/indexChr11
+  {% endhighlight %}
   </details>
 
 
@@ -202,7 +205,7 @@ You should now have *Mus\_musculus.GRCm38.dna.chromosome.11.fa* and *Mus\_muscul
   <details>
   <summary>:key: Click again to see suggested commands</summary>
   {% highlight bash %}
-  star --runMode genomeGenerate --runThreadN 8 --genomeDir ~/glob/transcriptome/indexChr11 --genomeFastaFiles ~/glob/transcriptome/reference/Mus_musculus.GRCm38.dna.chromosome.11.fa --sjdbGTFfile ~/glob/transcriptome/reference/Mus_musculus.GRCm38.85_chr11.gtf  `
+  star --runMode genomeGenerate --runThreadN 8 --genomeDir ~/glob/transcriptome/indexChr11 --genomeFastaFiles ~/glob/transcriptome/reference/Mus_musculus.GRCm38.dna.chromosome.11.fa --sjdbGTFfile ~/glob/transcriptome/reference/Mus_musculus.GRCm38.85_chr11.gtf
   {% endhighlight %}
   </details>
 
@@ -235,6 +238,7 @@ Now we are ready to map our reads to the reference genome, via STAR index.
  * to run the job on the 8 allocated cores  
  * to direct the mapping results to the _SRR3222409_ sub-sub folder
  * to give the results prefix _SRR3222409_
+   <details>
    <summary>:key: Click to see how to write the mapping command with the above parameters</summary>
    {% highlight bash %}
    star --genomeDir ~/glob/transcriptome/index/complete --readFilesIn ~/glob/transcriptome/DATA/SRR3222409_1.fastq.gz ~/glob/transcriptome/DATA/SRR3222409_2.fastq.gz --runThreadN 8 --readFilesCommand zcat --outFileNamePrefix ~/glob/transcriptome/star/SRR3222409/SRR3222409_
@@ -301,7 +305,9 @@ Before we proceed further with our data processing, let's convert our mapped rea
 * :computer: **Convert SAM to BAM**: for the first sample *SRR3222409\_Aligned.out.sam* into *SRR3222409\_Aligned.out.bam*
   <details>
   <summary>:key: Click to see the suggested commands</summary>
+  {% highlight bash %}
   samtools view -bS SRR3222409_Aligned.out.sam > SRR3222409_Aligned.out.bam
+  {% endhighlight %}
   </details>
 
 
@@ -327,63 +333,86 @@ Before we proceed further with our data processing, let's convert our mapped rea
   <summary>:key: Click to see how to sort BAM file</summary>
   {% highlight bash %}
   samtools sort ~/glob/transcriptome/bams/SRR3222409_Aligned.out.bam ~/glob/transcriptome/bams/SRR3222409_Aligned.out.sorted
-  </details>
   {% endhighlight %}
-
+  </details>
+  
 
 * :computer: **Sort BAM files** for the remaining samples or **copy them over**. You can find the BAMs prepared for your in */sw/courses/ngsintro/rnaseq_2016/main/bams/out*, ending with *sorted.bam*
-<details>
-<summary>:key: Click to see how to copy over sample by sample</summary>
-`cp /sw/courses/ngsintro/rnaseq_2016/main/bams/out/SRR3222410_Aligned.out.sorted.bam ~/glob/transcriptome/bams/`
-</details>
-<details>
-<summary>:key: Click to see how to copy over using a bit more advanced bash loop. It is the same as above, just the file extension is different. </summary>
-`for i in SRR3222411 SRR3222412 SRR3222413 SRR3222414; do cp "/sw/courses/ngsintro/rnaseq_2016/main/bams/out/"$i"_Aligned.out.sorted.bam" ~/glob/transcriptome/bams/; done`
-</details>
+  <details>
+  <summary>:key: Click to see how to copy over sample by sample</summary>
+  {% highlight bash %}
+  cp /sw/courses/ngsintro/rnaseq_2016/main/bams/out/SRR3222410_Aligned.out.sorted.bam ~/glob/transcriptome/bams/
+  {% endhighlight %}
+  </details>
+  <details>
+  <summary>:key: Click to see how to copy over using a bit more advanced bash loop. It is the same as above, just the file extension is different. </summary>
+  {% highlight bash %}
+  for i in SRR3222411 SRR3222412 SRR3222413 SRR3222414 
+  do cp "/sw/courses/ngsintro/rnaseq_2016/main/bams/out/"$i"_Aligned.out.sorted.bam" ~/glob/transcriptome/bams/
+  done
+  {% endhighlight %}
+  </details>
 
 
 * :computer: **Index the sorted BAM files**
-<details>
-<summary>:key: Click to see how to sort BAM file, sample by sample</summary>
-`samtools index ~/glob/transcriptome/bams/SRR3222410_Aligned.out.sorted.bam`
-</details>
-<details>
-<summary>:key: Click to see how to sort BAM file, using bash loop</summary>
-`for i in *.sorted.bam; do samtools index $i; done`
-</details>
+  <details>
+  <summary>:key: Click to see how to sort BAM file, sample by sample</summary>
+  {% highlight bash %}
+  samtools index ~/glob/transcriptome/bams/SRR3222410_Aligned.out.sorted.bam
+  {% endhighlight %}
+  </details>
+  <details>
+  <summary>:key: Click to see how to sort BAM file, using bash loop</summary>
+  {% highlight bash %}
+  for i in *.sorted.bam
+  do samtools index $i
+  done
+  {% endhighlight %}
+  </details>
 
 
-
-###<a name="qualimap"></a>QualiMap: post-alignment quality control
+###<a name="qualimap"></a> QualiMap: post-alignment quality control
 Some important quality aspects, such as saturation of sequencing depth, read distribution between different genomic features or coverage uniformity along transcripts, can be measured only after mapping reads to the reference genome. One of the tools to perform this post-alignment quality control is QualiMap. QualiMap examines sequencing alignment data in SAM/BAM files according to the features of the mapped reads and provides an overall view of the data that helps to the detect biases in the sequencing and/or mapping of the data and eases decision-making for further analysis.
 
 * :mag: **Read** through [QuliMap](http://qualimap.bioinfo.cipf.es/doc_html/intro.html) documentation and see if you can figure it out how to run it to assess post-alignment quality on the RNA-seq mapped samples. The tool is already installed on Uppmax and available as QuliMap module
 
 
 * :computer: **Create QualiMap** sub-folder in _transcriptome_ directory, **navigate to _qualimap_ sub-folder** and **load QualiMap/2.2 module**
-<details>
-<summary>:key: Click to see the suggested commands</summary>
-`mkdir ~/glob/transcriptome/qualimap; cd ~/glob/transcriptome/qualimap/; module load QualiMap/2.2`
-</details>
+  <details>
+  <summary>:key: Click to see the suggested commands</summary>
+  {% highlight bash %}
+  mkdir ~/glob/transcriptome/qualimap 
+  cd ~/glob/transcriptome/qualimap/
+  module load QualiMap/2.2
+  {% endhighlight %}
+  </details>
 
 
 * :computer: **Run QualiMap** for the fist sample on sorted BAM file *SRR3222409\_Aligned.out.sorted.bam* **directing** the results to *~/glob/transcriptome/qualimap/SRR3222409* folder. :bulb: QualiMap creates the folder if you specify the right parameter
-<details>
-<summary>:key: Click to see the suggested commands</summary>
-`qualimap rnaseq -bam ~/glob/transcriptome/bams/SRR3222409_Aligned.out.sorted.bam -gtf ~/glob/transcriptome/reference/Mus_musculus.GRCm38.81.gtf --outdir ~/glob/transcriptome/qualimap/SRR3222409`
-</details>
+  <details>
+  <summary>:key: Click to see the suggested commands</summary>
+  {% highlight bash %}
+  qualimap rnaseq -bam ~/glob/transcriptome/bams/SRR3222409_Aligned.out.sorted.bam -gtf ~/glob/transcriptome/reference/Mus_musculus.GRCm38.81.gtf --outdir ~/glob/transcriptome/qualimap/SRR3222409
+  {% endhighlight %}
+  </details>
 
 
 * :computer: **Run QualiMap** for the remaining sorted BAM files or **copy the results over**. These can be found */sw/courses/ngsintro/rnaseq\_2016/main/qualimap*
-<details>
-<summary>:key: Click to see how to copy over the results, sample by sample</summary>
-`cp -r /sw/courses/ngsintro/rnaseq_2016/main/qualimap/SRR3222410 ~/glob/transcriptome/qualimap/`
-</details>
-<details>
-<summary>:key: Click to see how to copy over the results, using bash loop</summary>
-`for i in SRR3222409 SRR3222410 SRR3222411 SRR3222412 SRR3222413 SRR3222414; do cp -r "/sw/courses/ngsintro/rnaseq_2016/main/qualimap"/$i ~/glob/transcriptome/qualimap/; done
-`
-</details>
+  <details>
+  <summary>:key: Click to see how to copy over the results, sample by sample</summary>
+  {% highlight bash %}
+  cp -r /sw/courses/ngsintro/rnaseq_2016/main/qualimap/SRR3222410 ~/glob/transcriptome/qualimap/
+  {% endhighlight %}
+  </details>
+  
+  <details>
+  <summary>:key: Click to see how to copy over the results, using bash loop</summary>
+  {% highlight bash %}
+  for i in SRR3222409 SRR3222410 SRR3222411 SRR3222412 SRR3222413 SRR3222414
+  do cp -r "/sw/courses/ngsintro/rnaseq_2016/main/qualimap"/$i ~/glob/transcriptome/qualimap/
+  done
+  {% endhighlight %}
+  </details>
 
 
 * :open_mouth: **Check the QualiMap results**. What do you think? Are the samples of good quality? How can you tell?
@@ -396,35 +425,50 @@ After ensuring mapping quality we can count the reads to obtain a raw count tabl
 
 
 * :computer: **Create featurecounts** sub-folder in the _transcriptome_ directory and **navigate** there.
-<details>
-<summary>:key: Click to see how...</summary>
-`mkdir ~/glob/transcriptome/featurecounts; ~/glob/transcriptome/featurecounts`
-</details>
+  <details>
+  <summary>:key: Click to see how...</summary>
+  {% highlight bash %}
+  mkdir ~/glob/transcriptome/featurecounts
+  ~/glob/transcriptome/featurecounts
+  {% endhighlight %}
+  </details>
 
 
 * :computer: **Load featureCounts** module. :bulb: featureCounts is available on Uppmax as part of the _subread_ package
-<details>
-<summary>:key: Click to see how to load featureCounts</summary>
-`module load subread`
-</details>
+  <details>
+  <summary>:key: Click to see how to load featureCounts</summary>
+  {% highlight bash %}
+  module load subread
+  {% endhighlight %}
+  </details>
 
 
 * :computer: **Sym-link** SAM files generated by Star and located in *~glob/transcriptome/star*
-<details>
-<summary>:key: Click to see sym-link files, sample by sample</summary>
-`ln -s ~/glob/transcriptome/star/SRR3222409/SRR3222409_Aligned.out.sam`
-</details>
-<details>
-<summary>:key: Click to see sym-link files, using bash loop</summary>
-`for i in ~/glob/transcriptome/star/**/*.sam; do ln -s $i; done`
-</details>
+  <details>
+  <summary>:key: Click to see sym-link files, sample by sample</summary>
+  {% highlight bash %}
+  ln -s ~/glob/transcriptome/star/SRR3222409/SRR3222409_Aligned.out.sam
+  {% endhighlight %}
+  </details>
+  
+  <details>
+  <summary>:key: Click to see sym-link files, using bash loop</summary>
+  {% highlight bash %}
+  for i in ~/glob/transcriptome/star/**/*.sam
+  do 
+  ln -s $i
+  done
+  {% endhighlight %}
+  </details>
 
 
 * :computer: **Run featureCounts** on the SAM files, **counting** fragments overlapping exon regions and **saving** the count tables as _tableCounts_. :bulb: The libraries are un-stranded and you can proceed all the samples in one go.
-<details>
-<summary>:key: Click to see how to run featureCounts on all samples</summary>
-`featurecounts]$ featureCounts -p -a ~/glob/transcriptome/reference/Mus_musculus.GRCm38.81.gtf -t gene -g gene_id -s 0 -o tableCounts *.sam`
-</details>
+  <details>
+  <summary>:key: Click to see how to run featureCounts on all samples</summary>
+  {% highlight bash %}
+  featurecounts]$ featureCounts -p -a ~/glob/transcriptome/reference/Mus_musculus.GRCm38.81.gtf -t gene -g gene_id -s 0 -o tableCounts *.sam
+  {% endhighlight %}
+  </details>
 
 
 * :open_mouth: **Have a look** at the _tableCounts_ and _tableCounts.summary_. Can you figure out what these files contain? Do you think that counting work? How can you tell?
@@ -435,17 +479,22 @@ After ensuring mapping quality we can count the reads to obtain a raw count tabl
 
 
 * :computer: **Navigate** to _transcriptome_ directory and *load module MultiQC/0.6*
-<details>
-<summary>:key: Click to see how </summary>
-`cd ~/glob/transcriptome; module load MultiQC/0.6`
-</details>
+  <details>
+  <summary>:key: Click to see how </summary>
+  {% highlight bash %}
+  cd ~/glob/transcriptome
+  module load MultiQC/0.6
+  {% endhighlight %}
+  </details>
 
 
 * :computer: **Run** MultiQC
-<details>
-<summary>:key: Click to see how to run MultiQC</summary>
-`multiqc .`
-</details>
+  <details>
+  <summary>:key: Click to see how to run MultiQC</summary>
+  {% highlight bash %}
+  multiqc .
+  {% endhighlight %}
+  </details>
 
 
 * :open_mouth: **Transfer** the MultiQC report to your computer and have a look at it.  What can you notice?
@@ -454,37 +503,49 @@ After ensuring mapping quality we can count the reads to obtain a raw count tabl
 As mentioned during the lecture, the best way to perform differential expression is to use one of the statistical packages, within **R environment**, that were specifically designed for analyses of read counts arising from RNA-seq, SAGE and similar technologies. Here, we will one of such packages called [edgeR](https://bioconductor.org/packages/release/bioc/html/edgeR.html). Learning R is beyond the scope of this course so we prepared basic ready to run scripts from a command line scripts to find DE genes between Ko and Wt.
 
 * :computer: **Create** _DE_ sub-folder in the _transcriptome_ directory and **navigate** there
-<details>
-<summary>:key: Click to see how </summary>
-`mkdir ~/glob/transcriptome/DE; cd ~/glob/transcriptome/DE`
-</details>
+  <details>
+  <summary>:key: Click to see how </summary>
+  {% highlight bash %}
+  mkdir ~/glob/transcriptome/DE 
+  cd ~/glob/transcriptome/DE
+  {% endhighlight %}
+  </details>
 
 
 * :computer: **Load R module and R packages**
-<details>
-<summary>:key: Click to see how </summary>
-`module load R/3.3.0; module load R_packages/3.3.0`
-</details>
+  <details>
+  <summary>:key: Click to see how </summary>
+  {% highlight bash %}
+  module load R/3.3.0
+  module load R_packages/3.3.0
+  {% endhighlight %}
+  </details>
 
 
 * :computer: **Sym-link** _tableCounts_ as created by featureCounts and **sym-link** the prepared gene annotation file *tableCounts_annotation.txt* prepared by us before the class and located: */sw/courses/ngsintro/rnaseq\_2016/main/DE* as well as **sym-link** R script located in the same directory
-<details>
-<summary>:key: Click to see how </summary>
-`ln -s ~/glob/transcriptome/featurecounts/tableCounts; ln -s /sw/courses/ngsintro/rnaseq_2016/main/DE/tableCounts_annotations.txt; ln -s /sw/courses/ngsintro/rnaseq_2016/main/DE/diffExp.R `
-</details>
+  <details>
+  <summary>:key: Click to see how </summary>
+  {% highlight bash %}
+  ln -s ~/glob/transcriptome/featurecounts/tableCounts
+  ln -s /sw/courses/ngsintro/rnaseq_2016/main/DE/tableCounts_annotations.txt
+  ln -s /sw/courses/ngsintro/rnaseq_2016/main/DE/diffExp.R
+  {% endhighlight %}
+  </details>
 
 
 * :computer: **Run diffExp.R script**
-<details>
-<summary>:key: Click to see how </summary>
-`Rscript diffExp.R`
-</details>
-A file *results\_DE.txt* should be created in the _DE_ sub-folder
+  <details>
+  <summary>:key: Click to see how </summary>
+  {% highlight bash %}
+  Rscript diffExp.R
+  {% endhighlight %}
+  </details>
+  
+  A file *results\_DE.txt* should be created in the _DE_ sub-folder
 
 
 * :open_mouth: **Copy over** to your computer **open** the *results\_DE.txt*
  file in Excel or alike. Given FDR value of 0.05, how many DE genes are there? How many up and down-regulated? What are the top changes? How does it change when we only look at the DE that have minimum log-fold-change 1?
-
 
 
 
