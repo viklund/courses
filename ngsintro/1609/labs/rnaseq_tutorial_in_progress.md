@@ -169,6 +169,7 @@ ALTERNATIVE 2:
   <summary>:key: Click to see how to transfer files from Ensembl website to Uppmax </summary>
   Mac/Linux:
   {% highlight bash %}
+  cd ~/glob/transcriptome/reference
   wget ftp://ftp.ensembl.org/pub/release-85/fasta/mus_musculus/dna/Mus_musculus.GRCm38.dna.chromosome.11.fa.gz
   wget ftp://ftp.ensembl.org/pub/release-85/gtf/mus_musculus/Mus_musculus.GRCm38.85.chr.gtf.gz
   {% endhighlight %}
