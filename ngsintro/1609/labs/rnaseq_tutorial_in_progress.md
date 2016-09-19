@@ -164,7 +164,7 @@ It is best if the reference genome (.fasta) and annotation (.gtf) files come fro
   Windows: try [WinSCP](https://winscp.net/eng/index.php) or other secure file transfer software
   </details>
 
-ALTERNATIVE 2:
+ ALTERNATIVE 2:
   <details>
   <summary>:key: Click to see how to transfer files from Ensembl website to Uppmax </summary>
   Mac/Linux:
@@ -219,6 +219,7 @@ You should now have *Mus\_musculus.GRCm38.dna.chromosome.11.fa* and *Mus\_muscul
 ### mapping
 Now we are ready to map our reads to the reference genome, via STAR index.
 * :computer: **Create _star_ sub-folder** in the _transcriptome_ directory. **Create sub-sub-folder named _SRR3222409_** to save the mapping results for the sample SRR3222409.
+  
   <details>
   <summary>:key: Click to see how to create folders </summary>
   {% highlight bash %}
@@ -236,7 +237,7 @@ Now we are ready to map our reads to the reference genome, via STAR index.
  * to give the results prefix _SRR3222409_
    <summary>:key: Click to see how to write the mapping command with the above parameters</summary>
    {% highlight bash %}
-   star --genomeDir ~/glob/transcriptome/index/complete --readFilesIn ~/glob/transcriptome/DATA/SRR3222409_1.fastq.gz ~/glob/transcriptome/DATA/SRR3222409_2.fastq.gz --runThreadN 8 --readFilesCommand zcat --outFileNamePrefix ~/glob/transcriptome/star/SRR3222409/SRR322409_
+   star --genomeDir ~/glob/transcriptome/index/complete --readFilesIn ~/glob/transcriptome/DATA/SRR3222409_1.fastq.gz ~/glob/transcriptome/DATA/SRR3222409_2.fastq.gz --runThreadN 8 --readFilesCommand zcat --outFileNamePrefix ~/glob/transcriptome/star/SRR3222409/SRR3222409_
    {% endhighlight %}
    </details>
 
@@ -248,6 +249,7 @@ Now we are ready to map our reads to the reference genome, via STAR index.
   cp -r /sw/courses/ngsintro/rnaseq_2016/main/star/SRR3222410/ ~/glob/transcriptome/star/
   {% endhighlight %}
   </details>
+
   <details>
   <summary>:key: Click to see how to copy results using bash loop</summary>
   {% highlight bash %}
@@ -259,7 +261,7 @@ Now we are ready to map our reads to the reference genome, via STAR index.
   </details>
 
 
-###<a name="samtools"></a> Samtools: converting between SAM and BAM
+### <a name="samtools"></a> Samtools: converting between SAM and BAM
 Before we proceed further with our data processing, let's convert our mapped reads from STAR, saved in the default .SAM text format, into the binary .BAM format. Why? BAM files take less space so it is easier to store them and they are the most commonly required file format for many of the down-stream bioinformatics tools. In addition, they can be sorted and indexed shortening the time needed to proceed them in comparison with .SAM format. Also, then they will be ready for exploration in IGV, the Integrative Genomic Viewer.
 
 * :mag: **Read** through [Samtools](http://www.htslib.org/doc/samtools.html) documentation and see if you can figure it out how to:
@@ -268,12 +270,13 @@ Before we proceed further with our data processing, let's convert our mapped rea
 * index BAM files
 
 * :computer: **Create _bams_ sub-folder** in _transcriptome_, **navigate to _bams_ sub-folder** and **load samtools module**
+  
   <details>
   <summary>:key: Click to see the suggested commands, file by file</summary>
   {% highlight bash %}
   mkdir ~/glob/transcriptome/bams
   cd ~/glob/transcriptome/bams 
-  module load samtools
+  module load samtools/1.3
   {% endhighlight %}
   </details>
 
