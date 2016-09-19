@@ -138,7 +138,6 @@ mkdir ~/glob/transcriptome/reference
 <summary>:key: Click for the link to the Ensemble website </summary>
 http://www.ensembl.org/info/data/ftp/index.html
 </details>
-</details>
 <details>
 <summary>:key: Click to see file names to be downloaded </summary>
 *Mus\_musculus.GRCm38.dna.chromosome.11.fa*: chromosome 11 reference; *Mus\_musculus.GRCm38.85.gtf*: genome annotation
