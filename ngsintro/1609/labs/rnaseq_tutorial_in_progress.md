@@ -153,6 +153,8 @@ It is best if the reference genome (.fasta) and annotation (.gtf) files come fro
   *Mus\_musculus.GRCm38.dna.chromosome.11.fa*: chromosome 11 reference; 
   *Mus\_musculus.GRCm38.85.gtf*: genome annotation
   </details>
+  
+ ALTERNATIVE 1:
   <details>
   <summary>:key: Click to see how to transfer files from your computer to Uppmax </summary>
   Mac/Linux:
@@ -161,6 +163,18 @@ It is best if the reference genome (.fasta) and annotation (.gtf) files come fro
   {% endhighlight %}
   Windows: try [WinSCP](https://winscp.net/eng/index.php) or other secure file transfer software
   </details>
+
+ALTERNATIVE 2:
+  <details>
+  <summary>:key: Click to see how to transfer files from Ensembl website to Uppmax </summary>
+  Mac/Linux:
+  {% highlight bash %}
+  wget ftp://ftp.ensembl.org/pub/release-85/fasta/mus_musculus/dna/Mus_musculus.GRCm38.dna.chromosome.11.fa.gz
+  wget ftp://ftp.ensembl.org/pub/release-85/gtf/mus_musculus/Mus_musculus.GRCm38.85.chr.gtf.gz
+  {% endhighlight %}
+  Windows: try [WinSCP](https://winscp.net/eng/index.php) or other secure file transfer software
+  </details>
+  
 
 You should now have *Mus\_musculus.GRCm38.dna.chromosome.11.fa* and *Mus\_musculus.GRCm38.85.gtf* in the sub-folder _reference_
 
