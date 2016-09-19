@@ -354,20 +354,22 @@ module load bioinfo-tools samtools/1.3
 for file in $(ls $1/*.sam);
 do
     
-    # check if the intended output file doesn't already exists
-    if [ ! -f $file.bam ];
+    # check if the intended output file doesn't already exists.
+    # ${file%.*} means that it will take the file name and remove everything
+    # after the last punctuation in the name. 
+    if [ ! -f ${file%.*}.bam ];
     then
 
         # print a message to the screen so that the user knows what's happening.
-        # ${file%.*} means that it will take the file name and remove everything
-        # after the last punctuation in the name. 
         echo "Converting $file to ${file%.*}.bam"
       
         # do the actual converting
         samtools view -bS $file > ${file%.*}.bam
         
     else
+        # inform the user that the conversion is skipped
         echo "Skipping conversion of $file as ${file%.*}.bam already exist"
+    fi
 done
 {% endhighlight %}
 </details> 
