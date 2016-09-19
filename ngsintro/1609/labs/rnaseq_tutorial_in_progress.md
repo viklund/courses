@@ -150,7 +150,10 @@ It is best if the reference genome (.fasta) and annotation (.gtf) files come fro
   </details>
   <details>
   <summary>:key: Click to see file names to be downloaded </summary>
-  *Mus\_musculus.GRCm38.dna.chromosome.11.fa*: chromosome 11 reference; *Mus\_musculus.GRCm38.85.gtf*: genome annotation
+  {% highlight bash %}  
+  **Mus\_musculus.GRCm38.dna.chromosome.11.fa**: chromosome 11 reference; 
+  **Mus\_musculus.GRCm38.85.gtf**: genome annotation
+  {% endhighlight %}
   </details>
   <details>
   <summary>:key: Click to see how to transfer files from your computer to Uppmax </summary>
