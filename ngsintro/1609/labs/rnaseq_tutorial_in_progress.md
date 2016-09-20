@@ -160,8 +160,10 @@ http://www.ensembl.org/info/data/ftp/index.html
 </details>
 <details>
 <summary>:key: Click to see file names to be downloaded </summary>
+{% highlight bash %}
 *Mus\_musculus.GRCm38.dna.chromosome.11.fa*: chromosome 11 reference; 
 *Mus\_musculus.GRCm38.85.gtf*: genome annotation
+{% endhighlight %}
 </details>
 <br />
   
