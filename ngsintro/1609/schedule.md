@@ -20,7 +20,7 @@ Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)
 **09.30-12.00** [Exercise: File types in bioinformatics](labs/filetypes) (Martin Dahlö, Pall Olason, Johan Viklund, Per Unneberg)  
 **12.00-13.00** Lunch at BMC restaurant  
 **13:00-14:00** [Lecture: Advanced Linux usage](slides/dahlo-advanced_linux_usage.pdf) (Martin Dahlö)  
-**14:00-17:00** Exercise: Advanced Linux usage (Martin Dahlö, Pall Olason, Johan Viklund, Per Unneberg)  
+**14:00-17:00** [Exercise: Advanced Linux usage](labs/loops-lab) (Martin Dahlö, Pall Olason, Johan Viklund, Per Unneberg)  
 
 **Wednesday**  
 Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)  
