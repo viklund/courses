@@ -8,7 +8,7 @@ title:  'Resequencing Extra'
 
 Except for Extra 1 and Extra 2 that need to be run in that order, the different parts are independent and can be run in any order you want. 
 
-##Extra1: View data in the UCSC browser, extract interesting annotation tracks
+##Extra 1: View data in the UCSC browser, extract interesting annotation tracks
 
 The UCSC browser is a collection of tools for viewing and manipulating genomic data. Here we will only use a very limited set of all the functionalities, but there is extensive documentation that allows you to find all the possibilities. So while you have the data loaded into the UCSC browser, take the opportunity to look around and explore. 
 
@@ -75,4 +75,4 @@ Instead of running interactively on just on sample at a time, the common workflo
 
 http://www.uppmax.uu.se/slurm-user-guide
 
-If you have just one sample, you could write the commands by hand in the run script. If you would like to automate it and be able to run the same thing for a large number of samples you can use different scripting languages to do this. A simple option is to write it in bash, perl och python. Try for your self and think about different ways to make it efficient.
+If you have just one sample, you could write the commands by hand in the run script. If you would like to automate it and be able to run the same thing for a large number of samples you can use different scripting languages to do this. A simple option is to write it in bash, perl och python or whatever language you feel comfortable in. Based on the folder structure with different types of files and what you learnt about simple loops, try for your self and think about different ways to make it efficient.
