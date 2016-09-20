@@ -808,9 +808,9 @@ The results in html format are saved in the directory ***DEXSeqReport***. For de
 [Jump to the top](#begin)
 
 
-#  <a name="visual"></a> Bonus exercise: further data analyses and visualization
+#  <a name="visual"></a> Bonus exercise: RNA-seq visualisation
 
-## Introduction<a id="orgheadline1"></a>
+## Introduction
 
 Data visualisation is important to be able to clearly convey results,
 but can also be very helpful as tool for identifying issues and
@@ -821,7 +821,7 @@ annotations. In addition we will produce high quality plots of both
 the mapped read data and the results from differential gene
 expression.
 
-## IGV<a id="orgheadline2"></a>
+## IGV
 
 If you are already familiar with IGV you can load the mouse genome and
 at least one bam file from each of the treatments that you created
@@ -848,8 +848,9 @@ have to get a copy of the program.
 <details>
 <summary>:key: Click to see how to transfer files from uppmax</summary>
 {% highlight bash %}
-scp scp username@milou.uppmax.uu.se:~/glob/bamfile.bam .
+scp scp username@milou.uppmax.uu.se:~/glob/transcriptome/bamfile.bam .
 {% endhighlight %}
+NB! Use the sorted bam files and also cp the .bai files
 </details>
 <br />
 
@@ -858,9 +859,10 @@ log on in a way so that the generated graphics are exported via the
 network to your screen. This can be done in two different ways. The
 first method requires you to log in to uppmax with the following
 command.
-
-    ssh -Y username@milou.uppmax.uu.se
-    ssh -Y computenode
+{% highlight bash %}
+ssh -Y username@milou.uppmax.uu.se
+ssh -Y computenode
+{% endhighlight %}
 
 These two steps makes sure that any graphical interface that you start
 on your compute node, will be exported to your computer. Note that as
@@ -873,17 +875,21 @@ Once you log into this interface you will have a linux desktop
 interface in a browser window. This interface is running on the login
 node so if you want to do any heavy lifting you need to login to your
 reserved compute node also here. This is done by opening a terminal in
-the running linux envirolnment and log on to your compute node as before
+the running linux environment and log on to your compute node as before
 NB! If you have no active reservation you have to do that first.
 
-    ssh -Y computenode
+{% highlight bash %}
+ssh -Y computenode
+{% endhighlight %}
 
 Once at the compute node we can load necessary modules and open an IGV
 session.
 
+{% highlight bash %}
     module load bioinfo-tools
     module load IGV/2.3.40
     igv-core
+{% endhighlight %}
 
 This should start the IGV so that it is visible on your screen. If not please try to
 reconnect to uppmax or consider running IGV locally as that is often
@@ -946,8 +952,7 @@ using [R](https://www.r-project.org). Depending on your profiency in
 reading r-code and using R you can in this section either just call
 scripts from the command lines with a set of arguments or you can open
 the r-script in a text editor and run the code step by step from an
-interactive r-session. Weathre you do it from the command line or from R make sure you load the R modules you used before and please make sure that you also for this part
-are doing the analysis from your reserved compute node.
+interactive r-session. Irrespective of the method you choose make sure you load the same R modules as before and do all steps on a compute node.
 
 :computer: **Load R module and R packages**
 <details>
@@ -958,13 +963,8 @@ module load R_packages/3.3.0
 {% endhighlight %}
 </details>
 
-Most of the functionality we use in R to create these plots are not
-from the base functionality in R, but is rather imported
-functions from different librararies that can be downloaded from
-public repositories.
-
-Some of these plots are based on the results from the DE analysis so
-perform all of these steps from within the DE folder. 
+Some of the example plots we generate here are based on the results from the DE analysis so
+perform all of these steps from within the DE folder that you created earlier. 
 
 Start by copying the scripts from the course folder to your DE directory.
 
@@ -978,14 +978,12 @@ cp /sw/courses/ngsintro/rnaseq_2016/bonus/visual/*.R .
 
 You should now have four files in your DE folder.
 
-First we can create similar plots to what we could see in the IGV
-plots, but using R means that we could add other types of information
-that are not implemented in IGV.
+We start off by creating similar plots to how data is visualised in IGV, but using R means that we could add other types of information that are not implemented in IGV.
 
 To look at read coverage in our bam files for a gene of interest (pick
-one that was reported to be differentially expressed). Use the ensembl
-web page to identify genomic coordinates and chromosome location for your gene and
-run the script named genePlot.R like this:
+one that was reported to be differentially expressed) and go to the ensembl to identify genomic coordinates and chromosome location for this gene.
+
+Run the script named genePlot.R like this:
 
 {% highlight bash %}
 Rscript genePlot.R chromosome start stop
@@ -996,22 +994,23 @@ Rscript genePlot.R chromosome start stop
 {% highlight bash %}
 Rscript genePlot.R 14 31217860 31230350 
 {% endhighlight %}
-</details>
-
 This will generate a plot named coverage.pdf that show annotations and
 read coverage for the 6 bam files we use in the analysis for
-chromosome 14 from postion 31217860 to 31230350. To view the files
-copy the file from uppmax to your own computer and open the file in a
+chromosome 14 from postion 31217860 to 31230350. 
+</details>
+
+To view the files copy the file from uppmax to your own computer and open the file in a
 pdf reader.
 
 <details>
 <summary>:key: Click to see command to copy files</summary>
 {% highlight bash %}
-scp username@milou.uppmax.uu.se:~/glob/transcriptome/DE/coverag.pdf .
+scp username@milou.uppmax.uu.se:~/glob/transcriptome/DE/coverage.pdf .
 {% endhighlight %}
+Make sure you run this command from your own computer
 </details>
 
-Besides this types of plots that mimic what can be done in IGV. R
+Besides this type of plot that mimics what can be done in IGV, R
 makes it possible to visualise patterns of gene expression in many
 different ways. Here we will create a few different plots that is
 often seen and used in RNA-seq expression analysis.
@@ -1044,16 +1043,14 @@ Rscript MAplot.R
 This generates another pdf file named MAplot.pdf in the DE folder. To
 view it copy it to your local disk as before.
 
-Based on these results are you surprised that your DE analysis
+:open_mouth: Based on these results are you surprised that your DE analysis
 detected a fairly large number of significant genes?
 
 ## MA-plot and Volcanoplot
 
-One can also visualize the actual results of differential gene
-expresssion analysis in different ways. One example of such a plot is
-called MA-plot and show the mean expression on the x-axis and
-estimated log ratios along the y-axis and plots this for all genes in
-the analysis.
+One can also visualize the actual results of a differential gene
+expresssion analysis in many different ways. One way is by generating a 
+MA-plot that plots the mean expression and estimated log ratios for all genes in an analysis.
 
 To create an MA plot for your analysis you can run the
 script called MAplot.R from your DE folder. It will read in the
@@ -1067,8 +1064,7 @@ Rscript MAplot.R
 {% endhighlight %}
 </details>
 
-Why are some dots in red and other in black?
-
+:open_mouth: What do you think the red dots represent?
 
 A related type of figure will instead plot fold change (on log2 scale) on the x-axis
 and -log10 p-value on the y-axis. Scaling like this means that genes
@@ -1077,8 +1073,7 @@ we will highligt the genes that are significant at the 0.05
 level after correction for multiple testing and that have an estimated fold
 change larger than 4 (log2 (4) = 2) and plot them in red color.
 
-Anything noteworthy about the patterns in the plot?
-
+:open_mouth: Anything noteworthy about the patterns in the plot?
 
 Other type of popular types of plots for genome-wide expression
 pattern is to create heatmaps for sets of genes. If you run the script
@@ -1108,6 +1103,8 @@ them.
 
 
 # <a name="assembly"></a> Bonus exercise: transcriptome assembly
+
+
 <br />
 <br />
 [Jump to the top](#begin)
