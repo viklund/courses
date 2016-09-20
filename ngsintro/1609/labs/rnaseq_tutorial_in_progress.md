@@ -17,10 +17,11 @@ RNA-seq has become a powerful approach to study the continually changing cellula
 As discussed during the lecture, RNA-seq experiment does not end with a list of DE genes. If you have time after completing the main exercise, try one (or more) of the bonus exercises. The bonus exercises can be run independently of each other, so choose the one that matches your interest.
 
 * In the **bonus section** you can find additional exercises
-  * **BEx. 01 Functional annotation** how to put DE genes in the biological context of functional annotations
-  * **BEx. 02 Exon usage** how to perform analysis of differential exon usage and study alternative splicing
-  * **BEx. 03 _De novo_ transcriptome assembly**  how to assembly transcriptome if no reference is present
-  * **BEx. 04 Visualisation** how to view RNA-seq bam files and present DE results with graphics
+  * **BEx. 01** [Functional annotation](#functanno) how to put DE genes in the biological context of functional annotations
+  * **BEx. 02** [Exon usage](#exon) how to perform analysis of differential exon usage and study alternative splicing
+  * **BEx. 03** [Visualisation](#visual) how to view RNA-seq bam files and present DE results with graphics
+  * **BEx. 04** [_De novo_ transcriptome assembly](#assembly)  how to assembly transcriptome if no reference is present
+  
 
 # Data description
 
@@ -557,7 +558,7 @@ A file *results\_DE.txt* should be created in the _DE_ sub-folder
 
 
 
-# Bonus exercise: from differential expression to biological knowledge
+# <a name="functanno"></a> Bonus exercise: from differential expression to biological knowledge
 
 
 ## Introduction to functional annotation
@@ -591,8 +592,9 @@ You will need to copy the directory to your working space, whether working on Up
  cp -r /sw/courses/ngsintro/rnaseq\_2016/bonus/funannot ./
  {% endhighlight %}
 </details>
- or on your local computer:
- <br />
+<br />
+or on your local computer:
+<br />
 <details>
  <summary>:key: Click to see an example of command</summary>
  {% highlight bash %}
@@ -605,7 +607,7 @@ You will need to copy the directory to your working space, whether working on Up
 
 OBS: the following part is not yet ready, the R packages are not installed in the R_packages module! I installed the libraries in my own R library.
 
-computer: **Load R and R modules** required in the exercise:
+:computer: **Load R and R modules** required in the exercise:
  <details>
  <summary>:key: Click to see an example of command</summary>
  {% highlight bash %}
@@ -663,7 +665,6 @@ You can explore the results either by printing them all on the screen
 `go.dn.adj`
 </details>
 <br />
-
 or by performing a string search using grep.  
 <br />
 <details>
@@ -679,7 +680,7 @@ or by performing a string search using grep.
 :open_mouth: Do you think the functional annotation reflects the biology of the experiments we have just analysed?  
 
 
-# Bonus exercise: exon usage
+# <a name="exon"></a> Bonus exercise: exon usage
 
 ## Introduction to differential exon usage
 
@@ -723,6 +724,7 @@ You will need to copy the directory to your working space, whether working on Up
 cp -r /sw/courses/ngsintro/rnaseq_2016/bonus/exon ./
 {% endhighlight %}
 </details>
+<br />
 or on your local computer:
 <details>
 <summary>:key: Click to see an example of command</summary>
@@ -741,21 +743,27 @@ OBS: the following part is not yet ready, the R packages are not installed in th
 :computer: **Load R and R modules** required in the exercise:
 <details>
 <summary>:key: Click to see how</summary>
-`module load R/3.3.0; module load R_packages/3.3.0`
+{% highlight bash %}
+module load R/3.3.0; module load R_packages/3.3.0
+{% endhighlight %}
 </details>
 <br />
 
 **Enter** the exercise working directory:
 <details>
 <summary>:key: Click to see how</summary>
-`cd /exon`
+{% highlight bash %}
+cd /exon
+{% endhighlight %}
 </details>
 <br />
 
 :computer: To perform the functional annotation you can use a wrapper script *deu.R*,
 <details>
 <summary>:key: Click to see how</summary>
-`Rscript deu.R`
+{% highlight bash %}
+Rscript deu.R
+{% endhighlight %}
 </details>
 <br />
 
@@ -768,11 +776,11 @@ The results in html format are saved in the directory ***DEXSeqReport***. For de
 :open_mouth: How many differentially used exons were identified in the data? Do you think this result makes sense?
 
 
-# Bonus exercise: transcriptome assembly
 
-# Bonus exercise: further data analyses and visualization
 
-# Introduction<a id="orgheadline1"></a>
+#  <a name="visual"></a> Bonus exercise: further data analyses and visualization
+
+## Introduction<a id="orgheadline1"></a>
 
 Data visualisation is important to be able to clearly convey results,
 but can also be very helpful as tool for identifying issues and
@@ -783,7 +791,7 @@ annotations. In addition we will produce high quality plots of both
 the mapped read data and the results from differential gene
 expression.
 
-# IGV<a id="orgheadline2"></a>
+## IGV<a id="orgheadline2"></a>
 
 If you are already familiar with IGV you can load the mouse genome and
 at least one bam file from each of the treatments that you created
@@ -808,11 +816,12 @@ files) from upppmax. If you have not yet installed IGV you also
 have to get a copy of the program. 
 
 <details>
-  <summary>:key: Click to see how to transfer files from uppmax</summary>
-
-    scp scp username@milou.uppmax.uu.se:~/glob/bamfile.bam .
-
+<summary>:key: Click to see how to transfer files from uppmax</summary>
+{% highlight bash %}
+scp scp username@milou.uppmax.uu.se:~/glob/bamfile.bam .
+{% endhighlight %}
 </details>
+<br />
 
 If you instead choose to run on uppmax you need to make sure that you
 log on in a way so that the generated graphics are exported via the
@@ -888,17 +897,19 @@ differences in between what locations reads are spliced. This hence gives some i
 To try some of the features available in IGV you can try to address the following
 questions. 
 
-Q1: Are the reads you mapped from a stranded or unstranded library?
+:open_mouth: Are the reads you mapped from a stranded or unstranded library?
 
-Q2: Pick a gene from the toplist of most significant genes from the DE
+:open_mouth: Pick a gene from the toplist of most significant genes from the DE
 analysis and search for it using the search box in IGV. Would you say that
 the pattern you see here confirms the gene as differentially expressed
 between treatments?
 
-Q3: One can visualize all genes in a given pathway using the gene list
+:open_mouth: One can visualize all genes in a given pathway using the gene list
 option under "Regions" in the menu. Would you agree with what they
 state in the paper about certain pathways being down-regulated. If you need
 hints for how to proceed see [Gene List tutorial at Broad](http://software.broadinstitute.org/software/igv/gene_list_view).
+
+# <a name="assenbly"></a> Bonus exercise: transcriptome assembly
 
 # Closing remarks and where to go next
 It is not possible to learn RNA-seq data processing and analysis in one day... The good news is that there are many available tools and well-written tutorial with examples to learn from. In this tutorial we have covered the most important data processing steps that may be enough when the libraries are good. If not, there is plenty of trouble-shooting that one can try before discarding the data. And once the count table are in place, the biostatistical and data mining begins. There are no well-defined solutions here, all depends on the experiment and questions to be asked, but we strongly advise learning R. Not only to use the specifically designed statistical packages to analyze NGS count data, but also to be able to handle the data and results as well as to generate high-quality plots. There is no better way of learning than to try...
