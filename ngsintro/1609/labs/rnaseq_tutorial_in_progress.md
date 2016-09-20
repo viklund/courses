@@ -82,7 +82,7 @@ done
 ## <a name="fastqc"></a> FastQC: quality check of the raw sequencing reads
 After receiving raw reads from a high throughput sequencing centre it is essential to check their quality. Why waste your time on data analyses of the poor quality data? FastQC provide a simple way to do some quality control check on raw sequence data. It provides a modular set of analyses which you can use to get a quick impression of whether your data has any problems of which you should be aware before doing any further analysis.
 
-:mag: **Read** more on [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/). Can you figure out how to run it on Uppmax?
+:mag: **Read** more on [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/). Can you figure out how to run it on Uppmax?  
 <br />
 
 :computer: **Create** _fastqc_ folder in your _transcriptome_ directory. **Navigate to _fastqc_ folder**.
@@ -129,10 +129,10 @@ After verifying that the quality of the raw sequencing reads is acceptable we ca
 ### Accessing reference genome and genome annotation file
 It is best if the reference genome (.fasta) and annotation (.gtf) files come from the same source to avoid potential naming conventions problems. It is also good to check in the manual of the aligner you use for hints on what type of files are needed to do the mapping.
 
-:mag: **Check** [STAR](https://github.com/alexdobin/STAR) manual what files are needed for the mapping.
+:mag: **Check** [STAR](https://github.com/alexdobin/STAR) manual what files are needed for the mapping.  
 <br />
 
-:open_mouth: What is the idea behind building STAR index? What files are needed to build one? Where do we take them from? Could one use a STAR index that was generated before?
+:open_mouth: What is the idea behind building STAR index? What files are needed to build one? Where do we take them from? Could one use a STAR index that was generated before?  
 <br />
 
 :computer: **Create** the _reference_ sub-folder in _transcriptome_ directory
@@ -180,7 +180,7 @@ Windows: try [WinSCP](https://winscp.net/eng/index.php) or other secure file tra
 </details>  
 <br />
 
-You should now have *Mus\_musculus.GRCm38.dna.chromosome.11.fa* and *Mus\_musculus.GRCm38.85.gtf* in the sub-folder _reference_
+You should now have *Mus\_musculus.GRCm38.dna.chromosome.11.fa* and *Mus\_musculus.GRCm38.85.gtf* in the sub-folder _reference_  
 
 ### preparing index
 
@@ -224,7 +224,9 @@ ln -s /sw/courses/ngsintro/rnaseq_2016/index
 
 
 ### mapping
-Now we are ready to map our reads to the reference genome, via STAR index.
+Now we are ready to map our reads to the reference genome, via STAR index.  
+<br />
+
 :computer: **Create _star_ sub-folder** in the _transcriptome_ directory. **Create sub-sub-folder named _SRR3222409_** to save the mapping results for the sample SRR3222409.
 <details>
 <summary>:key: Click to see how to create folders </summary>
@@ -236,12 +238,12 @@ mkdir ~/glob/transcriptome/star/SRR3222409
 <br />
 
 :computer: **Map reads** to the reference genome for SRR3222409 sample. Do not forget that we are working with paired-end reads so each sample has two matching reads file. **Check** the STAR manual for the parameters to:
- * use index for the entire genome
- * to read in zipped .fastq.gz files for both forward and reverse reads
- * to run the job on the 8 allocated cores  
- * to direct the mapping results to the _SRR3222409_ sub-sub folder
- * to give the results prefix _SRR3222409_
- <details>
+* use index for the entire genome
+* to read in zipped .fastq.gz files for both forward and reverse reads
+* to run the job on the 8 allocated cores  
+* to direct the mapping results to the _SRR3222409_ sub-sub folder
+* to give the results prefix _SRR3222409_
+<details>
  <summary>:key: Click to see how to write the mapping command with the above parameters</summary>
  {% highlight bash %}
  star --genomeDir ~/glob/transcriptome/index/complete --readFilesIn ~/glob/transcriptome/DATA/SRR3222409_1.fastq.gz ~/glob/transcriptome/DATA/SRR3222409_2.fastq.gz --runThreadN 8 --readFilesCommand zcat --outFileNamePrefix ~/glob/transcriptome/star/SRR3222409/SRR3222409_
@@ -272,10 +274,11 @@ done
 ### <a name="samtools"></a> Samtools: converting between SAM and BAM
 Before we proceed further with our data processing, let's convert our mapped reads from STAR, saved in the default .SAM text format, into the binary .BAM format. Why? BAM files take less space so it is easier to store them and they are the most commonly required file format for many of the down-stream bioinformatics tools. In addition, they can be sorted and indexed shortening the time needed to proceed them in comparison with .SAM format. Also, then they will be ready for exploration in IGV, the Integrative Genomic Viewer.
 
-* :mag: **Read** through [Samtools](http://www.htslib.org/doc/samtools.html) documentation and see if you can figure it out how to:
+:mag: **Read** through [Samtools](http://www.htslib.org/doc/samtools.html) documentation and see if you can figure it out how to:
 * convert SAM into BAM
 * sort BAM files
 * index BAM files
+<br />
 
 :computer: **Create _bams_ sub-folder** in _transcriptome_, **navigate to _bams_ sub-folder** and **load samtools module**
 <details>
@@ -358,7 +361,6 @@ done
 </details>
 <br />
 
-
 :computer: **Index the sorted BAM files**
 <details>
 <summary>:key: Click to see how to sort BAM file, sample by sample</summary>
@@ -379,7 +381,7 @@ done
 ###<a name="qualimap"></a> QualiMap: post-alignment quality control
 Some important quality aspects, such as saturation of sequencing depth, read distribution between different genomic features or coverage uniformity along transcripts, can be measured only after mapping reads to the reference genome. One of the tools to perform this post-alignment quality control is QualiMap. QualiMap examines sequencing alignment data in SAM/BAM files according to the features of the mapped reads and provides an overall view of the data that helps to the detect biases in the sequencing and/or mapping of the data and eases decision-making for further analysis.
 
-:mag: **Read** through [QuliMap](http://qualimap.bioinfo.cipf.es/doc_html/intro.html) documentation and see if you can figure it out how to run it to assess post-alignment quality on the RNA-seq mapped samples. The tool is already installed on Uppmax and available as QuliMap module
+:mag: **Read** through [QuliMap](http://qualimap.bioinfo.cipf.es/doc_html/intro.html) documentation and see if you can figure it out how to run it to assess post-alignment quality on the RNA-seq mapped samples. The tool is already installed on Uppmax and available as QuliMap module  
 <br />
 
 :computer: **Create QualiMap** sub-folder in _transcriptome_ directory, **navigate to _qualimap_ sub-folder** and **load QualiMap/2.2 module**
@@ -419,8 +421,9 @@ done
 </details>
 <br />
 
-:open_mouth: **Check the QualiMap results**. What do you think? Are the samples of good quality? How can you tell?
+:open_mouth: **Check the QualiMap results**. What do you think? Are the samples of good quality? How can you tell?  
 <br />
+
 
 ###<a name="featurecounts"></a> featureCounts: counting reads
 After ensuring mapping quality we can count the reads to obtain a raw count table. We could count the reads by hand, opening the BAM in the IGV along the genome annotation file, and counting the reads overlapping with the regions of interest. This of course would take forever for the entire genome but it is never a bad idea to see how the data look like for the selected few genes of interest. For get the counts for the entire genome one can use many of the already available tools doing just that. Here we will use featureCounts, an ultrafast and accurate read summarization program, that can count mapped reads for genomic features such as genes, exons, promoter, gene bodies, genomic bins and chromosomal locations.
