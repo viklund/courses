@@ -419,7 +419,7 @@ echo The factorial of $n is $factorial
 
 **Bonus exercise 2**  
 Now, let's combine everything you've learned so far in this course.
-Write a script that runs the pipeline from the [file types exercise](file types) for each fastq file in a specified directory, using the same reference genome as in the file type exercise.
+Write a script that runs the pipeline from the [file types exercise](filetypes) for each fastq file in a specified directory, using the same reference genome as in the file type exercise.
 If that sounds too easy, make the script submit a slurm job for each sample that will run the pipeline for that sample on a calculation node (1 core, 5 minutes each).
 And if that is too easy, add that the pipeline will use the local hard drive on the calculation node for all files used in the analysis.
 When the analysis is done, only fastq files and sorted and indexed bam files should be in your glob folder.
