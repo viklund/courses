@@ -53,7 +53,8 @@ To get going, let's book a node, create a working folder in the _glob_ directory
 {% highlight bash %}
 salloc -A g2016017 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2016017_4 &
 {% endhighlight %} 
-</details>
+</details>  
+
 
 :computer: **Create a folder** named _transcriptome_ for your project in your _glob_ directory. **Create  a sub-folder** called _DATA_.
 <details>
@@ -63,7 +64,8 @@ cd ~/glob
 mkdir transcriptome
 mkdir transcriptome/DATA
 {% endhighlight %} 
-</details>
+</details>  
+
 
 :computer: **Sym-link** the .fastq.gz files located in _/sw/courses/ngsintro/rnaseq\_2016/DATA/p25_. :bulb: A great chance to practice your bash loop skills.
 <details>
@@ -74,7 +76,7 @@ for i in /sw/courses/ngsintro/rnaseq_2016/DATA/p25/*
 do ln -s $i
 done
 {% endhighlight %} 
-</details>
+</details>  
 
 
 ## <a name="fastqc"></a> FastQC: quality check of the raw sequencing reads
@@ -90,7 +92,8 @@ cd ~/glob/transcriptome
 mkdir fastqc
 cd fastqc
 {% endhighlight %} 
-</details>
+</details>  
+
 
 :computer: **Load** _bioinfo-tools_ and _FastQC_ modules
 <details>
@@ -99,8 +102,7 @@ cd fastqc
 module load bioinfo-tools 
 module load FastQC/0.11.5
 {% endhighlight %} 
-</details>
-
+</details>  
 
 
 :computer: **Run** FastQC on all the .fastq.gz files located in the _transcriptome/DATA_. **Direct the output** to the  _fastqc_ folder. :bulb: Check the FastQC option for input and output files. :bulb: The bash loop comes handy again.
@@ -112,11 +114,10 @@ do
 fastqc $i -o ~/glob/transcriptome/fastqc/ 
 done
 {% endhighlight %}
-</details>
+</details>  
 
 
-:mag: **Open** the FastQC for the proceeded sample. **Go back** to the [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) website and **compare** your report with [Example Report for the Good Illumina Data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html) and [Example Report for the Bad Illumina Data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html) data.
-
+:mag: **Open** the FastQC for the proceeded sample. **Go back** to the [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) website and **compare** your report with [Example Report for the Good Illumina Data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html) and [Example Report for the Bad Illumina Data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html) data.  
 
 :open_mouth: Discuss whether you'd be happy when receiving this very data from the sequencing facility.
 
@@ -130,14 +131,13 @@ It is best if the reference genome (.fasta) and annotation (.gtf) files come fro
 
 :open_mouth: What is the idea behind building STAR index? What files are needed to build one? Where do we take them from? Could one use a STAR index that was generated before?
 
-
 :computer: **Create** the _reference_ sub-folder in _transcriptome_ directory
 <details>
 <summary>:key: Click to see how to create the directory </summary>
 {% highlight bash %}
 mkdir ~/glob/transcriptome/reference
 {% endhighlight %}
-</details>
+</details>  
 
 
 :computer: **Download** the reference genome .fasta file for chromosome 11, mouse and the corresponding genome annotation .gtf file from Ensmeble webite.
@@ -159,7 +159,7 @@ Mac/Linux:
 scp Mus\_musculus.GRCm38.dna.chromosome.11.fa Mus\_musculus.GRCm38.85.gtf username@milou.uppmax.uu.se:~/glob/transcriptome/reference
 {% endhighlight %}
 Windows: try [WinSCP](https://winscp.net/eng/index.php) or other secure file transfer software
-</details>
+</details>  
 
 ALTERNATIVE 2:
 <details>
@@ -171,7 +171,7 @@ wget ftp://ftp.ensembl.org/pub/release-85/fasta/mus_musculus/dna/Mus_musculus.GR
 wget ftp://ftp.ensembl.org/pub/release-85/gtf/mus_musculus/Mus_musculus.GRCm38.85.chr.gtf.gz
 {% endhighlight %}
 Windows: try [WinSCP](https://winscp.net/eng/index.php) or other secure file transfer software
-</details>
+</details>  
 
 
 You should now have *Mus\_musculus.GRCm38.dna.chromosome.11.fa* and *Mus\_musculus.GRCm38.85.gtf* in the sub-folder _reference_
@@ -185,8 +185,7 @@ You should now have *Mus\_musculus.GRCm38.dna.chromosome.11.fa* and *Mus\_muscul
 mkdir ~/glob/transcriptome/indexChr11
 cd ~/glob/transcriptome/indexChr11
 {% endhighlight %}
-</details>
-
+</details>  
 
 :computer: **Load STAR module** on Uppmax. :bulb: Use _module spider star_ to check which version of STAR are available and load the latest one.
 <details>
@@ -194,10 +193,9 @@ cd ~/glob/transcriptome/indexChr11
 {% highlight bash %}
 module load star/2.5.1b
 {% endhighlight %}
-</details>
+</details>  
 
-
-* :computer: **Build STAR index** for chromosome 11 using the downloaded reference .fasta and gene annotation .gtf files. :bulb: Check STAR manual for details
+:computer: **Build STAR index** for chromosome 11 using the downloaded reference .fasta and gene annotation .gtf files. :bulb: Check STAR manual for details
 <details>
 <summary>:key: Click again to see suggested commands</summary>
 {% highlight bash %}
