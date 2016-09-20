@@ -54,7 +54,7 @@ To get going, let's book a node, create a working folder in the _glob_ directory
 salloc -A g2016017 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2016017_4 &
 {% endhighlight %} 
 </details>  
-
+<br />
 
 :computer: **Create a folder** named _transcriptome_ for your project in your _glob_ directory. **Create  a sub-folder** called _DATA_.
 <details>
@@ -65,7 +65,7 @@ mkdir transcriptome
 mkdir transcriptome/DATA
 {% endhighlight %} 
 </details>  
-
+<br />
 
 :computer: **Sym-link** the .fastq.gz files located in _/sw/courses/ngsintro/rnaseq\_2016/DATA/p25_. :bulb: A great chance to practice your bash loop skills.
 <details>
@@ -204,7 +204,7 @@ star --runMode genomeGenerate --runThreadN 8 --genomeDir ~/glob/transcriptome/in
 </details>
 
 
-* :computer: **Sym-link STAR index** to for the entire genome into the _transcriptome_ directory. The index for the whole genome was prepared for us before class in the very same way as for the chromosome 11 in steps above. It just requires more time (ca. 4h) to run. The index can be found here: */sw/courses/ngsintro/rnaseq\_2016/index*
+:computer: **Sym-link STAR index** to for the entire genome into the _transcriptome_ directory. The index for the whole genome was prepared for us before class in the very same way as for the chromosome 11 in steps above. It just requires more time (ca. 4h) to run. The index can be found here: */sw/courses/ngsintro/rnaseq\_2016/index*
 <details>
 <summary>:key: Click again to see how to link the index</summary>
 {% highlight bash %}
