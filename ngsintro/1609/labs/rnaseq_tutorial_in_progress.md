@@ -548,7 +548,7 @@ Rscript diffExp.R
 </details>
 <br />
 
-A file *results\_DE.txt* should be created in the _DE_ sub-folder
+A file *results\_DE.txt* should be created in the _DE_ sub-folder  
 <br />
 
 :open_mouth: **Copy over** to your computer **open** the *results\_DE.txt*
@@ -574,69 +574,72 @@ This module can be performed on Uppmax, or on your local computer if you have in
 
 ## Libraries to install and load if exercise is performed locally
 
-* :computer: If you prefer to use your local computer for this exercise, you need to **install packages** used in the exercise. You can do it by pasting the following two commands in R session:
+:computer: If you prefer to use your local computer for this exercise, you need to **install packages** used in the exercise. You can do it by pasting the following two commands in R session:
  `source("http://bioconductor.org/biocLite.R")
  biocLite(c("goseq","GO.db","reactome.db","org.Mm.eg.db"))`
+<br />
 
-* To perform the exercise you will need data included in the following location at Uppmax:
+To perform the exercise you will need data included in the following location at Uppmax:
  `/sw/courses/ngsintro/rnaseq_2016/bonus/funannot`
+<br />
 
-
-*  You will need to copy the directory to your working space, whether working on Uppmax:
- <details>
+You will need to copy the directory to your working space, whether working on Uppmax:
+<details>
  <summary>:key: Click to see an example command</summary>
  {% highlight bash %}
  cp -r /sw/courses/ngsintro/rnaseq\_2016/bonus/funannot ./
  {% endhighlight %}
- </details>
+</details>
  or on your local computer:
- <details>
+<details>
  <summary>:key: Click to see an example of command</summary>
  {% highlight bash %}
  scp -r YOUR_LOGIN@milou.uppmax.uu.se:/sw/courses/ngsintro/rnaseq_2016/bonus/funannot ./
  {% endhighlight %}
- </details>
+</details>
 
 
 ## Workflow
 
 OBS: the following part is not yet ready, the R packages are not installed in the R_packages module! I installed the libraries in my own R library.
 
- * :computer: **Load R and R modules** required in the exercise:
+:computer: **Load R and R modules** required in the exercise:
  <details>
  <summary>:key: Click to see an example of command</summary>
  `module load R/3.3.0; module load R_packages/3.3.0`
  </details>
+<br />
 
-
-* :computer: **Enter** the exercise working directory:
+:computer: **Enter** the exercise working directory:
  <details>
 <summary>:key: Click to see how</summary>
 `cd /funannot`
 </details>
 and you are ready to start the exercise.
+<br />
 
-
-* :computer: **To perform the functional annotation** you can use a wrapper script *annotate\_de\_results.R*, which is executed as in the main exercise:
+:computer: **To perform the functional annotation** you can use a wrapper script *annotate\_de\_results.R*, which is executed as in the main exercise:
 <details>
 <summary>:key: Click to see how</summary>
 `script annotate_de_results.R`
 </details>
 The results will be saved in the directory *GO\_react\_results*.
+<br />
 
-Alternatively, you can open the script in RStudio (or a text editor such as Atom or Sublime) and execute each step of the script in a live R session. This way you will be able to "see inside" the script and try to follow the individual steps.
+Alternatively, you can open the script in RStudio (or a text editor such as Atom or Sublime) and execute each step of the script in a live R session. This way you will be able to "see inside" the script and try to follow the individual steps.  
 
 ## Interpretation
-* The results are saved as tables in the directory *GO\_react\_results*.
+The results are saved as tables in the directory *GO\_react\_results*.
+<br />
 
-* The columns of the results tables are:
+The columns of the results tables are:  
+|  category  | over_represented_pvalue | under_represented_pvalue | numDEInCat | numInCat  | term | ontology |
+<br />
 
- |  category  | over_represented_pvalue | under_represented_pvalue | numDEInCat | numInCat  | term | ontology |
+You can view the tables in a text editor, and try to find GO terms and pathways relevant to the experiment using a word search functionality.  
+<br />
 
-* You can view the tables in a text editor, and try to find GO terms and pathways relevant to the experiment using a word search functionality.
-
-* If you are performing the exercise in an intercative R session (on your local computer or on Uppmax), the results are collected in the following objects:
-
+If you are performing the exercise in an intercative R session (on your local computer or on Uppmax), the results are collected in the following objects:  
 {% highlight bash %}
 go.dn.adj
 go.up.adj
@@ -644,16 +647,18 @@ react.dn.adj.annot
 react.up.adj.annot
 {% endhighlight %}
 
-  You can explore the results either by printing them all on the screen
+<br />
+You can explore the results either by printing them all on the screen  
 
-* <details>
+
+<details>
 <summary>:key: Click to see examples of commands</summary>
 `go.dn.adj`
 </details>
+<br />
 
-
-* or by performing a string search using grep.
-* <details>
+or by performing a string search using grep.  
+<details>
 <summary>:key: Click to see examples of commands</summary>
 `grep("myelin", go.dn.adj$term,  value=T)`
 </details>
@@ -661,9 +666,9 @@ react.up.adj.annot
 <summary>:key: Click to see examples of commands</summary>
 `grep("neuro", go.dn.adj$term,  value=T)`
 </details>
+<br />
 
-
-* :open_mouth: Do you think the functional annotation reflects the biology of the experiments we have just analysed?
+:open_mouth: Do you think the functional annotation reflects the biology of the experiments we have just analysed?  
 
 
 # Bonus exercise: exon usage
