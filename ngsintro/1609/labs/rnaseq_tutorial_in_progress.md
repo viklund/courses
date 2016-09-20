@@ -244,7 +244,6 @@ mkdir ~/glob/transcriptome/star/SRR3222409
 * to run the job on the 8 allocated cores <br />
 * to direct the mapping results to the _SRR3222409_ sub-sub folder <br />
 * to give the results prefix _SRR3222409_  <br />
-<br />
 
 <details>
  <summary>:key: Click to see how to write the mapping command with the above parameters</summary>
@@ -593,6 +592,7 @@ You will need to copy the directory to your working space, whether working on Up
  {% endhighlight %}
 </details>
  or on your local computer:
+ <br />
 <details>
  <summary>:key: Click to see an example of command</summary>
  {% highlight bash %}
@@ -605,18 +605,23 @@ You will need to copy the directory to your working space, whether working on Up
 
 OBS: the following part is not yet ready, the R packages are not installed in the R_packages module! I installed the libraries in my own R library.
 
-:computer: **Load R and R modules** required in the exercise:
+computer: **Load R and R modules** required in the exercise:
  <details>
  <summary>:key: Click to see an example of command</summary>
- `module load R/3.3.0; module load R_packages/3.3.0`
+ {% highlight bash %}
+ module load R/3.3.0; module load R_packages/3.3.0
+ {% endhighlight %}
  </details>
 <br />
 
-:computer: **Enter** the exercise working directory:
- <details>
+computer: **Enter** the exercise working directory:
+<details>
 <summary>:key: Click to see how</summary>
-`cd /funannot`
+{% highlight bash %}
+cd /funannot
+{% endhighlight %}
 </details>
+<br />
 and you are ready to start the exercise.
 <br />
 
@@ -660,11 +665,12 @@ You can explore the results either by printing them all on the screen
 <br />
 
 or by performing a string search using grep.  
+<br />
 <details>
 <summary>:key: Click to see examples of commands</summary>
 `grep("myelin", go.dn.adj$term,  value=T)`
 </details>
-* <details>
+<details>
 <summary>:key: Click to see examples of commands</summary>
 `grep("neuro", go.dn.adj$term,  value=T)`
 </details>
@@ -697,27 +703,32 @@ This module can be performed on Uppmax, or on your local computer if you have in
 
 ## Libraries to install and load if exercise is performed locally
 
-* :computer: If you prefer to use your local computer for this exercise, you need to **install packages** used in the exercise. You can do it by pasting the following two commands in R session:
+:computer: If you prefer to use your local computer for this exercise, you need to **install packages** used in the exercise. You can do it by pasting the following two commands in R session:
 
   `source("http://bioconductor.org/biocLite.R")
  biocLite("DEXSeq")`
 
-* In addition you may need to install X11 app ([XQuartz](https://www.xquartz.org/) on MacOS) to produce the html report.
+<br />
+In addition you may need to install X11 app ([XQuartz](https://www.xquartz.org/) on MacOS) to produce the html report.
 
-* To perform the exercise you will need data included in the following location at Uppmax:
+To perform the exercise you will need data included in the following location at Uppmax:
 
   `/sw/courses/ngsintro/rnaseq_2016/bonus/exon`
 
 
-* You will need to copy the directory to your working space, whether working on Uppmax:
- <details>
+You will need to copy the directory to your working space, whether working on Uppmax:
+<details>
 <summary>:key: Click to see an example command</summary>
-`cp -r /sw/courses/ngsintro/rnaseq_2016/bonus/exon ./`
+{% highlight bash %}
+cp -r /sw/courses/ngsintro/rnaseq_2016/bonus/exon ./
+{% endhighlight %}
 </details>
 or on your local computer:
 <details>
 <summary>:key: Click to see an example of command</summary>
-`scp -r YOUR_LOGIN@milou.uppmax.uu.se:/sw/courses/ngsintro/rnaseq_2016/bonus/exon ./`
+{% highlight bash %}
+scp -r YOUR_LOGIN@milou.uppmax.uu.se:/sw/courses/ngsintro/rnaseq_2016/bonus/exon ./
+{% endhighlight %}
 </details>
 
 
@@ -727,32 +738,34 @@ OBS!!! this part is not tested at all due to problems with DEXSeq installation o
 
 OBS: the following part is not yet ready, the R packages are not installed in the R_packages module! I installed the libraries in my own R library.
 
-* :computer: **Load R and R modules** required in the exercise:
+:computer: **Load R and R modules** required in the exercise:
 <details>
 <summary>:key: Click to see how</summary>
 `module load R/3.3.0; module load R_packages/3.3.0`
 </details>
+<br />
 
-
-* **Enter** the exercise working directory:
+**Enter** the exercise working directory:
 <details>
 <summary>:key: Click to see how</summary>
 `cd /exon`
 </details>
+<br />
 
-
-* :computer: To perform the functional annotation you can use a wrapper script *deu.R*,
+:computer: To perform the functional annotation you can use a wrapper script *deu.R*,
 <details>
 <summary>:key: Click to see how</summary>
 `Rscript deu.R`
 </details>
+<br />
 
+Alternatively, you can open the script in RStudio (or a text editor such as Atom or Sublime) and execute each step of the script in a live R session. This way you will be able to "see inside" the script and try to follow the individual steps.
+<br />
 
-* Alternatively, you can open the script in RStudio (or a text editor such as Atom or Sublime) and execute each step of the script in a live R session. This way you will be able to "see inside" the script and try to follow the individual steps.
+The results in html format are saved in the directory ***DEXSeqReport***. For detailed description of the individual report sections please consult [DEXSeq user manual](http://bioconductor.org/packages/release/bioc/vignettes/DEXSeq/inst/doc/DEXSeq.pdf). Additionally, a table with significant exons ***deu\_signif\_exons.txt*** is saved in the working directory.
+<br />
 
-* The results in html format are saved in the directory ***DEXSeqReport***. For detailed description of the individual report sections please consult [DEXSeq user manual](http://bioconductor.org/packages/release/bioc/vignettes/DEXSeq/inst/doc/DEXSeq.pdf). Additionally, a table with significant exons ***deu\_signif\_exons.txt*** is saved in the working directory.
-
-* :open_mouth: How many differentially used exons were identified in the data? Do you think this result makes sense?
+:open_mouth: How many differentially used exons were identified in the data? Do you think this result makes sense?
 
 
 # Bonus exercise: transcriptome assembly
