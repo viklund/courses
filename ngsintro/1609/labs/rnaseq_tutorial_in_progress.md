@@ -56,11 +56,6 @@ salloc -A g2016017 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2016017_4 
 </details>
 
 
-<details>
-<summary>:key: Click to see how to book a node</summary>
-`salloc -A g2016017 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2016017_4 &`
-</details>
-
 :computer: **Create a folder** named _transcriptome_ for your project in your _glob_ directory. **Create  a sub-folder** called _DATA_.
 <details>
 <summary>:key: Click to see suggested commands</summary>
@@ -72,7 +67,7 @@ mkdir transcriptome/DATA
 </details>
 
 
-* :computer: **Sym-link** the .fastq.gz files located in _/sw/courses/ngsintro/rnaseq\_2016/DATA/p25_. :bulb: A great chance to practice your bash loop skills.
+:computer: **Sym-link** the .fastq.gz files located in _/sw/courses/ngsintro/rnaseq\_2016/DATA/p25_. :bulb: A great chance to practice your bash loop skills.
 <details>
 <summary>:key: Click to see suggested commands</summary>
 {% highlight bash %}
