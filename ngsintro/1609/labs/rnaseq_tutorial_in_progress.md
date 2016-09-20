@@ -55,7 +55,6 @@ salloc -A g2016017 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2016017_4 
 {% endhighlight %} 
 </details>
 
-
 :computer: **Create a folder** named _transcriptome_ for your project in your _glob_ directory. **Create  a sub-folder** called _DATA_.
 <details>
 <summary>:key: Click to see suggested commands</summary>
@@ -65,7 +64,6 @@ mkdir transcriptome
 mkdir transcriptome/DATA
 {% endhighlight %} 
 </details>
-
 
 :computer: **Sym-link** the .fastq.gz files located in _/sw/courses/ngsintro/rnaseq\_2016/DATA/p25_. :bulb: A great chance to practice your bash loop skills.
 <details>
@@ -94,7 +92,6 @@ cd fastqc
 {% endhighlight %} 
 </details>
 
-
 :computer: **Load** _bioinfo-tools_ and _FastQC_ modules
 <details>
 <summary>:key: Click to see suggested commands</summary>
@@ -103,6 +100,7 @@ module load bioinfo-tools
 module load FastQC/0.11.5
 {% endhighlight %} 
 </details>
+
 
 
 :computer: **Run** FastQC on all the .fastq.gz files located in the _transcriptome/DATA_. **Direct the output** to the  _fastqc_ folder. :bulb: Check the FastQC option for input and output files. :bulb: The bash loop comes handy again.
