@@ -161,33 +161,29 @@ http://www.ensembl.org/info/data/ftp/index.html
 <details>
 <summary>:key: Click to see file names to be downloaded </summary>
 {% highlight bash %}
-*Mus\_musculus.GRCm38.dna.chromosome.11.fa*: chromosome 11 reference; 
-*Mus\_musculus.GRCm38.85.gtf*: genome annotation
+*Mus\_musculus.GRCm38.dna.chromosome.11.fa* : chromosome 11 reference; 
+*Mus\_musculus.GRCm38.85.gtf* : genome annotation
 {% endhighlight %}
 </details>
 <br />
-  
-ALTERNATIVE 1:
-<details>
-<summary>:key: Click to see how to transfer files from your computer to Uppmax </summary>
-Mac/Linux:
-{% highlight bash %}
-scp Mus\_musculus.GRCm38.dna.chromosome.11.fa Mus\_musculus.GRCm38.85.gtf username@milou.uppmax.uu.se:~/glob/transcriptome/reference
-{% endhighlight %}
-Windows: try [WinSCP](https://winscp.net/eng/index.php) or other secure file transfer software
-</details>  
-<br />
 
-ALTERNATIVE 2:
 <details>
 <summary>:key: Click to see how to transfer files from Ensembl website to Uppmax </summary>
-Mac/Linux:
 {% highlight bash %}
 cd ~/glob/transcriptome/reference
 wget ftp://ftp.ensembl.org/pub/release-85/fasta/mus_musculus/dna/Mus_musculus.GRCm38.dna.chromosome.11.fa.gz
-wget ftp://ftp.ensembl.org/pub/release-85/gtf/mus_musculus/Mus_musculus.GRCm38.85.chr.gtf.gz
+wget ftp://ftp.ensembl.org/pub/release-85/gtf/mus_musculus/Mus_musculus.GRCm38.85.gtf.gz
 {% endhighlight %}
-Windows: try [WinSCP](https://winscp.net/eng/index.php) or other secure file transfer software
+</details>  
+<br />
+
+The files you have just downloaded are compressed using gzip; you need to decompress them before use.
+
+<details>
+<summary>:key: Click to see how </summary>
+{% highlight bash %}
+gzip -d *gz
+{% endhighlight %}
 </details>  
 <br />
 
