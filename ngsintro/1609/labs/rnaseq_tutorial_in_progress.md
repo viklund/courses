@@ -126,12 +126,12 @@ After verifying that the quality of the raw sequencing reads is acceptable we ca
 ### Accessing reference genome and genome annotation file
 It is best if the reference genome (.fasta) and annotation (.gtf) files come from the same source to avoid potential naming conventions problems. It is also good to check in the manual of the aligner you use for hints on what type of files are needed to do the mapping.
 
-* :mag: **Check** [STAR](https://github.com/alexdobin/STAR) manual what files are needed for the mapping.
+:mag: **Check** [STAR](https://github.com/alexdobin/STAR) manual what files are needed for the mapping.
 
-* :open_mouth: What is the idea behind building STAR index? What files are needed to build one? Where do we take them from? Could one use a STAR index that was generated before?
+:open_mouth: What is the idea behind building STAR index? What files are needed to build one? Where do we take them from? Could one use a STAR index that was generated before?
 
 
-* :computer: **Create** the _reference_ sub-folder in _transcriptome_ directory
+:computer: **Create** the _reference_ sub-folder in _transcriptome_ directory
 <details>
 <summary>:key: Click to see how to create the directory </summary>
 {% highlight bash %}
@@ -140,7 +140,7 @@ mkdir ~/glob/transcriptome/reference
 </details>
 
 
-* :computer: **Download** the reference genome .fasta file for chromosome 11, mouse and the corresponding genome annotation .gtf file from Ensmeble webite.
+:computer: **Download** the reference genome .fasta file for chromosome 11, mouse and the corresponding genome annotation .gtf file from Ensmeble webite.
 <details>
 <summary>:key: Click for the link to the Ensemble website </summary>
 http://www.ensembl.org/info/data/ftp/index.html
@@ -155,7 +155,6 @@ ALTERNATIVE 1:
 <details>
 <summary>:key: Click to see how to transfer files from your computer to Uppmax </summary>
 Mac/Linux:
-  
 {% highlight bash %}
 scp Mus\_musculus.GRCm38.dna.chromosome.11.fa Mus\_musculus.GRCm38.85.gtf username@milou.uppmax.uu.se:~/glob/transcriptome/reference
 {% endhighlight %}
@@ -173,13 +172,13 @@ wget ftp://ftp.ensembl.org/pub/release-85/gtf/mus_musculus/Mus_musculus.GRCm38.8
 {% endhighlight %}
 Windows: try [WinSCP](https://winscp.net/eng/index.php) or other secure file transfer software
 </details>
-  
+
 
 You should now have *Mus\_musculus.GRCm38.dna.chromosome.11.fa* and *Mus\_musculus.GRCm38.85.gtf* in the sub-folder _reference_
 
 ### preparing index
 
-* :computer: **Create _indexChr11_ sub-folder** in the _transcriptome_ directory
+:computer: **Create _indexChr11_ sub-folder** in the _transcriptome_ directory
 <details>
 <summary>:key: Click to see how to create directory</summary>
 {% highlight bash %}
@@ -189,7 +188,7 @@ cd ~/glob/transcriptome/indexChr11
 </details>
 
 
-* :computer: **Load STAR module** on Uppmax. :bulb: Use _module spider star_ to check which version of STAR are available and load the latest one.
+:computer: **Load STAR module** on Uppmax. :bulb: Use _module spider star_ to check which version of STAR are available and load the latest one.
 <details>
 <summary>:key: Click to see how to load module</summary>
 {% highlight bash %}
