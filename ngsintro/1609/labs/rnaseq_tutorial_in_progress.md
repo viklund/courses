@@ -774,6 +774,7 @@ scp -r YOUR_LOGIN@milou.uppmax.uu.se:/sw/courses/ngsintro/rnaseq_2016/bonus/exon
  {% highlight bash %}
  module load R/3.3.0
  module load R_packages/3.3.0
+ {% endhighlight %}
 </details>
 <br />
 
