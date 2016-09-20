@@ -161,8 +161,8 @@ http://www.ensembl.org/info/data/ftp/index.html
 <details>
 <summary>:key: Click to see file names to be downloaded </summary>
 {% highlight bash %}
-*Mus\_musculus.GRCm38.dna.chromosome.11.fa* : chromosome 11 reference; 
-*Mus\_musculus.GRCm38.85.gtf* : genome annotation
+*Mus_musculus.GRCm38.dna.chromosome.11.fa* : chromosome 11 reference; 
+*Mus_musculus.GRCm38.85.gtf* : genome annotation
 {% endhighlight %}
 </details>
 <br />
@@ -217,7 +217,7 @@ module load star/2.5.1b
 <details>
 <summary>:key: Click again to see suggested commands</summary>
 {% highlight bash %}
-star --runMode genomeGenerate --runThreadN 8 --genomeDir ~/glob/transcriptome/indexChr11 --genomeFastaFiles ~/glob/transcriptome/reference/Mus_musculus.GRCm38.dna.chromosome.11.fa --sjdbGTFfile ~/glob/transcriptome/reference/Mus_musculus.GRCm38.85_chr11.gtf
+star --runMode genomeGenerate --runThreadN 8 --genomeDir ~/glob/transcriptome/indexChr11 --genomeFastaFiles ~/glob/transcriptome/reference/Mus_musculus.GRCm38.dna.chromosome.11.fa --sjdbGTFfile ~/glob/transcriptome/reference/Mus_musculus.GRCm38.85.gtf
 {% endhighlight %}
 </details>
 <br />
@@ -327,7 +327,7 @@ done
 <details>
 <summary>:key: Click to see the suggested commands</summary>
 {% highlight bash %}
-samtools view -bS SRR3222409_Aligned.out.sam > SRR3222409_Aligned.out.bam
+samtools view -bS SRR3222409_Aligned.out.sam -o SRR3222409_Aligned.out.bam
 {% endhighlight %}
 </details>
 <br />
