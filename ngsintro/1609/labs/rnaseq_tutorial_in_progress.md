@@ -83,6 +83,7 @@ done
 After receiving raw reads from a high throughput sequencing centre it is essential to check their quality. Why waste your time on data analyses of the poor quality data? FastQC provide a simple way to do some quality control check on raw sequence data. It provides a modular set of analyses which you can use to get a quick impression of whether your data has any problems of which you should be aware before doing any further analysis.
 
 :mag: **Read** more on [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/). Can you figure out how to run it on Uppmax?
+<br />
 
 :computer: **Create** _fastqc_ folder in your _transcriptome_ directory. **Navigate to _fastqc_ folder**.
 <details>
@@ -118,6 +119,7 @@ done
 <br />
 
 :mag: **Open** the FastQC for the proceeded sample. **Go back** to the [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) website and **compare** your report with [Example Report for the Good Illumina Data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html) and [Example Report for the Bad Illumina Data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html) data.  
+<br />
 
 :open_mouth: Discuss whether you'd be happy when receiving this very data from the sequencing facility.
 
@@ -128,8 +130,10 @@ After verifying that the quality of the raw sequencing reads is acceptable we ca
 It is best if the reference genome (.fasta) and annotation (.gtf) files come from the same source to avoid potential naming conventions problems. It is also good to check in the manual of the aligner you use for hints on what type of files are needed to do the mapping.
 
 :mag: **Check** [STAR](https://github.com/alexdobin/STAR) manual what files are needed for the mapping.
+<br />
 
 :open_mouth: What is the idea behind building STAR index? What files are needed to build one? Where do we take them from? Could one use a STAR index that was generated before?
+<br />
 
 :computer: **Create** the _reference_ sub-folder in _transcriptome_ directory
 <details>
@@ -273,8 +277,7 @@ Before we proceed further with our data processing, let's convert our mapped rea
 * sort BAM files
 * index BAM files
 
-* :computer: **Create _bams_ sub-folder** in _transcriptome_, **navigate to _bams_ sub-folder** and **load samtools module**
-  
+:computer: **Create _bams_ sub-folder** in _transcriptome_, **navigate to _bams_ sub-folder** and **load samtools module**
 <details>
 <summary>:key: Click to see the suggested commands, file by file</summary>
 {% highlight bash %}
@@ -283,9 +286,10 @@ cd ~/glob/transcriptome/bams
 module load samtools/1.3
 {% endhighlight %}
 </details>
+<br />
 
 
-* :computer: **Sym-link** in _bams_ sub-folder all the SAM files containing the mapped reads, as created during the Star mapping step. :bulb: You can use the bash loop if you apply wild cards (slightly more advanced but try first before looking at the answer key)
+:computer: **Sym-link** in _bams_ sub-folder all the SAM files containing the mapped reads, as created during the Star mapping step. :bulb: You can use the bash loop if you apply wild cards (slightly more advanced but try first before looking at the answer key)
 <details>
 <summary>:key: Click to see the suggested commands, sample by sample</summary>
 {% highlight bash %}
@@ -300,18 +304,18 @@ do ln -s $i
 done
 {% endhighlight %}
 </details>
+<br />
 
-
-* :computer: **Convert SAM to BAM**: for the first sample *SRR3222409\_Aligned.out.sam* into *SRR3222409\_Aligned.out.bam*
+:computer: **Convert SAM to BAM**: for the first sample *SRR3222409\_Aligned.out.sam* into *SRR3222409\_Aligned.out.bam*
 <details>
 <summary>:key: Click to see the suggested commands</summary>
 {% highlight bash %}
 samtools view -bS SRR3222409_Aligned.out.sam > SRR3222409_Aligned.out.bam
 {% endhighlight %}
 </details>
+<br />
 
-
-* :computer: **Convert SAM to BAM** for the remaining samples or **copy them over**. You can find the BAMs prepared for your in */sw/courses/ngsintro/rnaseq_2016/main/bams/out*
+:computer: **Convert SAM to BAM** for the remaining samples or **copy them over**. You can find the BAMs prepared for your in */sw/courses/ngsintro/rnaseq_2016/main/bams/out*
 <details>
 <summary>:key: Click to see how to copy over sample by sample</summary>
 {% highlight bash %}
@@ -326,18 +330,18 @@ do cp "/sw/courses/ngsintro/rnaseq_2016/main/bams/out/"$i"_Aligned.out.bam" ~/gl
 done
 {% endhighlight %}
 </details>
+<br />
 
-
-* :computer: **Sort BAM file** sort *SRR3222409\_Aligned.out.bam* file and save it as *SRR3222409\_Aligned.out.sorted.bam* in the *bams* sub-folder
+:computer: **Sort BAM file** sort *SRR3222409\_Aligned.out.bam* file and save it as *SRR3222409\_Aligned.out.sorted.bam* in the *bams* sub-folder
 <details>
 <summary>:key: Click to see how to sort BAM file</summary>
 {% highlight bash %}
 samtools sort ~/glob/transcriptome/bams/SRR3222409_Aligned.out.bam ~/glob/transcriptome/bams/SRR3222409_Aligned.out.sorted
 {% endhighlight %}
 </details>
-  
+<br />
 
-* :computer: **Sort BAM files** for the remaining samples or **copy them over**. You can find the BAMs prepared for your in */sw/courses/ngsintro/rnaseq_2016/main/bams/out*, ending with *sorted.bam*
+:computer: **Sort BAM files** for the remaining samples or **copy them over**. You can find the BAMs prepared for your in */sw/courses/ngsintro/rnaseq_2016/main/bams/out*, ending with *sorted.bam*
 <details>
 <summary>:key: Click to see how to copy over sample by sample</summary>
 {% highlight bash %}
@@ -352,9 +356,10 @@ do cp "/sw/courses/ngsintro/rnaseq_2016/main/bams/out/"$i"_Aligned.out.sorted.ba
 done
 {% endhighlight %}
 </details>
+<br />
 
 
-* :computer: **Index the sorted BAM files**
+:computer: **Index the sorted BAM files**
 <details>
 <summary>:key: Click to see how to sort BAM file, sample by sample</summary>
 {% highlight bash %}
@@ -369,15 +374,15 @@ do samtools index $i
 done
 {% endhighlight %}
 </details>
-
+<br />
 
 ###<a name="qualimap"></a> QualiMap: post-alignment quality control
 Some important quality aspects, such as saturation of sequencing depth, read distribution between different genomic features or coverage uniformity along transcripts, can be measured only after mapping reads to the reference genome. One of the tools to perform this post-alignment quality control is QualiMap. QualiMap examines sequencing alignment data in SAM/BAM files according to the features of the mapped reads and provides an overall view of the data that helps to the detect biases in the sequencing and/or mapping of the data and eases decision-making for further analysis.
 
-* :mag: **Read** through [QuliMap](http://qualimap.bioinfo.cipf.es/doc_html/intro.html) documentation and see if you can figure it out how to run it to assess post-alignment quality on the RNA-seq mapped samples. The tool is already installed on Uppmax and available as QuliMap module
+:mag: **Read** through [QuliMap](http://qualimap.bioinfo.cipf.es/doc_html/intro.html) documentation and see if you can figure it out how to run it to assess post-alignment quality on the RNA-seq mapped samples. The tool is already installed on Uppmax and available as QuliMap module
+<br />
 
-
-* :computer: **Create QualiMap** sub-folder in _transcriptome_ directory, **navigate to _qualimap_ sub-folder** and **load QualiMap/2.2 module**
+:computer: **Create QualiMap** sub-folder in _transcriptome_ directory, **navigate to _qualimap_ sub-folder** and **load QualiMap/2.2 module**
 <details>
 <summary>:key: Click to see the suggested commands</summary>
 {% highlight bash %}
@@ -386,25 +391,24 @@ cd ~/glob/transcriptome/qualimap/
 module load QualiMap/2.2
 {% endhighlight %}
 </details>
+<br />
 
-
-* :computer: **Run QualiMap** for the fist sample on sorted BAM file *SRR3222409\_Aligned.out.sorted.bam* **directing** the results to *~/glob/transcriptome/qualimap/SRR3222409* folder. :bulb: QualiMap creates the folder if you specify the right parameter
+:computer: **Run QualiMap** for the fist sample on sorted BAM file *SRR3222409\_Aligned.out.sorted.bam* **directing** the results to *~/glob/transcriptome/qualimap/SRR3222409* folder. :bulb: QualiMap creates the folder if you specify the right parameter
 <details>
 <summary>:key: Click to see the suggested commands</summary>
 {% highlight bash %}
 qualimap rnaseq -bam ~/glob/transcriptome/bams/SRR3222409_Aligned.out.sorted.bam -gtf ~/glob/transcriptome/reference/Mus_musculus.GRCm38.81.gtf --outdir ~/glob/transcriptome/qualimap/SRR3222409
 {% endhighlight %}
 </details>
+<br />
 
-
-* :computer: **Run QualiMap** for the remaining sorted BAM files or **copy the results over**. These can be found */sw/courses/ngsintro/rnaseq\_2016/main/qualimap*
+:computer: **Run QualiMap** for the remaining sorted BAM files or **copy the results over**. These can be found */sw/courses/ngsintro/rnaseq\_2016/main/qualimap*
 <details>
 <summary>:key: Click to see how to copy over the results, sample by sample</summary>
 {% highlight bash %}
 cp -r /sw/courses/ngsintro/rnaseq_2016/main/qualimap/SRR3222410 ~/glob/transcriptome/qualimap/
 {% endhighlight %}
 </details>
-  
 <details>
 <summary>:key: Click to see how to copy over the results, using bash loop</summary>
 {% highlight bash %}
@@ -413,18 +417,18 @@ do cp -r "/sw/courses/ngsintro/rnaseq_2016/main/qualimap"/$i ~/glob/transcriptom
 done
 {% endhighlight %}
 </details>
+<br />
 
-
-* :open_mouth: **Check the QualiMap results**. What do you think? Are the samples of good quality? How can you tell?
-
+:open_mouth: **Check the QualiMap results**. What do you think? Are the samples of good quality? How can you tell?
+<br />
 
 ###<a name="featurecounts"></a> featureCounts: counting reads
 After ensuring mapping quality we can count the reads to obtain a raw count table. We could count the reads by hand, opening the BAM in the IGV along the genome annotation file, and counting the reads overlapping with the regions of interest. This of course would take forever for the entire genome but it is never a bad idea to see how the data look like for the selected few genes of interest. For get the counts for the entire genome one can use many of the already available tools doing just that. Here we will use featureCounts, an ultrafast and accurate read summarization program, that can count mapped reads for genomic features such as genes, exons, promoter, gene bodies, genomic bins and chromosomal locations.
 
-* :mag: **Read** [featureCounts](http://bioinf.wehi.edu.au/featureCounts/) documentation and see if you can figure it out how to run summarize paired-end reads and count fragments overlapping with exonic regions.
+:mag: **Read** [featureCounts](http://bioinf.wehi.edu.au/featureCounts/) documentation and see if you can figure it out how to run summarize paired-end reads and count fragments overlapping with exonic regions.
+<br />
 
-
-* :computer: **Create featurecounts** sub-folder in the _transcriptome_ directory and **navigate** there.
+:computer: **Create featurecounts** sub-folder in the _transcriptome_ directory and **navigate** there.
 <details>
 <summary>:key: Click to see how...</summary>
 {% highlight bash %}
@@ -432,25 +436,24 @@ mkdir ~/glob/transcriptome/featurecounts
 ~/glob/transcriptome/featurecounts
 {% endhighlight %}
 </details>
+<br />
 
-
-* :computer: **Load featureCounts** module. :bulb: featureCounts is available on Uppmax as part of the _subread_ package
+:computer: **Load featureCounts** module. :bulb: featureCounts is available on Uppmax as part of the _subread_ package
 <details>
 <summary>:key: Click to see how to load featureCounts</summary>
 {% highlight bash %}
 module load subread
 {% endhighlight %}
 </details>
+<br />
 
-
-* :computer: **Sym-link** SAM files generated by Star and located in *~glob/transcriptome/star*
+:computer: **Sym-link** SAM files generated by Star and located in *~glob/transcriptome/star*
 <details>
 <summary>:key: Click to see sym-link files, sample by sample</summary>
 {% highlight bash %}
 ln -s ~/glob/transcriptome/star/SRR3222409/SRR3222409_Aligned.out.sam
 {% endhighlight %}
 </details>
-  
 <details>
 <summary>:key: Click to see sym-link files, using bash loop</summary>
 {% highlight bash %}
@@ -460,25 +463,25 @@ ln -s $i
 done
 {% endhighlight %}
 </details>
+<br />
 
-
-* :computer: **Run featureCounts** on the SAM files, **counting** fragments overlapping exon regions and **saving** the count tables as _tableCounts_. :bulb: The libraries are un-stranded and you can proceed all the samples in one go.
+:computer: **Run featureCounts** on the SAM files, **counting** fragments overlapping exon regions and **saving** the count tables as _tableCounts_. :bulb: The libraries are un-stranded and you can proceed all the samples in one go.
 <details>
 <summary>:key: Click to see how to run featureCounts on all samples</summary>
 {% highlight bash %}
 featurecounts]$ featureCounts -p -a ~/glob/transcriptome/reference/Mus_musculus.GRCm38.81.gtf -t gene -g gene_id -s 0 -o tableCounts *.sam
 {% endhighlight %}
 </details>
+<br />
 
-
-* :open_mouth: **Have a look** at the _tableCounts_ and _tableCounts.summary_. Can you figure out what these files contain? Do you think that counting work? How can you tell?
+:open_mouth: **Have a look** at the _tableCounts_ and _tableCounts.summary_. Can you figure out what these files contain? Do you think that counting work? How can you tell?
 
 
 ### MultiQC: combining QC measures across all the samples
-* :mag: **Read** more on [MultiQC](http://multiqc.info). Can you figure out why this tool has become very popular? Can you figure out how to combine FastQC, Star, QualiMap and featureCounts results for all the samples into interactive report?
+:mag: **Read** more on [MultiQC](http://multiqc.info). Can you figure out why this tool has become very popular? Can you figure out how to combine FastQC, Star, QualiMap and featureCounts results for all the samples into interactive report?
+<br />
 
-
-* :computer: **Navigate** to _transcriptome_ directory and *load module MultiQC/0.6*
+:computer: **Navigate** to _transcriptome_ directory and *load module MultiQC/0.6*
 <details>
 <summary>:key: Click to see how </summary>
 {% highlight bash %}
@@ -486,23 +489,23 @@ cd ~/glob/transcriptome
 module load MultiQC/0.6
 {% endhighlight %}
 </details>
+<br />
 
-
-* :computer: **Run** MultiQC
+:computer: **Run** MultiQC
 <details>
 <summary>:key: Click to see how to run MultiQC</summary>
 {% highlight bash %}
 multiqc .
 {% endhighlight %}
 </details>
+<br />
 
-
-* :open_mouth: **Transfer** the MultiQC report to your computer and have a look at it.  What can you notice?
+:open_mouth: **Transfer** the MultiQC report to your computer and have a look at it.  What can you notice?
 
 ###<a name="descript"></a> Differential expression
 As mentioned during the lecture, the best way to perform differential expression is to use one of the statistical packages, within **R environment**, that were specifically designed for analyses of read counts arising from RNA-seq, SAGE and similar technologies. Here, we will one of such packages called [edgeR](https://bioconductor.org/packages/release/bioc/html/edgeR.html). Learning R is beyond the scope of this course so we prepared basic ready to run scripts from a command line scripts to find DE genes between Ko and Wt.
 
-* :computer: **Create** _DE_ sub-folder in the _transcriptome_ directory and **navigate** there
+:computer: **Create** _DE_ sub-folder in the _transcriptome_ directory and **navigate** there
 <details>
 <summary>:key: Click to see how </summary>
 {% highlight bash %}
@@ -510,9 +513,9 @@ mkdir ~/glob/transcriptome/DE
 cd ~/glob/transcriptome/DE
 {% endhighlight %}
 </details>
+<br />
 
-
-* :computer: **Load R module and R packages**
+:computer: **Load R module and R packages**
 <details>
 <summary>:key: Click to see how </summary>
 {% highlight bash %}
@@ -520,9 +523,9 @@ module load R/3.3.0
 module load R_packages/3.3.0
 {% endhighlight %}
 </details>
+<br />
 
-
-* :computer: **Sym-link** _tableCounts_ as created by featureCounts and **sym-link** the prepared gene annotation file *tableCounts_annotation.txt* prepared by us before the class and located: */sw/courses/ngsintro/rnaseq\_2016/main/DE* as well as **sym-link** R script located in the same directory
+:computer: **Sym-link** _tableCounts_ as created by featureCounts and **sym-link** the prepared gene annotation file *tableCounts_annotation.txt* prepared by us before the class and located: */sw/courses/ngsintro/rnaseq\_2016/main/DE* as well as **sym-link** R script located in the same directory
 <details>
 <summary>:key: Click to see how </summary>
 {% highlight bash %}
@@ -531,20 +534,21 @@ ln -s /sw/courses/ngsintro/rnaseq_2016/main/DE/tableCounts_annotations.txt
 ln -s /sw/courses/ngsintro/rnaseq_2016/main/DE/diffExp.R
 {% endhighlight %}
 </details>
+<br />
 
-
-* :computer: **Run diffExp.R script**
+:computer: **Run diffExp.R script**
 <details>
 <summary>:key: Click to see how </summary>
 {% highlight bash %}
 Rscript diffExp.R
 {% endhighlight %}
 </details>
-  
-  A file *results\_DE.txt* should be created in the _DE_ sub-folder
+<br />
 
+A file *results\_DE.txt* should be created in the _DE_ sub-folder
+<br />
 
-* :open_mouth: **Copy over** to your computer **open** the *results\_DE.txt*
+:open_mouth: **Copy over** to your computer **open** the *results\_DE.txt*
  file in Excel or alike. Given FDR value of 0.05, how many DE genes are there? How many up and down-regulated? What are the top changes? How does it change when we only look at the DE that have minimum log-fold-change 1?
 
 
