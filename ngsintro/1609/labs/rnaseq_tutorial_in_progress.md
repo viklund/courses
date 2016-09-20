@@ -3,7 +3,7 @@ layout: default
 title:  'RNAseq'
 ---
 
-# RNA-seq data processing and analysis tutorial
+# <a name="begin"></a> RNA-seq data processing and analysis tutorial
 RNA-seq has become a powerful approach to study the continually changing cellular transcriptome. Here, one of the most common questions is to identify genes that are differentially expressed between two conditions, e.g. controls and treatment. The **main** exercise in this tutorial will take you through a basic bioinformatic analysis pipeline to answer just that, it will show you how to find differentially expressed (DE) genes. Briefly,
 
 * in the **main exercise**, we will,
@@ -45,6 +45,9 @@ For the purpose of this tutorial,  that is to shorten the time needed to run var
 # Bioinformatics: processing raw sequencing files
 Reading manuals, trying different tools/options, finding solutions to problems are daily routine work for bioinformaticians. By now you should have some experience with using command line and various bioinformatic tools, so in order to feel like a pro we encourage you to try your own solutions to the problems below, before checking the solution key. Click to see the suggested answers to compare them with your own solutions. Discuss with person next to you and ask us when in doubt. Remember that there are more than one way to skin a cat. Have fun!
 
+<br />
+[Jump to the top](#begin)
+
 ## Preparing a working directory
 To get going, let's book a node, create a working folder in the _glob_ directory and link the raw sequencing files .fastq.gz
 
@@ -78,7 +81,9 @@ do ln -s $i
 done
 {% endhighlight %} 
 </details>  
-
+<br />
+<br />
+[Jump to the top](#begin)
 
 ## <a name="fastqc"></a> FastQC: quality check of the raw sequencing reads
 After receiving raw reads from a high throughput sequencing centre it is essential to check their quality. Why waste your time on data analyses of the poor quality data? FastQC provide a simple way to do some quality control check on raw sequence data. It provides a modular set of analyses which you can use to get a quick impression of whether your data has any problems of which you should be aware before doing any further analysis.
@@ -123,6 +128,9 @@ done
 <br />
 
 :open_mouth: Discuss whether you'd be happy when receiving this very data from the sequencing facility.
+<br />
+<br />
+[Jump to the top](#begin)
 
 ## <a name="star"></a> STAR: aligning reads to a reference genome
 After verifying that the quality of the raw sequencing reads is acceptable we can map the reads to the reference genome. There are many mappers/aligners available, so it may be good to choose one that is adequate for your type of data. Here, we will use a software called STAR (Spliced Transcripts Alignment to a Reference) as it is good for generic purposes, fast, easy to use and has been shown to outperform many of the other tools when aligning 2x76bp paired-end data (2012). Before we begin mapping, we need to obtain genome reference sequence (.fasta file) and a corresponding annotation file (.gtf) and build a STAR index. Due to time constrains, we will practice on chromosome 11 only. Then we will use the prepared index for the entire genome to do the actual mapping.
@@ -182,6 +190,9 @@ Windows: try [WinSCP](https://winscp.net/eng/index.php) or other secure file tra
 <br />
 
 You should now have *Mus\_musculus.GRCm38.dna.chromosome.11.fa* and *Mus\_musculus.GRCm38.85.gtf* in the sub-folder _reference_  
+<br />
+<br />
+[Jump to the top](#begin)
 
 ### preparing index
 
@@ -222,7 +233,8 @@ ln -s /sw/courses/ngsintro/rnaseq_2016/index
 {% endhighlight %}
 </details>
 <br />
-
+<br />
+[Jump to the top](#begin)
 
 ### mapping
 Now we are ready to map our reads to the reference genome, via STAR index.  
@@ -272,6 +284,8 @@ done
 {% endhighlight %}
 </details>
 <br />
+<br />
+[Jump to the top](#begin)
 
 ### <a name="samtools"></a> Samtools: converting between SAM and BAM
 Before we proceed further with our data processing, let's convert our mapped reads from STAR, saved in the default .SAM text format, into the binary .BAM format. Why? BAM files take less space so it is easier to store them and they are the most commonly required file format for many of the down-stream bioinformatics tools. In addition, they can be sorted and indexed shortening the time needed to proceed them in comparison with .SAM format. Also, then they will be ready for exploration in IGV, the Integrative Genomic Viewer.
@@ -379,6 +393,8 @@ done
 {% endhighlight %}
 </details>
 <br />
+<br />
+[Jump to the top](#begin)
 
 ### <a name="qualimap"></a> QualiMap: post-alignment quality control
 Some important quality aspects, such as saturation of sequencing depth, read distribution between different genomic features or coverage uniformity along transcripts, can be measured only after mapping reads to the reference genome. One of the tools to perform this post-alignment quality control is QualiMap. QualiMap examines sequencing alignment data in SAM/BAM files according to the features of the mapped reads and provides an overall view of the data that helps to the detect biases in the sequencing and/or mapping of the data and eases decision-making for further analysis.
@@ -425,6 +441,8 @@ done
 
 :open_mouth: **Check the QualiMap results**. What do you think? Are the samples of good quality? How can you tell?  
 <br />
+<br />
+[Jump to the top](#begin)
 
 
 ### <a name="featurecounts"></a> featureCounts: counting reads
@@ -480,7 +498,9 @@ featurecounts]$ featureCounts -p -a ~/glob/transcriptome/reference/Mus_musculus.
 <br />
 
 :open_mouth: **Have a look** at the _tableCounts_ and _tableCounts.summary_. Can you figure out what these files contain? Do you think that counting work? How can you tell?
-
+<br />
+<br />
+[Jump to the top](#begin)
 
 ### MultiQC: combining QC measures across all the samples
 :mag: **Read** more on [MultiQC](http://multiqc.info). Can you figure out why this tool has become very popular? Can you figure out how to combine FastQC, Star, QualiMap and featureCounts results for all the samples into interactive report?
@@ -506,6 +526,9 @@ multiqc .
 <br />
 
 :open_mouth: **Transfer** the MultiQC report to your computer and have a look at it.  What can you notice?
+<br />
+<br />
+[Jump to the top](#begin)
 
 ### <a name="descript"></a> Differential expression
 As mentioned during the lecture, the best way to perform differential expression is to use one of the statistical packages, within **R environment**, that were specifically designed for analyses of read counts arising from RNA-seq, SAGE and similar technologies. Here, we will one of such packages called [edgeR](https://bioconductor.org/packages/release/bioc/html/edgeR.html). Learning R is beyond the scope of this course so we prepared basic ready to run scripts from a command line scripts to find DE genes between Ko and Wt.
@@ -555,11 +578,12 @@ A file *results\_DE.txt* should be created in the _DE_ sub-folder
 
 :open_mouth: **Copy over** to your computer **open** the *results\_DE.txt*
  file in Excel or alike. Given FDR value of 0.05, how many DE genes are there? How many up and down-regulated? What are the top changes? How does it change when we only look at the DE that have minimum log-fold-change 1?
-
+<br />
+<br />
+[Jump to the top](#begin)
 
 
 # <a name="functanno"></a> Bonus exercise: from differential expression to biological knowledge
-
 
 ## Introduction to functional annotation
 In this part of the exercise we will address the question which biological processes are affected in the experiment; in other words we will functionally annotate the results of the analysis of differential gene expression (performed in the main part of the exercise). We will use [Gene Ontology (GO) term](http://geneontology.org/) and [reactome pathway](http://reactome.org/) annotations.
@@ -616,7 +640,7 @@ OBS: the following part is not yet ready, the R packages are not installed in th
  </details>
 <br />
 
-computer: **Enter** the exercise working directory:
+:computer: **Enter** the exercise working directory:
 <details>
 <summary>:key: Click to see how</summary>
 {% highlight bash %}
@@ -632,6 +656,7 @@ and you are ready to start the exercise.
 <summary>:key: Click to see how</summary>
 `script annotate_de_results.R`
 </details>
+<br />
 The results will be saved in the directory *GO\_react\_results*.
 <br />
 
@@ -665,8 +690,7 @@ You can explore the results either by printing them all on the screen
 `go.dn.adj`
 </details>
 <br />
-or by performing a string search using grep.  
-<br />
+or by performing a string search using grep
 <details>
 <summary>:key: Click to see examples of commands</summary>
 `grep("myelin", go.dn.adj$term,  value=T)`
@@ -678,7 +702,9 @@ or by performing a string search using grep.
 <br />
 
 :open_mouth: Do you think the functional annotation reflects the biology of the experiments we have just analysed?  
-
+<br />
+<br />
+[Jump to the top](#begin)
 
 # <a name="exon"></a> Bonus exercise: exon usage
 
@@ -774,8 +800,9 @@ The results in html format are saved in the directory ***DEXSeqReport***. For de
 <br />
 
 :open_mouth: How many differentially used exons were identified in the data? Do you think this result makes sense?
-
-
+<br />
+<br />
+[Jump to the top](#begin)
 
 
 #  <a name="visual"></a> Bonus exercise: further data analyses and visualization
@@ -810,7 +837,7 @@ can reveal mapping patterns that are hard to catch with just summary
 statistics.
 
 For this tutorial you can chose to run IGV directly on your own computer
-or on uppmax. If you chose to run it on your own computer you will
+or on Uppmax. If you chose to run it on your own computer you will
 have to download some of the bam files (and the corresponding index
 files) from upppmax. If you have not yet installed IGV you also
 have to get a copy of the program. 
@@ -908,13 +935,25 @@ between treatments?
 option under "Regions" in the menu. Would you agree with what they
 state in the paper about certain pathways being down-regulated. If you need
 hints for how to proceed see [Gene List tutorial at Broad](http://software.broadinstitute.org/software/igv/gene_list_view).
+<br />
+<br />
+[Jump to the top](#begin)
 
-# <a name="assenbly"></a> Bonus exercise: transcriptome assembly
+# <a name="assembly"></a> Bonus exercise: transcriptome assembly
+<br />
+<br />
+[Jump to the top](#begin)
 
 # Closing remarks and where to go next
 It is not possible to learn RNA-seq data processing and analysis in one day... The good news is that there are many available tools and well-written tutorial with examples to learn from. In this tutorial we have covered the most important data processing steps that may be enough when the libraries are good. If not, there is plenty of trouble-shooting that one can try before discarding the data. And once the count table are in place, the biostatistical and data mining begins. There are no well-defined solutions here, all depends on the experiment and questions to be asked, but we strongly advise learning R. Not only to use the specifically designed statistical packages to analyze NGS count data, but also to be able to handle the data and results as well as to generate high-quality plots. There is no better way of learning than to try...
 
 For those interested in RNA-seq analysis Scilifelab offer a more advanced course in RNA-sequnence analysis each semester. If you also have in interest in learning R we do for the first time this year offer a one-week introduction course in R programming. For more information on both of of these courses see [Courses offered by Scilifelab](https://www.scilifelab.se/education/courses/).
+<br />
+<br />
+[Jump to the top](#begin)
 
 # About authors
 Thomas Källman :neckbeard:, Agata Smialowska :smiling_imp:, Olga Dethlefsen :angel: @ NBIS, National Bioinformatics Infrastructure, Sweden
+<br />
+<br />
+[Jump to the top](#begin)
