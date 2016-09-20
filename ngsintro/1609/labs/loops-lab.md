@@ -237,7 +237,7 @@ Bonus points if you make the program take the specified directory as an argument
 Remember that you have to load the samtools module to be able to run it. The way you get samtools to convert a sam file to a bam file is by typing the following command:
 
 ```bash
-samtools view -bS sample_01.sam > sample_01.bam
+samtools view -bS sample_1.sam > sample_1.bam
 ```
 The `-b` option tells samtools to output bam format, and the `-S` option tells samtools that the input is in sam format.
 
