@@ -47,7 +47,7 @@ Reading manuals, trying different tools/options, finding solutions to problems a
 ## Preparing a working directory
 To get going, let's book a node, create a working folder in the _glob_ directory and link the raw sequencing files .fastq.gz
 
-* :computer: **Book a node.** As for other tutorials in this course we have reserved half a node per person. If you have not done it yet today book a node now as otherwise you will take away resources from your fellow course participants.
+:computer: **Book a node.** As for other tutorials in this course we have reserved half a node per person. If you have not done it yet today book a node now as otherwise you will take away resources from your fellow course participants.
 <details>
 <summary>:key: Click to see how to book a node</summary>
 {% highlight bash %}
@@ -61,7 +61,7 @@ salloc -A g2016017 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2016017_4 
 `salloc -A g2016017 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2016017_4 &`
 </details>
 
-* :computer: **Create a folder** named _transcriptome_ for your project in your _glob_ directory. **Create  a sub-folder** called _DATA_.
+:computer: **Create a folder** named _transcriptome_ for your project in your _glob_ directory. **Create  a sub-folder** called _DATA_.
 <details>
 <summary>:key: Click to see suggested commands</summary>
 {% highlight bash %}
