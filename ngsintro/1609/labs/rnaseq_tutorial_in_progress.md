@@ -4,7 +4,6 @@ title:  'RNAseq'
 ---
 
 # RNA-seq data processing and analysis tutorial
-Kontroll
 RNA-seq has become a powerful approach to study the continually changing cellular transcriptome. Here, one of the most common questions is to identify genes that are differentially expressed between two conditions, e.g. controls and treatment. The **main** exercise in this tutorial will take you through a basic bioinformatic analysis pipeline to answer just that, it will show you how to find differentially expressed (DE) genes. Briefly,
 
 * in the **main exercise**, we will,
@@ -586,7 +585,7 @@ This module can be performed on Uppmax, or on your local computer if you have in
  <details>
  <summary>:key: Click to see an example command</summary>
  {% highlight bash %}
- cp -r /sw/courses/ngsintro/rnaseq_2016/bonus/funannot ./
+ cp -r /sw/courses/ngsintro/rnaseq\_2016/bonus/funannot ./
  {% endhighlight %}
  </details>
  or on your local computer:
