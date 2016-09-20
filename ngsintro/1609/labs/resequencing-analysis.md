@@ -513,7 +513,7 @@ You can look at just the calls you made, or you can look at the calls from the f
 You can even load these data all together.
 Are there calls that were made using only one or two samples that were not made in the full data set or vice versa?
 
-Try to browse around in your data and get a feeling for the called variants. How 
+Try to browse around in your data and get a feeling for the called variants. Can you find a variant that have an allele frequency of exactly 0.5? A variant that have calls for all individuals? Exonic variants?
 ## [Extra labs](resequencing-extra)
 
 If you have more time there are a couple of extra exercises where you will perform downstream analysis of the called variants in your .vcf file. [Extra labs](resequencing-extra)
