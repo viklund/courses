@@ -160,10 +160,8 @@ http://www.ensembl.org/info/data/ftp/index.html
 </details>
 <details>
 <summary>:key: Click to see file names to be downloaded </summary>
-{% highlight bash %}
-*Mus_musculus.GRCm38.dna.chromosome.11.fa* : chromosome 11 reference; 
-*Mus_musculus.GRCm38.85.gtf* : genome annotation
-{% endhighlight %}
+***Mus\_musculus.GRCm38.dna.chromosome.11.fa*** : chromosome 11 reference; 
+***Mus\_musculus.GRCm38.85.gtf*** : genome annotation
 </details>
 <br />
 
@@ -353,7 +351,7 @@ done
 <details>
 <summary>:key: Click to see how to sort BAM file</summary>
 {% highlight bash %}
-samtools sort ~/glob/transcriptome/bams/SRR3222409_Aligned.out.bam ~/glob/transcriptome/bams/SRR3222409_Aligned.out.sorted
+samtools sort -o ~/glob/rnaseq_tst/trx/bams/SRR3222409_Aligned.out.sorted.bam -T sort_temp ~/glob/rnaseq_tst/trx/bams/SRR3222409_Aligned.out.bam
 {% endhighlight %}
 </details>
 <br />
@@ -377,13 +375,13 @@ done
 
 :computer: **Index the sorted BAM files**
 <details>
-<summary>:key: Click to see how to sort BAM file, sample by sample</summary>
+<summary>:key: Click to see how to index BAM file, sample by sample</summary>
 {% highlight bash %}
 samtools index ~/glob/transcriptome/bams/SRR3222410_Aligned.out.sorted.bam
 {% endhighlight %}
 </details>
 <details>
-<summary>:key: Click to see how to sort BAM file, using bash loop</summary>
+<summary>:key: Click to see how to index BAM file, using bash loop</summary>
 {% highlight bash %}
 for i in *.sorted.bam
 do samtools index $i
@@ -415,7 +413,7 @@ module load QualiMap/2.2
 <details>
 <summary>:key: Click to see the suggested commands</summary>
 {% highlight bash %}
-qualimap rnaseq -bam ~/glob/transcriptome/bams/SRR3222409_Aligned.out.sorted.bam -gtf ~/glob/transcriptome/reference/Mus_musculus.GRCm38.81.gtf --outdir ~/glob/transcriptome/qualimap/SRR3222409
+qualimap rnaseq -pe -bam ~/glob/rnaseq_tst/trx/bams/SRR3222409_Aligned.out.sorted.bam -gtf ~/glob/rnaseq_tst/trx/reference/Mus_musculus.GRCm38.85.gtf --outdir ~/glob/rnaseq_tst/trx/qualimap/SRR3222409 --java-mem-size=63G > /dev/null 2>&1
 {% endhighlight %}
 </details>
 <br />
@@ -454,7 +452,7 @@ After ensuring mapping quality we can count the reads to obtain a raw count tabl
 <summary>:key: Click to see how...</summary>
 {% highlight bash %}
 mkdir ~/glob/transcriptome/featurecounts
-~/glob/transcriptome/featurecounts
+cd ~/glob/transcriptome/featurecounts
 {% endhighlight %}
 </details>
 <br />
@@ -490,7 +488,7 @@ done
 <details>
 <summary>:key: Click to see how to run featureCounts on all samples</summary>
 {% highlight bash %}
-featurecounts]$ featureCounts -p -a ~/glob/transcriptome/reference/Mus_musculus.GRCm38.81.gtf -t gene -g gene_id -s 0 -o tableCounts *.sam
+featurecounts]$ featureCounts -p -a ~/glob/transcriptome/reference/Mus_musculus.GRCm38.85.gtf -t gene -g gene_id -s 0 -o tableCounts *.sam
 {% endhighlight %}
 </details>
 <br />
@@ -566,7 +564,7 @@ ln -s /sw/courses/ngsintro/rnaseq_2016/main/DE/diffExp.R
 <details>
 <summary>:key: Click to see how </summary>
 {% highlight bash %}
-Rscript diffExp.R
+R CMD BATCH diffExp.R
 {% endhighlight %}
 </details>
 <br />
@@ -599,26 +597,28 @@ This module can be performed on Uppmax, or on your local computer if you have in
 ## Libraries to install and load if exercise is performed locally
 
 :computer: If you prefer to use your local computer for this exercise, you need to **install packages** used in the exercise. You can do it by pasting the following two commands in R session:
+<br />
  `source("http://bioconductor.org/biocLite.R")
  biocLite(c("goseq","GO.db","reactome.db","org.Mm.eg.db"))`
 <br />
 
 To perform the exercise you will need data included in the following location at Uppmax:
+<br />
  `/sw/courses/ngsintro/rnaseq_2016/bonus/funannot`
 <br />
 
 You will need to copy the directory to your working space, whether working on Uppmax:
 <details>
- <summary>:key: Click to see an example command</summary>
+ <summary>:key: Click to see an example of a command</summary>
  {% highlight bash %}
- cp -r /sw/courses/ngsintro/rnaseq\_2016/bonus/funannot ./
+ cp -r /sw/courses/ngsintro/rnaseq_2016/bonus/funannot ./
  {% endhighlight %}
 </details>
 <br />
 or on your local computer:
 <br />
 <details>
- <summary>:key: Click to see an example of command</summary>
+ <summary>:key: Click to see an example of a command</summary>
  {% highlight bash %}
  scp -r YOUR_LOGIN@milou.uppmax.uu.se:/sw/courses/ngsintro/rnaseq_2016/bonus/funannot ./
  {% endhighlight %}
@@ -627,11 +627,9 @@ or on your local computer:
 
 ## Workflow
 
-OBS: the following part is not yet ready, the R packages are not installed in the R_packages module! I installed the libraries in my own R library.
-
 :computer: **Load R and R modules** required in the exercise:
  <details>
- <summary>:key: Click to see an example of command</summary>
+ <summary>:key: Click to see an example of a command</summary>
  {% highlight bash %}
  module load R/3.3.0; module load R_packages/3.3.0
  {% endhighlight %}
@@ -652,7 +650,9 @@ and you are ready to start the exercise.
 :computer: **To perform the functional annotation** you can use a wrapper script *annotate\_de\_results.R*, which is executed as in the main exercise:
 <details>
 <summary>:key: Click to see how</summary>
-`script annotate_de_results.R`
+{% highlight bash %}
+Rscript annotate_de_results.R
+{% endhighlight %}
 </details>
 <br />
 The results will be saved in the directory *GO\_react\_results*.
@@ -682,20 +682,25 @@ react.up.adj.annot
 <br />
 You can explore the results either by printing them all on the screen  
 
-
 <details>
-<summary>:key: Click to see examples of commands</summary>
-`go.dn.adj`
+<summary>:key: Click to see example </summary>
+{% highlight bash %}
+go.dn.adj
+{% endhighlight %}
 </details>
 <br />
 or by performing a string search using grep
 <details>
-<summary>:key: Click to see examples of commands</summary>
-`grep("myelin", go.dn.adj$term,  value=T)`
+<summary>:key: Click to see example </summary>
+{% highlight bash %}
+grep("myelin", go.dn.adj$term,  value=T)
+{% endhighlight %}
 </details>
 <details>
-<summary>:key: Click to see examples of commands</summary>
-`grep("neuro", go.dn.adj$term,  value=T)`
+<summary>:key: Click to see example </summary>
+{% highlight bash %}
+grep("neuro", go.dn.adj$term,  value=T)
+{% endhighlight %}
 </details>
 <br />
 
@@ -730,8 +735,9 @@ This module can be performed on Uppmax, or on your local computer if you have in
 
 :computer: If you prefer to use your local computer for this exercise, you need to **install packages** used in the exercise. You can do it by pasting the following two commands in R session:
 
-  `source("http://bioconductor.org/biocLite.R")
- biocLite("DEXSeq")`
+ `source("http://bioconductor.org/biocLite.R")`
+ 
+ `biocLite("DEXSeq")`
 
 <br />
 In addition you may need to install X11 app ([XQuartz](https://www.xquartz.org/) on MacOS) to produce the html report.
@@ -743,7 +749,7 @@ To perform the exercise you will need data included in the following location at
 
 You will need to copy the directory to your working space, whether working on Uppmax:
 <details>
-<summary>:key: Click to see an example command</summary>
+<summary>:key: Click to see an example of a command</summary>
 {% highlight bash %}
 cp -r /sw/courses/ngsintro/rnaseq_2016/bonus/exon ./
 {% endhighlight %}
@@ -751,7 +757,7 @@ cp -r /sw/courses/ngsintro/rnaseq_2016/bonus/exon ./
 <br />
 or on your local computer:
 <details>
-<summary>:key: Click to see an example of command</summary>
+<summary>:key: Click to see an example of a command</summary>
 {% highlight bash %}
 scp -r YOUR_LOGIN@milou.uppmax.uu.se:/sw/courses/ngsintro/rnaseq_2016/bonus/exon ./
 {% endhighlight %}
@@ -759,10 +765,6 @@ scp -r YOUR_LOGIN@milou.uppmax.uu.se:/sw/courses/ngsintro/rnaseq_2016/bonus/exon
 
 
 ## Workflow
-
-OBS!!! this part is not tested at all due to problems with DEXSeq installation on milou. if you have that package installed, you can test it though, it works locally. I hope the html report rendering will work on Uppmax (requires x11 app on macs)
-
-OBS: the following part is not yet ready, the R packages are not installed in the R_packages module! I installed the libraries in my own R library.
 
 :computer: **Load R and R modules** required in the exercise:
 <details>
@@ -794,7 +796,7 @@ Rscript deu.R
 Alternatively, you can open the script in RStudio (or a text editor such as Atom or Sublime) and execute each step of the script in a live R session. This way you will be able to "see inside" the script and try to follow the individual steps.
 <br />
 
-The results in html format are saved in the directory ***DEXSeqReport***. For detailed description of the individual report sections please consult [DEXSeq user manual](http://bioconductor.org/packages/release/bioc/vignettes/DEXSeq/inst/doc/DEXSeq.pdf). Additionally, a table with significant exons ***deu\_signif\_exons.txt*** is saved in the working directory.
+The results in html format are saved in the directory ***DEXSeqReport***. For detailed description of the individual report sections please consult [DEXSeq user manual](http://bioconductor.org/packages/release/bioc/vignettes/DEXSeq/inst/doc/DEXSeq.pdf). Additionally, a table with significant exons and statistics relevant to their differential usage ***deu\_signif\_exons.txt*** is saved in the working directory.
 <br />
 
 :open_mouth: How many differentially used exons were identified in the data? Do you think this result makes sense?
