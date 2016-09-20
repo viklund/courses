@@ -71,7 +71,7 @@ $ ssh -Y q34
 
 To be able to do parts of this lab, you will need some files.
 To avoid all the course participants editing the same file all at once, undoing each other's edits, each participant will get their own copy of the needed files.
-The files are located in the folder `/sw/courses/ngsintro/filetypes`
+The files are located in the folder `/dev/shm/ngsintro/filetypes`
 
 Next, copy the lab files from this folder.
 -r means recursively, which means all the files including sub-folders of the source folder.
@@ -84,7 +84,7 @@ Ex.
 ```bash
 $ cp -r <source> <destination>
 
-$ cp -r /sw/courses/ngsintro/filetypes ~/glob/ngs-intro/
+$ cp -r /dev/shm/ngsintro/filetypes ~/glob/ngs-intro/
 ```
 
 Have a look in **~/glob/ngs-intro/filetypes:**
@@ -160,7 +160,7 @@ $ echo $PATH
 To pretend that we are loading a module, we will just add a the directory containing my dummy scripts to the $PATH variable, and it will be like we loaded the module for them.
 
 ```bash
-$ export PATH=$PATH:/sw/courses/ngsintro/uppmax_pipeline_exercise/dummy_scripts
+$ export PATH=$PATH:/dev/shm/ngsintro/uppmax_pipeline_exercise/dummy_scripts
 ```
 
 This will set the $PATH variable to whatever it is at the moment, and add a directory at the end of it.

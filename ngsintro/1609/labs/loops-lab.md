@@ -63,7 +63,7 @@ $ ssh -Y q34
 ## 3. Copying files needed for this laboratory
 To be able to do parts of this lab, you will need some files.
 To avoid all the course participants editing the same file all at once, undoing each other's edits, each participant will get their own copy of the needed files.
-The files are located in the folder `/sw/courses/ngsintro/loops/data`
+The files are located in the folder `/dev/shm/ngsintro/loops/`
 
 Next, copy the lab files from this folder.
 -r means recursively, which means all the files including sub-folders of the source folder.
@@ -76,7 +76,7 @@ Ex.
 ```bash
 $ cp -r <source> <destination>
 
-$ cp -r /sw/courses/ngsintro/loops/ ~/glob/ngs-intro/loops
+$ cp -r /dev/shm/ngsintro/loops/ ~/glob/ngs-intro/loops
 ```
 
 Have a look in `~/glob/ngs-intro/loops`:
@@ -433,7 +433,7 @@ Basic solution:
 <details>
 <summary>:key: Click to see how</summary> 
 {% highlight bash %}# make the dummy pipeline available
-export PATH=$PATH:/sw/courses/ngsintro/uppmax_pipeline_exercise/dummy_scripts
+export PATH=$PATH:/dev/shm/ngsintro/uppmax_pipeline_exercise/dummy_scripts
 
 # index the reference genome
 reference_indexer -r ~/glob/ngs-intro/filetypes/0_ref/ad2.fa
@@ -473,7 +473,7 @@ Advanced solution:
 <details>
 <summary>:key: Click to see how</summary> 
 <pre># make the dummy pipeline available in this script
-export PATH=$PATH:/sw/courses/ngsintro/uppmax_pipeline_exercise/dummy_scripts
+export PATH=$PATH:/dev/shm/ngsintro/uppmax_pipeline_exercise/dummy_scripts
 
 # index the reference genome once, only if needed
 if [ ! -f ~/glob/ngs-intro/filetypes/0_ref/ad2.fa.idx ];
@@ -514,7 +514,7 @@ do
 
 # make the dummy pipeline available on the calculation node
 echo "Loading modules"
-export PATH=\$PATH:/sw/courses/ngsintro/uppmax_pipeline_exercise/dummy_scripts
+export PATH=\$PATH:/dev/shm/ngsintro/uppmax_pipeline_exercise/dummy_scripts
 
 # copy the reference genome, index and sample file to the nodes local hard drive.
 # You have to escape the dollar sign in SNIC_TMP to keep bash from resolving
