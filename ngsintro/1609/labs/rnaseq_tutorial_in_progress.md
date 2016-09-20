@@ -598,8 +598,9 @@ This module can be performed on Uppmax, or on your local computer if you have in
 
 :computer: If you prefer to use your local computer for this exercise, you need to **install packages** used in the exercise. You can do it by pasting the following two commands in R session:
 <br />
- `source("http://bioconductor.org/biocLite.R")
- biocLite(c("goseq","GO.db","reactome.db","org.Mm.eg.db"))`
+ `source("http://bioconductor.org/biocLite.R")`
+ <br />
+ `biocLite(c("goseq","GO.db","reactome.db","org.Mm.eg.db"))`
 <br />
 
 To perform the exercise you will need data included in the following location at Uppmax:
@@ -631,7 +632,8 @@ or on your local computer:
  <details>
  <summary>:key: Click to see an example of a command</summary>
  {% highlight bash %}
- module load R/3.3.0; module load R_packages/3.3.0
+ module load R/3.3.0
+ module load R_packages/3.3.0
  {% endhighlight %}
  </details>
 <br />
@@ -769,9 +771,9 @@ scp -r YOUR_LOGIN@milou.uppmax.uu.se:/sw/courses/ngsintro/rnaseq_2016/bonus/exon
 :computer: **Load R and R modules** required in the exercise:
 <details>
 <summary>:key: Click to see how</summary>
-{% highlight bash %}
-module load R/3.3.0; module load R_packages/3.3.0
-{% endhighlight %}
+ {% highlight bash %}
+ module load R/3.3.0
+ module load R_packages/3.3.0
 </details>
 <br />
 
