@@ -239,11 +239,11 @@ mkdir ~/glob/transcriptome/star/SRR3222409
 
 :computer: **Map reads** to the reference genome for SRR3222409 sample. Do not forget that we are working with paired-end reads so each sample has two matching reads file. **Check** the STAR manual for the parameters to:
 <br />
-* use index for the entire genome
-* to read in zipped .fastq.gz files for both forward and reverse reads
-* to run the job on the 8 allocated cores  
-* to direct the mapping results to the _SRR3222409_ sub-sub folder
-* to give the results prefix _SRR3222409_  
+* use index for the entire genome <br />
+* to read in zipped .fastq.gz files for both forward and reverse reads <br />
+* to run the job on the 8 allocated cores <br />
+* to direct the mapping results to the _SRR3222409_ sub-sub folder <br />
+* to give the results prefix _SRR3222409_  <br />
 <br />
 
 <details>
@@ -261,7 +261,6 @@ mkdir ~/glob/transcriptome/star/SRR3222409
 cp -r /sw/courses/ngsintro/rnaseq_2016/main/star/SRR3222410/ ~/glob/transcriptome/star/
 {% endhighlight %}
 </details>
-<br />
 
 <details>
 <summary>:key: Click to see how to copy results using bash loop</summary>
