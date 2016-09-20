@@ -935,9 +935,174 @@ between treatments?
 option under "Regions" in the menu. Would you agree with what they
 state in the paper about certain pathways being down-regulated. If you need
 hints for how to proceed see [Gene List tutorial at Broad](http://software.broadinstitute.org/software/igv/gene_list_view).
+
+# Create publication ready plots from RNA-seq data
+
+Creating high quality plots of RNA-seq analysis are most easily done
+using [R](https://www.r-project.org). Depending on your profiency in
+reading r-code and using R you can in this section either just call
+scripts from the command lines with a set of arguments or you can open
+the r-script in a text editor and run the code step by step from an
+interactive r-session. Weathre you do it from the command line or from R make sure you load the R modules you used before and please make sure that you also for this part
+are doing the analysis from your reserved compute node.
+
+:computer: **Load R module and R packages**
+<details>
+<summary>:key: Click to see how </summary>
+{% highlight bash %}
+module load R/3.3.0
+module load R_packages/3.3.0
+{% endhighlight %}
+</details>
+
+Most of the functionality we use in R to create these plots are not
+from the base functionality in R, but is rather imported
+functions from different librararies that can be downloaded from
+public repositories.
+
+Some of these plots are based on the results from the DE analysis so
+perform all of these steps from within the DE folder. 
+
+Start by copying the scripts from the course folder to your DE directory.
+
+<details>
+<summary>:key: Click to see how to copy the files to your DE folder</summary>
+{% highlight bash %}
+cd ~/glob/transcriptome/DE
+cp /sw/courses/ngsintro/rnaseq_2016/bonus/visual/*.R .
+{% endhighlight %}
+</details>
+
+You should now have four files in your DE folder.
+
+First we can create similar plots to what we could see in the IGV
+plots, but using R means that we could add other types of information
+that are not implemented in IGV.
+
+To look at read coverage in our bam files for a gene of interest (pick
+one that was reported to be differentially expressed). Use the ensembl
+web page to identify genomic coordinates and chromosome location for your gene and
+run the script named genePlot.R like this:
+
+{% highlight bash %}
+Rscript genePlot.R chromosome start stop
+{% endhighlight %}
+
+<details>
+<summary>:key: Click to see a an real example</summary>
+{% highlight bash %}
+Rscript genePlot.R 14 31217860 31230350 
+{% endhighlight %}
+</details>
+
+This will generate a plot named coverage.pdf that show annotations and
+read coverage for the 6 bam files we use in the analysis for
+chromosome 14 from postion 31217860 to 31230350. To view the files
+copy the file from uppmax to your own computer and open the file in a
+pdf reader.
+
+<details>
+<summary>:key: Click to see command to copy files</summary>
+{% highlight bash %}
+scp username@milou.uppmax.uu.se:~/glob/transcriptome/DE/coverag.pdf .
+{% endhighlight %}
+</details>
+
+Besides this types of plots that mimic what can be done in IGV. R
+makes it possible to visualise patterns of gene expression in many
+different ways. Here we will create a few different plots that is
+often seen and used in RNA-seq expression analysis.
+
+## MDS plot 
+
+A popular way to visualise general patterns of gene expression in your
+data is to produce either PCA (Principal Component Analysis) or MDS
+(MultiDimensional Scaling) plots. These methods aim at summarizing the
+main patterns in the data and display them on a two-dimensional
+space. but still retain information. To properly evaluate these kind
+of results is non-trivial, but in the case of RNA-seq data we often
+use them to get an idea of how big the difference between treatments
+are and also to get an idea of the similarity among replicates. If the
+plots shows clear clusters of samples that corresponds to treatment it
+is an indication of treatment actually having an effect on gene
+expression. If the distance between replicates from a single treatment
+is very large it suggests large variance within the treatment,
+something that will influence the chance of detecting differentially
+expressed genes between treatments.
+
+To generate a MDS plot showing that show the the two leading fold
+changes in gene expression between samples run the MAplot.R script as
+this.
+
+{% highlight bash %}
+Rscript MAplot.R 
+{% endhighlight %}
+
+This generates another pdf file named MAplot.pdf in the DE folder. To
+view it copy it to your local disk as before.
+
+Based on these results are you surprised that your DE analysis
+detected a fairly large number of significant genes?
+
+## MA-plot and Volcanoplot
+
+One can also visualize the actual results of differential gene
+expresssion analysis in different ways. One example of such a plot is
+called MA-plot and show the mean expression on the x-axis and
+estimated log ratios along the y-axis and plots this for all genes in
+the analysis.
+
+To create an MA plot for your analysis you can run the
+script called MAplot.R from your DE folder. It will read in the
+results from the DE analysis that you did earlier and then run the
+code to produce the plot and save it as a pdf named MA-plot.pdf
+
+<details>
+<summary>:key: Click to see how to do this</summary>
+{% highlight bash %}
+Rscript MAplot.R
+{% endhighlight %}
+</details>
+
+Why are some dots in red and other in black?
+
+
+A related type of figure will instead plot fold change (on log2 scale) on the x-axis
+and -log10 p-value on the y-axis. Scaling like this means that genes
+with lowest p-value will be found at the top of the plot. In this example
+we will highligt the genes that are significant at the 0.05
+level after correction for multiple testing and that have an estimated fold
+change larger than 4 (log2 (4) = 2) and plot them in red color.
+
+Anything noteworthy about the patterns in the plot?
+
+
+Other type of popular types of plots for genome-wide expression
+pattern is to create heatmaps for sets of genes. If you run the script
+called heatmap.R from the folder where you DE is saved it will extract
+the 50 genes that have the lowest p-value in the experiment, hence the
+top differentially expressed genes between the treatments and create a
+heatmap from these. In addition to colorcoding the expression values
+over samples for the genes it also clusters the samples and genes. You
+can compare this plot to a similar plot in the paper behind the data.
+
+<details>
+<summary>:key: Click to see how to do this</summary>
+{% highlight bash %}
+Rscript heatmap.R
+{% endhighlight %}
+</details>
+
+Most of these plots can be done with a limited set of code. In many
+cases these "standard" plots can be created with two to three lines of
+code as the packages that has been written to handle RNA-seq
+expression data often contains easy to use functions for generating
+them.
+
 <br />
 <br />
 [Jump to the top](#begin)
+
 
 # <a name="assembly"></a> Bonus exercise: transcriptome assembly
 <br />
