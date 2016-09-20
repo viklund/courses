@@ -845,6 +845,7 @@ have to download some of the bam files (and the corresponding index
 files) from upppmax. If you have not yet installed IGV you also
 have to get a copy of the program. 
 
+:computer: Copy bam files to your local computer
 <details>
 <summary>:key: Click to see how to transfer files from uppmax</summary>
 {% highlight bash %}
@@ -859,6 +860,7 @@ log on in a way so that the generated graphics are exported via the
 network to your screen. This can be done in two different ways. The
 first method requires you to log in to uppmax with the following
 command.
+:computer: Login in with X-forwarding enabled
 {% highlight bash %}
 ssh -Y username@milou.uppmax.uu.se
 ssh -Y computenode
@@ -878,17 +880,12 @@ reserved compute node also here. This is done by opening a terminal in
 the running linux environment and log on to your compute node as before
 NB! If you have no active reservation you have to do that first.
 
-{% highlight bash %}
-ssh -Y computenode
-{% endhighlight %}
-
-Once at the compute node we can load necessary modules and open an IGV
-session.
+:computer: Load necessary modules and start IGV
 
 {% highlight bash %}
-    module load bioinfo-tools
-    module load IGV/2.3.40
-    igv-core
+module load bioinfo-tools
+module load IGV/2.3.40
+igv-core
 {% endhighlight %}
 
 This should start the IGV so that it is visible on your screen. If not please try to
@@ -898,7 +895,7 @@ the fastest and most convinient solution.
 Once we have the program running you select the genome that you would
 like to load. As seen in the image below. 
 
-![img](Figures/IGV-genome.png)
+![](files/rnaseq/IGV-genome.png)
 
 Note that if you are working with a genome that are not part of the
 available genomes in IGV, one can create genome files from within
@@ -968,6 +965,7 @@ perform all of these steps from within the DE folder that you created earlier.
 
 Start by copying the scripts from the course folder to your DE directory.
 
+:computer: Move to DE and copy R-scripts
 <details>
 <summary>:key: Click to see how to copy the files to your DE folder</summary>
 {% highlight bash %}
@@ -983,7 +981,7 @@ We start off by creating similar plots to how data is visualised in IGV, but usi
 To look at read coverage in our bam files for a gene of interest (pick
 one that was reported to be differentially expressed) and go to the ensembl to identify genomic coordinates and chromosome location for this gene.
 
-Run the script named genePlot.R like this:
+:computer: Run the script named genePlot.R
 
 {% highlight bash %}
 Rscript genePlot.R chromosome start stop
@@ -994,12 +992,13 @@ Rscript genePlot.R chromosome start stop
 {% highlight bash %}
 Rscript genePlot.R 14 31217860 31230350 
 {% endhighlight %}
+</details>
+
 This will generate a plot named coverage.pdf that show annotations and
 read coverage for the 6 bam files we use in the analysis for
 chromosome 14 from postion 31217860 to 31230350. 
-</details>
 
-To view the files copy the file from uppmax to your own computer and open the file in a
+To view the file copy it from uppmax to your own computer and open it in a
 pdf reader.
 
 <details>
@@ -1036,8 +1035,9 @@ To generate a MDS plot showing that show the the two leading fold
 changes in gene expression between samples run the MAplot.R script as
 this.
 
+:computer: Run the script named genePlot.R
 {% highlight bash %}
-Rscript MAplot.R 
+Rscript MDSplot.R 
 {% endhighlight %}
 
 This generates another pdf file named MAplot.pdf in the DE folder. To
@@ -1057,6 +1057,7 @@ script called MAplot.R from your DE folder. It will read in the
 results from the DE analysis that you did earlier and then run the
 code to produce the plot and save it as a pdf named MA-plot.pdf
 
+:computer: Run the script
 <details>
 <summary>:key: Click to see how to do this</summary>
 {% highlight bash %}
@@ -1073,6 +1074,14 @@ we will highligt the genes that are significant at the 0.05
 level after correction for multiple testing and that have an estimated fold
 change larger than 4 (log2 (4) = 2) and plot them in red color.
 
+:computer: Run the script named 
+<details>
+<summary>:key: Click to see how to do this</summary>
+{% highlight bash %}
+Rscript Volcano.R
+{% endhighlight %}
+</details>
+
 :open_mouth: Anything noteworthy about the patterns in the plot?
 
 Other type of popular types of plots for genome-wide expression
@@ -1084,6 +1093,7 @@ heatmap from these. In addition to colorcoding the expression values
 over samples for the genes it also clusters the samples and genes. You
 can compare this plot to a similar plot in the paper behind the data.
 
+:computer: Run the script named heatmap.R
 <details>
 <summary>:key: Click to see how to do this</summary>
 {% highlight bash %}
