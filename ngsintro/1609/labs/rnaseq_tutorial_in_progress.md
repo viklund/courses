@@ -325,7 +325,7 @@ done
 <details>
 <summary>:key: Click to see the suggested commands</summary>
 {% highlight bash %}
-samtools view -bS SRR3222409_Aligned.out.sam -o SRR3222409_Aligned.out.bam
+samtools view -bS -o SRR3222409_Aligned.out.bam SRR3222409_Aligned.out.sam
 {% endhighlight %}
 </details>
 <br />
@@ -488,7 +488,7 @@ done
 <details>
 <summary>:key: Click to see how to run featureCounts on all samples</summary>
 {% highlight bash %}
-featurecounts]$ featureCounts -p -a ~/glob/transcriptome/reference/Mus_musculus.GRCm38.85.gtf -t gene -g gene_id -s 0 -o tableCounts *.sam
+featureCounts -p -a ~/glob/transcriptome/reference/Mus_musculus.GRCm38.85.gtf -t gene -g gene_id -s 0 -o tableCounts *.sam
 {% endhighlight %}
 </details>
 <br />
