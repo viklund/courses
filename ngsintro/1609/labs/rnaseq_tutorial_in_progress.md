@@ -847,7 +847,7 @@ Rscript deu.R
 :floppy_disk: Alternatively, you can open the script in RStudio (or a text editor such as Atom or Sublime) and execute each step of the script in a live R session. This way you will be able to "see inside" the script and try to follow the individual steps.
 <br />
 
-
+<br />
 :computer: :floppy_disk: The results in html format are saved in the directory ***DEXSeqReport***. For detailed description of the individual report sections please consult [DEXSeq user manual](http://bioconductor.org/packages/release/bioc/vignettes/DEXSeq/inst/doc/DEXSeq.pdf). Additionally, a table with significant exons and statistics relevant to their differential usage ***deu\_signif\_exons.txt*** is saved in the working directory.
 <br />
 
@@ -888,39 +888,38 @@ as you can not check more than a few regions, but in in many cases it
 can reveal mapping patterns that are hard to catch with just summary
 statistics.
 
-For this tutorial you can chose to run IGV directly on your own computer
-or on Uppmax. If you chose to run it on your own computer you will
+For this tutorial you can chose to run IGV directly on your own computer (follow :floppy_disk:)
+or on Uppmax (follow :computer). If you chose to run it on your own computer you will
 have to download some of the bam files (and the corresponding index
-files) from upppmax. If you have not yet installed IGV you also
+files) from Upppmax. If you have not yet installed IGV you also
 have to get a copy of the program. 
 
-:computer: Copy bam files to your local computer
+:floppy_disk: Copy bam files to your local computer
 <details>
-<summary>:key: Click to see how to transfer files from uppmax</summary>
+<summary>:key: Click to see how to transfer files from Uppmax</summary>
 {% highlight bash %}
-scp scp username@milou.uppmax.uu.se:~/glob/transcriptome/bamfile.bam .
+scp username@milou.uppmax.uu.se:~/glob/transcriptome/bamfile.bam .
 {% endhighlight %}
-NB! Use the sorted bam files and also cp the .bai files
+NB! Use the sorted bam files and also copy over the .bai files
 </details>
 <br />
 
-If you instead choose to run on uppmax you need to make sure that you
-log on in a way so that the generated graphics are exported via the
-network to your screen. This can be done in two different ways. The
-first method requires you to log in to uppmax with the following
-command.
-:computer: Login in with X-forwarding enabled
+:computer:  Log in to Uppmax in a way so that the generated graphics are exported via the network to your screen
+:computer:  Method 1. Login in to Uppmax with X-forwarding enabled
+<details>
+<summary>:key: Click to see how</summary>
 {% highlight bash %}
 ssh -Y username@milou.uppmax.uu.se
 ssh -Y computenode
 {% endhighlight %}
+</details>
 
-These two steps makes sure that any graphical interface that you start
-on your compute node, will be exported to your computer. Note that as
+This will allow any graphical interface that you start
+on your compute node to be exported to your computer. However, as
 the graphics is exported over the network it can be fairly slow in
 redrawing windows and the experience can be fairly poor.
 
-The second and superior way is to go to [Milou-gui](https://milou-gui.uppmax.uu.se/main/)
+:computer: Method 2. Go to [Milou-gui](https://milou-gui.uppmax.uu.se/main/)
 
 Once you log into this interface you will have a linux desktop
 interface in a browser window. This interface is running on the login
@@ -938,7 +937,7 @@ igv-core
 {% endhighlight %}
 
 This should start the IGV so that it is visible on your screen. If not please try to
-reconnect to uppmax or consider running IGV locally as that is often
+reconnect to Uppmax or consider running IGV locally as that is often
 the fastest and most convinient solution. 
 
 Once we have the program running you select the genome that you would
