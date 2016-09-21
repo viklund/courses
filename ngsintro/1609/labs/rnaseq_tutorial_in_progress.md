@@ -160,11 +160,11 @@ http://www.ensembl.org/info/data/ftp/index.html
 </details>
 <details>
 <summary>:key: Click to see file names to be downloaded </summary>
-***Mus\_musculus.GRCm38.dna.chromosome.11.fa*** : chromosome 11 reference; 
-***Mus\_musculus.GRCm38.85.gtf*** : genome annotation
+{% highlight bash %}
+Mus_musculus.GRCm38.dna.chromosome.11.fa
+Mus_musculus.GRCm38.85.gtf
+{% endhighlight %}
 </details>
-<br />
-
 <details>
 <summary>:key: Click to see how to transfer files from Ensembl website to Uppmax </summary>
 {% highlight bash %}
