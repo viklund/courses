@@ -1162,7 +1162,7 @@ Trinity --seqType (fq for fastq or fa for fast) --left ~/path/to/reads_1.fq --ri
 In the following exercise you will have chance to run trinity on a data set that is suitable to be finished within a short lab session. Note that for many larger data sets and/or complex transcriptomes running times and memory requirements might be much larger than in this example. The actual commands to run trinity is very easy and the manual at <https://github.com/trinityrnaseq/trinityrnaseq/wiki> answers most questions related to running the program. The major challenge with running _de-novo_ assembly projects is not to get the programs to run. but rather to evaluate the results after the run. In many cases a very large number of potential transcripts are generated and often try to use sequence properties to filter the initial data. In addition one often tries to compare the obtained sequences to closely related species, try to predict open reading frames to get a feeling for how the experiment has turned out. In order to get a feeling for this we will in the exercise assemble two data sets and use simple unix tool to calculate basics stats on the assembled sequences. For this to be a meaningful exercise you should not look at the hints prior to trying some commands your self. The key to get going with these types of analysis is to realize that one does not need a specialised program to collect basic summary statistics from text files (note that fasta files are simple text files of a specified structure).
 
 Have a look at the example data used in this exercise.
-The data is obtained from mouse dendritic cells (mouse\_left.fasta and mouse\_right.fasta and) and a whitefly (whitefly_both.fasta), and the files are located in `/sw/courses/ngsintro/transcriptome_assembly/`.
+The data is obtained from mouse dendritic cells (mouse\_left.fasta and mouse\_right.fasta and) and a whitefly (whitefly_both.fasta), and the files are located in `/sw/courses/ngsintro/rnaseq_2016/bonus/denovo/`.
 The mouse data is strand-specific (RF), the whitefly data is unstranded.
 For strand-specific data, specify the library type.
 There are four library types:
@@ -1178,19 +1178,30 @@ R: the single read is in the antisense (reverse) orientation
 By setting the --SS\_lib\_type parameter to one of the above, you are indicating that the reads are strand-specific.
 By default, reads are treated as not strand-specific.
 
-### Trinity on Uppmax, example command line
+## Trinity on Uppmax, example command line
 
+:computer: Load modules and copy data
+<details>
+<summary>:key: Click to see how to do this</summary>
 {% highlight bash %}
 module load bioinfo-tools trinity/2.2.1
-Trinity --seqType fa --left mouse_left.fasta --right mouse_right.fasta --SS_lib_type RF --CPU 8 --max_memory 16G --output trinity_out/
-
-Trinity --seqType fa --left /proj/g2016001/labs/transcriptome_assembly/mouse_left.fasta --right /proj/g2016001/labs/transcriptome_assembly/mouse_right.fasta --SS_lib_type RF --CPU 8 --JM 16G --output trinity_out/
+mkdir ~/glob/transcriptome/trinity
+cp /sw/courses/ngsintro/rnaseq_2016/bonus/denovo/*.fasta ~/glob/transcriptome/trinity/
 {% endhighlight %}
+</details>
+
+Check the manual of trinity again and try to figure out what parameters and settings that are needed to start trinity on the test data. Remember to try and use all 8 cores.
+
+:computer: Trinity command
+<details>
+<summary>:key: Click for a complete trinity command using 8 cores</summary>
+{% highlight bash %}
+Trinity --seqType fa --left mouse_left.fasta --right mouse_right.fasta --SS_lib_type RF --CPU 8 --max_memory 16G --output trinity_out/
+{% endhighlight %}
+</details>
 
 NB! -It is recommended to use fully specified paths for sequence files with Trinity.
     -Depending on version of Trinity used --max_memory is sometime given by the command --JM
-
-Data sets: mouse (mouse\_left.fasta, mouse\_right.fasta), whitefly (whitefly\_both.fasta)
 
 ## Exercise 2: Assess the data
 
