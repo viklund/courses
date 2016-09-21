@@ -662,6 +662,7 @@ Rscript annotate_de_results.R
 The results will be saved in the directory *GO\_react\_results*.
 <br />
 <br />
+<br />
 :floppy_disk: **Enter** the exercise working directory:
 <details>
 <summary>:key: Click to see how</summary>
@@ -683,7 +684,7 @@ The results will be saved in the directory *GO\_react\_results*.
 <br />
 
 
-:floppy_disk: Alternatively, you can open the script in RStudio (or a text editor such as Atom or Sublime) and execute each step of the script in a live R session. This way you will be able to "see inside" the script and try to follow the individual steps.  
+:floppy_disk: Alternatively, you can open the script in RStudio (or a text editor such as Atom or Sublime) and execute each step of the script in a live R session. This way you will be able to "see inside" the script and you can try to follow the individual steps.  
 
 ## Interpretation
 :computer: :floppy_disk: The results are saved as tables in the directory *GO\_react\_results*.
@@ -739,55 +740,61 @@ grep("neuro", go.dn.adj$term,  value=T)
 ## Introduction to differential exon usage
 
 Multi-exon genes are affected by alternative
-splicing and thus, can express a variety of different
+splicing and thus can express a variety of different
 transcripts from the same genomic sequence. Differences in the relative expression of these isoforms between tissues and species occur naturally between cell types and allow cells to adapt to the environment.
 
-It is important to distinguish differential transcript usage from gene-level differential expression (which was covered in the main part of the exercise) and from transcript-level differential expression. DTU considers changes in the **proportions** of the isoforms of a gene that are expressed as opposed to changes of the individual transcript levels.
+It is important to distinguish differential transcript usage (DTU) from gene-level differential expression (which was covered in the main part of the exercise) and from transcript-level differential expression. DTU considers changes in the **proportions** of the isoforms of a gene that are expressed as opposed to changes of the individual transcript levels.
 
-Although the main units of interest are the transcripts, it has been difficult to obtain accurate and precise transcript-level expression estimates due to the extensive overlap between different transcripts. To circumvent that, number of methods have been developed that instead of estimating expression levels of transcripts, analyse levels of transcript building blocks (exons).  Hence, differential exon usage (DEU) can be viewed as a proxy to the differential transcript usage.
+Although the main units of interest are the transcripts, it has been difficult to obtain accurate and precise transcript-level expression estimates due to the extensive overlap between different transcripts. To circumvent that number of methods have been developed that, instead of estimating expression levels of transcripts, analyse levels of transcript building blocks (exons).  Hence, differential exon usage (DEU) can be viewed as a proxy to the differential transcript usage.
 
-Note that DEU is a more general concept than alternative splicing, since it also includes changes in the usage of alternative transcript start sites and polyadenylation sites, which can cause differential usage of exons at the 5' and 3' boundary of transcripts.
+Note that DEU is a more general concept than alternative splicing since it also includes changes in the usage of alternative transcript start sites and polyadenylation sites, which can cause differential usage of exons at the 5' and 3' boundary of transcripts.
 
 The Bioconductor package **DEXSeq** implements a method to test for differential exon usage in comparative
-RNA-Seq experiments. By differential exon usage, we mean changes in the **relative** usage
+RNA-Seq experiments. By differential exon usage we mean changes in the **relative** usage
 of exons caused by the experimental condition. The relative usage of an exon is defined as number of transcripts from the gene that contain this exon vs. number of all transcripts from the gene.
 
-In this exercise we will use reads mapped to chromosome 11 only (performing this analysis on entire data set is quite time consuming and requires considerable computing power). The starting point are files with reads summarised per each annotated exon, prepared beforehand by us.
+In this exercise we will use reads mapped to chromosome 11 only as performing this analysis on entire data set is quite time consuming and requires considerable computing power. The starting point are files with reads summarised per each annotated exon, prepared beforehand by us.
 
 This module can be performed on Uppmax, or on your local computer if you have installed [R statistical programming language](https://cran.r-project.org/) and (optionally) a graphical interface to R such as [RStudio](https://www.rstudio.com/).
 
-## Libraries to install and load if exercise is performed locally
+Follow :computer: icon for running the module on Uppmax. Follow :floppy_disk: to run things on your own computer. 
 
-:computer: If you prefer to use your local computer for this exercise, you need to **install packages** used in the exercise. You can do it by pasting the following two commands in R session:
+## Setting-up workspace 
+
+Libraries to install and load if exercise is performed locally
+
+:floppy_disk: **Install packages** used in the exercise. You can do it by pasting the following two commands in R session:
 
  `source("http://bioconductor.org/biocLite.R")`
  
  `biocLite("DEXSeq")`
 
 <br />
-In addition you may need to install X11 app ([XQuartz](https://www.xquartz.org/) on MacOS) to produce the html report.
+:floppy_disk: In addition you may need to install X11 app ([XQuartz](https://www.xquartz.org/) on MacOS) to produce the html report.
 
-To perform the exercise you will need data included in the following location at Uppmax:
+<br />
+:computer: :floppy_disk: To perform the exercise you will need data included in the following location at Uppmax:
 
   `/sw/courses/ngsintro/rnaseq_2016/bonus/exon`
 
-
-You will need to copy the directory to your working space, whether working on Uppmax:
+<br />
+:computer: **Copy over** the directory _trascriptome_ folder
 <details>
 <summary>:key: Click to see an example of a command</summary>
 {% highlight bash %}
-cp -r /sw/courses/ngsintro/rnaseq_2016/bonus/exon ./
+cp -r /sw/courses/ngsintro/rnaseq_2016/bonus/exon ~/glob/transcriptome
 {% endhighlight %}
 </details>
 <br />
-or on your local computer:
+
+:floppy_disk: **Copy over** the directory to your workspace on your local computer
 <details>
 <summary>:key: Click to see an example of a command</summary>
 {% highlight bash %}
 scp -r YOUR_LOGIN@milou.uppmax.uu.se:/sw/courses/ngsintro/rnaseq_2016/bonus/exon ./
 {% endhighlight %}
 </details>
-
+<br />
 
 ## Workflow
 
@@ -805,12 +812,12 @@ scp -r YOUR_LOGIN@milou.uppmax.uu.se:/sw/courses/ngsintro/rnaseq_2016/bonus/exon
 <details>
 <summary>:key: Click to see how</summary>
 {% highlight bash %}
-cd /exon
+cd ~/glob/transcriptome/exon
 {% endhighlight %}
 </details>
 <br />
 
-:computer: To perform the functional annotation you can use a wrapper script *deu.R*,
+:computer: **Perform the functional annotation** using a wrapper script *deu.R*
 <details>
 <summary>:key: Click to see how</summary>
 {% highlight bash %}
@@ -819,10 +826,29 @@ Rscript deu.R
 </details>
 <br />
 
-Alternatively, you can open the script in RStudio (or a text editor such as Atom or Sublime) and execute each step of the script in a live R session. This way you will be able to "see inside" the script and try to follow the individual steps.
+:floppy_disk: **Enter** the exercise working directory:
+<details>
+<summary>:key: Click to see how</summary>
+{% highlight bash %}
+cd /exon
+{% endhighlight %}
+</details>
 <br />
 
-The results in html format are saved in the directory ***DEXSeqReport***. For detailed description of the individual report sections please consult [DEXSeq user manual](http://bioconductor.org/packages/release/bioc/vignettes/DEXSeq/inst/doc/DEXSeq.pdf). Additionally, a table with significant exons and statistics relevant to their differential usage ***deu\_signif\_exons.txt*** is saved in the working directory.
+:floppy_disk: **Perform the functional annotation** using a wrapper script *deu.R*
+<details>
+<summary>:key: Click to see how</summary>
+{% highlight bash %}
+Rscript deu.R
+{% endhighlight %}
+</details>
+<br />
+
+:floppy_disk: Alternatively, you can open the script in RStudio (or a text editor such as Atom or Sublime) and execute each step of the script in a live R session. This way you will be able to "see inside" the script and try to follow the individual steps.
+<br />
+
+
+:computer: :floppy_disk: The results in html format are saved in the directory ***DEXSeqReport***. For detailed description of the individual report sections please consult [DEXSeq user manual](http://bioconductor.org/packages/release/bioc/vignettes/DEXSeq/inst/doc/DEXSeq.pdf). Additionally, a table with significant exons and statistics relevant to their differential usage ***deu\_signif\_exons.txt*** is saved in the working directory.
 <br />
 
 :open_mouth: How many differentially used exons were identified in the data? Do you think this result makes sense?
