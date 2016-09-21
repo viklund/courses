@@ -28,13 +28,13 @@ Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)
 **11:00-12.00** Lecture: NGS and bioinformatics analysis pipelines (Adam Ameur)   
 **12.00-13.00** Lunch at BMC restaurant   
 **13.00-14.00** Lecture: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats (Anna Johansson)  
-**14.00-17.00** Exercise: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part I (Anna Johansson, Johan Reimegård, Sebastian DiLorenzo, Lucile Soler) 
+**14.00-17.00** [Exercise: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part I](labs/resequencing-analysis) (Anna Johansson, Johan Reimegård, Sebastian DiLorenzo, Lucile Soler) 
 
 **18:00-** Course dinner at TBA  
 
 **Thursday**  
 Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)   
-**09:00-12.00** Exercise: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part II (Anna Johansson, Sebastian DiLorenzo, Johan Reimegård, Lucile Soler)  
+**09:00-12.00** [Exercise: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part II](labs/resequencing-analysis) (Anna Johansson, Sebastian DiLorenzo, Johan Reimegård, Lucile Soler)  
 **12.00-13.00** Lunch at BMC restaurant  
 **13.00-14:00** Lecture: RNA sequencing, transcriptome and expression quantification (Thomas Källman)  
 **14.00-17:00** Exercise: [RNA sequencing, transcriptome and expression quantification part I](labs/rnaseq_tutorial_in_progress) (Thomas Källman, Agata Smialowska, Olga Dethlefsen, Åsa Björklund)
