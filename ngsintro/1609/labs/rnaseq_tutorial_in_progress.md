@@ -610,6 +610,7 @@ Follow :computer: icon for running the module on Uppmax. Follow :floppy_disk: to
 <br />
  `/sw/courses/ngsintro/rnaseq_2016/bonus/funannot`
 <br />
+<br />
 
 :floppy_disk: **Copy over** the directory to your working directory on your local computer
 <details>
@@ -618,6 +619,7 @@ Follow :computer: icon for running the module on Uppmax. Follow :floppy_disk: to
  scp -r YOUR_LOGIN@milou.uppmax.uu.se:/sw/courses/ngsintro/rnaseq_2016/bonus/funannot ./
  {% endhighlight %}
 </details>
+<br />
 
 :computer: **Copy over** the directory to your working space _transcriptome_
 <details>
@@ -648,7 +650,6 @@ cd ~glob/transcriptome/funannot
 {% endhighlight %}
 </details>
 <br />
-and you are ready to start the exercise.
 <br />
 
 :computer: **To perform the functional annotation** you can use a wrapper script *annotate\_de\_results.R*, which is executed as in the main exercise:
@@ -670,7 +671,6 @@ cd /funannot
 {% endhighlight %}
 </details>
 <br />
-and you are ready to start the exercise.
 <br />
 
 :floppy_disk: **To perform the functional annotation** you can use a wrapper script *annotate\_de\_results.R*, which is executed as in the main exercise:
@@ -688,7 +688,7 @@ The results will be saved in the directory *GO\_react\_results*.
 :floppy_disk: Alternatively, you can open the script in RStudio (or a text editor such as Atom or Sublime) and execute each step of the script in a live R session. This way you will be able to "see inside" the script and try to follow the individual steps.  
 
 ## Interpretation
-The results are saved as tables in the directory *GO\_react\_results*.
+:computer: :floppy_disk: The results are saved as tables in the directory *GO\_react\_results*.
 <br />
 
 The columns of the results tables are:  
@@ -698,7 +698,7 @@ The columns of the results tables are:
 You can view the tables in a text editor, and try to find GO terms and pathways relevant to the experiment using a word search functionality.  
 <br />
 
-If you are performing the exercise in an intercative R session (on your local computer or on Uppmax), the results are collected in the following objects:  
+:floppy_disk: The results are also collected in the following objects:  
 {% highlight bash %}
 go.dn.adj
 go.up.adj
