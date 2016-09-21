@@ -889,7 +889,7 @@ can reveal mapping patterns that are hard to catch with just summary
 statistics.
 
 For this tutorial you can chose to run IGV directly on your own computer (follow :floppy_disk:)
-or on Uppmax (follow :computer). If you chose to run it on your own computer you will
+or on Uppmax (follow :computer:). If you chose to run it on your own computer you will
 have to download some of the bam files (and the corresponding index
 files) from Upppmax. If you have not yet installed IGV you also
 have to get a copy of the program. 
@@ -905,6 +905,7 @@ NB! Use the sorted bam files and also copy over the .bai files
 <br />
 
 :computer:  Log in to Uppmax in a way so that the generated graphics are exported via the network to your screen
+<br />
 :computer:  Method 1. Login in to Uppmax with X-forwarding enabled
 <details>
 <summary>:key: Click to see how</summary>
@@ -913,7 +914,7 @@ ssh -Y username@milou.uppmax.uu.se
 ssh -Y computenode
 {% endhighlight %}
 </details>
-
+<br />
 This will allow any graphical interface that you start
 on your compute node to be exported to your computer. However, as
 the graphics is exported over the network it can be fairly slow in
@@ -940,7 +941,7 @@ This should start the IGV so that it is visible on your screen. If not please tr
 reconnect to Uppmax or consider running IGV locally as that is often
 the fastest and most convinient solution. 
 
-Once we have the program running you select the genome that you would
+:computer: :floppy_disk: Once we have the program running you select the genome that you would
 like to load. As seen in the image below. 
 
 ![](files/rnaseq/IGV-genome.png)
@@ -1007,6 +1008,7 @@ module load R/3.3.0
 module load R_packages/3.3.0
 {% endhighlight %}
 </details>
+<br />
 
 Some of the example plots we generate here are based on the results from the DE analysis so
 perform all of these steps from within the DE folder that you created earlier. 
@@ -1023,11 +1025,12 @@ cp /sw/courses/ngsintro/rnaseq_2016/bonus/visual/*.R .
 </details>
 
 You should now have four files in your DE folder.
+<br />
 
 We start off by creating similar plots to how data is visualised in IGV, but using R means that we could add other types of information that are not implemented in IGV.
 
-To look at read coverage in our bam files for a gene of interest (pick
-one that was reported to be differentially expressed) and go to the ensembl to identify genomic coordinates and chromosome location for this gene.
+:mag: To look at read coverage in our bam files for a gene of interest (pick
+one that was reported to be differentially expressed) and go to the Ensembl to identify genomic coordinates and chromosome location for this gene.
 
 :computer: Run the script named genePlot.R
 
@@ -1041,14 +1044,14 @@ Rscript genePlot.R chromosome start stop
 Rscript genePlot.R 14 31217860 31230350 
 {% endhighlight %}
 </details>
+<br />
 
 This will generate a plot named coverage.pdf that show annotations and
 read coverage for the 6 bam files we use in the analysis for
 chromosome 14 from postion 31217860 to 31230350. 
 
-To view the file copy it from uppmax to your own computer and open it in a
+:computer: To view the file copy it from Uppmax to your own computer and open it in a
 pdf reader.
-
 <details>
 <summary>:key: Click to see command to copy files</summary>
 {% highlight bash %}
@@ -1056,6 +1059,7 @@ scp username@milou.uppmax.uu.se:~/glob/transcriptome/DE/coverage.pdf .
 {% endhighlight %}
 Make sure you run this command from your own computer
 </details>
+<br />
 
 Besides this type of plot that mimics what can be done in IGV, R
 makes it possible to visualise patterns of gene expression in many
@@ -1083,10 +1087,14 @@ To generate a MDS plot showing that show the the two leading fold
 changes in gene expression between samples run the MAplot.R script as
 this.
 
-:computer: Run the script named genePlot.R
+:computer: Run the script named MDSplot.R
+<details>
+<summary>:key: Click to see how to do this</summary>
 {% highlight bash %}
 Rscript MDSplot.R 
 {% endhighlight %}
+</details>
+<br />
 
 This generates another pdf file named MAplot.pdf in the DE folder. To
 view it copy it to your local disk as before.
@@ -1105,13 +1113,14 @@ script called MAplot.R from your DE folder. It will read in the
 results from the DE analysis that you did earlier and then run the
 code to produce the plot and save it as a pdf named MA-plot.pdf
 
-:computer: Run the script
+:computer: Run the script MAplot.R
 <details>
 <summary>:key: Click to see how to do this</summary>
 {% highlight bash %}
 Rscript MAplot.R
 {% endhighlight %}
 </details>
+<br />
 
 :open_mouth: What do you think the red dots represent?
 
@@ -1122,13 +1131,14 @@ we will highligt the genes that are significant at the 0.05
 level after correction for multiple testing and that have an estimated fold
 change larger than 4 (log2 (4) = 2) and plot them in red color.
 
-:computer: Run the script named 
+:computer: Run the script named Volcano.R
 <details>
 <summary>:key: Click to see how to do this</summary>
 {% highlight bash %}
 Rscript Volcano.R
 {% endhighlight %}
 </details>
+<br />
 
 :open_mouth: Anything noteworthy about the patterns in the plot?
 
@@ -1148,6 +1158,7 @@ can compare this plot to a similar plot in the paper behind the data.
 Rscript heatmap.R
 {% endhighlight %}
 </details>
+<br />
 
 Most of these plots can be done with a limited set of code. In many
 cases these "standard" plots can be created with two to three lines of
