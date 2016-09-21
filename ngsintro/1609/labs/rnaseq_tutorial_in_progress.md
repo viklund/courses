@@ -592,11 +592,13 @@ We will use the R / Bioconductor package [goseq](http://bioconductor.org/package
 
 In this part, we will use the same data as in the main workflow. The starting point of the exercise is the file with results of the differential expression produced in the main part of the exercise.
 
-This module can be performed on Uppmax, or on your local computer if you have installed [R statistical programming language](https://cran.r-project.org/) and (optionally) a graphical interface to R such as [RStudio](https://www.rstudio.com/).
+Running functional annotation is typically not computationaly-heavy and it may be easier to run it on your local computer. Therefore this module can be performed on Uppmax or on your local computer. For the latter you need have [R statistical programming language](https://cran.r-project.org/) installed. An optional graphical interface to R such as [RStudio](https://www.rstudio.com/) is also recommended.
 
-## Libraries to install and load if exercise is performed locally
+Follow :computer: icon for running the module on Uppmax. Follow :floppy_disk: to run things on your own computer. 
 
-:computer: If you prefer to use your local computer for this exercise, you need to **install packages** used in the exercise. You can do it by pasting the following two commands in R session:
+## Setting-up workspace 
+
+:floppy_disk: **Install packages** used in the exercise. You can do it by pasting the following two commands in R session:
 <br />
  `source("http://bioconductor.org/biocLite.R")`
  <br />
@@ -608,16 +610,16 @@ To perform the exercise you will need data included in the following location at
  `/sw/courses/ngsintro/rnaseq_2016/bonus/funannot`
 <br />
 
-You will need to copy the directory to your working space, whether working on Uppmax:
+:computer: **Copy over** the directory to your working space _transcriptome_
 <details>
- <summary>:key: Click to see an example of a command</summary>
- {% highlight bash %}
- cp -r /sw/courses/ngsintro/rnaseq_2016/bonus/funannot ./
- {% endhighlight %}
+<summary>:key: Click to see an example of a command</summary>
+{% highlight bash %}
+cp -r /sw/courses/ngsintro/rnaseq_2016/bonus/funannot/ ~/glob/transcriptome/
+{% endhighlight %}
 </details>
 <br />
-or on your local computer:
-<br />
+
+:floppy_disk: **Copy over** the directory to your working directory on your local computer
 <details>
  <summary>:key: Click to see an example of a command</summary>
  {% highlight bash %}
