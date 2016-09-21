@@ -1216,7 +1216,7 @@ grep ">" -c
 {% endhighlight %}
 </details>
 
-:openmouth: What is the -c switch doing?
+:open_mouth: What is the -c switch doing?
 
 :computer: Get basic information about the assembly with TrinityStats.
 
@@ -1241,7 +1241,7 @@ fastx_clipper -l 1000 -i Trinity.formated -o Trinity1000.fasta
 {% endhighlight %}
 </details>
 
-:openmouth: What is the fasta_formatter step doing?
+:open_mouth: What is the fasta_formatter step doing?
 <br />
 
 Align some sequences to a protein database and assess full-lengthness using NCBI blast database. Also try to see if you can find instances of spliced genes in your data by using the UCSC genome browser (do a web search to find it) 
