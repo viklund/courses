@@ -650,7 +650,6 @@ cd ~glob/transcriptome/funannot
 {% endhighlight %}
 </details>
 <br />
-<br />
 
 :computer: **To perform the functional annotation** you can use a wrapper script *annotate\_de\_results.R*, which is executed as in the main exercise:
 <details>
@@ -662,7 +661,7 @@ Rscript annotate_de_results.R
 <br />
 The results will be saved in the directory *GO\_react\_results*.
 <br />
-
+<br />
 :floppy_disk: **Enter** the exercise working directory:
 <details>
 <summary>:key: Click to see how</summary>
@@ -670,7 +669,6 @@ The results will be saved in the directory *GO\_react\_results*.
 cd /funannot
 {% endhighlight %}
 </details>
-<br />
 <br />
 
 :floppy_disk: **To perform the functional annotation** you can use a wrapper script *annotate\_de\_results.R*, which is executed as in the main exercise:
