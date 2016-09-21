@@ -1208,43 +1208,45 @@ NB! -It is recommended to use fully specified paths for sequence files with Trin
 Explore the Trinity output file Trinity.fasta located in the trinity\_out_dir/output directory (or output directory you specify).
 Transcripts are grouped as follows: * components: the set of all sequences that share at least one k-mer (including paralogs) * contigs: transcripts that share a number of k-mers (the set of isoforms of a gene) * sequences (isoforms and allelic variation)
 
-### Count the number of sequences in the Trinity.fasta file (hint: try using the unix commands 'grep' and 'wc')
-
+:computer: Count the number of sequences in the Trinity.fasta file (hint: try using the unix commands 'grep' and 'wc')
 <details>
-<summary>:key: Click to see example solution</summary>
+<summary>:key: Click to see how one can count sequences</summary>
 {% highlight bash %}
 grep ">" -c
 {% endhighlight %}
-:openmouth: What is the -c switch doing?
 </details>
 
+:openmouth: What is the -c switch doing?
 
-### Get basic information about the assembly with TrinityStats.
+:computer: Get basic information about the assembly with TrinityStats.
 
 {% highlight bash %}
 /sw/apps/bioinfo/trinity/2.1.0/milou/util/TrinityStats.pl Trinity.fasta
 {% endhighlight %}
-
 
 - How many "genes" did Trinity assemble? 
 - How many transcripts?
 - How large is the assembly? (nr of bases)
 - What is N50?
 
-### Filter out sequences shorter than 1000 nucleotides (hint: do a web search for appropriate tools. Someone else must have had the exact same problem.). Count the number of sequences again.
+:computer: Filter out sequences shorter than 1000 nucleotides 
+hint: do a web search for appropriate tools. Someone else must have had the exact same problem. Count the number of sequences again.
 
-One solution is to use FastX
-
-
+<details>
+<summary>:key: Click to a solution</summary>
 {% highlight bash %}
 module load Fastx
 fasta_formatter -i Trinity.fasta -o Trinity.formated  
 fastx_clipper -l 1000 -i Trinity.formated -o Trinity1000.fasta
 {% endhighlight %}
+</details>
 
-### Align some sequences to a protein database and assess full-lengthness of a couple of sequences (hint: NCBI has an online blast version).
+:openmouth: What is the fasta_formatter step doing?
+<br />
 
-### Find alternatively spliced genes (hint: see above) You can verify alternative splicing by using the UCSC genome browser (do a web search to find it): - Select BLAT from the menu at the top of the page and paste in a mouse transcript sequence from Trinity.fasta.
+Align some sequences to a protein database and assess full-lengthness using NCBI blast database. Also try to see if you can find instances of spliced genes in your data by using the UCSC genome browser (do a web search to find it) 
+
+- Select BLAT from the menu at the top of the page and paste in a mouse transcript sequence from Trinity.fasta.
 - Select the mouse/mm10 genome and click “submit”.
 - Click on the top scoring hit.
 
@@ -1253,7 +1255,6 @@ Examine the alignments by clicking “details” on the resulting page.
 - Enable the mouse annotations (ENSEMBL gene build, UCSC genes, human proteins etc.).
 
 Optional: Do a new transcriptome assembly of whitefly RNAseq data using above code as help.
-
 
 <br />
 <br />
