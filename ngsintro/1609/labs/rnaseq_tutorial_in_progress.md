@@ -894,7 +894,7 @@ have to download some of the bam files (and the corresponding index
 files) from Upppmax. If you have not yet installed IGV you also
 have to get a copy of the program. 
 
-:floppy_disk: Copy bam files to your local computer and run IGV
+:floppy_disk: **Copy bam files** to your local computer and **run IGV**
 <details>
 <summary>:key: Click to see how to transfer files from Uppmax</summary>
 {% highlight bash %}
@@ -904,7 +904,7 @@ NB! Use the sorted bam files and also copy over the .bai files
 </details>
 <br />
 
-:computer:  Log in to Uppmax in a way so that the generated graphics are exported via the network to your screen
+:computer:  **Log in to Uppmax** in a way so that the generated graphics are exported via the network to your screen
 <br />
 :computer:  Method 1. Login in to Uppmax with X-forwarding enabled
 <details>
@@ -929,8 +929,7 @@ the running linux environment and log on to your compute node as before
 NB! If you have no active reservation you have to do that first.
 
 <br />
-:computer: Load necessary modules and start IGV
-
+:computer: **Load necessary modules** and start IGV
 {% highlight bash %}
 module load bioinfo-tools
 module load IGV/2.3.40
@@ -1016,7 +1015,7 @@ perform all of these steps from within the DE folder that you created earlier.
 
 Start by copying the scripts from the course folder to your DE directory.
 
-:computer: Move to DE and copy R-scripts
+:computer: **Move** to DE and **copy** R-scripts
 <details>
 <summary>:key: Click to see how to copy the files to your DE folder</summary>
 {% highlight bash %}
@@ -1027,14 +1026,13 @@ cp /sw/courses/ngsintro/rnaseq_2016/bonus/visual/*.R .
 
 You should now have four files in your DE folder.
 <br />
-
+<br />
 We start off by creating similar plots to how data is visualised in IGV, but using R means that we could add other types of information that are not implemented in IGV.
 
 :mag: To look at read coverage in our bam files for a gene of interest (pick
 one that was reported to be differentially expressed) and go to the Ensembl to identify genomic coordinates and chromosome location for this gene.
 
 :computer: Run the script named genePlot.R
-
 {% highlight bash %}
 Rscript genePlot.R chromosome start stop
 {% endhighlight %}
@@ -1049,7 +1047,7 @@ Rscript genePlot.R 14 31217860 31230350
 This will generate a plot named coverage.pdf that show annotations and
 read coverage for the 6 bam files we use in the analysis for
 chromosome 14 from postion 31217860 to 31230350. 
-
+<br />
 :computer: To view the file copy it from Uppmax to your own computer and open it in a
 pdf reader.
 <details>
@@ -1097,6 +1095,7 @@ Rscript MDSplot.R
 <br />
 This generates another pdf file named MAplot.pdf in the DE folder. To
 view it copy it to your local disk as before.
+<br />
 
 :open_mouth: Based on these results are you surprised that your DE analysis
 detected a fairly large number of significant genes?
@@ -1122,6 +1121,7 @@ Rscript MAplot.R
 <br />
 
 :open_mouth: What do you think the red dots represent?
+<br />
 
 A related type of figure will instead plot fold change (on log2 scale) on the x-axis
 and -log10 p-value on the y-axis. Scaling like this means that genes
@@ -1140,6 +1140,7 @@ Rscript Volcano.R
 <br />
 
 :open_mouth: Anything noteworthy about the patterns in the plot?
+<br />
 
 Other type of popular types of plots for genome-wide expression
 pattern is to create heatmaps for sets of genes. If you run the script
@@ -1248,7 +1249,8 @@ cp /sw/courses/ngsintro/rnaseq_2016/bonus/denovo/*.fasta ~/glob/transcriptome/tr
 </details>
 <br />
 
-Check the manual of trinity again and try to figure out what parameters and settings that are needed to start trinity on the test data. Remember to try and use all 8 cores.
+:mag: Check the manual of Trinity again and try to figure out what parameters and settings that are needed to start trinity on the test data. Remember to try and use all 8 cores.
+<br />
 
 :computer: Run Trinity command
 <details>
@@ -1275,10 +1277,11 @@ grep ">" -c
 {% endhighlight %}
 </details>
 <br />
+<br />
 :open_mouth: What is the -c switch doing?
 <br />
+<br />
 :computer: Get basic information about the assembly with TrinityStats.
-
 {% highlight bash %}
 /sw/apps/bioinfo/trinity/2.1.0/milou/util/TrinityStats.pl Trinity.fasta
 {% endhighlight %}
