@@ -27,7 +27,7 @@ Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)
 **09.00-11.00** [Lecture: Next Generation Sequencing Overview](slides/Sequencing_OVP2016_a.pptx) (Olga Vinnere Pettersson)  
 **11:00-12.00** Lecture: NGS and bioinformatics analysis pipelines (Adam Ameur)   
 **12.00-13.00** Lunch at BMC restaurant   
-**13.00-14.00** Lecture: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats (Anna Johansson)  
+**13.00-14.00** [Lecture: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats](../1601/slides/NGS_AJ_201511.pdf) (Anna Johansson)  
 **14.00-17.00** [Exercise: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part I](labs/resequencing-analysis) (Anna Johansson, Johan Reimegård, Sebastian DiLorenzo, Lucile Soler) 
 
 **18:00-** Course dinner at TBA  
