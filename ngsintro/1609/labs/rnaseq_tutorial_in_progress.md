@@ -605,18 +605,10 @@ Follow :computer: icon for running the module on Uppmax. Follow :floppy_disk: to
  `biocLite(c("goseq","GO.db","reactome.db","org.Mm.eg.db"))`
 <br />
 
-To perform the exercise you will need data included in the following location at Uppmax:
+<br />
+:computer: :floppy_disk: To perform the exercise you will need data included in the following location at Uppmax:
 <br />
  `/sw/courses/ngsintro/rnaseq_2016/bonus/funannot`
-<br />
-
-:computer: **Copy over** the directory to your working space _transcriptome_
-<details>
-<summary>:key: Click to see an example of a command</summary>
-{% highlight bash %}
-cp -r /sw/courses/ngsintro/rnaseq_2016/bonus/funannot/ ~/glob/transcriptome/
-{% endhighlight %}
-</details>
 <br />
 
 :floppy_disk: **Copy over** the directory to your working directory on your local computer
@@ -627,6 +619,14 @@ cp -r /sw/courses/ngsintro/rnaseq_2016/bonus/funannot/ ~/glob/transcriptome/
  {% endhighlight %}
 </details>
 
+:computer: **Copy over** the directory to your working space _transcriptome_
+<details>
+<summary>:key: Click to see an example of a command</summary>
+{% highlight bash %}
+cp -r /sw/courses/ngsintro/rnaseq_2016/bonus/funannot/ ~/glob/transcriptome/
+{% endhighlight %}
+</details>
+<br />
 
 ## Workflow
 
@@ -644,7 +644,7 @@ cp -r /sw/courses/ngsintro/rnaseq_2016/bonus/funannot/ ~/glob/transcriptome/
 <details>
 <summary>:key: Click to see how</summary>
 {% highlight bash %}
-cd /funannot
+cd ~glob/transcriptome/funannot
 {% endhighlight %}
 </details>
 <br />
@@ -662,7 +662,30 @@ Rscript annotate_de_results.R
 The results will be saved in the directory *GO\_react\_results*.
 <br />
 
-Alternatively, you can open the script in RStudio (or a text editor such as Atom or Sublime) and execute each step of the script in a live R session. This way you will be able to "see inside" the script and try to follow the individual steps.  
+:floppy_disk: **Enter** the exercise working directory:
+<details>
+<summary>:key: Click to see how</summary>
+{% highlight bash %}
+cd /funannot
+{% endhighlight %}
+</details>
+<br />
+and you are ready to start the exercise.
+<br />
+
+:floppy_disk: **To perform the functional annotation** you can use a wrapper script *annotate\_de\_results.R*, which is executed as in the main exercise:
+<details>
+<summary>:key: Click to see how</summary>
+{% highlight bash %}
+Rscript annotate_de_results.R
+{% endhighlight %}
+</details>
+<br />
+The results will be saved in the directory *GO\_react\_results*.
+<br />
+
+
+:floppy_disk: Alternatively, you can open the script in RStudio (or a text editor such as Atom or Sublime) and execute each step of the script in a live R session. This way you will be able to "see inside" the script and try to follow the individual steps.  
 
 ## Interpretation
 The results are saved as tables in the directory *GO\_react\_results*.
