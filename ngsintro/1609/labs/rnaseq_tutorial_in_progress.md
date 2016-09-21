@@ -43,7 +43,7 @@ The material for RNA-seq was collected from 2 conditions (wt and YAP(kd)TAZ(kd))
 For the purpose of this tutorial,  that is to shorten the time needed to run various bioinformatics steps, we have down-sampled the original files. We randomly sampled, without replacement, 25% reads from each sample, using fastq-sample from the [fastq-tools](http://homes.cs.washington.edu/~dcjones/fastq-tools/) tools.
 
 # Bioinformatics: processing raw sequencing files
-Reading manuals, trying different tools/options, finding solutions to problems are daily routine work for bioinformaticians. By now you should have some experience with using command line and various bioinformatic tools, so in order to feel like a pro we encourage you to try your own solutions to the problems below, before checking the solution key. Click to see the suggested answers to compare them with your own solutions. Discuss with person next to you and ask us when in doubt. Remember that there are more than one way to skin a cat. Have fun!
+Reading manuals, trying different tools/options, finding solutions to problems are daily routine work for bioinformaticians. By now you should have some experience with using command line and various bioinformatic tools, so in order to feel like a pro we encourage you to try your own solutions to the problems below, before checking the solution key. Click to see the suggested answers to compare them with your own solutions. Discuss with person next to you and ask us when in doubt. Remember that there is more than one way to skin a cat. Have fun!
 
 <br />
 [Jump to the top](#begin)
@@ -894,7 +894,7 @@ have to download some of the bam files (and the corresponding index
 files) from Upppmax. If you have not yet installed IGV you also
 have to get a copy of the program. 
 
-:floppy_disk: Copy bam files to your local computer
+:floppy_disk: Copy bam files to your local computer and run IGV
 <details>
 <summary>:key: Click to see how to transfer files from Uppmax</summary>
 {% highlight bash %}
@@ -914,7 +914,6 @@ ssh -Y username@milou.uppmax.uu.se
 ssh -Y computenode
 {% endhighlight %}
 </details>
-<br />
 This will allow any graphical interface that you start
 on your compute node to be exported to your computer. However, as
 the graphics is exported over the network it can be fairly slow in
@@ -929,6 +928,7 @@ reserved compute node also here. This is done by opening a terminal in
 the running linux environment and log on to your compute node as before
 NB! If you have no active reservation you have to do that first.
 
+<br />
 :computer: Load necessary modules and start IGV
 
 {% highlight bash %}
@@ -941,6 +941,7 @@ This should start the IGV so that it is visible on your screen. If not please tr
 reconnect to Uppmax or consider running IGV locally as that is often
 the fastest and most convinient solution. 
 
+<br />
 :computer: :floppy_disk: Once we have the program running you select the genome that you would
 like to load. As seen in the image below. 
 
@@ -1045,7 +1046,6 @@ Rscript genePlot.R 14 31217860 31230350
 {% endhighlight %}
 </details>
 <br />
-
 This will generate a plot named coverage.pdf that show annotations and
 read coverage for the 6 bam files we use in the analysis for
 chromosome 14 from postion 31217860 to 31230350. 
@@ -1095,7 +1095,6 @@ Rscript MDSplot.R
 {% endhighlight %}
 </details>
 <br />
-
 This generates another pdf file named MAplot.pdf in the DE folder. To
 view it copy it to your local disk as before.
 
@@ -1237,7 +1236,6 @@ R: the single read is in the antisense (reverse) orientation
 By setting the --SS\_lib\_type parameter to one of the above, you are indicating that the reads are strand-specific.
 By default, reads are treated as not strand-specific.
 
-## Trinity on Uppmax, example command line
 
 :computer: Load modules and copy data
 <details>
@@ -1248,16 +1246,18 @@ mkdir ~/glob/transcriptome/trinity
 cp /sw/courses/ngsintro/rnaseq_2016/bonus/denovo/*.fasta ~/glob/transcriptome/trinity/
 {% endhighlight %}
 </details>
+<br />
 
 Check the manual of trinity again and try to figure out what parameters and settings that are needed to start trinity on the test data. Remember to try and use all 8 cores.
 
-:computer: Trinity command
+:computer: Run Trinity command
 <details>
 <summary>:key: Click for a complete trinity command using 8 cores</summary>
 {% highlight bash %}
 Trinity --seqType fa --left mouse_left.fasta --right mouse_right.fasta --SS_lib_type RF --CPU 8 --max_memory 16G --output trinity_out/
 {% endhighlight %}
 </details>
+<br />
 
 NB! -It is recommended to use fully specified paths for sequence files with Trinity.
     -Depending on version of Trinity used --max_memory is sometime given by the command --JM
@@ -1274,9 +1274,9 @@ Transcripts are grouped as follows: * components: the set of all sequences that 
 grep ">" -c
 {% endhighlight %}
 </details>
-
+<br />
 :open_mouth: What is the -c switch doing?
-
+<br />
 :computer: Get basic information about the assembly with TrinityStats.
 
 {% highlight bash %}
@@ -1290,7 +1290,6 @@ grep ">" -c
 
 :computer: Filter out sequences shorter than 1000 nucleotides 
 hint: do a web search for appropriate tools. Someone else must have had the exact same problem. Count the number of sequences again.
-
 <details>
 <summary>:key: Click to a solution</summary>
 {% highlight bash %}
@@ -1299,6 +1298,7 @@ fasta_formatter -i Trinity.fasta -o Trinity.formated
 fastx_clipper -l 1000 -i Trinity.formated -o Trinity1000.fasta
 {% endhighlight %}
 </details>
+<br />
 
 :open_mouth: What is the fasta_formatter step doing?
 <br />
