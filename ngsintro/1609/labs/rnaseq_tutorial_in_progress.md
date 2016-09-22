@@ -1048,7 +1048,7 @@ This will generate a plot named coverage.pdf that show annotations and
 read coverage for the 6 bam files we use in the analysis for
 chromosome 14 from postion 31217860 to 31230350. 
 <br />
-:computer: To view the file copy it from Uppmax to your own computer and open it in a
+:floppy_disk: To view the file copy it from Uppmax to your own computer and open it in a
 pdf reader.
 <details>
 <summary>:key: Click to see command to copy files</summary>
@@ -1148,8 +1148,7 @@ called heatmap.R from the folder where you DE is saved it will extract
 the 50 genes that have the lowest p-value in the experiment, hence the
 top differentially expressed genes between the treatments and create a
 heatmap from these. In addition to colorcoding the expression values
-over samples for the genes it also clusters the samples and genes. You
-can compare this plot to a similar plot in the paper behind the data.
+over samples for the genes it also clusters the samples and genes.
 
 :computer: Run the script named heatmap.R
 <details>
@@ -1159,7 +1158,8 @@ Rscript heatmap.R
 {% endhighlight %}
 </details>
 <br />
-
+:open_mouth: Compare this plot to a similar plot in the paper behind the data.
+<br />
 Most of these plots can be done with a limited set of code. In many
 cases these "standard" plots can be created with two to three lines of
 code as the packages that has been written to handle RNA-seq
