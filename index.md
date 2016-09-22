@@ -30,4 +30,5 @@ title:  'Welcome'
 
 [2015 October - Uppsala](rnaseq/1510/)  
 [2016 April - Uppsala](rnaseq/1604/)  
+[2016 October - Uppsala](rnaseq/1610/)  
 [RNAseq tutorials](rnaseq/labs)  
