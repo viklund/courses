@@ -351,7 +351,7 @@ done
 <details>
 <summary>:key: Click to see how to sort BAM file</summary>
 {% highlight bash %}
-samtools sort -o ~/glob/rnaseq_tst/trx/bams/SRR3222409_Aligned.out.sorted.bam -T sort_temp ~/glob/rnaseq_tst/trx/bams/SRR3222409_Aligned.out.bam
+samtools sort -o ~/glob/transcriptome/bams/SRR3222409_Aligned.out.sorted.bam -T sort_temp ~/glob/transcriptome/bams/SRR3222409_Aligned.out.bam
 {% endhighlight %}
 </details>
 <br />
