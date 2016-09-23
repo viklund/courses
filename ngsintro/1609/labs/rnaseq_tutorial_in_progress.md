@@ -55,7 +55,7 @@ To get going, let's book a node, create a working folder in the _glob_ directory
 <details>
 <summary>:key: Click to see how to book a node</summary>
 {% highlight bash %}
-salloc -A g2016017 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2016017_4 &
+salloc -A g2016017 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2016017_thursday &
 {% endhighlight %} 
 </details>  
 <br />
@@ -413,7 +413,7 @@ module load QualiMap/2.2
 <details>
 <summary>:key: Click to see the suggested commands</summary>
 {% highlight bash %}
-qualimap rnaseq -pe -bam ~/glob/rnaseq_tst/trx/bams/SRR3222409_Aligned.out.sorted.bam -gtf ~/glob/rnaseq_tst/trx/reference/Mus_musculus.GRCm38.85.gtf --outdir ~/glob/rnaseq_tst/trx/qualimap/SRR3222409 --java-mem-size=63G > /dev/null 2>&1
+qualimap rnaseq -pe -bam ~/glob/transcriptome/bams/SRR3222409_Aligned.out.sorted.bam -gtf ~/glob/rnaseq_tst/trx/reference/Mus_musculus.GRCm38.85.gtf --outdir ~/glob/rnaseq_tst/trx/qualimap/SRR3222409 --java-mem-size=63G > /dev/null 2>&1
 {% endhighlight %}
 </details>
 <br />
