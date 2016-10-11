@@ -19,7 +19,7 @@ Room:
 
 **Wednesday 26th**  
 Room:  
-**09:00-10.00** [Lecture: RNA-seq Quality Control](slides/not_yet_available.pdf) (Johan Reimegård)  
+**09:00-10.00** [Lecture: RNA-seq Quality Control](slides/not_yet_available.pdf) (Åsa Björklund)  
 **10.15-11.00** [Lecture: Differential expression analysis](slides/not_yet_available.pdf) (Mikael Huss)  
 **11:00-12.00** [Lecture: Gene-set analysis and data integration](slides/not_yet_available.pdf) (Leif Väremo)  
 **12.00-13.00** Lunch  
@@ -32,7 +32,7 @@ Room:
 **10:15-11:00** [Lecture: Single cell RNA-seq analysis](slides/not_yet_available.pdf) (Åsa Björklund)  
 **11:00-12:00** [Lecture: Allele Specific Expression](slides/not_yet_available.pdf) (Olof Emanuelsson)  
 **12.00-13.00** Lunch  
-**13.00-17.00** [Exercise: ](../labs/index) (Åsa Björklund, Johan Reimegård)  
+**13.00-16.00** [Exercise: ](../labs/index) (Åsa Björklund, Johan Reimegård)  
 **16.00-17.00** [Lecture: Summary of the week ](labs/) (Johan Reimegård)  
 
  
