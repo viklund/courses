@@ -28,7 +28,7 @@ Room:
 
 **Thursday 27th**  
 Room:  
-**09.00-10.00** [Lecture: miRNA analysis](slides/not_yet_available.pdf) (Johan Reimegård) 
+**09.00-10.00** [Lecture: miRNA analysis](slides/not_yet_available.pdf) (Johan Reimegård)  
 **10:15-11:00** [Lecture: Single cell RNA-seq analysis](slides/not_yet_available.pdf) (Åsa Björklund)  
 **11:00-12:00** [Lecture: Allele Specific Expression](slides/not_yet_available.pdf) (Olof Emanuelsson)  
 **12.00-13.00** Lunch  
