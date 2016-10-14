@@ -22,9 +22,9 @@ In the second part of the exercise, you will play with mutation data that have a
 ##Further reading:
 For information about MutTect,  Annovar, the dataset and GATK's best practice for variant discovery, please see  
 MuTect: https:/www.broadinstitute.org/cancer/cga/mutect  
-Annovar: http://annovar.openbioinformatics.org/en/latest/
+Annovar: http://annovar.openbioinformatics.org/en/latest/  
 GATK: https://www.broadinstitute.org/gatk/guide/bp_step.php?p=1  
-The data set: https://www.synapse.org/#!Synapse:syn312572/wiki/62018 for details 
+The data set: https://www.synapse.org/#!Synapse:syn312572/wiki/62018 for details  
 
 
 
