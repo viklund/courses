@@ -3,10 +3,10 @@ Malin Larsson
 malin.larsson@scilifelab.se  
 Practical exercise in the course "Advanced Next Generation Sequencing data analysis" at University of Gothenburg, October 2015.  
 ## Introduction
-Detection of cancer mutations is different from the detection of germline genetic variants. This is mainly because we are interested in somatic mutations, which are the differences between tumor and germline DNA. 
-Difficulties arise because tumor samples are often impure due to a mixture of tumor and normal cells, tumors consists of sub-clones with different somatic mutations and tumors are not completely diploid due to copy number aberrations.  
-Germline genotype callers such as GATK's HaplotypeCaller are optimized for diploid samples or samples of known ploidy, and for detecting variants with allele frequencies close to 0.5 or 1. Therefore, somatic variants should be called with specialized callers.
-Somatic variant calling in matched tumor-normal samples includes calling single nucleotide variants (SNVs), structural variants (SVs) and copy number variants (CNVs). Several algorithms for detecting these types of genetic variants are available, and they may give slightly different results. Ambitious efforts have been made to identify the most accurate mutation detection algorithm, and to propose a best practise work flow. Please see reports on this here:   
+In this exercise we analyze somatic mutations in cancer, which is a bit different from the identification of inherited germline variants. Difficulties arise because tumor samples are often impure due to a mixture of tumor and normal cells, tumors are often not completely diploid due to copy number aberrations and tumors may consist of sub-clones with different somatic mutations.  
+Germline genotype callers such as GATK's HaplotypeCaller are optimized for diploid samples or samples of known ploidy, and for detecting variants with allele frequencies close to 0.5 or 1. Therefore, somatic variants should be called with specialized callers.  
+
+A complete analysis of genomic abberations in a tumor would include analysis of somatic single nucleotide variants (SNVs), structural variants (SVs) and copy number variants (CNVs). Several algorithms for detecting these types of somatic variation are available. Ambitious efforts have been made to compare the results of different somatic variant detection algorithms, and to propose a best practise work flow. Reports from these benchmarks are available here:   
 https://www.synapse.org/#!Synapse:syn312572/wiki/58893  
 http://bcb.io/2015/03/05/cancerval  
 ## Part one - somatic variant detection and annotation
