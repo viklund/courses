@@ -4,7 +4,7 @@ malin.larsson@scilifelab.se
 Practical exercise in the course "Advanced Next Generation Sequencing data analysis" at University of Gothenburg, October 2015.  
 ## Introduction
 In this exercise we will analyze somatic mutations in cancer, which is a bit different from the identification of inherited germline variants. Difficulties arise because tumor samples are often a mixture of tumor and normal cells, tumors may consist of sub-clones with different somatic mutations and tumors cells are often not completely diploid due to copy number variation.  
-![](fig/hallmarks_of_cancer.png)   
+![](fig/hallmarks_of_cancer.jpg)   
 Figure 1: Illustration of a cancer tumor. Hanahan and Weinberg, Hallmarks of Cancer: The Next Generation, Cell 2011
 
 
