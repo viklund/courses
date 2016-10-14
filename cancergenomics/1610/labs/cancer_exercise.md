@@ -14,8 +14,7 @@ http://www.nature.com/articles/ncomms10001
 
 ## Part one - somatic SNV detection and annotation
 We will use the algorithm MuTect1 to detect somatic single nucleotide variants (SNVs) in tumor samples, and annotate the detected variants with the algorithm Annovar. 
-For this we will use whole genome sequence data from two cancer cell lines, and from cell lines derived from normal tissue from the same donors. The data is part of a publicly available data set that has been used for benchmarking mutation detection algorithms. (Plese see https://https://www.synapse.org/#!Synapse:syn312572/wiki/62018 for details).  
-We will work with the two samples HCC1143 and HCC1954, both originating from ductal carcinoma of the breast. The corresponding normal samples HCC1143_BL and HCC1954_BL are derived from blood from the same individuals.  
+For this we will use whole genome sequence data from two cancer cell lines, and from cell lines derived from normal tissue from the same donors. The data is part of a publicly available data set that has been used for benchmarking mutation detection algorithms. We will work with the two samples HCC1143 and HCC1954, both originating from ductal carcinoma of the breast. The corresponding normal samples HCC1143_BL and HCC1954_BL are derived from blood from the same individuals.  
 Your analysis will be limited to a small region of chromosome 17 (17:1000000-9000000), simply because the entire genome would take days to analyze and the important thing is that you learn how to use the algorithms.  
 You will start with .bam files that were generated according to GATK's best practice for variant discovery (tumor and normal .bam files were generated separately). 
 ## Part two - Whole genome data and effect of normal contamination
@@ -23,9 +22,9 @@ In the second part of the exercise, you will play with mutation data that have a
 ##Further reading:
 For information about MutTect,  Annovar, the dataset and GATK's best practice for variant discovery, please see  
 MuTect: https:/www.broadinstitute.org/cancer/cga/mutect  
-Annovar: http://annovar.openbioinformatics.org/en/latest/  
-The data set: https://cghub.ucsc.edu/datasets/benchmark_download.html  
+Annovar: http://annovar.openbioinformatics.org/en/latest/
 GATK: https://www.broadinstitute.org/gatk/guide/bp_step.php?p=1  
+The data set: https://www.synapse.org/#!Synapse:syn312572/wiki/62018 for details 
 
 
 
