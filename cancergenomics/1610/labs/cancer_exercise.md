@@ -252,13 +252,10 @@ $data=/home/teacher2/cancer_genomics_2015/data
 ```
 ln -s $data/wgs/HCC1143.final.vcf  HCC1143.final.vcf
 ln -s $data/data/wgs/HCC1954.final.vcf HCC1954.vcf
-ln -s $data/wgs/HCC1143.avinput.variant_function \
-HCC1143.avinput.variant_function
-ln -s $data/wgs/HCC1143.avinput.exonic_variant_function \
-HCC1143.avinput.exonic_variant_function
-ln -s $data/wgs/HCC1954.avinput.variant_function \
-HCC1954.avinput.variant_function
-ln -s $data/wgs/HCC1954.avinput.exonic_variant_function \ HCC1954.avinput.exonic_variant_function
+ln -s $data/wgs/HCC1143.avinput.variant_function HCC1143.avinput.variant_function
+ln -s $data/wgs/HCC1143.avinput.exonic_variant_function HCC1143.avinput.exonic_variant_function
+ln -s $data/wgs/HCC1954.avinput.variant_function HCC1954.avinput.variant_function
+ln -s $data/wgs/HCC1954.avinput.exonic_variant_function HCC1954.avinput.exonic_variant_function
 ``` 
 
 ## check sample names  
