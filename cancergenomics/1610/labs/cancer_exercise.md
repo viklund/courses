@@ -3,7 +3,7 @@ Malin Larsson
 malin.larsson@scilifelab.se  
 Practical exercise in the course "Advanced Next Generation Sequencing data analysis" at University of Gothenburg, October 2015.  
 ## Introduction
-In this exercise we will analyze somatic mutations in cancer, which is a bit different from the identification of inherited germline variants. Difficulties arise because tumor samples are often a mixture of tumor and normal cells (Figure 1), tumors may consist of sub-clones with different somatic mutations and tumors cells are often not completely diploid due to copy number variation. Germline genotype callers such as GATK's HaplotypeCaller are optimized for diploid samples or samples of known ploidy, and for detecting variants with allele frequencies close to 0, 0.5 or 1. Therefore, somatic variants should be called with specialized callers.   
+In this exercise we will analyze somatic mutations in cancer, which is a bit different from the identification of inherited germline variants. Difficulties arise because a tumor sample often contain a mixture of tumor and normal cells (Figure 1), tumors may consist of sub-clones with different somatic mutations and tumors cells are often not completely diploid due to copy number variation. Germline genotype callers such as GATK's HaplotypeCaller are optimized for diploid samples or samples of known ploidy, and for detecting variants with allele frequencies close to 0, 0.5 or 1. Therefore, somatic variants should be called with specialized callers.   
 ![](fig/hallmarks_of_cancer.jpg)   
 Figure 1: Illustration of the complexity of a tumor sample. Published by Hanahan and Weinberg, Hallmarks of Cancer: The Next Generation, Cell 2011  
   
