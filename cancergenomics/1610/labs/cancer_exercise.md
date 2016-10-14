@@ -13,7 +13,7 @@ http://www.nature.com/articles/ncomms10001
 
 
 ## Part one - somatic SNV detection and annotation
-In the first part of the exercise, you will detect somatic single nucleotide variants (SNVs) in tumor samples using the algorithm MuTect, and annotate the detected variants with the algorithm Annovar. 
+In the first part of the exercise, you will use the algorithm MuTect1 to detect somatic single nucleotide variants (SNVs) in tumor samples, and annotate the detected variants with the algorithm Annovar. 
 The analysis will be done on whole genome sequence data derived from two breast cancer cell lines. The two cell lines (HCC1143 and HCC1954) can be thought of as two individuals. You are provided with a "tumor sample" and "matched normal sample" from each individual. The data is part of a publicly available synthetic tumor data set that has been used for benchmarking mutation detection algorithms.  
 Your analysis will be limited to a small region of chromosome 17 (17:1000000-9000000), simply because the entire genome would take days to analyze and the important thing is that you learn how to use the algorithms.  
 You will start with .bam files that were generated according to GATK's best practice for variant discovery (tumor and normal .bam files were generated separately). 
