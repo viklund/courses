@@ -25,9 +25,8 @@ MuTect: https:/www.broadinstitute.org/cancer/cga/mutect
 Annovar: http://annovar.openbioinformatics.org/en/latest/  
 GATK: https://www.broadinstitute.org/gatk/guide/bp_step.php?p=1  
 The data set: https://www.synapse.org/#!Synapse:syn312572/wiki/62018    
-
-
-
+  
+  
 # Part one - somatic variant detection and annotation
 You will perform the following steps:  
 
@@ -227,8 +226,8 @@ Answer the questions below using "grep" "|" and "wc":
  How many of the filtered somatic variants are present in the Cosmic70 database?
  Is any of the filtered somatic variant present in both the Cosmic70 and Exac03 databases?
  Are there any filtered somatic mutations in exons of the TP53 gene?
-
-
+  
+  
 ## Part two - Whole genome data
 In this part of the exercise you will work with data that was generated exactly as above, but for the entire genome. The same samples (HCC1143 and HCC1954) have been analyzed, but in addition to the normal and the tumor we have included four known mixtures of normal and tumor DNA. All 6 samples are present in the same vcf files.  
 ## Data
