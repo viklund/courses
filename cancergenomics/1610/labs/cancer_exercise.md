@@ -35,18 +35,18 @@ You will perform the following steps:
 
 1. Add read group information to the .bam files  
 1. Perform indel realignment simultaneously for the normal and tumor .bam files  
-1. Run MuTect  
+1. Run MuTect1  
 1. Filter the results so that only the most likely somatic variants are kept
 1. Annotate the filtered variants with RefSeq genes, Cosmic70 mutations and Exac03 variant using Annovar
 
-Figure 1 shows an overview of the workflow of this part of the exercise. 
+Figure 2 shows an overview of the workflow of this part of the exercise. 
 
 Start by running through the analysis for one sample, and save all commands to a text file. If you have time you can analyze the second sample as well in the end of the exercise (it will be faster this time since you have saved all commands).
 ![](fig/flowchart.png)   
-Figure 1: Workflow of somatic variant detection and annotation.
+Figure 2: Workflow of somatic variant detection and annotation.
 
 ## Data
-Bam files are located here:
+Bam files are located here:  
 /home/teacher2/cancer_genomics_2015/data/chr17/HCC1143.normal.bam
 /home/teacher2/cancer_genomics_2015/data/chr17/HCC1143.tumor.bam   
 /home/teacher2/cancer_genomics_2015/data/chr17/HCC1954.normal.bam
