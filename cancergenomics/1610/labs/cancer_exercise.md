@@ -8,8 +8,10 @@ In this exercise we will analyze somatic mutations in cancer, which is a bit dif
 Figure 1: Illustration of the complexity of a tumor sample. Published by Hanahan and Weinberg, Hallmarks of Cancer: The Next Generation, Cell 2011  
   
 A complete analysis of the genomic abberations in a tumor sample would include analysis of somatic single nucleotide variants (SNVs), structural variants (SVs) and copy number variants (CNVs). Several algorithms for detecting these types of somatic variation are available. Ambitious efforts have been made to compare the results of different somatic variant detection algorithms and propose a best practise work flow. Reports from these benchmarks are available here:   
-https://www.synapse.org/#!Synapse:syn312572/wiki/58893  
-http://bcb.io/2015/03/05/cancerval  
+http://www.nature.com/nmeth/journal/v12/n7/full/nmeth.3407.html   
+http://www.nature.com/articles/ncomms10001  
+
+
 ## Part one - somatic SNV detection and annotation
 In the first part of the exercise, you will detect somatic single nucleotide variants (SNVs) in tumor samples using the algorithm MuTect, and annotate the detected variants with the algorithm Annovar. 
 The analysis will be done on whole genome sequence data derived from two breast cancer cell lines (the two samples can be thought of as two individuals). You are provided with sequence data from the tumor sample and from the matched normal sample. Your analysis will be limited to a small region of chromosome 17 (17:1000000-9000000), simply because the entire genome would take days to analyze and the important thing is that you learn how to use the algorithms. 
