@@ -258,25 +258,22 @@ ln -s $data/wgs/HCC1954.avinput.variant_function HCC1954.avinput.variant_functio
 ln -s $data/wgs/HCC1954.avinput.exonic_variant_function HCC1954.avinput.exonic_variant_function
 ``` 
 
-## check sample names  
+## Check sample names  
 The names of the samples in the vcf files reflect the fraction of normal and tumor DNA in the samples. Check the  sample names by typing  
 ```
 grep "#^CHROM"  sampleid.final.vcf
 ```  
 where sampleid should be HCC1143 or HCC1954
 
-## Extract basing statistics
-
-###Tasks
-How many likely somatic mutations were detected with in the two tumors (HCC1143 and HCC1954)?
+## Questions
+Anser the following questions using a combination of "grep", "|” and "wc"
+How many likely somatic mutations were detected in the two tumor genomes (HCC1143 and HCC1954)?
 How many of these were located in exons?
 
 
 ### Normal contamination of the tumor samples
 Now you will look at the distribution of alternative allele frequencies over all detected mutations, and see how it is affected by normal contamination in the tumor sample. In this situation, the alternative allele frequency is defined as:  
 alt allele frequency =  (number of reads supporting the alternative allele)/(number of reads supporting the reference allele)  
-
-
 Use the python script "vcf2freq.py" available in  
 ```
 $scripts_dir (home/teacher2/scripts/cancer_genomics_2015/)
@@ -286,11 +283,11 @@ vcf2freq.py is started like this:
 ```
 $scripts_dir/vcf2freq.py sampleid.final.vcf out
 ```
-
 Where sampleid is HCC1143 or HCC1954 and out is the root name of the output .pdf file. 
-####Task
+
+## Questions
 What are the median allele frequencies (approximately) in the different samples? 
-Do the distributions of alternative allele frequencies fit with the proportions of tumor and normal DNA in the samples?
+Do the distributions of alternative allele frequencies in the different samples fit with the proportions of tumor and normal DNA in the samples?
 
 	
 			
