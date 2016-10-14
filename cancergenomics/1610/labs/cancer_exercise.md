@@ -14,7 +14,7 @@ http://www.nature.com/articles/ncomms10001
 
 ## Part one - somatic SNV detection and annotation
 Here you will use the algorithm MuTect1 to detect somatic single nucleotide variants (SNVs) in tumor samples, and annotate the detected variants with the algorithm Annovar. 
-The analysis will be done on whole genome sequence data of cell lines deried from tumor cells and blood cells from the same individuals. The two samples, HCC1143 and HCC1954, can be thought of as two individuals. You are provided with a "tumor sample" and "matched normal sample" from each individual. The data is part of a publicly available data set that has been used for benchmarking mutation detection algorithms.(https://www.synapse.org/#!Synapse:syn312572/wiki/58893 )
+For this we will use whole genome sequence data of two cancer cell lines, as well as cell lines derived from normal tissue from the same donors. The data is part of a publicly available data set that has been used for benchmarking mutation detection algorithms.(https://www.synapse.org/#!Synapse:syn312572/wiki/58893 ) We will work with the two samples HCC1143 and HCC1954, both originating from ductal carcinoma of the breast. The corresponding normal samples HCC1143_BL and HCC1954_BL are derived from blood from the same individuals.  
 Your analysis will be limited to a small region of chromosome 17 (17:1000000-9000000), simply because the entire genome would take days to analyze and the important thing is that you learn how to use the algorithms.  
 You will start with .bam files that were generated according to GATK's best practice for variant discovery (tumor and normal .bam files were generated separately). 
 ## Part two - Whole genome data and effect of normal contamination
