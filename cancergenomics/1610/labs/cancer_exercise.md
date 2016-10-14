@@ -32,6 +32,7 @@ The data set: https://www.synapse.org/#!Synapse:syn312572/wiki/62018
 
 ## Analysis
 You will perform the following steps:  
+
 1. Add read group information to the .bam files  
 1. Perform indel realignment simultaneously for the normal and tumor .bam files  
 1. Run MuTect  
