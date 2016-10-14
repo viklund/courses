@@ -95,7 +95,7 @@ ln -s $data/chr17/HCC1954.tumor.bam HCC1954.tumor.bam
 ```  
 
 ### AddOrReplaceReadGroups
-Use the Picard's method AddOrReplaceReadGroups to update the readgroup information in the tumor and normal bam files. AddOrReplaceReadGroups is distributed as jar file, started with this command:  
+Use the Picard's method AddOrReplaceReadGroups to update the readgroup information in the tumor and normal bam files. AddOrReplaceReadGroups is distributed as jar file, and is started with this command:  
 ```  
 java -jar $PICARD_HOME/AddOrReplaceReadGroups.jar
 ```  
