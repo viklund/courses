@@ -29,8 +29,6 @@ The data set: https://www.synapse.org/#!Synapse:syn312572/wiki/62018
 
 
 # Part one - somatic variant detection and annotation
-
-## Analysis
 You will perform the following steps:  
 
 1. Add read group information to the .bam files  
@@ -52,6 +50,7 @@ Bam files are located here:
 /home/teacher2/cancer_genomics_2015/data/chr17/HCC1954.normal.bam
 /home/teacher2/cancer_genomics_2015/data/chr17/HCC1954.tumor.bam
 
+## Analysis
 ### Include paths to software and reference files in your .bashrc
 Define paths to the software, data and reference files used the exercise. This is done by inserting the following lines into your .bashrc file (located in your home directory):
 ```
