@@ -228,7 +228,7 @@ Answer the questions below using "grep" "|" and "wc":
  Are there any filtered somatic mutations in exons of the TP53 gene?
   
   
-## Part two - Whole genome data
+# Part two - Whole genome data
 In this part of the exercise you will work with data that was generated exactly as above, but for the entire genome. The same samples (HCC1143 and HCC1954) have been analyzed, but in addition to the normal and the tumor we have included four known mixtures of normal and tumor DNA. All 6 samples are present in the same vcf files.  
 ## Data
 Filtered somatic mutations are available in these files:  
