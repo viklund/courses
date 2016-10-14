@@ -5,7 +5,8 @@ Practical exercise in the course "Advanced Next Generation Sequencing data analy
 ## Introduction
 In this exercise we will analyze somatic mutations in cancer, which is a bit different from the identification of inherited germline variants. Difficulties arise because tumor samples are often a mixture of tumor and normal cells, tumors may consist of sub-clones with different somatic mutations and tumors cells are often not completely diploid due to copy number variation. Germline genotype callers such as GATK's HaplotypeCaller are optimized for diploid samples or samples of known ploidy, and for detecting variants with allele frequencies close to 0, 0.5 or 1. Therefore, somatic variants should be called with specialized callers.   
 ![](fig/hallmarks_of_cancer.jpg)   
-Figure 1: Illustration of a cancer tumor. Hanahan and Weinberg, Hallmarks of Cancer: The Next Generation, Cell 2011  
+Figure 1: Illustration of the complexity of a tumor sample. Published by Hanahan and Weinberg, Hallmarks of Cancer: The Next Generation, Cell 2011  
+  
 A complete analysis of genomic abberations in a tumor would include analysis of somatic single nucleotide variants (SNVs), structural variants (SVs) and copy number variants (CNVs). Several algorithms for detecting these types of somatic variation are available. Ambitious efforts have been made to compare the results of different somatic variant detection algorithms, and to propose a best practise work flow. Reports from these benchmarks are available here:   
 https://www.synapse.org/#!Synapse:syn312572/wiki/58893  
 http://bcb.io/2015/03/05/cancerval  
