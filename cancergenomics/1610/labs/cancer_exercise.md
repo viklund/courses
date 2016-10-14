@@ -31,12 +31,12 @@ The data set: https://www.synapse.org/#!Synapse:syn312572/wiki/62018
 # Part one - somatic variant detection and annotation
 
 ## Analysis
-You will perform the following steps:
--Add read group information to the .bam files
--Perform indel realignment simultaneously for the normal and tumor .bam files
--Run MuTect
--Filter the results so that only the most likely somatic variants are kept
--Annotate the filtered variants with RefSeq genes, Cosmic70 mutations and Exac03 variant using Annovar
+You will perform the following steps:  
+1. Add read group information to the .bam files  
+1. Perform indel realignment simultaneously for the normal and tumor .bam files  
+1. Run MuTect  
+1. Filter the results so that only the most likely somatic variants are kept
+1. Annotate the filtered variants with RefSeq genes, Cosmic70 mutations and Exac03 variant using Annovar
 
 Figure 1 shows an overview of the workflow of this part of the exercise. 
 
