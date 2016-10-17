@@ -203,7 +203,7 @@ grep "^17" sampleid.mutect.vcf | wc
 6\. How many of the SNVs in the sampleid.mutect.vcf were judged to be somatic by MuTects's post detection filter?   
 
 ### Look at the filtetred mutations in IGV
-You should now use IGV to visualize a few of the somatic variants. To make the visualization in IGV faster, please copy the data files to your local computer and run IGV there. In your local computer:
+You should now use IGV to visualize a few of the somatic mutations. To make the visualization in IGV faster, please copy the data files to your local computer and run IGV there. In your local computer:
 ```
 scp username@rudy.biomedicine.gu.se:/path/to/your/cancer_dir/sampleid.mutect.somatic.vcf .
 scp username@rudy.biomedicine.gu.se:/path/to/your/cancer_dir/sampleid.normal.RG.realignedtogether.bam .
@@ -211,9 +211,20 @@ scp username@rudy.biomedicine.gu.se:/path/to/your/cancer_dir/sampleid.normal.RG.
 scp username@rudy.biomedicine.gu.se:/path/to/your/cancer_dir/sampleid.tumor.RG.realignedtogether.bam .
 scp username@rudy.biomedicine.gu.se:/path/to/your/cancer_dir/sampleid.tumor.RG.realignedtogether.bai .
 ```
-Open the vcf file and the tumor and normal bam files in your local IGV. For instructions on how to use IGV, please look at yesterdays exercise: http://bio.biomedicine.gu.se/~marcela/courses/2016/exome/visualization.html
+Open the .vcf file and the tumor and normal .bam files in your local IGV. For instructions on how to use IGV, please look at yesterdays exercise: http://bio.biomedicine.gu.se/~marcela/courses/2016/exome/visualization.html
+Zoom in and look at the region on Chromosome 17 that we have data for. This can be done by pasting 
+```
+17:1000000-9000000
+```
+into the IGV search window and press "Go". 
+Brows around and zoom into one or a few of the somatic mutations. By hoovering the mouse over a mutation you can see the number of alternative alleles in the normal and tumor samples respectively (this is done by hoovering the mouse over the mutation on the row that corresponds to the sampleid.normal and sampleid.tumor respectively). 
+Note down one mutated position and look at the corresponding mutation in the vcf file using this command:
+```
+grep 'position' sampleid.mutect.somatic.vcf
+Try to find a mutation that has an even ditribution of alternatve and reference alleles in the tumor sample. Zoom in on this position until you are at base-resolution so that you can see witch reads contain the alternative- and reference alleles. 
 
-
+### Question
+7/. What information from the vcf file is IGV showing for each mutation?
 
 ### Annotate the somatic SNVs using Annovar
 Use the tool Annovar to link the somatic variants detected in your sample to genes in the refGene database, mutations in the Cosmic70 database and mutations in the Exac03 database.  Annovar is distributed as a set of perl script and data files. You should use the script table_annovar.pl to annotate your data with information from refGene, Cosmic70 and exac03 in one command. 
