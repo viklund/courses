@@ -202,7 +202,7 @@ grep "^17" sampleid.mutect.vcf | wc
 4. Use a similar command to find out how many lines of metadata the sampleid.mutect.vcf file contains (including the header line). Hint: The "^" sign in the command above means that we are looking for lines that starts with the number "17". Now you should count the lines that starts with "#".  
 5. How many of the SNVs in the sampleid.mutect.vcf were judged to be somatic by MuTects's post detection filter?   
 
-### Look at the filtetred vcf file in IGV
+### Look at the filtetred mutations in IGV
 
 You should now use IGV to visualize a few of the somatic variants. You will look at the filtered vcf file and the bam files from the tumor and normal samples. To make the visualization in IGV faster, please copy the data files to your local computer and run IGV there.  
 In your local computer:
