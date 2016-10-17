@@ -175,7 +175,7 @@ Where
 "sampleid" should be replaced with "HCC1143" or "HCC1954"  
 sampleid.normal.RG.realignedtogether.bam and sampleid.normal.RG.realignedtogether.bam are the output files of IndelRealigned above.
 
-The output file sampleid.mutect.out will contain the complete statistics for all potential SNVs detected with MuTect. The different columns are described in this link: http://gatkforums.broadinstitute.org/discussion/4231/what-is-the-output-of-mutect-and-how-should-i-interpret-it.  
+The output file sampleid.mutect.out will contain the complete statistics for all potential SNVs detected with MuTect. The different columns of the file are described in this link: http://gatkforums.broadinstitute.org/discussion/4231/what-is-the-output-of-mutect-and-how-should-i-interpret-it.  
 The output file sampleid.mutect.vcf will contain all potential SNVs in vcf format.  
   
 Look at the file sampleid.mutect.vcf and try to understand on what format the genotype information is presented. 
