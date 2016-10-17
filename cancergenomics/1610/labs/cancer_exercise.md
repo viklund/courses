@@ -220,7 +220,7 @@ grep 'position' sampleid.mutect.somatic.vcf
 Try to find a mutation that has an even ditribution of alternatve and reference alleles in the tumor sample. Zoom in on this position until you are at base-resolution so that you can see witch reads contain the alternative- and reference alleles. 
 
 ### Question
-7/. What information from the vcf file is IGV showing for each mutation?
+7\. What information from the vcf file is IGV showing for each mutation?
 
 ### Annotate the somatic SNVs using Annovar
 Use the tool Annovar to link the somatic variants detected in your sample to genes in the refGene database, mutations in the Cosmic70 database and mutations in the Exac03 database.  Annovar is distributed as a set of perl script and data files. You should use the script table_annovar.pl to annotate your data with information from refGene, Cosmic70 and exac03 in one command. 
