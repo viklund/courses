@@ -2,7 +2,7 @@
 Malin Larsson  
 malin.larsson@scilifelab.se  
 Practical exercise in the course "Advanced Next Generation Sequencing data analysis" at University of Gothenburg, October 2015.  
-## Introduction
+### Introduction
 In this exercise we will analyze somatic mutations in cancer, which is a bit different from the identification of inherited germline variants. We are only interested in the somatic mutations that have occurred during the development of tumor cells, so the beckground of germline variants (also present in the tumor cells) must be filtered away. Difficulties arise because tumor samples often contain a mixture of cancer cells and normal cells (Figure 1), tumors may consist of sub-clones with different somatic mutations and cancer cells may not be diploid due to copy number variation. Germline genotype callers such as GATK's HaplotypeCaller are optimized for diploid samples or samples of known ploidy, and for detecting variants with allele frequencies close to 0, 0.5 or 1. Therefore, somatic variants should be called with specialized callers.   
 ![](fig/hallmarks_of_cancer.jpg)   
 Figure 1: Illustration of the complexity of a tumor sample. Published by Hanahan and Weinberg, Hallmarks of Cancer: The Next Generation, Cell 2011  
@@ -12,14 +12,14 @@ http://www.nature.com/nmeth/journal/v12/n7/full/nmeth.3407.html
 http://www.nature.com/articles/ncomms10001  
 
 
-## Part one - somatic SNV detection and annotation
+### Part one - somatic SNV detection and annotation
 We will use the algorithm MuTect1 to detect somatic single nucleotide variants (SNVs) in tumor samples, and annotate the detected variants with the algorithm Annovar. 
 For this we will use whole genome sequence data from two cancer cell lines, and from cell lines derived from normal tissue from the same donors. The data is part of a publicly available data set that has been used for benchmarking mutation detection algorithms. We will work with the two samples HCC1143.tumor and HCC1954.tumor, both originating from ductal carcinoma of the breast. The corresponding normal samples HCC1143.normal and HCC1954.normal are derived from blood from the same individuals.  
 Your analysis will be limited to a small region of chromosome 17 (17:1000000-9000000), simply because the entire genome would take days to analyze and the important thing is that you learn how to use the algorithms.  
 You will start with .bam files that were generated according to GATK's best practice for variant discovery (tumor and normal .bam files were generated separately). 
-## Part two - Whole genome data and effect of normal contamination
+### Part two - Whole genome data and effect of normal contamination
 In the second part of the exercise, you will play with mutation data that have already been generated in the same way as in part one, but for the entire genome and for some additional samples. You will be provided somatic mutations detected in tumor samples with a varying amount of "normal contamination", so that you can see how sample purity affects the results of genotype calling.
-##Further reading:
+### Further reading:
 For information about MutTect,  Annovar, the dataset and GATK's best practice for variant discovery, please see  
 MuTect: https:/www.broadinstitute.org/cancer/cga/mutect  
 Annovar: http://annovar.openbioinformatics.org/en/latest/  
