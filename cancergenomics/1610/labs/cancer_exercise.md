@@ -91,7 +91,7 @@ You should use the Picard's method AddOrReplaceReadGroups to update the readgrou
 ```  
 java -jar $PICARD_HOME/AddOrReplaceReadGroups.jar
 ```  
-When you start the program without input parameters like this, you will be provided with a help page that describes how to use the program and which paramter options that are available. 
+When you start the program without input parameters, you will be provided with a help page that describes how to use the program and which paramter options that are available. 
 Now run AddOrReplaceReadGroups for the tumor and the normal bam files separately, and specify the paramter options listed below (please replace "sampleid" with "HCC1143" or "HCC1954", and "normal with "tumor" as apropriate). It is a good practise to give the output file a name that shows how it was created, for example adding a "RG" to the original file name.   
 ```
 INPUT=sampleid.normal.bam
