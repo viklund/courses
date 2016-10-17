@@ -106,7 +106,7 @@ CREATE_INDEX=True
 ```  
 
 ### Realign Indels
-Use GATK to realign the tumor and normal .bam files simultaneously around potential insertions and deletions in the genome (indels). Firstly, you identify suspicious intervals that are likely in need of realignment using the method "RealignerTargetCreator". Secondly, you perform local realignment over those intervals using the method "IndelRealigner". 
+Not you should use GATK to realign the tumor and normal .bam files simultaneously around potential insertions and deletions in the genome (indels). Firstly, you should identify suspicious intervals that are likely in need of realignment using the method "RealignerTargetCreator". Secondly, you should perform local realignment over those intervals using the method "IndelRealigner". 
 To get instructions on how to use RealignerTargetCreator, please type:  
 ```
 java -jar $GATK_HOME/GenomeAnalysisTK.jar -T RealignerTargetCreator --help
@@ -117,7 +117,7 @@ java -jar $GATK_HOME/GenomeAnalysisTK.jar -T IndelRealigner --help
 ```  
 For more inforamtion please read about the specific GATK tools on https://www.broadinstitute.org/gatk/guide/tooldocs/  
 
-Now run RealignerTargetCreator with the following options:  
+Run RealignerTargetCreator with the following options:  
 ```
 -R $bundle/human_g1k_v37.fasta 
 -L 17:1000000-9000000 
