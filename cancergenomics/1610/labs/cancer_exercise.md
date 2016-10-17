@@ -213,8 +213,7 @@ scp username@rudy.biomedicine.gu.se:/path/to/your/cancer_dir/sampleid.tumor.RG.r
 ```
 Open the .vcf file and the tumor and normal .bam files in your local IGV. For instructions on how to use IGV, please look at yesterdays exercise: http://bio.biomedicine.gu.se/~marcela/courses/2016/exome/visualization.html
 Zoom in and look at the region on Chromosome 17 that we have data for. This can be done by pasting 17:1000000-9000000 into the IGV search window and press "Go".  
-Brows around and zoom into one or a few of the somatic mutations. By hoovering the mouse over a mutation you can see the number of alternative alleles in the normal and tumor samples respectively (this is done by hoovering the mouse over the mutation on the row that corresponds to the sampleid.normal and sampleid.tumor respectively). 
-Note down one mutated position and look at the corresponding mutation in the vcf file using this command:
+Brows around and zoom into one or a few of the somatic mutations. By hoovering the mouse over a mutation you can see the number of alternative alleles in the normal and tumor samples respectively (this is done by hoovering on the row that corresponds to the sampleid.normal and sampleid.tumor respectively). Note down one mutated position and look at the corresponding mutation in the vcf file using this command:  
 ```
 grep 'position' sampleid.mutect.somatic.vcf
 ```
