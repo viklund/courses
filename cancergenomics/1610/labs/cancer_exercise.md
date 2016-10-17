@@ -172,7 +172,7 @@ java -jar $MUTECT_HOME/muTect-1.1.5.jar
 --vcf sampleid.mutect.vcf
 ```  
 Where 
-Sampleid =  Either HCC1143 or HCC1954
+"sampleid" is HCC1143 or HCC1954
 sampleid.normal.RG.realignedtogether.bam and sampleid.normal.RG.realignedtogether.bam are the output files of IndelRealigned above.
 sampleid.mutect.out will contain the complete statistics for all potential SNVs detected with MuTect
 sampleid.mutect.vcf will contain all potential SNVs in vcf format  
