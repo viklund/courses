@@ -240,12 +240,12 @@ and specify the location of the database for human sequences to:
 $ANNOVAR_HOME/humandb/
 ```  
 ### Questions:
-Answer the questions below using a combination of the commands "grep" "|" and "wc":
-7\. How many of filtered somatic variants in your samples are located in exons?
-8\. How many of the filtered somatic variants are present in the Exac03 database?
-9\. How many of the filtered somatic variants are present in the Cosmic70 database?
-10\. Is any of the filtered somatic variant present in both the Cosmic70 and Exac03 databases?
-11\. Are there any filtered somatic mutations in exons of the TP53 gene?
+Answer the questions below using a combination of the commands "grep" "|" and "wc":  
+7\. How many of filtered somatic variants in your samples are located in exons?  
+8\. How many of the filtered somatic variants are present in the Exac03 database?  
+9\. How many of the filtered somatic variants are present in the Cosmic70 database?  
+10\. Is any of the filtered somatic variant present in both the Cosmic70 and Exac03 databases?  
+11\. Are there any filtered somatic mutations in exons of the TP53 gene?  
   
   
 # Part two - Whole genome data
@@ -286,10 +286,9 @@ grep "#^CHROM"  sampleid.final.vcf
 where sampleid should be HCC1143 or HCC1954
 
 ### Questions
-Anser the following questions using a combination of the commands "grep", "|” and "wc"
-12\. How many likely somatic mutations were detected in the two tumor genomes (HCC1143 and HCC1954)?
-13\. How many of these were located in exons?
-
+Anser the following questions using a combination of the commands "grep", "|” and "wc":  
+12\. How many likely somatic mutations were detected in the two tumor genomes (HCC1143 and HCC1954)?  
+13\. How many of these were located in exons?  
 
 ### Normal contamination of the tumor samples
 Now you will look at the distribution of alternative allele frequencies over all detected mutations, and see how it is affected by normal contamination in the tumor sample. In this situation, the alternative allele frequency is defined as:  
@@ -306,8 +305,8 @@ $scripts_dir/vcf2freq.py sampleid.final.vcf out
 Where sampleid is HCC1143 or HCC1954 and out is the root name of the output .pdf file. 
 
 ### Questions
-14\. What are the median allele frequencies (approximately) in the different samples? 
-15\. Do the distributions of alternative allele frequencies in the different samples fit with the proportions of tumor and normal DNA in the samples?
+14\. What are the median allele frequencies (approximately) in the different samples?  
+15\. Do the distributions of alternative allele frequencies in the different samples fit with the proportions of tumor and normal DNA in the samples?  
 
 	
 			
