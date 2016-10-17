@@ -245,7 +245,7 @@ Answer the questions below using a combination of the commands "grep" "|" and "w
 8\. How many of the filtered somatic variants are present in the Exac03 database?  
 9\. How many of the filtered somatic variants are present in the Cosmic70 database?  
 10\. Is any of the filtered somatic variant present in both the Cosmic70 and Exac03 databases?  
-11\. Are there any filtered somatic mutations in exons of the TP53 gene?  
+11\. Are there any filtered somatic mutations in exons of the TP53 gene? If so, please look at this mutation in IGV.
   
   
 # Part two - Whole genome data
