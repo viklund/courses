@@ -6,11 +6,11 @@ title:  'Cancer Genomics Using NGS Data - October 2016'
 
 # Cancer Genomics
 
-Held in Gothenburg October 25 2016, as part of the course "Advanced Next Generation Sequencing data analysis".
+Held in Gothenburg October 25, 2016, as part of the course "Advanced Next Generation Sequencing data analysis".
 
 ## Links to slides and exercises
 [Slides](slides/cancer_genomics.pptx)    
-[Exercises](labs/cancer_exercise.md)  
+[Exercise](labs/cancer_exercise.md)  
 
 
 ## External Resources
