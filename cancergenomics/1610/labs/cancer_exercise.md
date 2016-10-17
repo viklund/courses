@@ -187,8 +187,7 @@ Remember that a vcf file conains meta information in lines starting with "##", a
 3. Where in the sampleid.mutect.vcf file can you find information about the number of reads supporting each allele of specific SNV in a specific sample?    
 
 ### Filter the detected mutations
-The "raw variant calls" need to be filtered to remove false positives such as likely germline variants. MuTect includes a post-detection filtering step that classifies the detected variants into "likely somatic" or "likely false positives".
-To extract the likely somatic variants from MuTect calls use:  
+The "raw variant calls" need to be filtered to remove false positives such as likely sequencing errors, and the germline variants of the sample. MuTect includes a post-detection filtering step that classifies the detected variants into "likely somatic" or "likely false positives". To extract the likely somatic variants from MuTect calls use:  
 ```
 grep -v "REJECT" sampleid.mutect.vcf > sampleid.mutect.somatic.vcf
 ```  
