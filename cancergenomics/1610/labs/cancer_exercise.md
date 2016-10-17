@@ -52,14 +52,14 @@ Bam files are located here:
 ### Include paths to software and reference files in your .bashrc
 Define paths to the software, data and reference files used the exercise. This is done by inserting the following lines into your .bashrc file (located in your home directory):
 ```
-#Tools for cancer_genomics_2015:
+#Tools for cancer genomics:
 PICARD_HOME=/home/erik/bin/picard-tools-1.65
 GATK_HOME=/home/marcela/bin/GATK
 MUTECT_HOME=/home/marcela/bin
-ANNOVAR_HOME=/home/teacher2/cancer_genomics_2015/annovar/
-bundle=/home/teacher2/cancer_genomics_2015/bundle
-data=/home/teacher2/cancer_genomics_2015/data
-scripts_dir=/home/teacher2/cancer_genomics_2015/scripts
+ANNOVAR_HOME=/home/teacher2/cancer_genomics/annovar/
+bundle=/home/teacher2/cancer_genomics/bundle
+data=/home/teacher2/cancer_genomics/data
+scripts_dir=/home/teacher2/cancer_genomics/scripts
 ```  
 The folder "bundle" above contains reference files needed for the analyses and is distributed by the Broad Institute together with GATK. For more information, please see http://gatkforums.broadinstitute.org/discussion/1213/whats-in-the-resource-bundle-and-how-can-i-get-it
 When you have modified your .bashrc file, reload it with this command (this neads to be done in every open terminal window):  
