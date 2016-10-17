@@ -92,7 +92,7 @@ You should use the Picard's method AddOrReplaceReadGroups to update the readgrou
 java -jar $PICARD_HOME/AddOrReplaceReadGroups.jar
 ```  
 When you start the program without input parameters, you will be provided with a help page that describes how to use the program and which paramter options that are available. 
-Now run AddOrReplaceReadGroups for the tumor and the normal bam files separately, and specify the paramter options listed below (please replace "sampleid" with "HCC1143" or "HCC1954", and "normal with "tumor" as apropriate). It is a good practise to give the output file a name that shows how it was created, for example adding a "RG" to the original file name.   
+Run AddOrReplaceReadGroups for the tumor and the normal bam files separately, and specify the paramter options listed below (please replace "sampleid" with "HCC1143" or "HCC1954", and "normal with "tumor" as apropriate). It is a good practise to give the output file a name that shows how it was created, for example adding a "RG" to the original file name.   
 ```
 INPUT=sampleid.normal.bam
 OUTPUT=sampleid.normal.RG.bam
@@ -107,21 +107,17 @@ CREATE_INDEX=True
 
 ### Realign Indels
 Use GATK to realign the tumor and normal .bam files simultaneously around potential insertions and deletions in the genome (indels). Firstly, you identify suspicious intervals that are likely in need of realignment using the method "RealignerTargetCreator". Secondly, you perform local realignment over those intervals using the method "IndelRealigner". 
-RealignerTargetCreator is started with the following command:  
+To get instructions on how to use RealignerTargetCreator, please type:  
 ```
-java -jar $GATK_HOME/GenomeAnalysisTK.jar -T RealignerTargetCreator
+java -jar $GATK_HOME/GenomeAnalysisTK.jar -T RealignerTargetCreator --help
 ```  
-IndelRealigner is started with the following command:  
+To get instructions on how to use IndelRealigner, please type:  
 ```  
-java -jar $GATK_HOME/GenomeAnalysisTK.jar -T IndelRealigner  
+java -jar $GATK_HOME/GenomeAnalysisTK.jar -T IndelRealigner --help
 ```  
-To learn about the input and output options to GATK, type  
-```  
-java -jar $GATK_HOME/GenomeAnalysisTK.jar --help  
-```  
-or read about the specific tools on https://www.broadinstitute.org/gatk/guide/tooldocs/  
+For more inforamtion please read about the specific GATK tools on https://www.broadinstitute.org/gatk/guide/tooldocs/  
 
-For RealignerTargetCreator, please specify the following options:  
+Now run RealignerTargetCreator with the following options:  
 ```
 -R $bundle/human_g1k_v37.fasta 
 -L 17:1000000-9000000 
@@ -136,7 +132,7 @@ Sampleid = HCC1143 or HCC1954
 sampleid.normal.RG.bam and sampleid.tumor.RG.bam are the normal and tumor .bam files generated in step 4 above.   
 sampleid.intervals is the outoput of RealignerTargetCreator, containing coordinates of the suspicious regions that should be realigned.  
 
-For IndelRealigner please specify the following options:  
+Then run IndelRealigner with the following options:  
 ```
 -R $bundle/human_g1k_v37.fasta 
 -I sampleid.normal.RG.bam 
