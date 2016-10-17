@@ -265,7 +265,7 @@ $data/wgs/HCC1954.avinput.exonic_variant_function
 ```  
 where  
 ```
-$data=/home/teacher2/cancer_genomics_2015/data
+$data=/home/teacher2/cancer_genomics/data
 ```  
 
 ### Create symbolic links to input files  
@@ -279,7 +279,7 @@ ln -s $data/wgs/HCC1954.avinput.exonic_variant_function HCC1954.avinput.exonic_v
 ``` 
 
 ### Check sample names  
-The names of the samples in the vcf files reflect the fraction of normal and tumor DNA in the samples. Check the  sample names by typing  
+The names of the samples in the vcf files reflect the fraction of normal and tumor DNA in the samples. Check the  sample names by looking in the header line of the fina vcf file:   
 ```
 grep "#^CHROM"  sampleid.final.vcf
 ```  
@@ -305,8 +305,10 @@ $scripts_dir/vcf2freq.py sampleid.final.vcf out
 Where sampleid is HCC1143 or HCC1954 and out is the root name of the output .pdf file. 
 
 ### Questions
-14\. What are the median allele frequencies (approximately) in the different samples?  
+14\. What are the median allele frequencies (approximately) in the different samples? 
+15\. Why do you think that the median alternative allele frequency in the undiluted tumor sample (sampleid_tumor) is lower than 0.5? There are multiple possible answers, but please discuss possible scenarios.   
 15\. Do the distributions of alternative allele frequencies in the different samples fit with the proportions of tumor and normal DNA in the samples?  
+
 
 	
 			
