@@ -179,8 +179,7 @@ The output file sampleid.mutect.out will contain the complete statistics for all
 The output file sampleid.mutect.vcf will contain all potential SNVs in vcf format.  
 
 ### Look at the MuTect output in vcf format
-Remember that a vcf file conains meta inforamtion lines starting with "##", a header line starting with "#CHROM", and data lines starting with a chromsome number and that contain the genetic variants. A detaileld description of the VCF format can be found here: http://samtools.github.io/hts-specs/VCFv4.2.pdf.  
-
+A vcf file conains meta information in lines starting with "##", a header line starting with "#CHROM", and data lines containing the genetic variants. A detaileld description of the VCF format can be found here: http://samtools.github.io/hts-specs/VCFv4.2.pdf.  
 
 ### Questions:
 1. What columns do the header line of your vcf file contain?  
