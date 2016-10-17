@@ -119,14 +119,14 @@ For more inforamtion please read about the specific GATK tools on https://www.br
 
 Run RealignerTargetCreator with the following options:  
 ```
-java -jar $GATK_HOME/GenomeAnalysisTK.jar \
--T RealignerTargetCreator \
--R $bundle/human_g1k_v37.fasta \
--L 17:1000000-9000000 \
--I sampleid.normal.RG.bam \
--I sampleid.tumor.RG.bam \
--known $bundle/1000G_phase1.indels.b37.vcf \
--known $bundle/Mills_and_1000G_gold_standard.indels.b37.vcf \
+java -jar $GATK_HOME/GenomeAnalysisTK.jar 
+-T RealignerTargetCreator 
+-R $bundle/human_g1k_v37.fasta 
+-L 17:1000000-9000000 
+-I sampleid.normal.RG.bam 
+-I sampleid.tumor.RG.bam 
+-known $bundle/1000G_phase1.indels.b37.vcf 
+-known $bundle/Mills_and_1000G_gold_standard.indels.b37.vcf 
 -o sampleid.intervals
 ```  
 Where   
@@ -136,14 +136,14 @@ sampleid.intervals is the outoput of RealignerTargetCreator, containing coordina
 
 Then run IndelRealigner with the following options:  
 ```
-java -jar $GATK_HOME/GenomeAnalysisTK.jar \
--T IndelRealigner \
--R $bundle/human_g1k_v37.fasta \
--I sampleid.normal.RG.bam \
--I sampleid.tumor.RG.bam \
--targetIntervals sampleid.intervals \
--known $bundle/1000G_phase1.indels.b37.vcf \
--known $bundle/Mills_and_1000G_gold_standard.indels.b37.vcf \
+java -jar $GATK_HOME/GenomeAnalysisTK.jar 
+-T IndelRealigner 
+-R $bundle/human_g1k_v37.fasta 
+-I sampleid.normal.RG.bam 
+-I sampleid.tumor.RG.bam 
+-targetIntervals sampleid.intervals 
+-known $bundle/1000G_phase1.indels.b37.vcf 
+-known $bundle/Mills_and_1000G_gold_standard.indels.b37.vcf 
 -nWayOut ".realignedtogether.bam"
 ```  
 Where   
