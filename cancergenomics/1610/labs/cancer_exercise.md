@@ -171,14 +171,14 @@ java -jar $MUTECT_HOME/muTect-1.1.5.jar
 --out sampleid.mutect.out 
 --vcf sampleid.mutect.vcf
 ```  
-Where 
-"sampleid" is HCC1143 or HCC1954
+Where   
+"sampleid" should be replaced with "HCC1143" or "HCC1954"  
 sampleid.normal.RG.realignedtogether.bam and sampleid.normal.RG.realignedtogether.bam are the output files of IndelRealigned above.
-sampleid.mutect.out will contain the complete statistics for all potential SNVs detected with MuTect
-sampleid.mutect.vcf will contain all potential SNVs in vcf format  
+
+The output file sampleid.mutect.out will contain the complete statistics for all potential SNVs detected with MuTect. The different columns are described in this link: http://gatkforums.broadinstitute.org/discussion/4231/what-is-the-output-of-mutect-and-how-should-i-interpret-it.  
+The output file sampleid.mutect.vcf will contain all potential SNVs in vcf format.  
   
-Look at the file sampleid.mutect.out and try to understand what the file contains. The different columns are described in this link: http://gatkforums.broadinstitute.org/discussion/4231/what-is-the-output-of-mutect-and-how-should-i-interpret-it  
-Also look at the file sampleid.mutect.vcf and try to understand on what format the genotype information is presented. 
+Look at the file sampleid.mutect.vcf and try to understand on what format the genotype information is presented. 
 Remember that a vcf file conains a header section that includes all lines starting with "#", and a data section that contains all genetic variants. Information on how the data is formatted is given in the line that starts with #CHROM. Look at this line by typing:  
 grep '#CHROM' sample
 The comumn Specifically - How is information about the number of reads supporting each allele of an SNV in the normal and tumor samples reported?
