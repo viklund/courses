@@ -91,7 +91,7 @@ You should use the Picard's method AddOrReplaceReadGroups to update the readgrou
 ```  
 java -jar $PICARD_HOME/AddOrReplaceReadGroups.jar
 ```  
-When you start the program without input parameters, you will be provided with a help page that describes how to use the program and which paramter options that are available. 
+When you start the program without input parameters, you will be provided with a help page that describes how to use the program and which paramter options that are available.   
 Run AddOrReplaceReadGroups for the tumor and the normal bam files separately, and specify the paramter options listed below (please replace "sampleid" with "HCC1143" or "HCC1954", and "normal with "tumor" as apropriate). It is a good practise to give the output file a name that shows how it was created, for example adding a "RG" to the original file name.   
 ```
 INPUT=sampleid.normal.bam
@@ -106,7 +106,7 @@ CREATE_INDEX=True
 ```  
 
 ### Realign Indels
-Not you should use GATK to realign the tumor and normal .bam files simultaneously around potential insertions and deletions in the genome (indels). Firstly, you should identify suspicious intervals that are likely in need of realignment using the method "RealignerTargetCreator". Secondly, you should perform local realignment over those intervals using the method "IndelRealigner". 
+Now you should use GATK to realign the tumor and normal .bam files simultaneously around potential insertions and deletions in the genome (indels). Firstly, you should identify suspicious intervals that are likely in need of realignment using the method "RealignerTargetCreator". Secondly, you should perform local realignment over those intervals using the method "IndelRealigner".  
 To get instructions on how to use RealignerTargetCreator, please type:  
 ```
 java -jar $GATK_HOME/GenomeAnalysisTK.jar -T RealignerTargetCreator --help
