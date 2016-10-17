@@ -92,7 +92,7 @@ You should use the Picard's method AddOrReplaceReadGroups to update the readgrou
 java -jar $PICARD_HOME/AddOrReplaceReadGroups.jar
 ```  
 When you start the program without input parameters, you will be provided with a help page that describes how to use the program and which paramter options that are available.   
-Run AddOrReplaceReadGroups for the tumor and the normal bam files separately, and specify the paramter options listed below (please replace "sampleid" with "HCC1143" or "HCC1954", and "normal with "tumor" as apropriate). It is a good practise to give the output file a name that shows how it was created, for example adding a "RG" to the original file name.   
+Run AddOrReplaceReadGroups for the tumor and the normal bam files separately, and specify the paramter options listed below (please replace "sampleid" with "HCC1143" or "HCC1954", and "normal with "tumor" as apropriate). It is a good practise to give the output file a name that shows how it was created, for example adding "RG" to the original file name.   
 ```
 INPUT=sampleid.normal.bam
 OUTPUT=sampleid.normal.RG.bam
@@ -119,12 +119,14 @@ For more inforamtion please read about the specific GATK tools on https://www.br
 
 Run RealignerTargetCreator with the following options:  
 ```
--R $bundle/human_g1k_v37.fasta 
--L 17:1000000-9000000 
--I sampleid.normal.RG.bam 
--I sampleid.tumor.RG.bam 
--known $bundle/1000G_phase1.indels.b37.vcf 
--known $bundle/Mills_and_1000G_gold_standard.indels.b37.vcf 
+java -jar $GATK_HOME/GenomeAnalysisTK.jar \
+-T RealignerTargetCreator \
+-R $bundle/human_g1k_v37.fasta \
+-L 17:1000000-9000000 \
+-I sampleid.normal.RG.bam \
+-I sampleid.tumor.RG.bam \
+-known $bundle/1000G_phase1.indels.b37.vcf \
+-known $bundle/Mills_and_1000G_gold_standard.indels.b37.vcf \
 -o sampleid.intervals
 ```  
 Where   
@@ -134,12 +136,14 @@ sampleid.intervals is the outoput of RealignerTargetCreator, containing coordina
 
 Then run IndelRealigner with the following options:  
 ```
--R $bundle/human_g1k_v37.fasta 
--I sampleid.normal.RG.bam 
--I sampleid.tumor.RG.bam 
--targetIntervals sampleid.intervals 
--known $bundle/1000G_phase1.indels.b37.vcf  
--known $bundle/Mills_and_1000G_gold_standard.indels.b37.vcf  
+java -jar $GATK_HOME/GenomeAnalysisTK.jar \
+-T IndelRealigner \
+-R $bundle/human_g1k_v37.fasta \
+-I sampleid.normal.RG.bam \
+-I sampleid.tumor.RG.bam \
+-targetIntervals sampleid.intervals \
+-known $bundle/1000G_phase1.indels.b37.vcf \
+-known $bundle/Mills_and_1000G_gold_standard.indels.b37.vcf \
 -nWayOut ".realignedtogether.bam"
 ```  
 Where   
