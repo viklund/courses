@@ -87,13 +87,15 @@ ln -s $data/chr17/HCC1954.tumor.bam HCC1954.tumor.bam
 ```  
 
 ### AddOrReplaceReadGroups
-Use the Picard's method AddOrReplaceReadGroups to update the readgroup information in the tumor and normal bam files. AddOrReplaceReadGroups is distributed as jar file, and is started with this command:  
+You should use the Picard's method AddOrReplaceReadGroups to update the readgroup information in the tumor and normal bam files. AddOrReplaceReadGroups is distributed as jar file, and without input paratemters the program is started like this:   
 ```  
 java -jar $PICARD_HOME/AddOrReplaceReadGroups.jar
 ```  
-If you start the program without input parameters, you will be provided with a help page that describes how to use the program and which options are available. 
-Run the command separately for the tumor and the normal bam files. Call the respective output files something like "sampleid.normal.RG.bam"  (where sampleid = HCC1143 or HCC1954), to distinguish it from the original bam file. Also, specify the following options (exemplified with the normal sample, please replace sampleid with HCC1143 or HCC1954):  
+When you start the program without input parameters like this, you will be provided with a help page that describes how to use the program and which paramter options that are available. 
+Now run AddOrReplaceReadGroups for the tumor and the normal bam files separately, and specify the paramter options listed below (please replace "sampleid" with "HCC1143" or "HCC1954", and "normal with "tumor" as apropriate). It is a good practise to give the output file a name that shows how it was created, for example adding a "RG" to the original file name.   
 ```
+INPUT=sampleid.normal.bam
+OUTPUT=sampleid.normal.RG.bam
 RGID=sampleid.normal 
 RGLB=sampleid.normal 
 RGPU=sampleid.normal 
