@@ -182,7 +182,7 @@ The output file sampleid.mutect.vcf will contain all potential SNVs in vcf forma
 Remember that a vcf file conains meta information in lines starting with "##", a header line starting with "#CHROM", and data lines containing the genetic variants. A detaileld description of the VCF format can be found here: http://samtools.github.io/hts-specs/VCFv4.2.pdf.  
 
 ### Questions:
-1) What columns do the header line of your sampleid.mutect.vcf file contain?  
+1/. What columns do the header line of your sampleid.mutect.vcf file contain?  
 2) What is the format of the genotype fields in your sampleid.mutect.vcf file?  
 3) Where in the sampleid.mutect.vcf file can you find information about the number of reads supporting each allele of specific SNV in a specific sample?    
 
