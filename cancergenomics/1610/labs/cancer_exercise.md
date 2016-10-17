@@ -221,6 +221,7 @@ Brows around and zoom into one or a few of the somatic mutations. By hoovering t
 Note down one mutated position and look at the corresponding mutation in the vcf file using this command:
 ```
 grep 'position' sampleid.mutect.somatic.vcf
+```
 Try to find a mutation that has an even ditribution of alternatve and reference alleles in the tumor sample. Zoom in on this position until you are at base-resolution so that you can see witch reads contain the alternative- and reference alleles. 
 
 ### Question
