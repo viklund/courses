@@ -203,15 +203,12 @@ grep "^17" sampleid.mutect.vcf | wc
 6\. How many of the SNVs in the sampleid.mutect.vcf were judged to be somatic by MuTects's post detection filter?   
 
 ### Look at the filtetred mutations in IGV
-
-You should now use IGV to visualize a few of the somatic variants. You will look at the filtered vcf file and the bam files from the tumor and normal samples. To make the visualization in IGV faster, please copy the data files to your local computer and run IGV there.  
-In your local computer:
+You should now use IGV to visualize a few of the somatic variants. To make the visualization in IGV faster, please copy the data files to your local computer and run IGV there. In your local computer:
 scp username@rudy.biomedicine.gu.se:/path/to/your/cancer_dir/sampleid.mutect.somatic.vcf .
 scp username@rudy.biomedicine.gu.se:/path/to/your/cancer_dir/sampleid.normal.RG.realignedtogether.bam .
 scp username@rudy.biomedicine.gu.se:/path/to/your/cancer_dir/sampleid.normal.RG.realignedtogether.bai .
 scp username@rudy.biomedicine.gu.se:/path/to/your/cancer_dir/sampleid.tumor.RG.realignedtogether.bam .
 scp username@rudy.biomedicine.gu.se:/path/to/your/cancer_dir/sampleid.tumor.RG.realignedtogether.bai .
-  
 Open the vcf file and the tumor and normal bam files in your local IGV. For instructions on how to use IGV, please look at yesterdays exercise: http://bio.biomedicine.gu.se/~marcela/courses/2016/exome/visualization.html
 
 
