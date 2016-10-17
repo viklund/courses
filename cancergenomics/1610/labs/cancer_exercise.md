@@ -179,12 +179,12 @@ The output file sampleid.mutect.out will contain the complete statistics for all
 The output file sampleid.mutect.vcf will contain all potential SNVs in vcf format.  
 
 ### Look at the MuTect output in vcf format
-A vcf file conains meta information in lines starting with "##", a header line starting with "#CHROM", and data lines containing the genetic variants. A detaileld description of the VCF format can be found here: http://samtools.github.io/hts-specs/VCFv4.2.pdf.  
+Remember that a vcf file conains meta information in lines starting with "##", a header line starting with "#CHROM", and data lines containing the genetic variants. A detaileld description of the VCF format can be found here: http://samtools.github.io/hts-specs/VCFv4.2.pdf.  
 
 ### Questions:
-1. What columns do the header line of your vcf file contain?  
-2. What is the format of the genotype fields in your vcf file?  
-3. Where in the vcf file can you find information about the number of reads supporting each allele of specific SNV and sample? (I'm after a specific position in the genotype field.)   
+1. What columns do the header line of your sampleid.mutect.vcf file contain?  
+2. What is the format of the genotype fields in your sampleid.mutect.vcf file?  
+3. Where in the sampleid.mutect.vcf file can you find information about the number of reads supporting each allele of specific SNV in a specific sample?    
 
 ### Filter the detected mutations
 The "raw variant calls" need to be filtered to remove false positives such as likely germline variants. MuTect includes a post-detection filtering step that classifies the detected variants into "likely somatic" or "likely false positives".
