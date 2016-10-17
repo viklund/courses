@@ -160,6 +160,7 @@ java -jar $MUTECT_HOME/muTect-1.1.5.jar -help
 ``` 
 You should run MuTect with the following options:  
 ```
+java -jar $MUTECT_HOME/muTect-1.1.5.jar
 --analysis_type MuTect  
 --reference_sequence $bundle/human_g1k_v37.fasta 
 --cosmic $bundle/b37_cosmic_v54_120711.vcf 
