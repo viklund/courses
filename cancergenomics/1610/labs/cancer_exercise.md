@@ -225,7 +225,7 @@ If you start table annovar without input parameters like this:
 $ANNOVAR_HOME/table_annovar.pl 
 ```  
 you will be provided with help on how to use the script. 
-Please use the following options to annotate your filtered vcf file:  
+Please use the following command to annotate your filtered vcf file:  
 ```
 $ANNOVAR_HOME/table_annovar.pl 
 -buildver hg19 
@@ -239,15 +239,20 @@ $ANNOVAR_HOME/humandb/
 
 ```  
 Where "sampleid" should be replaced with "HCC1143" or "HCC1954". The path to $ANNOVAR_HOME/humandb/ should be provided in the end of the command since that directory contains all data files used for annotation.  
+The output file 
 ### Questions:
 Answer the questions below using a combination of the commands "grep" "|" and "wc":  
 7\. How many of filtered somatic variants in your samples are located in exons?  
 8\. How many of the filtered somatic variants are present in the Exac03 database?  
 9\. How many of the filtered somatic variants are present in the Cosmic70 database?  
 10\. Is any of the filtered somatic variant present in both the Cosmic70 and Exac03 databases?  
-11\. Are there any filtered somatic mutations in exons of the TP53 gene? If so, please look at this mutation in IGV.
-  
-  
+Both samples "HCC1143" and "HCC1954" should have somatic mutations in exons of the TP53 gene. Extract the data for this mutation using 
+```
+grep "Gene.refGene=TP53 sampleid.hg19_multianno.vcf
+```
+11\. In your tumor sample, how many reads of the TP53 mutations supports the alternative and reference alleles respectively? Please visualize this by looking at the mutation in IGV.
+12\. Based on the allele frequencies of the TP53 mutations, what fraction of the cells in the tumor sample appear to have this mutation?
+
 # Part two - Whole genome data
 In this part of the exercise you will work with data that was generated exactly as above, but for the entire genome. The same samples (HCC1143 and HCC1954) have been analyzed, but in addition to the normal and the tumor we have included four known mixtures of normal and tumor DNA. All 6 samples are present in the same vcf files.  
 ### Data
