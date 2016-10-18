@@ -246,11 +246,11 @@ Answer the questions below using a combination of the commands "grep" "|" and "w
 8\. How many of the filtered somatic variants are present in the Exac03 database?  
 9\. How many of the filtered somatic variants are present in the Cosmic70 database?  
 10\. Is any of the filtered somatic variant present in both the Cosmic70 and Exac03 databases?  
-Both samples "HCC1143" and "HCC1954" should have somatic mutations in exons of the TP53 gene. Extract the data for this mutation using 
+11\. Both samples "HCC1143" and "HCC1954" should have somatic mutations in exons of the TP53 gene. Extract the data for this mutation using 
 ```
 grep "Gene.refGene=TP53 sampleid.hg19_multianno.vcf
 ```
-11\. In your tumor sample, how many reads of the TP53 mutations supports the alternative and reference alleles respectively? Please visualize this by looking at the mutation in IGV.
+How many reads of the TP53 mutations supports the alternative and reference alleles respectively in your sample? Please visualize this by looking at the mutation in IGV.  
 12\. Based on the allele frequencies of the TP53 mutations, what fraction of the cells in the tumor sample appear to have this mutation?
 
 # Part two - Whole genome data
