@@ -248,10 +248,11 @@ Answer the questions below using a combination of the commands "grep" "|" and "w
 10\. Is any of the filtered somatic variant present in both the Cosmic70 and Exac03 databases?  
 11\. Both samples "HCC1143" and "HCC1954" should have somatic mutations in exons of the TP53 gene. Extract the data for this mutation using 
 ```
-grep "Gene.refGene=TP53 sampleid.hg19_multianno.vcf
+grep "Gene.refGene=TP53" sampleid.hg19_multianno.vcf
 ```
-How many reads of the TP53 mutations supports the alternative and reference alleles respectively in your sample? Please visualize this by looking at the mutation in IGV.  
-12\. Based on the allele frequencies of the TP53 mutations, what fraction of the cells in the tumor sample appear to have this mutation?
+Does the TP53 mutation alter the aminoaccid sequence of the protein?  
+12\. How many reads of the TP53 mutations supports the alternative and reference alleles respectively in your sample? Please visualize this by looking at the mutation in IGV.  
+13\. Based on the allele frequencies of the TP53 mutations, what fraction of the cells in the tumor sample appear to have this mutation?
 
 # Part two - Whole genome data
 In this part of the exercise you will work with data that was generated exactly as above, but for the entire genome. The same samples (HCC1143 and HCC1954) have been analyzed, but in addition to the normal and the tumor we have included four known mixtures of normal and tumor DNA. All 6 samples are present in the same vcf files.  
@@ -292,8 +293,8 @@ where sampleid should be HCC1143 or HCC1954
 
 ### Questions
 Anser the following questions using a combination of the commands "grep", "|” and "wc":  
-12\. How many likely somatic mutations were detected in the two tumor genomes (HCC1143 and HCC1954)?  
-13\. How many of these were located in exons?  
+14\. How many likely somatic mutations were detected in the two tumor genomes (HCC1143 and HCC1954)?  
+15\. How many of these were located in exons?  
 
 ### Normal contamination of the tumor samples
 Now you will look at the distribution of alternative allele frequencies over all detected mutations, and see how it is affected by normal contamination in the tumor sample. In this situation, the alternative allele frequency is defined as:  
@@ -310,9 +311,9 @@ $scripts_dir/vcf2freq.py sampleid.final.vcf out
 Where sampleid is HCC1143 or HCC1954 and out is the root name of the output .pdf file. 
 
 ### Questions
-14\. What are the median allele frequencies (approximately) in the different samples?  
-15\. Why do you think that the median alternative allele frequency in the undiluted tumor sample (sampleid_tumor) is lower than 0.5? There are multiple possible answers, but please discuss possible scenarios.  
-16\. Do the distributions of alternative allele frequencies in the different samples fit with the proportions of tumor and normal DNA in the samples?  
+16\. What are the median allele frequencies (approximately) in the different samples?  
+17\. Why do you think that the median alternative allele frequency in the undiluted tumor sample (sampleid_tumor) is lower than 0.5? There are multiple possible answers, but please discuss possible scenarios.  
+18\. Do the distributions of alternative allele frequencies in the different samples fit with the proportions of tumor and normal DNA in the samples?  
 
 
 	
