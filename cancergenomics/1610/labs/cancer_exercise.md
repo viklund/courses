@@ -234,11 +234,11 @@ $ANNOVAR_HOME/table_annovar.pl
 -operation g,f,f 
 -nastring . 
 -vcfinput
-```  
-and specify the location of the database for human sequences to:  
-```
+Sampleid.mutect1.somatic.vcf
 $ANNOVAR_HOME/humandb/
+
 ```  
+Where "sampleid" should be replaced with "HCC1143" or "HCC1954". The path to $ANNOVAR_HOME/humandb/ should be provided in the end of the command since that directory contains all data files used for annotation.  
 ### Questions:
 Answer the questions below using a combination of the commands "grep" "|" and "wc":  
 7\. How many of filtered somatic variants in your samples are located in exons?  
