@@ -3,10 +3,9 @@ layout: default
 title:  'Cancer Genomics Using NGS Data - October 2016'
 ---
  
-
 # Cancer Genomics
 
-Held in Gothenburg October 25, 2016, as part of the course "Advanced Next Generation Sequencing data analysis".
+Held in Gothenburg October 25, 2016, as part of the course "Advanced Next Generation Sequencing data analysis", with Marcela Davila Lopez as responsible teacher. For students and teachers at GU, the course can be reached gul.gu.se. 
 
 ## Links to slides and exercises
 [Slides](slides/cancer_genomics.pptx)    
