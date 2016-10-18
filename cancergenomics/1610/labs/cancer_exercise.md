@@ -1,3 +1,7 @@
+---
+layout: default
+title:  ‘Exercise Cancer Genomics Using NGS Data - October 2016'
+---
 # Detection of somatic mutations in tumor samples
 Malin Larsson  
 malin.larsson@scilifelab.se  
