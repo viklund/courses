@@ -7,6 +7,7 @@ title:  ‘Exercise Cancer Genomics Using NGS Data - October 2016'
 Malin Larsson  
 malin.larsson@scilifelab.se  
 Practical exercise in the course "Advanced Next Generation Sequencing data analysis" at University of Gothenburg, October 2015.  
+
 ### Introduction
 In this exercise we will analyze somatic mutations in cancer, which is a bit different from the identification of inherited germline variants. We are only interested in the somatic mutations that have occurred during the development of tumor cells, so the beckground of germline variants (also present in the tumor cells) must be filtered away. Difficulties arise because tumor samples often contain a mixture of cancer cells and normal cells (Figure 1), tumors may consist of sub-clones with different somatic mutations and cancer cells may not be diploid due to copy number variation. Germline genotype callers such as GATK's HaplotypeCaller are optimized for diploid samples or samples of known ploidy, and for detecting variants with allele frequencies close to 0, 0.5 or 1. Therefore, somatic variants should be called with specialized callers.   
 ![](fig/hallmarks_of_cancer.jpg)   
@@ -15,7 +16,6 @@ Figure 1: Illustration of the complexity of a tumor sample. Published by Hanahan
 A complete analysis of the genomic abberations in a tumor sample would include analysis of somatic single nucleotide variants (SNVs), structural variants (SVs) and copy number variants (CNVs). Several algorithms for detecting these types of somatic variation are available. Ambitious efforts have been made to compare the results of different somatic variant detection algorithms and propose a best practise work flow. Reports from these benchmarks are available here:   
 http://www.nature.com/nmeth/journal/v12/n7/full/nmeth.3407.html   
 http://www.nature.com/articles/ncomms10001  
-
 
 ### Part one - somatic SNV detection and annotation
 We will use the algorithm MuTect1 to detect somatic single nucleotide variants (SNVs) in tumor samples, and annotate the detected variants with the algorithm Annovar. 
