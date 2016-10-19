@@ -174,7 +174,7 @@ You should run MuTect with the following options:
 
 Where   
 "sampleid" should be replaced with "HCC1143" or "HCC1954"  
-sampleid.normal.RG.realignedtogether.bam and sampleid.normal.RG.realignedtogether.bam are the output files of IndelRealigned above.
+sampleid.normal.RG.realignedtogether.bam and sampleid.normal.RG.realignedtogether.bam are the output files of IndelRealigned above.  
 Note that we are using a specific installation of Java for the MuTect call!
 
 The output file sampleid.mutect.out will contain the complete statistics for all potential SNVs detected with MuTect. The different columns of the file are described in this link: http://gatkforums.broadinstitute.org/discussion/4231/what-is-the-output-of-mutect-and-how-should-i-interpret-it.  
