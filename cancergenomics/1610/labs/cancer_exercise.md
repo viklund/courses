@@ -177,8 +177,9 @@ Where
 sampleid.normal.RG.realignedtogether.bam and sampleid.normal.RG.realignedtogether.bam are the output files of IndelRealigned above.  
 Note that we are using a specific installation of Java for the MuTect call!
 
-The output file sampleid.mutect.out will contain the complete statistics for all potential SNVs detected with MuTect. The different columns of the file are described in this link: http://gatkforums.broadinstitute.org/discussion/4231/what-is-the-output-of-mutect-and-how-should-i-interpret-it.  
 The output file sampleid.mutect.vcf will contain all potential SNVs in vcf format.  
+The output file sampleid.mutect.out will contain the complete statistics for all potential SNVs detected with MuTect. The different columns of the file are described in this link:
+[http://gatkforums.broadinstitute.org/discussion/4231/what-is-the-output-of-mutect-and-how-should-i-interpret-(it]http://gatkforums.broadinstitute.org/discussion/4231/what-is-the-output-of-mutect-and-how-should-i-interpret-it)    
 
 ### Look at the MuTect output in vcf format
 Remember that a vcf file conains meta information in lines starting with "##", a header line starting with "#CHROM", and data lines containing the genetic variants. A detaileld description of the VCF format can be found here: 
@@ -220,7 +221,7 @@ scp username@rudy.biomedicine.gu.se:/path/to/your/cancer_dir/sampleid.tumor.RG.r
 scp username@rudy.biomedicine.gu.se:/path/to/your/cancer_dir/sampleid.tumor.RG.realignedtogether.bai .
 ```
 
-Open the .vcf file and the tumor and normal .bam files in your local IGV. For instructions on how to use IGV, please look at yesterdays exercise: http://bio.biomedicine.gu.se/~marcela/courses/2016/exome/visualization.html
+Open the .vcf file and the tumor and normal .bam files in your local IGV. For instructions on how to use IGV, please look at yesterdays exercise:[http://bio.biomedicine.gu.se/~marcela/courses/2016/exome/visualization.html](http://bio.biomedicine.gu.se/~marcela/courses/2016/exome/visualization.html)  
 Zoom in and look at the region on Chromosome 17 that we have data for. This can be done by pasting 17:1000000-9000000 into the IGV search window and press "Go".  
 Brows around and zoom into one or a few of the somatic mutations. By hoovering the mouse over a mutation you can see the number of alternative alleles in the normal and tumor samples respectively (this is done by hoovering on the row that corresponds to the sampleid.normal and sampleid.tumor respectively). Note down one mutated position and look at the corresponding mutation in the vcf file using this command:  
 
@@ -310,7 +311,7 @@ grep "#^CHROM"  sampleid.final.vcf
 where sampleid should be HCC1143 or HCC1954
 
 ### Questions
-Anser the following questions using a combination of the commands "grep", "|” and "wc":  
+Answer the following questions using a combination of the commands "grep", "|” and "wc":  
 14\. How many likely somatic mutations were detected in the two tumor genomes (HCC1143 and HCC1954)?  
 15\. How many of these were located in exons?  
 
