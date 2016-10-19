@@ -105,25 +105,19 @@ ln -s $data/chr17/HCC1954.tumor.bam HCC1954.tumor.bam
 ```  
 
 ### AddOrReplaceReadGroups
-You should use the Picard's method AddOrReplaceReadGroups to update the readgroup information in the tumor and normal bam files. AddOrReplaceReadGroups is distributed as jar file, and without input paratemters the program is started like this:   
+You should use the Picard's method AddOrReplaceReadGroups to update the readgroup information in the tumor and normal bam files. AddOrReplaceReadGroups is a java program and is started like this:   
 
 ```bash
 java -jar $PICARD_HOME/AddOrReplaceReadGroups.jar
 ```  
 
-When you start the program without input parameters, you will be provided with a help page that describes how to use the program and which paramter options that are available.   
+When you start the program without input parameters as above, you will be provided with a help page that describes how to use the program and which paramter options that are available.  
+
 Run AddOrReplaceReadGroups for the tumor and the normal bam files separately, and specify the paramter options listed below (please replace "sampleid" with "HCC1143" or "HCC1954", and "normal with "tumor" as apropriate). It is a good practise to give the output file a name that shows how it was created, for example adding "RG" to the original file name.   
 
 ```bash
-INPUT=sampleid.normal.bam
-OUTPUT=sampleid.normal.RG.bam
-RGID=sampleid.normal
-RGLB=sampleid.normal
-RGPU=sampleid.normal
-RGSM=sampleid.normal
-RGPL=ILLUMINA
-SORT_ORDER=coordinate
-CREATE_INDEX=True
+
+java -jar $PICARD_HOME/AddOrReplaceReadGroups.jar INPUT=sampleid.normal.bam OUTPUT=sampleid.normal.RG.bam RGID=sampleid.normal RGLB=sampleid.normal RGPU=sampleid.normal RGSM=sampleid.normal RGPL=ILLUMINA SORT_ORDER=coordinate CREATE_INDEX=True
 ```  
 
 ### Realign Indels
