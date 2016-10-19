@@ -302,7 +302,7 @@ ln -s $data/wgs/HCC1954.avinput.variant_function HCC1954.avinput.variant_functio
 ln -s $data/wgs/HCC1954.avinput.exonic_variant_function HCC1954.avinput.exonic_variant_function
 ``` 
 
-### Check sample names  
+### Genome wide detection of somatic mutations  
 The names of the samples in the vcf files reflect the fraction of normal and tumor DNA in the samples. Check the  sample names by looking in the header line of the fina vcf file:   
 
 ```bash
@@ -318,13 +318,7 @@ Answer the following questions using a combination of the commands "grep", "|”
 ### Normal contamination of the tumor samples
 Now you will look at the distribution of alternative allele frequencies over all detected mutations, and see how it is affected by normal contamination in the tumor sample. In this situation, the alternative allele frequency is defined as:  
 alt allele frequency =  (number of reads supporting the alternative allele)/(number of reads supporting the reference allele)  
-Use the python script "vcf2freq.py" available in  
-
-```bash
-$scripts_dir (home/teacher2/scripts/cancer_genomics_2015/)
-```  
-
-to plot the distribution of alternative allele frequencies for all mutations in the six samples. The script generates a pdf file with plots of alternative allele frequency distributions for all samples in the input vcf, both in the form of box plots and as histograms. 
+Use the python script "vcf2freq.py" available in $scripts_dir (home/teacher2/scripts/cancer_genomics_2015/) to plot the distribution of alternative allele frequencies for all mutations in the six samples. The script generates a pdf file with plots of alternative allele frequency distributions for all samples in the input vcf, both in the form of box plots and as histograms. 
 vcf2freq.py is started like this:  
 
 ```bash
