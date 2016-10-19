@@ -12,8 +12,9 @@ Practical exercise given as part of the course "Advanced Next Generation Sequenc
 In this exercise we will analyze somatic mutations in cancer, which is a bit different from the identification of inherited germline variants. We are only interested in the somatic mutations that have occurred during the development of tumor cells, so the beckground of germline variants (also present in the tumor cells) must be filtered away. Difficulties arise because tumor samples often contain a mixture of cancer cells and normal cells (Figure 1), tumors may consist of sub-clones with different somatic mutations and cancer cells may not be diploid due to copy number variation. Germline genotype callers such as GATK's HaplotypeCaller are optimized for diploid samples or samples of known ploidy, and for detecting variants with allele frequencies close to 0, 0.5 or 1. Therefore, somatic variants should be called with specialized callers.   
 ![](fig/hallmarks_of_cancer.jpg)   
 Figure 1: Illustration of the complexity of a tumor sample. Published by Hanahan and Weinberg, Hallmarks of Cancer: The Next Generation, Cell 2011  
+
   
-A complete analysis of the genomic abberations in a tumor sample would include analysis of somatic single nucleotide variants (SNVs), structural variants (SVs) and copy number variants (CNVs). Several algorithms for detecting these types of somatic variation are available. Ambitious efforts have been made to compare the results of different somatic variant detection algorithms and propose a best practise work flow. Reports from these benchmarks are available here:   
+A complete analysis of the genomic abberations in a tumor sample would include analysis of somatic single nucleotide variants (SNVs), structural variants (SVs) and copy number variants (CNVs). Several algorithms for detecting these types of somatic variation are available. Different somatic variant detection algorithms have been compared in order to propose a best practise work flow. Reports from these benchmarks are available here:   
 [http://www.nature.com/nmeth/journal/v12/n7/full/nmeth.3407.html](http://www.nature.com/nmeth/journal/v12/n7/full/nmeth.3407.html)  
 [http://www.nature.com/articles/ncomms10001](http://www.nature.com/articles/ncomms10001)  
 
@@ -28,10 +29,10 @@ In the second part of the exercise, you will play with mutation data that have a
 
 ### Further reading:
 For information about MutTect,  Annovar, the dataset and GATK's best practice for variant discovery, please see  
-MuTect: https:/www.broadinstitute.org/cancer/cga/mutect  
-Annovar: http://annovar.openbioinformatics.org/en/latest/  
-GATK: https://www.broadinstitute.org/gatk/guide/bp_step.php?p=1  
-The data set: https://www.synapse.org/#!Synapse:syn312572/wiki/62018    
+MuTect: [https:/www.broadinstitute.org/cancer/cga/mutect](https:/www.broadinstitute.org/cancer/cga/mutect)  
+Annovar: [http://annovar.openbioinformatics.org/en/latest/](http://annovar.openbioinformatics.org/en/latest/)  
+GATK: [https://www.broadinstitute.org/gatk/guide/bp_step.php?p=1](https://www.broadinstitute.org/gatk/guide/bp_step.php?p=1)
+The data set: [https://www.synapse.org/#!Synapse:syn312572/wiki/62018](https://www.synapse.org/#!Synapse:syn312572/wiki/62018)   
   
 # Part one - somatic variant detection and annotation
 You will perform the following steps:  
@@ -44,7 +45,7 @@ You will perform the following steps:
 
 Figure 2 shows an overview of the workflow of this part of the exercise. 
 
-Start by running through the analysis for one sample, and save all commands to a text file. If you have time you can analyze the second sample as well in the end of the exercise (it will be faster this time since you have saved all commands).
+Start by running through the analysis for one of the samples, and save all commands to a text file. If you have time you can analyze the second sample as well in the end of the exercise (it will be faster this time since you have saved all commands).
 ![](fig/flowchart.png)   
 Figure 2: Workflow of somatic variant detection and annotation.
 
@@ -58,14 +59,14 @@ Bam files are located here:
 ### Include paths to software and reference files in your .bashrc
 Define paths to the software, data and reference files used the exercise. This is done by inserting the following lines into your .bashrc file (located in your home directory):
 ```
-#Tools for cancer genomics:
-PICARD_HOME=/home/erik/bin/picard-tools-1.65
-GATK_HOME=/home/marcela/bin/GATK
-MUTECT_HOME=/home/marcela/bin
-ANNOVAR_HOME=/home/teacher2/cancer_genomics/annovar/
-bundle=/home/teacher2/cancer_genomics/bundle
-data=/home/teacher2/cancer_genomics/data
-scripts_dir=/home/teacher2/cancer_genomics/scripts
+#Tools for cancer genomics:  
+PICARD_HOME=/home/erik/bin/picard-tools-1.65  
+GATK_HOME=/home/marcela/bin/GATK  
+MUTECT_HOME=/home/marcela/bin  
+ANNOVAR_HOME=/home/teacher2/cancer_genomics/annovar/  
+bundle=/home/teacher2/cancer_genomics/bundle  
+data=/home/teacher2/cancer_genomics/data  
+scripts_dir=/home/teacher2/cancer_genomics/scripts  
 ```
 The folder "bundle" above contains reference files needed for the analyses and is distributed by the Broad Institute together with GATK. For more information, please see http://gatkforums.broadinstitute.org/discussion/1213/whats-in-the-resource-bundle-and-how-can-i-get-it
 When you have modified your .bashrc file, reload it with this command (this neads to be done in every open terminal window):  
