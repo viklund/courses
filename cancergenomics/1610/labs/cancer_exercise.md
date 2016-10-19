@@ -139,15 +139,7 @@ For more inforamtion please read about the specific GATK tools on https://www.br
 Run RealignerTargetCreator with the following options:  
 
 ```bash
-java -jar $GATK_HOME/GenomeAnalysisTK.jar
--T RealignerTargetCreator
--R $bundle/human_g1k_v37.fasta
--L 17:1000000-9000000
--I sampleid.normal.RG.bam
--I sampleid.tumor.RG.bam
--known $bundle/1000G_phase1.indels.b37.vcf
--known $bundle/Mills_and_1000G_gold_standard.indels.b37.vcf
--o sampleid.intervals
+java -jar $GATK_HOME/GenomeAnalysisTK.jar -T RealignerTargetCreator -R $bundle/human_g1k_v37.fasta -L 17:1000000-9000000 -I sampleid.normal.RG.bam -I sampleid.tumor.RG.bam -known $bundle/1000G_phase1.indels.b37.vcf -known $bundle/Mills_and_1000G_gold_standard.indels.b37.vcf -o sampleid.intervals
 ```  
 
 Where   
@@ -158,15 +150,7 @@ sampleid.intervals is the outoput of RealignerTargetCreator, containing coordina
 Then run IndelRealigner with the following options:  
 
 ```bash
-java -jar $GATK_HOME/GenomeAnalysisTK.jar
--T IndelRealigner
--R $bundle/human_g1k_v37.fasta
--I sampleid.normal.RG.bam
--I sampleid.tumor.RG.bam
--targetIntervals sampleid.intervals
--known $bundle/1000G_phase1.indels.b37.vcf
--known $bundle/Mills_and_1000G_gold_standard.indels.b37.vcf
--nWayOut ".realignedtogether.bam"
+java -jar $GATK_HOME/GenomeAnalysisTK.jar -T IndelRealigner -R $bundle/human_g1k_v37.fasta -I sampleid.normal.RG.bam -I sampleid.tumor.RG.bam -targetIntervals sampleid.intervals -known $bundle/1000G_phase1.indels.b37.vcf -known $bundle/Mills_and_1000G_gold_standard.indels.b37.vcf -nWayOut ".realignedtogether.bam"
 ```  
 
 Where   
@@ -185,16 +169,7 @@ java -jar $MUTECT_HOME/muTect-1.1.5.jar -help
 You should run MuTect with the following options:  
 
 ```bash
-/home/babak/bin/MCR_8.0/sys/java/jre/glnxa64/jre/bin/java -jar $MUTECT_HOME/muTect-1.1.4.jar
---analysis_type MuTect
---reference_sequence $bundle/human_g1k_v37.fasta
---cosmic $bundle/b37_cosmic_v54_120711.vcf
---dbsnp $bundle/dbsnp_138.b37.vcf
---intervals 17:1000000-9000000
---input_file:normal sampleid.normal.RG.realignedtogether.bam
---input_file:tumor sampleid.tumor.RG.realignedtogether.bam
---out sampleid.mutect.out
---vcf sampleid.mutect.vcf
+/home/babak/bin/MCR_8.0/sys/java/jre/glnxa64/jre/bin/java -jar $MUTECT_HOME/muTect-1.1.4.jar --analysis_type MuTect --reference_sequence $bundle/human_g1k_v37.fasta --cosmic $bundle/b37_cosmic_v54_120711.vcf --dbsnp $bundle/dbsnp_138.b37.vcf --intervals 17:1000000-9000000 --input_file:normal sampleid.normal.RG.realignedtogether.bam --input_file:tumor sampleid.tumor.RG.realignedtogether.bam --out sampleid.mutect.out --vcf sampleid.mutect.vcf
 ```  
 
 Where   
@@ -267,15 +242,7 @@ you will be provided with help on how to use the script.
 Please use the following command to annotate your filtered vcf file:  
 
 ```bash
-$ANNOVAR_HOME/table_annovar.pl
--buildver hg19
--out sampleid
--protocol refGene,exac03,cosmic70
--operation g,f,f
--nastring .
--vcfinput
-Sampleid.mutect1.somatic.vcf
-$ANNOVAR_HOME/humandb/
+$ANNOVAR_HOME/table_annovar.pl -buildver hg19 -out sampleid -protocol refGene,exac03,cosmic70 -operation g,f,f -nastring . -vcfinput sampleid.mutect1.somatic.vcf $ANNOVAR_HOME/humandb/
 ```  
 
 Where "sampleid" should be replaced with "HCC1143" or "HCC1954". The path to $ANNOVAR_HOME/humandb/ should be provided in the end of the command since that directory contains all data files used for annotation.  
