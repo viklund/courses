@@ -334,7 +334,7 @@ $scripts_dir/vcf2freq.py sampleid.final.vcf out
 Where sampleid is HCC1143 or HCC1954 and out is the root name of the output .pdf file. 
 
 ### Questions
-16\. What are the median allele frequencies (approximately) in the different samples?  
+16\. What are the median allele frequencies (approximately) in the different subsamples?  
 17\. Why do you think that the median alternative allele frequency in the undiluted tumor sample (sampleid_tumor) is lower than 0.5? There are multiple possible answers, but please discuss possible scenarios.  
 18\. Do the distributions of alternative allele frequencies in the different samples fit with the proportions of tumor and normal DNA in the samples?  
 
