@@ -179,7 +179,7 @@ Note that we are using a specific installation of Java for the MuTect call!
 
 The output file sampleid.mutect.vcf will contain all potential SNVs in vcf format.  
 The output file sampleid.mutect.out will contain the complete statistics for all potential SNVs detected with MuTect. The different columns of the file are described in this link:
-[http://gatkforums.broadinstitute.org/discussion/4231/what-is-the-output-of-mutect-and-how-should-i-interpret-(it]http://gatkforums.broadinstitute.org/discussion/4231/what-is-the-output-of-mutect-and-how-should-i-interpret-it)    
+[http://gatkforums.broadinstitute.org/discussion/4231/what-is-the-output-of-mutect-and-how-should-i-interpret-it](http://gatkforums.broadinstitute.org/discussion/4231/what-is-the-output-of-mutect-and-how-should-i-interpret-it)    
 
 ### Look at the MuTect output in vcf format
 Remember that a vcf file conains meta information in lines starting with "##", a header line starting with "#CHROM", and data lines containing the genetic variants. A detaileld description of the VCF format can be found here: 
