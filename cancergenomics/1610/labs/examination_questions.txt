@@ -4,7 +4,7 @@ Answers:
 
 2. GT:AD:BQ:DP:FA
 
-3. In the second field (AD) of the genotype field.
+3. In the second subfield (AD) of the genotype field.
 
 11. Yes, both samples have a nonsynonomous TP53 mutation.
 
