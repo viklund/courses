@@ -1,0 +1,1 @@
+java -Xmx32g -jar /home/marcela/bin/GenomeAnalysisTK.jar -T MuTect2 -R $bundle/human_g1k_v37.fasta --cosmic $bundle/b37_cosmic_v54_120711.vcf --dbsnp $bundle/dbsnp_138.b37.vcf -L 17:1000000-9000000 -I:normal HCC1143.normal.RG.realignedtogether.bam -I:tumor HCC1143.tumor.RG.realignedtogether.bam -o HCC1143.mutect2.vcf

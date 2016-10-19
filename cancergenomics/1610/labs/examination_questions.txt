@@ -1,0 +1,13 @@
+The questions 2,3,11,12 and 13 should be handed in as “examination questions”.
+
+Answers:
+
+2. GT:AD:BQ:DP:FA
+
+3. In the second subfield (AD) of the genotype field.
+
+11. Yes, both samples have a nonsynonomous TP53 mutation.
+
+12. In the tumor sample there are 0 reads supporting the reference allele and 40-60 or more reads supporting the alternative allele.
+
+13: Since there is no reads supporting the reference allele all cells in the tumor sample appear to be mutated, at least to the resolution of the sequencing depth.  
