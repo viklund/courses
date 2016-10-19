@@ -332,6 +332,8 @@ Where sampleid is HCC1143 or HCC1954 and out is the root name of the output .pdf
 17\. Why do you think that the median alternative allele frequency in the undiluted tumor sample (sampleid_tumor) is lower than 0.5? There are multiple possible answers, but please discuss possible scenarios.  
 18\. Do the distributions of alternative allele frequencies in the different samples fit with the proportions of tumor and normal DNA in the samples?  
 
+# Assignment to pass the course
+Please hand in answers to questions 2, 3, 11, 12 and 17 via GUL.   
 
 	
 			
