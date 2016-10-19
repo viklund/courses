@@ -306,7 +306,7 @@ ln -s $data/wgs/HCC1954.avinput.exonic_variant_function HCC1954.avinput.exonic_v
 The names of the samples in the vcf files reflect the fraction of normal and tumor DNA in the samples. Check the  sample names by looking in the header line of the fina vcf file:   
 
 ```bash
-grep "#^CHROM"  sampleid.final.vcf
+grep "^#CHROM"  sampleid.final.vcf
 ```  
 where sampleid should be HCC1143 or HCC1954
 
