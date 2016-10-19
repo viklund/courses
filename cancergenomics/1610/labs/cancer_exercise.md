@@ -318,7 +318,7 @@ Answer the following questions using a combination of the commands "grep", "|”
 ### Normal contamination of the tumor samples
 Now you will look at the distribution of alternative allele frequencies over all detected mutations, and see how it is affected by normal contamination in the tumor sample. In this situation, the alternative allele frequency is defined as:  
 alt allele frequency =  (number of reads supporting the alternative allele)/(number of reads supporting the reference allele)  
-Use the python script "vcf2freq.py" available in $scripts_dir (home/teacher2/scripts/cancer_genomics_2015/) to plot the distribution of alternative allele frequencies for all mutations in the six samples. The script generates a pdf file with plots of alternative allele frequency distributions for all samples in the input vcf, both in the form of box plots and as histograms. 
+Use the python script "vcf2freq.py" available in $scripts_dir (home/teacher2/scripts/cancer_genomics/) to plot the distribution of alternative allele frequencies for all mutations in the six samples. The script generates a pdf file with plots of alternative allele frequency distributions for all samples in the input vcf, both in the form of box plots and as histograms. 
 vcf2freq.py is started like this:  
 
 ```bash
