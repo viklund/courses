@@ -10,7 +10,7 @@ Answers:
 
 12. In both tumor samples there are 0 reads supporting the reference allele and 59 reads supporting the alternative allele of the nonsynonomous TP53 mutation.
 
-17: Median values of alternative allele frequencies in HCC1143
+16: Median values of alternative allele frequencies in HCC1143
 Normal=0
 Tumor ~ 0.3
 80% Tumor + 20% Normal ~ 0.23
