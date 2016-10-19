@@ -31,7 +31,7 @@ In the second part of the exercise, you will play with mutation data that have a
 For information about MutTect,  Annovar, the dataset and GATK's best practice for variant discovery, please see  
 MuTect: [https:/www.broadinstitute.org/cancer/cga/mutect](https:/www.broadinstitute.org/cancer/cga/mutect)  
 Annovar: [http://annovar.openbioinformatics.org/en/latest/](http://annovar.openbioinformatics.org/en/latest/)  
-GATK: [https://www.broadinstitute.org/gatk/guide/bp_step.php?p=1](https://www.broadinstitute.org/gatk/guide/bp_step.php?p=1)
+GATK: [https://www.broadinstitute.org/gatk/guide/bp_step.php?p=1](https://www.broadinstitute.org/gatk/guide/)  
 The data set: [https://www.synapse.org/#!Synapse:syn312572/wiki/62018](https://www.synapse.org/#!Synapse:syn312572/wiki/62018)   
   
 # Part one - somatic variant detection and annotation
@@ -43,9 +43,8 @@ You will perform the following steps:
 1. Filter the results so that only the most likely somatic variants are kept
 1. Annotate the filtered variants with RefSeq genes, Cosmic70 mutations and Exac03 variant using Annovar
 
-Figure 2 shows an overview of the workflow of this part of the exercise. 
-
-Start by running through the analysis for one of the samples, and save all commands to a text file. If you have time you can analyze the second sample as well in the end of the exercise (it will be faster this time since you have saved all commands).
+Figure 2 shows an overview of the workflow of this part of the exercise. Start by running through the analysis for one of the samples, and save all commands to a text file. If you have time you can analyze the second sample as well in the end of the exercise (it will be faster this time since you have saved all commands).
+  
 ![](fig/flowchart.png)   
 Figure 2: Workflow of somatic variant detection and annotation.
 
@@ -73,7 +72,9 @@ data=/home/teacher2/cancer_genomics/data
 scripts_dir=/home/teacher2/cancer_genomics/scripts
 ```
 
-The folder "bundle" above contains reference files needed for the analyses and is distributed by the Broad Institute together with GATK. For more information, please see http://gatkforums.broadinstitute.org/discussion/1213/whats-in-the-resource-bundle-and-how-can-i-get-it
+The folder "bundle" above contains reference files needed for the analyses and is distributed by the Broad Institute together with GATK. For more information, please see 
+[http://gatkforums.broadinstitute.org/discussion/1213/whats-in-the-resource-bundle-and-how-can-i-get-it](http://gatkforums.broadinstitute.org/discussion/1213/whats-in-the-resource-bundle-and-how-can-i-get-it)
+
 When you have modified your .bashrc file, reload it with this command (this neads to be done in every open terminal window):  
 
 ```bash
