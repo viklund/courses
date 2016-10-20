@@ -9,7 +9,7 @@ Held in Gothenburg October 25, 2016, as part of the course "Advanced Next Genera
 
 ## Links to slides and exercises
 [Slides](slides/cancer_genomics.pptx)    
-[Exercise](labs/cancer_exercise.md)  
+[Exercise](labs/cancer_exercise)  
 
 
 ## External Resources
