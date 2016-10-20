@@ -8,6 +8,20 @@ Answers:
 
 11. Yes, both samples have a nonsynonomous TP53 mutation.
 
-12. In the tumor sample there are 0 reads supporting the reference allele and 40-60 or more reads supporting the alternative allele.
+12. In both tumor samples there are 0 reads supporting the reference allele and 59 reads supporting the alternative allele of the nonsynonomous TP53 mutation.
 
-13: Since there is no reads supporting the reference allele all cells in the tumor sample appear to be mutated, at least to the resolution of the sequencing depth.  
+16: Median values of alternative allele frequencies in HCC1143
+Normal=0
+Tumor ~ 0.3
+80% Tumor + 20% Normal ~ 0.23
+60% Tumor + 40% Normal ~ 0.18
+40% Tumor + 60% Normal ~ 0.13
+20% Tumor + 60% Normal = 0
+
+Median values of alternative allele frequencies in HCC1954
+Normal=0
+Tumor ~ 0.25
+80% Tumor + 20% Normal ~ 0.2
+60% Tumor + 40% Normal ~ 0.15
+40% Tumor + 60% Normal ~  0.1
+20% Tumor + 80% Normal = 0
