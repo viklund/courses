@@ -35,7 +35,7 @@ Room: E10:1309
 
 **Wednesday 16th**
 
-Room: E10:1309
+Room: E10:1309  
 **09.00-09.30** Discussion of last day's exercises (Mahesh Panchal, Martin Norling)
 **09.30-10.00** Lecture: Assembly assessment (Martin Norling)
 **10.00-10.15** Coffee break
