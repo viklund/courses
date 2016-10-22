@@ -131,7 +131,7 @@ After installation, the package is stored in a location on your computer called 
 
 	> library("gplots")
 
-One useful function in the gplots library is *heatmap.2*, which plots heatmaps with dendrograms. Since we have installed and loaded the gplots library, we can now use this function. Let's try it with a matrix of random, normally distributed values:
+One useful function in the *gplots* package is *heatmap.2*, which plots heatmaps with dendrograms. Since we have installed and loaded the *gplots* package, we can now use this function. Let's try it with a matrix of random, normally distributed values:
 
 	> heatmap.2( matrix(rnorm(180), ncol=6) )
 
