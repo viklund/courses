@@ -88,8 +88,8 @@ is deemed to have been expressed by Cufflinks, but we will not go into that toda
 For reference, the commands we used were of the form
 
      # Only for reference, does not need to be executed during the exercise
-     cufflinks -G /proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/isoform/otherData/Homo_sapiens.GRCh38.77.fixed.gtf \
-	   -p 8 -o cufflinks_out_137_1 accepted_hits_137_1.bam
+     cufflinks -p 8 -G /proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/isoform/otherData/Homo_sapiens.GRCh38.77.fixed.gtf \
+	   -o cufflinks_out_137_1 accepted_hits_137_1.bam
 
 The ``-G`` option points to an annotation file in GTF format for which to calculate
 FPKM values. The input here is a BAM file (i.e. a binary version of a SAM file) containing RNA-seq read alignments to human genome assembly GRCh38.  
