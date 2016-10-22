@@ -4,7 +4,7 @@ title:  'Mapping reads'
 ---
 
 
-# Mapping reads using a reference and converting them to the BAM format
+# Mapping reads to a reference and converting the results to BAM format
 
 
 ### Data available for exercise
