@@ -76,7 +76,7 @@ If everything worked, HISAT2 should report some statistics about how many reads 
 
 If you run HISAT2 again, it can be useful to automatically redirect the mapping statistics to a file, by adding at the end of the HISAT2 command line: ``&> outDir/result.sam.info``. Note that this will send all messages from HISAT2 (including errors and warnings) into the specified file, so make sure to check that file!
 
-*Try to answer the following:*
+&#10067; *Try to answer the following:*
 
 * How many RNA-seq read pairs were provided as input to HISAT2?
 * How many of those read pairs were mapped by HISAT2?
