@@ -83,7 +83,7 @@ If you run HISAT2 again, it can be useful to automatically redirect the mapping 
 * How many reads were uniquely mapped, i.e. mapped to one genomic location?
 * In general, do the alignments seem to be good? I.e. do they cover the entire reads and contain few mismatches?
 
-To answer these questions, you should look at the input to and output from HISAT2. You may also need to consult the [HISAT2 manual]((https://ccb.jhu.edu/software/hisat2/manual.shtm), [information about the FASTQ format](https://en.wikipedia.org/wiki/FASTQ_format) and the [SAM format specification](https://github.com/samtools/hts-specs).
+To answer these questions, you should look at the input to and output from HISAT2. You may also need to consult the [HISAT2 manual](https://ccb.jhu.edu/software/hisat2/manual.shtm), [information about the FASTQ format](https://en.wikipedia.org/wiki/FASTQ_format) and the [SAM format specification](https://github.com/samtools/hts-specs).
 
 ## Mapping short reads to a reference using STAR
 
