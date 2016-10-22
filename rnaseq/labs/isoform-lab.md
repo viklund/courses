@@ -6,7 +6,7 @@ title:  'Isoform Reference'
 # Reference guided assembly using Cufflinks or StringTie
 
 Assembly of genes and isoforms using Cufflinks and StringTie is a two-step process. 
-First you map all the reads from your experiment to the reference sequence. For information on how to map reads to a reference, go to the [mapping reads tutorial](mapping_reads). Then you run another step where you use the mapped reads to assemble potential transcripts and identify the genomic locations of introns and exons.  If you have multipe samples, you can merge the results into one file using Cuffmerge (Cuffmerge is part of the Cufflinks suite).
+First you map all the reads from your experiment to the reference sequence. For information on how to map reads to a reference, go to the [mapping reads tutorial](mapping_reads). Then you run another step where you use the mapped reads to assemble potential transcripts and identify the genomic locations of introns and exons.  If you have multipe samples, you can merge the results into one file using Cuffmerge (part of the Cufflinks suite).
 
 
 ## Data available for exercise
@@ -88,7 +88,8 @@ is deemed to have been expressed by Cufflinks, but we will not go into that toda
 For reference, the commands we used were of the form
 
      # Only for reference, does not need to be executed during the exercise
-     cufflinks -p 8 -G /proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/isoform/otherData/Homo_sapiens.GRCh38.77.fixed.gtf -o cufflinks_out_137_1 accepted_hits_137_1.bam
+     cufflinks -G /proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/isoform/otherData/Homo_sapiens.GRCh38.77.fixed.gtf \
+	   -p 8 -o cufflinks_out_137_1 accepted_hits_137_1.bam
 
 The ``-G`` option points to an annotation file in GTF format for which to calculate
 FPKM values. The input here is a BAM file (i.e. a binary version of a SAM file) containing RNA-seq read alignments to human genome assembly GRCh38.  
