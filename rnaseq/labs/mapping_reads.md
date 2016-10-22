@@ -159,7 +159,7 @@ The sorted, indexed bam file can be viewed in the Integrative Genomics Viewer (I
 
 * Does the output from ``samtools flagstat`` confirm any of your answers to the questions in the HISAT2 and STAR sections above?
 * Load the the BAM files with HISAT2 and STAR results into IGV. Go to the RAB11FIP5 locus. Have HISAT2 and STAR mapped the reads in a similar way?
-* Viewing the read alignments in IGV, can you tell if the RNA-seq data is strand-specific?
+* Detailed examination of the read alignments in IGV should indicate if the RNA-seq data is strand-specific. Is it?
 
 
 
