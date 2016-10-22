@@ -72,7 +72,7 @@ Cufflinks can merge multiple assemblies into one using a program called cuffmerg
 This step is not mandatory, but if you want you can try it out. If you have not already loaded the cufflinks module, remember to do so. 
 
     module load cufflinks/2.2.1
-	cuffmerge  assembly_GTF_list.txt
+	cuffmerge assembly_GTF_list.txt
 	
 where ``assembly_GTF_list.txt`` is a text file with a list (one per line) of GTF files that you’d like to merge together into a single GTF file.
 
