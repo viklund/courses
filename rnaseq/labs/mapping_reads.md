@@ -155,12 +155,11 @@ Since the BAM file contains all the information from the original SAM file, reme
 
 The sorted, indexed bam file can be viewed in the Integrative Genomics Viewer (IGV). Instructions are [here](IGV).
 
-&#10067; *Look at the result from the flagstat command. Does it confirm any of your answers to the questions in the HISAT2 and STAR sections above?*
+&#10067; *Try to answer the following:*
 
-&#10067; *Load the BAM files with HISAT2 and STAR results into IGV. Go to the RAB11FIP5 locus. Try to answer the following:*
-
-* Have HISAT2 and STAR mapped the reads in a similar way?
-* Is the RNA-seq data strand-specific?
+* Does the output from ``samtools flagstat`` confirm any of your answers to the questions in the HISAT2 and STAR sections above?
+* Load the the BAM files with HISAT2 and STAR results into IGV. Go to the RAB11FIP5 locus. Have HISAT2 and STAR mapped the reads in a similar way?
+* Viewing the read alignments in IGV, can you tell if the RNA-seq data is strand-specific?
 
 
 
