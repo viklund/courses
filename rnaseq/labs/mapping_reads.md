@@ -119,7 +119,7 @@ flags used are
 This should run fairly quickly and put a file called ``Aligned.out.sam`` in 
 the directory that you specified with ``--outFileNamePrefix``. 
 
-*Look at the output files from STAR, and try to answer the same questions as for HISAT2 above.*
+&#10067; *Look at the output files from STAR, and try to answer the same questions as for HISAT2 above.*
 
 ## Converting SAM files to BAM files
 
@@ -155,5 +155,5 @@ Since the BAM file contains all the information from the original SAM file, reme
 
 The sorted, indexed bam file can be viewed in the Integrative Genomics Viewer (IGV). We will do that in a later exercise.
 
-*Look at the result from the flagstat command. Does it confirm any of your answers to the questions in the HISAT2 and STAR sections above?*
+&#10067; *Look at the result from the flagstat command. Does it confirm any of your answers to the questions in the HISAT2 and STAR sections above?*
 
