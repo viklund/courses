@@ -21,7 +21,7 @@ If you want to map more files for practice, you can continue with the files foun
 
 on UPPMAX and through this [URL](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/RAB11FIP5_fastqFiles).
  
-A pre-built human genome index for HISAT is found here
+A pre-built human genome index for HISAT2 is found here
  
 	/proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/reference/hg19_hisat2
 
@@ -37,7 +37,9 @@ on UPPMAX and through this [URL](https://export.uppmax.uu.se/b2013006/downloads/
 
 ## Mapping short reads to a reference using HISAT2
 
-If you are using our data, you will map the reads to the hg19 reference genome using the RNA-seq aligner **HISAT2**. There are many features that can be tweaked using HISAT2. For more information on all flags that can be used go [here](https://ccb.jhu.edu/software/hisat2/manual.shtml).
+Here, you will map the reads to the hg19 reference genome using the RNA-seq aligner HISAT2. Note that if you are using your own non-human data, you need to use a reference genome for the corresponding species.
+
+There are many features that can be tweaked using HISAT2. For more information on all flags that can be used go [here](https://ccb.jhu.edu/software/hisat2/manual.shtml).
 
 Read below for the flags we use for this exercise. Remember to change filenames accordingly so that you can run your program properly and know which files you have used.
 
@@ -61,14 +63,13 @@ The flags used are:
 * ``-x /path/to/index/fileName`` specifices the path to the pre-built genome index. Note that the index consists of multiple files ending in ``.ht2``, and only the shared part of the filename should be indicated (e.g. ``genome`` if the files are called ``genome.1.ht2``, ``genome.2.ht2``, etc).
 *  `` -1 /path/to/read1/sample_1.fastq `` is where you should list your first-read FASTQ files that you wish to map 
 *  `` -2 /path/to/read1/sample_2.fastq `` is where you should list your second-read FASTQ files that you wish to map
-*  ``-S outDir/fileName.sam`` is the name of the result file what will be created
-*  ``&> outDir/fileName.sam.info`` will write any messages from HISAT2 to the specific file
+*  ``-S outDir/fileName.sam`` is the name of the result file that will be created
 
 This should run fairly quickly and create the file you specified with ``-S``.
 
-If everything worked, HISAT2 should report some statistics about how many reads were mapped on your terminal. Save this information!
+If everything worked, HISAT2 should report some statistics about how many reads were mapped, on your terminal. Save this information!
 
-If you run HISAT2 again, it can be useful to automatically redirect this information to a file, but adding at the end of the HISAT2 commandline: ``&> outDir/fileName.sam.info``. Note that this will send all messages from HISAT2 (including errors and warnings) into the specified file, so make sure to check that file!
+If you run HISAT2 again, it can be useful to automatically redirect the mapping statistics to a file, by adding at the end of the HISAT2 command line: ``&> outDir/fileName.sam.info``. Note that this will send all messages from HISAT2 (including errors and warnings) into the specified file, so make sure to check that file!
 
 
 ## Mapping short reads to a reference using STAR
