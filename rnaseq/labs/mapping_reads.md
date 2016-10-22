@@ -9,7 +9,7 @@ title:  'Mapping reads'
 
 ### Data available for exercise
 
-You can carry out this exercise using the RNA-seq we provide or your own RNA-seq data, if you have any.
+You can carry out this exercise using the RNA-seq data we provide or your own data, if you have any.
 
 In order to make the steps run quickly during the lab, we have extracted only those RNA-seq reads that mapped to one gene (*RAB11FIP5*)
 that we will examine in more detail in later exercises. 
@@ -25,8 +25,6 @@ If you want to map more files for practice, you can continue with files for addi
 	/proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/isoform/RAB11FIP5_fastqFiles
 
 on UPPMAX and through this [URL](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/RAB11FIP5_fastqFiles).
-
-Alternatively, you can run the exercise with your own FASTQ files if you have any.
 
 A pre-built human genome index for HISAT2 is found here
  
@@ -78,6 +76,14 @@ If everything worked, HISAT2 should report some statistics about how many reads 
 
 If you run HISAT2 again, it can be useful to automatically redirect the mapping statistics to a file, by adding at the end of the HISAT2 command line: ``&> outDir/result.sam.info``. Note that this will send all messages from HISAT2 (including errors and warnings) into the specified file, so make sure to check that file!
 
+*Try to answer the following:*
+
+* How many RNA-seq read pairs were provided as input to HISAT2?
+* How many of those read pairs were mapped by HISAT2?
+* How many reads were uniquely mapped, i.e. mapped to one genomic location?
+* In general, do the alignments seem to be good? I.e. do they cover the entire reads and contain few mismatches?
+
+To answer these questions, you should look at the input to and output from HISAT2. You may also need to consult the [HISAT2 manual]((https://ccb.jhu.edu/software/hisat2/manual.shtm), [information about the FASTQ format](https://en.wikipedia.org/wiki/FASTQ_format) and the [SAM format specification](https://github.com/samtools/hts-specs).
 
 ## Mapping short reads to a reference using STAR
 
@@ -113,6 +119,7 @@ flags used are
 This should run fairly quickly and put a file called ``Aligned.out.sam`` in 
 the directory that you specified with ``--outFileNamePrefix``. 
 
+*Look at the output files from STAR, and try to answer the same questions as for HISAT2 above.*
 
 ## Converting SAM files to BAM files
 
@@ -124,8 +131,8 @@ The most commonly used tool for converting from SAM to BAM is [Samtools](http://
 
 To load the Samtools module on Uppmax, execute:
 
-     module load bioinfo-tools
-     module load samtools
+    module load bioinfo-tools
+    module load samtools
 
 The Samtools command to convert from SAM to BAM is:
 
@@ -135,10 +142,10 @@ Remember to use an appropriate filename instead of ``output.bam``!
 
 Next, we need to sort and index the BAM file.
 
-Then to view them you also have to sort the hits and index them.
-
 	samtools sort properName.bam  properName.sorted
 	samtools index properName.sorted.bam
+
+The indexing step should create and index file with the suffix ``.bai``.
 
 You can also get a report on your mapped reads using the samtools command *flagstat*:
 
@@ -146,6 +153,7 @@ You can also get a report on your mapped reads using the samtools command *flags
 
 Since the BAM file contains all the information from the original SAM file, remember to remove the SAM file and the unsorted BAM file once you are finished, in order to free up disk space.
 
-The sorted, indexed bam file can be viewed in the Integrative Genomics Viewer (IGV). We will do this in a later exercise.
+The sorted, indexed bam file can be viewed in the Integrative Genomics Viewer (IGV). We will do that in a later exercise.
 
+*Look at the result from the flagstat command. Does it confirm any of your answers to the questions in the HISAT2 and STAR sections above?*
 
