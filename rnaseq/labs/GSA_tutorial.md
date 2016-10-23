@@ -1,3 +1,10 @@
+---		
+layout: default		
+title: 'Gene-set analysis'		
+---		
+		
+# Gene-set analysis
+
 ### Introduction and data
 
 The follwing packages are used in this tutorial: `DESeq2`, `biomaRt`, `piano`, `snow`, `snowfall`. In case you haven't installed them yet it could be convenient to do so before starting (you can potentially skip `snow` and `snowfall`). We will perform gene-set analysis on the output from the tutorial on Differential expression analysis of RNA-seq data using DESeq. A quick recap of the essential code for the differential expression analysis is included below, in case you did not save the output from that analysis:
