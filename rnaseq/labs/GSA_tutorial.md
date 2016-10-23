@@ -1,6 +1,6 @@
 ### Introduction and data
 
-The follwing packages are used in this tutorial: DESeq2, biomaRt, piano, snow, snowfall. In case you haven't installed them yet it could be convenient to do so before starting. We will perform gene-set analysis on the output from the tutorial on Differential expression analysis of RNA-seq data using DESeq. A quick recap of the essential code for the differential expression analysis is included below, in case you did not save the output from that analysis:
+The follwing packages are used in this tutorial: `DESeq2`, `biomaRt`, `piano`, `snow`, `snowfall`. In case you haven't installed them yet it could be convenient to do so before starting (you can potentially skip `snow` and `snowfall`). We will perform gene-set analysis on the output from the tutorial on Differential expression analysis of RNA-seq data using DESeq. A quick recap of the essential code for the differential expression analysis is included below, in case you did not save the output from that analysis:
 
 ``` r
 library(DESeq2)
@@ -58,8 +58,9 @@ If you are using RStudio you can also use the command `View` to inspect the data
 View(geneLevelStats)
 ```
 
-Question: How many genes are in this dataset and how many are significant at an FDR&lt;1e-3?
-Question: Are there any duplicates among the gene names?
+**Question:** How many genes are in this dataset and how many are significant at an FDR&lt;1e-3?
+
+**Question:** Are there any duplicates among the gene names?
 
 ### Overrepresentation analysis
 
@@ -76,23 +77,23 @@ write.table(geneLevelStats[1:100,"gene"],row.names=F,col.names=F,quote=F)
 
 Paste this gene list at <http://amp.pharm.mssm.edu/Enrichr/> and submit, go to the tab Pathways and Kinase Perturbations from GEO up. You will see that EGFR\_drugactivation is the top significant hit.
 
-Question: Does this make sense considering what you know about the experiment behind the data?
+**Question:** Does this make sense considering what you know about the experiment behind the data?
 
 Explore the other result options on the Enrichr webiste.
 
-Question: What seems to be the main functions of the top 100 genes?
+**Question:** What seems to be the main functions of the top 100 genes?
 
 Now, try a new run of Enrichr, but this time on the top 200 genes (or choose your own cutoff).
 
-Question: Do the results look similar?
+**Question:** Do the results look similar?
 
 If you want to, also try out DAVID. Go to the [*Functional Annotation* page](https://david-d.ncifcrf.gov/summary.jsp) and make sure the Upload tab is visible. Paste the copied gene-list, select the correct identifier, and select whether this is a gene list or background (discuss with other students if you are not sure, or ask the instructors). Submit list.
 
-Question: Where all gene IDs recognized?
+**Question:** Where all gene IDs recognized?
 
 Explore the results. For instance, click on Functional Annotation Clustering at the bottom of the page. This shows related gene-sets clustered together in larger groups for a nicer overview.
 
-Question: Are the results similar to those from Enrichr?
+**Question:** Are the results similar to those from Enrichr?
 
 ### Gene-set analysis
 
@@ -172,13 +173,13 @@ networkPlot(gsaRes, "distinct", "both", adjusted=T, ncharLabel=Inf, significance
             scoreColors=c("red", "orange", "yellow", "blue", "lightblue", "lightgreen"))
 ```
 
-![](GSA_tutorial_files/figure-markdown_github/unnamed-chunk-10-1.png)
+![](GSA_tutorial_files/figure-markdown_github/networkplot-1.png)
 
 ``` r
 par(mfrow=c(1,1)) # Reset the plotting layout
 ```
 
-Question: Understand the plot! What do the node sizes mean, what do the edges and edge sizes mean? Hint: take a look at `?networkPlot`.
+**Question:** Understand the plot! What do the node sizes mean, what do the edges and edge sizes mean? Hint: take a look at `?networkPlot`.
 
 The function `GSAsummaryTable` can be used to export the complete results.
 
@@ -189,6 +190,8 @@ head(GSAsummaryTable(gsaRes))
 # if you want to you can also save this as a file:
 GSAsummaryTable(gsaRes, save=T, file="gsares.txt")
 ```
+
+**Question:** Are the results similar to those from Enrichr and/or DAVID?
 
 The `geneSetSummary` function can be used to explore specific gene-sets in more detail.
 
@@ -204,7 +207,7 @@ boxplot(list(-log10(geneLevelStats$padj),
         names=c("all","HALLMARK_DNA_REPAIR"))
 ```
 
-![](GSA_tutorial_files/figure-markdown_github/unnamed-chunk-13-1.png)
+![](GSA_tutorial_files/figure-markdown_github/boxplot-1.png)
 
 From here, you can dig in to the results on the gene-set level further and start making hypothesis of what is happening with the biology behind your data. You can also try to run GSA with other gene-set collections (e.g. from [MSigDB](http://software.broadinstitute.org/gsea/msigdb/)) or using another GSA method (see `?runGSA`).
 
