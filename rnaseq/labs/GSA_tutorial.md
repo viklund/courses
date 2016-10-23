@@ -209,6 +209,8 @@ boxplot(list(-log10(geneLevelStats$padj),
 
 ![](images/boxplot-1.png)
 
+**Question:** Given the significance of the genes, does it make sense that DNA-repair shows up as significant?
+
 From here, you can dig in to the results on the gene-set level further and start making hypothesis of what is happening with the biology behind your data. You can also try to run GSA with other gene-set collections (e.g. from [MSigDB](http://software.broadinstitute.org/gsea/msigdb/)) or using another GSA method (see `?runGSA`).
 
 ### Further reading
