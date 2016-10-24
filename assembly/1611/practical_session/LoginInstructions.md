@@ -33,11 +33,11 @@ Now check which node you got (replace *username* with your uppmax user name) lik
 
 $ squeue -u username
 
-Under Nodelist you will see the name of the node that has been reserved for you. The names follow the format qXX, e.g., q34.
+Under Nodelist you will see the name of the node that has been reserved for you. The names follow the format mXX, e.g., m34.
 
 Connect to the node you were dealt like this:
 
-$ ssh -X q34
+$ ssh -X m34
 
 **Note**: there is a uppmax specific tool called jobinfo that supplies the same kind of information as squeue that you can use as well ( *$ jobinfo -u username*).
 
