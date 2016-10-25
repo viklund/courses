@@ -52,10 +52,10 @@ Figure 2: Workflow of somatic variant detection and annotation.
 Bam files are located here:  
 
 ```bash
-/home/teacher2/cancer_genomics_2015/data/chr17/HCC1143.normal.bam
-/home/teacher2/cancer_genomics_2015/data/chr17/HCC1143.tumor.bam
-/home/teacher2/cancer_genomics_2015/data/chr17/HCC1954.normal.bam
-/home/teacher2/cancer_genomics_2015/data/chr17/HCC1954.tumor.bam
+/home/teacher2/cancer_genomics/data/chr17/HCC1143.normal.bam
+/home/teacher2/cancer_genomics/data/chr17/HCC1143.tumor.bam
+/home/teacher2/cancer_genomics/data/chr17/HCC1954.normal.bam
+/home/teacher2/cancer_genomics/data/chr17/HCC1954.tumor.bam
 ```
 
 ### Include paths to software and reference files in your .bashrc
