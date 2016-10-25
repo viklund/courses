@@ -198,6 +198,11 @@ Run RseQC for one sample and have a look at your output.
 
 We have ran RSeQC and MultiQC on all the samples in the project. The summary report from MultiQC can be found [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/QC/output/multiqc_report_rseqc.html). 
 
+It was created using commands:
+
+   multiqc -f -d -dd 3 .
+   # since folder structure like: sample_name/qc/read_distribution.txt and so on for the other file types.
+
 Have a look at the reports. What is your conclusion, do your samples look good? Is there anything that looks strange in any sample, or do you feel comfortable using all the samples in your analysis?
 
 # Outlier detection and general overview of data
@@ -261,24 +266,7 @@ Here is one example that shows how to plot the top 5 PCs:
 Another thing to look at is the pairwise correlation between all the samples and see how they group based on correlation. Let's create one matrix with all pairwise Pearson correlations (again in log-space).
 
 	nSamples<-ncol(counts)
-	C<-mat.or.vec(nSamples,nSamples)
-	for (i in 1:nSamples) {
-		for (j in i:nSamples){
-			if (i==j){ C[i,j]<-NA }
-			else {
-			c<-cor(log2(counts[,i]+1),log2(counts[,j]+1),method="pearson")
-			C[i,j] = c
-			C[j,i] = c
-			}
-		}
-	}
-	colnames(C)<-colnames(counts)
-	rownames(C)<-colnames(counts)
-
-This can also be calculated as one command with the R apply function, but to clarify what is being calculated we included a more descriptive code. Another way to do the same thing would be:
-
-	C<-apply(log2(counts+1),2,cor,log2(counts+1),method="pearson")
-	diag(C)<-NA
+	C<-cor(log2(counts+1),method="pearson")	
 
 Now you will plot a heatmap with the correlations:
 
