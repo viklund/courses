@@ -273,7 +273,7 @@ Filtered somatic mutations are available in these files:
 
 ```bash
 $data/wgs/HCC1143.final.vcf
-$data/data/wgs/HCC1954.final.vcf
+$data/wgs/HCC1954.final.vcf
 ``` 
 
 Filtered somatic mutations annotated with Annovar and the refGene database, are available here:
