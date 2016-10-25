@@ -18,7 +18,7 @@ There are files that have been pre-mapped using TopHat and those can be found in
 
 	/proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/isoform/otherData/refBasedAssembly/RAB11FIP5/BAMfiles
 
-on UPPMAX and through this [URL](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/otherData/refBasedAssembly/RAB11FIP5/BAMfiles).
+on UPPMAX and through this [URL](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/otherData/refBasedAssembly/RAB11FIP5/BAMfiles).
 
 There are files that have been pre-mapped and pre-analyzed using TopHat and Cufflinks and those can be found in
 
@@ -57,11 +57,10 @@ without feeding it a GTF file with the -G flag
 	module load StringTie/1.2.0
 	stringtie -o /path/to/outputDirectory/sample.gtf sample.sorted.bam
 
-Substitute the appropriate names for the BAM file and the output directory. When 
-StringTie has finished (which should hardly take any time at all), the output 
-directory will contain a file called ``sample.gtf``. Rename the file to a 
-name that reflects what created the GTF file.  You can import the GTF file into
-IGV as a track for visualization.
+Substitute the appropriate names for the BAM file and the output file.
+Remember to choose an output file name that reflects what data and programs were used to create it.
+When StringTie has finished (which should hardly take any time at all), have a look at the output file.
+You can import it into IGV as a track for visualization.
 
 &#10067; *Was StringTie able to assemble your alignments into something that makes sense?*
  
