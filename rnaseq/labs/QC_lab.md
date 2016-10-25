@@ -200,8 +200,8 @@ We have ran RSeQC and MultiQC on all the samples in the project. The summary rep
 
 It was created using commands:
 
-   multiqc -f -d -dd 3 .
-   # since folder structure like: sample_name/qc/read_distribution.txt and so on for the other file types.
+      multiqc -f -d -dd 3 .
+      # since folder structure like: sample_name/qc/read_distribution.txt and so on for the other file types.
 
 Have a look at the reports. What is your conclusion, do your samples look good? Is there anything that looks strange in any sample, or do you feel comfortable using all the samples in your analysis?
 
@@ -268,10 +268,17 @@ Another thing to look at is the pairwise correlation between all the samples and
 	nSamples<-ncol(counts)
 	C<-cor(log2(counts+1),method="pearson")	
 
+Now create a hierarchical clustering dendrogram using 1-correlation as the distance measure:
+
+    	d <- as.dist(1-C)
+	h <- hclust(d,method="ward.D2")
+	dendro <- as.dendrogram(h)
+
+
 Now you will plot a heatmap with the correlations:
 
 	pdf('correlation_heatmap.pdf')
-	heatmap(C,symm=TRUE)
+	heatmap(C,Colv=dendro,Rowv=dendro)
 	dev.off()
 
 Do the clusterings agree with what you expect? 
