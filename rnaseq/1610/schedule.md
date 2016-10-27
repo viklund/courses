@@ -33,6 +33,6 @@ Room:
 **11:00-12:00** [Lecture: Allele Specific Expression](slides/ASE_Olof_Emanuelsson.pdf) (Olof Emanuelsson)  
 **12.00-13.00** Lunch  
 **13.00-16.00** [Exercise: ](../labs/index) (Åsa Björklund, Johan Reimegård)  
-**16.00-17.00** [Lecture: Summary of the week ](slides/Summary.pdf) (Johan Reimegård)  
+**16.00-17.00** [Lecture: Summary of the week ](slides/Summary.pdf) (Johan Reimegård )  
 
  
