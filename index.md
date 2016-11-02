@@ -10,6 +10,7 @@ title:  'Welcome'
 ### Metagenomics Workshop  
 
 [2015 November - Uppsala](Metagenomics/1511/)  
+[2016 November - Uppsala](Metagenomics/1611/)  
 
 ### Introduction to Bioinformatics Using NGS Data
 [2015 February - Uppsala](ngsintro/1502/)   
