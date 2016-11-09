@@ -12,6 +12,7 @@ Held in Uppsala November 22-23, 2016.
 ## Important Links
 
 [Pre-course material](precourse)  
+[Course material](http://metagenomics-workshop.readthedocs.io/en/latest/)
 [Schedule](schedule)  
 
 ## Maps & Travel Info
