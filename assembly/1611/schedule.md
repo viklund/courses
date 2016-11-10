@@ -5,7 +5,7 @@ title:  'Schedule'
 
 # Schedule
 
-####This course is given at Navet (E10) at BMC. Click the heading of a topic to see the lecture slides or lab instructions.
+#### This course is given at Navet (E10) at BMC. Click the heading of a topic to see the lecture slides or lab instructions.
 
 **Monday 14th** 
 
@@ -24,10 +24,11 @@ Room: E10:1309
 **Tuesday 15th** 
 
 Room: E10:1309  
-**09.00-09.45** Lecture: Assembly basics - Genome properties (Henrik Lantz)  
-**09.45-10.30** Exercise: [Repeat analysis](exercises/repeat_analysis) (incl. coffee break) (Henrik Lantz, Martin Norling, Mahesh Panchal)  
-**10.30-11.15** Lecture: Illumina assembly (Martin Norling)  
-**11.15-12.00** Exercise: [Illumina assembly](exercises/illumina_assembly) (Martin Norling, Mahesh Panchal, Henrik Lantz)  
+**09.00-09.30** Discussion of last day's exercises (Henrik Lantz, Mahesh Panchal, Martin Norling)  
+**09.30-10.00** Lecture: Assembly basics - Genome properties (Henrik Lantz)  
+**10.00-10.15** Coffee break  
+**10.15-11.00** Lecture: Illumina assembly (Martin Norling)  
+**11.00-12.00** Exercise: [Illumina assembly](exercises/illumina_assembly) (Martin Norling, Mahesh Panchal, Henrik Lantz)  
 **12.00-13.00** Lunch  
 **13.00-13.30** Exercise: [Illumina assembly contd.](exercises/illumina_assembly) (Martin Norling, Mahesh Panchal, Henrik Lantz)  
 **13.30-14.30** Lecture: PacBio assembly, assembly polising, and demonstration of SMRT-portal (Mahesh Panchal)  
