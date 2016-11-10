@@ -1,7 +1,7 @@
-----
+---
 layout: default
 title:  'Login instructions'
-----
+---
 -
 -# Login instructions
 -## 1. Connecting to UPPMAX
