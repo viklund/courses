@@ -3,19 +3,19 @@ layout: default
 title:  'Exercise: Assembly Assessment'
 ---
 
-## Exercise: Assembly Assessment
+# Exercise: Assembly Assessment
 
 **Questions**
 
 If you have questions about the lab after the course, you are welcome to contact me: martin.norling@nbis.se
 
-### Introduction
+## Introduction
 
 In this exercise we will look further into assembly assessment. We will focus on illumina assemblies, as the tools for these assemblies are more mature, but many things can be used for pacbio as well.
 
 Start with one assembly and go through all the steps, then continue with the other assemblies if you have the time.
 
-#### Read Mapping
+## Read Mapping
 
 As the  assemblers we used for illumina assembly didn't provide read mappings, we need to map the reads back on the assemblies. We will do this with BWA, The Burrows-Wheeler Aligner. We will need to do this for each assembly. These parts can be stored in a script, like in the illumina assembly exercise, or run directly on the command line - the choice is yours!
 
@@ -52,3 +52,11 @@ $ samtools index assembly_lib_type.sorted.bam
 ```
 
 Now that we have a sorted, indexed BAM file, we can also remove the SAM file, and the unsorted BAM file to save some space and keep the project neat!
+
+### QAtools
+
+### REAPR
+
+## KMER analysis
+
+### KAT
