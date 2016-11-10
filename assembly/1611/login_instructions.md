@@ -1,6 +1,6 @@
 ----
--layout: default
--title:  'Login instructions'
+layout: default
+title:  'Login instructions'
 ----
 -
 -# Login instructions
