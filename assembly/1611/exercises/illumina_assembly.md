@@ -5,7 +5,7 @@ title:  'Exercise: Illumina Assembly'
 
 ## Exercise: Illumina Assembly
 
-In this exercise you will assemble genomes de novo using commonly used assembly software. You will work with Illumina data of _Saccharomyces cerevisiae S288c_, data that was downloaded from the NCBI Short Read Archive (SRA). Due to time-restrictions we are forced to stick to assemblers that run quickly, but if you have an assembly project of your own you are encouraged to try other assemblers too. Remember that no assembler is best for all projects; it is recommended to try several.
+In this exercise you will assemble genomes de novo using commonly used assembly software. You will work with Illumina data of _Saccharomyces cerevisiae S288c_, data that was downloaded from the NCBI Short Read Archive (SRA) and subsampled to make faster, crappier assemblies. Due to time-restrictions we are forced to stick to assemblers that run quickly, but if you have an assembly project of your own you are encouraged to try other assemblers too. Remember that no assembler is best for all projects; it is recommended to try several.
 
 **Questions**
 
@@ -62,7 +62,7 @@ The instructions for running ABySS will include detailed instructions on how to 
 
 #### ABySS 
 
-**Runtime approximately 15 minutes**
+_Runtime approximately 15 minutes_
 
 [ABySS](http://www.bcgsc.ca/platform/bioinfo/software/abyss), Assembly By Short Sequences, is a _de novo_, parallel, paired-end sequence assembler that is designed for short reads. Official instructions for running the assembler can be found [here](https://github.com/bcgsc/abyss#assembling-a-paired-end-library). 
 
@@ -130,14 +130,12 @@ date +"Assembly finished at %Y-%m-%d, %H:%M:%S"
 ```
 
 Now run `$ chmod +x run_abyss.sh` to make the script executable.
-To run the assembly you can run `$ ./run_abyss.sh >log.abyss`. This will use all your cores though, so while you should start and see that the script runs, you might wish to wait until lunch for the full run. If you have several assemblies prepared you can run them in order like: `$ ./run_abyss.sh >log.abyss && ./run_mira.sh >log.mira && ...`. 
-
-#### MIRA
+To run the assembly you can run `$ ./run_abyss.sh >log.abyss`. This will use all your cores though, so while you should start and see that the script runs, you might wish to wait until lunch for the full run. If you have several assemblies prepared you can run them in order like: `$ ./run_abyss.sh >log.abyss && ./run_soapdenovo.sh >log.soapdenovo && ...`. 
 
 #### SOAP denovo
 
 
-**Runtime approximately 15 minutes**
+_Runtime approximately 15 minutes_
 
 [SOAP](http://soap.genomics.org.cn/soapdenovo.html), Short Oligonucleotide Analysis Package, includes SOAPdenovo, a novel short-read assembly method that can build a de novo draft assembly for the human-sized genomes. 
 
@@ -159,7 +157,7 @@ The paired-end library should look like this:
 ```
 [LIB]
 
-avg_ins=220
+avg_ins=500
 
 reverse_seq=0
 
@@ -187,18 +185,12 @@ p=[mate_pair_data]
 
 Exit and save the file by ctrl-x (if using nano) and answer yes when asked to save.
 
-Start SoapDeNovo using the `SOAPdenovo-63mer` command. Use the `-p 8` flag to use 8 threads, and - if you wish - you can also use one or more of the following flags, `-F` (fill gaps in scaffold), `-R` (resolve repeats by reads), or any other flag you find interesting in the documentation.
+Start SoapDeNovo using the `SOAPdenovo-63mer` command. Use the `-p 8` flag to use 8 threads and the `-o` flag to set an output prefix, and - if you wish - you can also use one or more of the following flags, `-F` (fill gaps in scaffold), `-R` (resolve repeats by reads), or any other flag you find interesting in the documentation.
+
+SoapDeNovo also comes with a GapCloser utlity that tries to improve the assemblies by closing gaps in the scaffolds. If you wish to use it, you can add it to she script. You can run it like:
 
 ```
-SOAPdenovo-63mer all -s soap_denovo_.config -o $OUTPUT -F -R -E -w -u -K 37 -p 8 >>SOAPdenovo.log
-```
-
-Check the result-files asm.contig and asm.scafSeq for N50 size and number of contigs/scaffolds and compare with earlier results using Quast.
-
-SoapDeNovo also comes with a GapCloser utlity that tries to improve the assemblies by closing gaps in the scaffolds. Try it out using:
-
-```
-GapCloser -b soap.config -a asm.scafSeq -o asm.new.scafSeq -t 8 >> SOAPdenovo.log
+GapCloser -b soap_denovo_.config -a [output prefix].scafSeq -o [output prefix].new.scafSeq -t 8 > log.gapcloser
 ```
 
 #### SPAdes
@@ -210,9 +202,6 @@ GapCloser -b soap.config -a asm.scafSeq -o asm.new.scafSeq -t 8 >> SOAPdenovo.lo
 Start the project by creating a new script called "run_spades.sh" in your project directory, and copy the contents of the above script into it. Also update the the paths and the assembler name, and include the `spades/3.9.0` module.
 
 Spades is very easy to run in the basic configuration. Usually you want to run with the `--careful` flag, but this will take too long for this exercise. It will take around 15 mins anyway. What you DO want to do is to use the `--pe1-12` flag for paired-end data, and `--mp1-12` flag for mate-pairs. You should also use the `-t` flag to set number of threads to *8*, and the `-o` flag to set *output name*. You may use other flags too if you want to!
-
-#### Velvet
-
 
 ### Super-quick evaluation
 
