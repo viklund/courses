@@ -47,10 +47,15 @@ Room:
 **13:00-15.00** [Exercise: RNA sequencing, transcriptome and expression quantification part III](labs/rnaseqDenovo) (Thomas Källman, Martin Norling, Henrik Lantz, Pall Olason)  
 
 # H1
+
 ## H2
+
 ### H3
+
 #### H4
+
 ##### H5
+
 ###### H6
 
 Alternatively, for H1 and H2, an underline-ish style:
