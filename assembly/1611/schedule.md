@@ -13,7 +13,7 @@ Room: E10:1309
 **09.00-09.15** Introduction (Henrik Lantz)  
 **09.15-10.00** Lecture: [NGS technologies and basic concepts](files/Sequence_technologies_2016.ppt) (Henrik Lantz)  
 **10.00-10.15** Coffee break  
-**10.15-10.45** Lecture: Quality control and read trimming (Mahesh Panchal)  
+**10.15-10.45** Lecture: [Quality control and read trimming](files/Sequence_Quality_Assessment.pdf) (Mahesh Panchal)  
 **10.45-12.00** Exercise: [Quality control and read trimming](exercises/quality_control) (Mahesh Panchal)  
 **12.00-13.00** Lunch  
 **13.00-13.45** Lecture: Kmer-analysis, contamination analysis, and mapping-based analysis (Mahesh Panchal)  
