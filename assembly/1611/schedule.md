@@ -14,12 +14,12 @@ Room: E10:1309
 **09.15-10.00** Lecture: [NGS technologies and basic concepts](files/Sequence_technologies_2016.ppt) (Henrik Lantz)  
 **10.00-10.15** Coffee break  
 **10.15-10.45** Lecture: [Quality control and read trimming](files/Sequence_Quality_Assessment.pdf) (Mahesh Panchal)  
-**10.45-12.00** Exercise: [Quality control and read trimming](exercises/Sequence_Data_Quality_Assessment_Exercises.pdf) (Mahesh Panchal)  
+**10.45-12.00** Exercise: [Quality control and read trimming](exercises/Sequence_Data_Quality_Assessment_Exercises.pdf) (Mahesh Panchal, Henrik Lantz, Martin Norling, Lucile Soler)  
 **12.00-13.00** Lunch  
 **13.00-13.45** Lecture: [Kmer-analysis, contamination analysis, and mapping-based analysis](files/KmerAnalysisContaminationMapping.pdf) (Mahesh Panchal)  
-**13.45-15.00** Exercise: [Kmer-analysis, contamination analysis, and mapping-based analysis](exercises/KmerAnalysisAndContamination_Exercises.pdf) (Mahesh Panchal, Henrik Lantz, Martin Norling)  
+**13.45-15.00** Exercise: [Kmer-analysis, contamination analysis, and mapping-based analysis](exercises/KmerAnalysisAndContamination_Exercises.pdf) (Mahesh Panchal, Henrik Lantz, Martin Norling, Lucile Soler)  
 **15.00-15.15** Coffee break  
-**15.15-16.30** [Team based exercise on quality control](exercises/Team Exercise.pdf) (Mahesh Panchal, Henrik Lantz, Martin Norling)  
+**15.15-16.30** [Team based exercise on quality control](exercises/Team Exercise.pdf) (Mahesh Panchal, Henrik Lantz, Martin Norling, Lucile Soler)  
 
 **Tuesday 15th** 
 
@@ -40,12 +40,12 @@ Room: E10:1309
 **09.00-09.30** Discussion of last day's exercises (Mahesh Panchal, Martin Norling)  
 **09.30-10.00** Lecture: Assembly assessment (Martin Norling)  
 **10.00-10.15** Coffee break  
-**10.15-11.00** Exercise: [Assembly assessment](exercises/assembly_assessment) (Martin Norling, Mahesh Panchal, Henrik Lantz)  
+**10.15-11.00** Exercise: [Assembly assessment](exercises/assembly_assessment) (Martin Norling, Mahesh Panchal, Henrik Lantz, Jaques Dainat)  
 **11.00-11.30** Lecture: Assembly validation (Martin Norling)  
-**11.30-12.00** Exercise: [Assembly validation](exercises/assembly_validation) (Martin Norling, Mahesh Panchal, Henrik Lantz)  
+**11.30-12.00** Exercise: [Assembly validation](exercises/assembly_validation) (Martin Norling, Mahesh Panchal, Henrik Lantz, Jaques Dainat)  
 **12.00-13.00** Lunch  
 **13.00-13.30** Lecture: Contamination assessment (Martin Norling)  
-**13.30-15.00** Exercise: [Assembly validation contd.](exercises/assembly_validation) + [contamination assessment](exercises/contamination_assessment) (Martin Norling, Mahesh Panchal, Henrik Lantz)  
+**13.30-15.00** Exercise: [Assembly validation contd.](exercises/assembly_validation) + [contamination assessment](exercises/contamination_assessment) (Martin Norling, Mahesh Panchal, Henrik Lantz, Jaques Dainat)  
 **15.00-15.15** Coffee break  
 **15.15-15.30** Exercise discussion (Martin Norling)  
 **15.30-17.00** Wrap-up and project discussion (Martin Norling, Mahesh Panchal, Henrik Lantz)  
