@@ -16,7 +16,7 @@ Room: E10:1309
 **10.15-10.45** Lecture: [Quality control and read trimming](files/Sequence_Quality_Assessment.pdf) (Mahesh Panchal)  
 **10.45-12.00** Exercise: [Quality control and read trimming](exercises/quality_control) (Mahesh Panchal)  
 **12.00-13.00** Lunch  
-**13.00-13.45** Lecture: Kmer-analysis, contamination analysis, and mapping-based analysis (Mahesh Panchal)  
+**13.00-13.45** Lecture: [Kmer-analysis, contamination analysis, and mapping-based analysis](files/KmerAnalysisContaminationMapping.pdf) (Mahesh Panchal)  
 **13.45-15.00** Exercise: [Kmer-analysis, contamination analysis, and mapping-based analysis](exercises/kmer_analysis) (Mahesh Panchal, Henrik Lantz, Martin Norling)  
 **15.00-15.15** Coffee break  
 **15.15-16.30** [Team based exercise on quality control](exercises/team_based_quality_control) (Mahesh Panchal, Henrik Lantz, Martin Norling)  
