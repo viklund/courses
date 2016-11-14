@@ -61,7 +61,7 @@ Download the whole quast result-folder (spades) to your own computer using scp a
 Make symbolic link in your Rhodoassembly folder using
 
 ```
-ln -s /proj/g2015027/private/nobackup/assembly_workshop/reference/GCF_000012905.2_ASM1290v2_genomic.fna
+ln -s /proj/g2016024/nobackup/illumina_assembly/reference/GCF_000012905.2_ASM1290v2_genomic.fna
 ```
 Now run Quast again but supply the reference this time:
 
