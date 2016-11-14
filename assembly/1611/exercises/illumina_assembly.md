@@ -5,7 +5,7 @@ title:  'Exercise: Illumina Assembly'
 
 ## Exercise: Illumina Assembly
 
-In this exercise you will assemble genomes de novo using commonly used assembly software. You will work with Illumina data of _Saccharomyces cerevisiae S288c_, data that was downloaded from the NCBI Short Read Archive (SRA) and subsampled to make faster, crappier assemblies. Due to time-restrictions we are forced to stick to assemblers that run quickly, but if you have an assembly project of your own you are encouraged to try other assemblers too. Remember that no assembler is best for all projects; it is recommended to try several.
+In this exercise you will assemble genomes de novo using commonly used assembly software. You will work with Illumina data of Rhodobacter sphaerioides, data that was used in the GAGE-B comparison of assemblers. All settings used for the different programs are the ones used by the GAGE-B project. Due to time-restrictions we are forced to stick to assemblers that run quickly, but if you have an assembly project of your own you are encouraged to try other assemblers too. Remember that no assembler is best for all projects; if possible you need to try several.
 
 **Questions**
 
@@ -22,142 +22,101 @@ To make certain you are in your home folder, type: `cd`.
 Make a directory for all of today’s exercises using `mkdir illumina_assembly`, and enter it using `cd illumina_assembly`. Data in your home directory is backed up, so this is a good place to store scripts and notes, but you have a storage quota and the drive isn't as fast as using scratch or glob, so don't store data or runs here. Instead create a second project directory in glob; `cd ~/glob`, `mkdir illumina_assembly`, `cd illumina_assembly`. 
 
 Now make a copy of the folder which includes the read data using `cp -r /proj/g2016024/nobackup/illumina_assembly/data .`
-Also create an empty folder to store assemblies with `mkdir assemblies`. Now go back to your original project directory and soft-link the glob directories into the main project. `cd ~/illumina_assembly`, `ln -s ~/glob/illumina_assembly/data`, `ln -s ~/glob/illumina_assembly/assemblies`. Finally create a file called "README" where you keep notes of your project status, results, and notes. 
 
-### Running Assemblers
+You are now ready to proceed to working with the first assembly program, Velvet. You will start by using the HiSeq data for all exercises, and later if time allows, redo with the MiSeq data and compare results. 
 
-You are now ready to proceed to working with the first assembly program. Here are instructions for running a number of assemblers, and you might not have time to run all of them, so select some that you like and run them in that order!
+### Part1, HiSeq data
 
-We will run assemblers by making a script for each assembler, allowing us to re-run whatever command we used at a later time if needed. Our base script will look like this:
+#### Spades
 
-```bash
-#!/bin/bash
+Start by making a folder called spades in the illumina_assembly dorectory, and enter it with `cd spades`.
 
-# Load modules here
+Now load the spades module:
+
+```
 module load bioinfo-tools
-# module load <assembler module>
-
-# make variables pointing to our data
-PE_DATA="$PWD/data/S_cerevisiae_S288c_pe.fastq.gz"
-MP_DATA="$PWD/data/S_cerevisiae_S288c_mp.fastq.gz"
-
-#enter the assemblies directory
-cd assemblies
-
-#make an output directory for the assembly
-mkdir -p assembler_name
-
-#name the output
-OUTPUT="S_cerevisiae_S288c"
-
-date +"Starting assembly at %Y-%m-%d, %H:%M:%S"
-
-# this is where we run the assembler
-
-
-date +"Assembly finished at %Y-%m-%d, %H:%M:%S"
+module load spades
 ```
 
-The instructions for running ABySS will include detailed instructions on how to write the assembly script, while the remaining assemblers will require you to do more by yourself.
+Spades is very easy to run in the basic configuration. Usually you want to run with the "--careful" flag, but this will take too long for this exercise. It will take around 16 mins anyway, grab a coffee.
 
-#### ABySS 
-
-_Runtime approximately 15 minutes_
-
-[ABySS](http://www.bcgsc.ca/platform/bioinfo/software/abyss), Assembly By Short Sequences, is a _de novo_, parallel, paired-end sequence assembler that is designed for short reads. Official instructions for running the assembler can be found [here](https://github.com/bcgsc/abyss#assembling-a-paired-end-library). 
-
-Start the project by creating a new script called "run_abyss.sh" in your project directory, and copy the contents of the above script into it. Also update the paths and assembler name, and include the `abyss/1.9.0` module. When you are done the result should look like this:
-
-```bash
-#!/bin/bash
-
-# Load modules here
-module load bioinfo-tools
-module load abyss/1.9.0
-
-# make variables pointing to our data and output directory
-PE_DATA="$PWD/data/S_cerevisiae_S288c_pe.fastq.gz"
-MP_DATA="$PWD/data/S_cerevisiae_S288c_mp.fastq.gz"
-
-#enter the assemblies directory
-cd assemblies
-
-#make an output directory for the assembly
-mkdir -p assembler_name
-cd assembler_name
-
-#name the output
-OUTPUT="S_cerevisiae_S288c"
-
-date +"Starting assembly at %Y-%m-%d, %H:%M:%S"
-
-# this is where we run the assembler
-
-date +"Assembly finished at %Y-%m-%d, %H:%M:%S"
+```
+spades.py -t 8 --pe1-1 ../data/Rhodo_Hiseq_trimmed_read1.fastq --pe1-2 ../data/Rhodo_Hiseq_trimmed_read2.fastq -o SpadesOut
 ```
 
-The program we will invoke is called `abyss-pe`, and we will run it with a kmer-size of 37 (or some other value you choose), as well as 8 threads. Paired-end libraries can be added to the assembly with the `in="<pe-data>"` argument, and mate-pairs can be added using the `in="<mp-data>"` argument. Choose if you wish to use all of the data or just a sub-set, and then add this command to the script.
+In SpadesOut you will now have a number of files, including contigs.fasta and scaffolds.fasta.
 
-You should end up with something like:
+Take a look at the files using `less`. Can you see any regions where contigs have been scaffolded together?
 
-```bash
-#!/bin/bash
+We then calculate some statistics and generate plots using Quast:
 
-# Load modules here
-module load bioinfo-tools
-module load abyss/1.9.0
-
-# make variables pointing to our data and output directory
-PE_DATA="$PWD/data/S_cerevisiae_S288c_pe.fastq.gz"
-MP_DATA="$PWD/data/S_cerevisiae_S288c_mp.fastq.gz"
-
-#enter the assemblies directory
-cd assemblies
-
-#make an output directory for the assembly
-mkdir -p assembler_name
-cd assembler_name
-
-#name the output
-OUTPUT="S_cerevisiae_S288c"
-
-date +"Starting assembly at %Y-%m-%d, %H:%M:%S"
-
-# this is where we run the assembler
-abyss-pe name=$OUTPUT k=37 np=8 in="$PE_DATA" mp="$MP_DATA"
-
-date +"Assembly finished at %Y-%m-%d, %H:%M:%S"
+```
+module load quast/2.3
+quast.py -o spades -l Spades_scaffolds,Spades_contigs -t 1 scaffolds.fasta contigs.fasta
 ```
 
-Now run `$ chmod +x run_abyss.sh` to make the script executable.
-To run the assembly you can run `$ ./run_abyss.sh >log.abyss`. This will use all your cores though, so while you should start and see that the script runs, you might wish to wait until lunch for the full run. If you have several assemblies prepared you can run them in order like: `$ ./run_abyss.sh >log.abyss && ./run_soapdenovo.sh >log.soapdenovo && ...`. 
+Download the whole quast result-folder (spades) to your own computer using scp and click on the reports.html file. Any big differences between the scaffolds and contigs files?
+
+(OBS! Not working at the moment! You can also supply a reference genome to Quast that it will compare your assemblies with. You can find a reference genome at /proj/g2015027/private/nobackup/assembly_workshop/reference/GCF_000012905.2_ASM1290v2_genomic.fna
+Make symbolic link in your Rhodoassembly folder using
+
+```
+ln -s /proj/g2015027/private/nobackup/assembly_workshop/reference/GCF_000012905.2_ASM1290v2_genomic.fna
+```
+Now run Quast again but supply the reference this time:
+
+```
+quast.py -R GCF_000012905.2_ASM1290v2_genomic.fna -o spades -l Spades_scaffolds,Spades_contigs -t 1 scaffolds.fasta contigs.fasta
+```
+Does it tell you anything about misassemblies?)
+
+Now go on the next assembly program:
+
+#### Abyss
+
+First go to your folder RhodoAssembly and make a new folder using `mkdir Abyss`.
+
+Now load the necessary modules:
+
+```
+module load abyss/1.3.7
+module load bowtie
+```
+
+If you have paired end data you can start Abyss using the abyss-pe script:
+
+```
+abyss-pe k=31 l=1 n=5 s=100 np=8 name=asm lib='reads' reads=' ../data/Rhodo_Hiseq_trimmed_read1.fastq ../data/Rhodo_Hiseq_trimmed_read2.fastq' aligner=bowtie
+```
+
+Once done you will have two files called asm-contigs.fa and asm.scaffolds.fa. Now load these files into Quast together with the earlier Spades contigs. Can you based on these numbers say which assembler does the best job? Note that this is a trick question!
+
+The next assembler we'll try is
 
 #### SOAP denovo
 
+SoapDeNovo is one of very few program that can assemble large genomes using high coverage Illumina data.
 
-_Runtime approximately 15 minutes_
+First, load the module:
 
-[SOAP](http://soap.genomics.org.cn/soapdenovo.html), Short Oligonucleotide Analysis Package, includes SOAPdenovo, a novel short-read assembly method that can build a de novo draft assembly for the human-sized genomes. 
+```
+module load soapdenovo/2.04-r240
+```
 
-Start the project by creating a new script called "run_soapdenovo.sh" in your project directory, and copy the contents of the above script into it. Also update the paths and the assembler name, and include the `soapdenovo/2.04-r240` module.
+Now make and enter a folder called 'soap'
 
 SoapDeNovo requires a config file that you need to create yourself using a text editor like nano:
 
 ```
-nano soap_denovo.config
+nano soap.config
 ```
 
-We need to enter at least the paired-end library, and the mate-pairs if you wish. The config file will need the full paths to your data, so use the following command to find it:
-```
-$ find $PWD/data -name "*.fastq.gz"
-```
-
-The paired-end library should look like this:
+Enter this information:
 
 ```
 [LIB]
 
-avg_ins=500
+avg_ins=220
 
 reverse_seq=0
 
@@ -165,55 +124,48 @@ asm_flags=3
 
 rank=1
 
-p=[paired_end_data]
-```
+q1=../data/Rhodo_Hiseq_trimmed_read1.fastq
 
-And the mate-pair library should look like:
-```
-[LIB]
-
-avg_ins=3000
-
-reverse_seq=0
-
-asm_flags=3
-
-rank=2
-
-p=[mate_pair_data]
+q2=../data/Rhodo_Hiseq_trimmed_read2.fastq
 ```
 
 Exit and save the file by ctrl-x (if using nano) and answer yes when asked to save.
 
-Start SoapDeNovo using the `SOAPdenovo-63mer` command. Use the `-p 8` flag to use 8 threads and the `-o` flag to set an output prefix, and - if you wish - you can also use one or more of the following flags, `-F` (fill gaps in scaffold), `-R` (resolve repeats by reads), or any other flag you find interesting in the documentation.
-
-SoapDeNovo also comes with a GapCloser utlity that tries to improve the assemblies by closing gaps in the scaffolds. If you wish to use it, you can add it to she script. You can run it like:
+Start SoapDeNovo by:
 
 ```
-GapCloser -b soap_denovo_.config -a [output prefix].scafSeq -o [output prefix].new.scafSeq -t 8 > log.gapcloser
+SOAPdenovo-63mer all -s soap.config -o asm -F -R -E -w -u -K 55 -p 8 >>SOAPdenovo.log
 ```
 
-#### SPAdes
+Check the result-files asm.contig and asm.scafSeq for N50 size and number of contigs/scaffolds and compare with earlier results using Quast.
 
-**Runtime approximately 15 minutes**
-
-[SPAdes](http://spades.bioinf.spbau.ru/release3.6.1/manual.html), St. Petersburg genome assembler, is intended for both standard isolates and single-cell MDA bacteria assemblies. Official instructions for running the assembler can be found [here](http://spades.bioinf.spbau.ru/release3.6.1/manual.html#sec3.2). 
-
-Start the project by creating a new script called "run_spades.sh" in your project directory, and copy the contents of the above script into it. Also update the the paths and the assembler name, and include the `spades/3.9.0` module.
-
-Spades is very easy to run in the basic configuration. Usually you want to run with the `--careful` flag, but this will take too long for this exercise. It will take around 15 mins anyway. What you DO want to do is to use the `--pe1-12` flag for paired-end data, and `--mp1-12` flag for mate-pairs. You should also use the `-t` flag to set number of threads to *8*, and the `-o` flag to set *output name*. You may use other flags too if you want to!
-
-### Super-quick evaluation
-
-Most of the assembly evaluation will be made later, but for now, we will run a single program - QUAST - to get some basic statistics.
-
-You can put this in a script if you wish to, but it's also fine to run directly from the command line, as there is no real
-reason that you'd wish to go back and look exactly how you ran QUAST. 
-
-Start by loading the `bioinfo-tools` module, and the `quast/3.2` module. Then simply run:
+SoapDeNovo also comes with a GapCloser utlity that tries to improve the assemblies by closing gaps in the scaffolds. Try it out using:
 
 ```
-$ quast -o illumina_assemblies [contigs from assemblers]
+GapCloser -b soap.config -a asm.scafSeq -o asm.new.scafSeq -t 8 >> SOAPdenovo.log
 ```
 
+Any improvements? 
 
+### Part 2, MiSeq data
+
+There is also MiSeq data for the same organism. Links are in the data folder. You should now try running the three programs you already tried using MiSeq data to see if you get any improvements. If you feel adventurous, you can also try to run the programs with both HiSeq and MiSeq at the same time.
+
+*IMPORTANT! Remember to work in different directories and/or change the name of output directories so that you do not overwrite your old data!*
+
+The MiSeq data have longer reads, and you therefore need to change the following parameters (and remember to use the MiSeq files this time):
+
+- Abyss-pe - change k to 49
+- SoapDeNovo - change in the config file avg_ins to 540, use on the command line a K value of 79. **Note**: when using a kmer size greater than 63, you'll need to use `SOAPdenovo-127mer` instead of `SOAPdenovo-63mer`.
+
+Compare with your HiSeq results. Differences? 
+
+### Part 3, Not had enough?
+
+This is an optional exercise. Here you should try to use Mira on the HiSeq data. Load the module using: `module load mira/4.0rc4`
+
+Here you will receive no help. Try to figure out how to use the program by googling, in particular try to find the manual. Once you get it to run, kill it. No, I am serious. Press ctrl-c to kill the process. It simply takes to long to run, but now you have probably learned a lot by trying to get it to work. smile Then check the result-files in `/proj/g2015027/private/assembly_workshop/mira/`
+
+Was the longer running-time worth it?
+
+By **Henrik Lantz** and **Martin Norling**, NBIS/SciLife/Uppsala University 
