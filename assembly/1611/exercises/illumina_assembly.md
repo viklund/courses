@@ -69,12 +69,12 @@ Download the whole quast result-folder (spades) to your own computer using `scp`
 Make symbolic link in your Rhodoassembly folder using
 
 ```
-ln -s /proj/g2016024/nobackup/illumina_assembly/reference/GCF_000012905.2_ASM1290v2_genomic.fna
+ln -s /proj/g2016024/nobackup/illumina_assembly/reference/R_sphaeroides.fasta
 ```
 Now run Quast again but supply the reference this time:
 
 ```
-quast.py -R GCF_000012905.2_ASM1290v2_genomic.fna -o spades -l Spades_scaffolds,Spades_contigs -t 1 scaffolds.fasta contigs.fasta
+quast.py -R R_sphaeroides.fasta -o spades -l Spades_scaffolds,Spades_contigs -t 1 scaffolds.fasta contigs.fasta
 ```
 Does it tell you anything about misassemblies?)
 
