@@ -19,9 +19,17 @@ Before you start working with the assemblers you need to setup a project structu
 
 To make certain you are in your home folder, type: `cd`.
 
-Make a directory for all of today’s exercises using `mkdir illumina_assembly`, and enter it using `cd illumina_assembly`. Data in your home directory is backed up, so this is a good place to store scripts and notes, but you have a storage quota and the drive isn't as fast as using scratch or glob, so don't store data or runs here. Instead create a second project directory in glob; `cd ~/glob`, `mkdir illumina_assembly`, `cd illumina_assembly`. 
+Make a directory for all of today’s exercises using `mkdir illumina_assembly`, and enter it using `cd illumina_assembly`. Data in your home directory is backed up, so this is a good place to store scripts and notes, but you have a storage quota and the drive isn't as fast as using scratch or glob, so don't store data or runs here. Instead create a second project directory in glob; `cd ~/glob`, `mkdir illumina_assembly`. Finally, go back to your original project directory `cd ~/illumina_assembly`, and make a soft-link to the directory in glob `ln -s ~/glob/illumina_assembly work`. This creates the directory link "work", where you can keep the files you work with, and run things a bit faster. Do your work in this directory, and then copy results back to the main project directory to keep them on a safer disk. (Remember though that uppmax is **not** a backup! Data can, and has, been lost!)
 
-Now make a copy of the folder which includes the read data using `cp -r /proj/g2016024/nobackup/illumina_assembly/data .`
+Anyway - make a copy of the folder which includes the read data using `cp -r /proj/g2016024/nobackup/illumina_assembly/data .`
+When you are done, type `ls -l` and you should see something like this:
+
+```bash
+student@milou1:~/illumina_assembly$ ls -l
+total 64
+drwxrwxr-x 2 student student 2048 Nov 15 11:14 data
+lrwxrwxrwx 1 student student   36 Nov 15 11:08 work -> /home/student/glob/illumina_assembly
+```
 
 You are now ready to proceed to working with the first assembly program, Velvet. You will start by using the HiSeq data for all exercises, and later if time allows, redo with the MiSeq data and compare results. 
 
@@ -29,7 +37,7 @@ You are now ready to proceed to working with the first assembly program, Velvet.
 
 #### Spades
 
-Start by making a folder called spades in the illumina_assembly dorectory, and enter it with `cd spades`.
+Start by making a folder called spades in the illumina_assembly/work directory, and enter it with `cd spades`.
 
 Now load the spades module:
 
@@ -55,9 +63,9 @@ module load quast/2.3
 quast.py -o spades -l Spades_scaffolds,Spades_contigs -t 1 scaffolds.fasta contigs.fasta
 ```
 
-Download the whole quast result-folder (spades) to your own computer using scp and click on the reports.html file. Any big differences between the scaffolds and contigs files?
+Download the whole quast result-folder (spades) to your own computer using `scp` and click on the reports.html file. Any big differences between the scaffolds and contigs files?
 
-(OBS! Not working at the moment! You can also supply a reference genome to Quast that it will compare your assemblies with. You can find a reference genome at /proj/g2015027/private/nobackup/assembly_workshop/reference/GCF_000012905.2_ASM1290v2_genomic.fna
+(OBS! You can also supply a reference genome to Quast that it will compare your assemblies with. You can find a reference genome at /proj/g2016024/nobackup/illumina_assembly/reference/GCF_000012905.2_ASM1290v2_genomic.fna
 Make symbolic link in your Rhodoassembly folder using
 
 ```
