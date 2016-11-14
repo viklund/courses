@@ -26,6 +26,9 @@ title:  'Welcome'
 [2015 April - Uppsala](annotation/2015/)  
 [2016 April - Uppsala](annotation/2016/)
 
+### De Novo Genome Assembly 
+
+[2016 November - Uppsala](assembly/1611/)
 
 ### RNA-seq course ###
 
