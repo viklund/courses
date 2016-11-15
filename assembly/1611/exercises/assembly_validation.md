@@ -22,10 +22,11 @@ Busco, Benchmarking Universal Single-Copy Orthologs, is a program that attempts 
 module load bioinfo-tools BUSCO/1.22
 ```
 
-Run `BUSCO –h` to get information on how to run. You will want to run Busco using 
+There will be some information printed when you load the BUSCO module - this information is really important so it's a good idea to read it! Run `BUSCO –h` to get information on how to run. You will want to run Busco using `-l $BUSCO_LINEAGE_SETS/bacteria` to look for bacteria, and `-c 8` to use 8 threads. 
 
-Running BUSCO takes quite a lot of time, so we will use a script designed to behave like BUSCO, but runs a lot quicker and serves up pre-computed results.
-BUSCO is BLAST based, and looks for a set of core genes assumed to be present in basically every organism (of the selected type).
+When the program finishes, look through the output directory for the files `full_table_*`, `missing_buscos_list_*`, and `short_summary_*`.
+
+ - Does the assembly seem to include the full gene set based on these results?
 
 ## Whole Genome Alignment
 
