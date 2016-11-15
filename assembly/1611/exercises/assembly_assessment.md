@@ -73,4 +73,23 @@ There are several checks you can do after running Reapr (detailed [here](ftp://f
 
 ## KMER analysis
 
+A good continuation of the validation is looking at the kmer content of the assembly. Before the assembly we looked at the kmer content of the read set, and tried to determine if this information was suitable for assembly. Now we need to check if that information is actually present in the assembly as well as in the read set.
+
 ### KAT
+
+ sing KAT again – we can plot the kmer content of the assembly compared to the kmer content of the read set. The first thing we need to do is to combine the reads into a single file, for gzipped files, this can be done with `zcat`, or for unzipped files `cat`.
+ 
+Ex.
+```
+$ cat reads_R1.fastq >> combined.fastq
+$ zcat reads_R2.fastq.gz >> combined.fastq
+```
+
+We will now use `kat comp` to create a kmer content comparison.
+Use `kat comp --help` to get help for the program, then create a comparison between the combined reads and the assembly. Make sure that you use the flags for **canonical hashes** for both sequence 1 and 2, as well as **8 threads**.
+Finally, clean up you working directory by removing the combined fasta file, and re-zipping any unzipped files. Then download the output files to you computer using `scp` and look at the png file that was produced.
+
+• Does the kmer content look good to you?
+• How much of the kmer “noise” is part of the final assembly?
+• What do you think contamination would look like in the kmer plot?
+• What can the kmer graph tell you about the ploidy of the organism?
