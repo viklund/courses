@@ -65,7 +65,7 @@ quast.py -o spades -l Spades_scaffolds,Spades_contigs -t 1 scaffolds.fasta conti
 
 Download the whole quast result-folder (spades) to your own computer using `scp` and click on the reports.html file. Any big differences between the scaffolds and contigs files?
 
-(OBS! You can also supply a reference genome to Quast that it will compare your assemblies with. You can find a reference genome at /proj/g2016024/nobackup/illumina_assembly/reference/GCF_000012905.2_ASM1290v2_genomic.fna
+(OBS! You can also supply a reference genome to Quast that it will compare your assemblies with. You can find a reference genome at /proj/g2016024/nobackup/illumina_assembly/reference/R_sphaeroides.fasta
 Make symbolic link in your Rhodoassembly folder using
 
 ```
