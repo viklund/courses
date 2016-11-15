@@ -152,6 +152,7 @@ Any improvements?
 
 #### MaSuRCA
 
+MaSuRCA takes quite some time to run, so start it over lunch! (...or if you're not into waiting, there are finished results in `/proj/g2016024/nobackup/illumina_assembly/assemblies/`)
 Once again - start by making an output directory, this time called "masurca", and load the necessary modules:
 
 ```
@@ -183,7 +184,7 @@ To generate an assembly script, and FINALLY run:
 
 to start the assembly!
 
-Once done you will have two files called CA/10-gapclose/genome.ctg.fasta and CA/10-gapclose/genome.scf.fasta. Now load these files into Quast together with the earlier Spades, abyss, and soap-denovo contigs. Are there any major differences? Was running for an hour instead of a few minutes worth it in this particular case?
+Once done you will have two files called CA/10-gapclose/genome.ctg.fasta and CA/10-gapclose/genome.scf.fasta. Now load these files into Quast together with the earlier Spades, abyss, and soap-denovo contigs. Are there any major differences? Was running for an hour instead of a few minutes worth it in this particular case? 
 
 ### Part 2, MiSeq data
 
