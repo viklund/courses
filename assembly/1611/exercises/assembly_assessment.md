@@ -96,7 +96,7 @@ We will now use `kat comp` to create a kmer content comparison.
 Use `kat comp --help` to get help for the program, then create a comparison between the combined reads and the assembly. Make sure that you use the flags for **canonical hashes** for both sequence 1 and 2, as well as **8 threads**.
 Finally, clean up you working directory by removing the combined fasta file, and re-zipping any unzipped files. Then download the output files to you computer using `scp` and look at the png file that was produced.
 
-• Does the kmer content look good to you?
-• How much of the kmer “noise” is part of the final assembly?
-• What do you think contamination would look like in the kmer plot?
-• What can the kmer graph tell you about the ploidy of the organism?
+ - Does the kmer content look good to you?
+ - How much of the kmer “noise” is part of the final assembly?
+ - What do you think contamination would look like in the kmer plot?
+ - What can the kmer graph tell you about the ploidy of the organism?
