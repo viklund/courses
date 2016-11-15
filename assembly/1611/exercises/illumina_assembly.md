@@ -183,7 +183,7 @@ To generate an assembly script, and FINALLY run:
 
 to start the assembly!
 
-Once done you will have two files called CA/10-gapclose/genome.ctg.fasta and CA/10-gapclose/genome.scf.fasta. Now load these files into Quast together with the earlier Spades, abyss, and soap-denovo contigs. 
+Once done you will have two files called CA/10-gapclose/genome.ctg.fasta and CA/10-gapclose/genome.scf.fasta. Now load these files into Quast together with the earlier Spades, abyss, and soap-denovo contigs. Are there any major differences? Was running for an hour instead of a few minutes worth it in this particular case?
 
 ### Part 2, MiSeq data
 
