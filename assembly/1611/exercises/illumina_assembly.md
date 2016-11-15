@@ -5,7 +5,7 @@ title:  'Exercise: Illumina Assembly'
 
 ## Exercise: Illumina Assembly
 
-In this exercise you will assemble genomes de novo using commonly used assembly software. You will work with Illumina data of Rhodobacter sphaerioides, data that was used in the GAGE-B comparison of assemblers. All settings used for the different programs are the ones used by the GAGE-B project. Due to time-restrictions we are forced to stick to assemblers that run quickly, but if you have an assembly project of your own you are encouraged to try other assemblers too. Remember that no assembler is best for all projects; if possible you need to try several.
+In this exercise you will assemble genomes de novo using commonly used assembly software. You will work with Illumina data of _Rhodobacter sphaerioides_, data that was used in the GAGE-B comparison of assemblers. All settings used for the different programs are the ones used by the GAGE-B project. Due to time-restrictions we are forced to stick to assemblers that run quickly, but if you have an assembly project of your own you are encouraged to try other assemblers too. Remember that no assembler is best for all projects; if possible you need to try several.
 One of the assemblers, MaSuRCA, will take a bit longer to run (about an hour) so be prepared to start this to run over lunch! 
 
 **Questions**
