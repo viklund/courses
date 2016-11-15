@@ -6,6 +6,7 @@ title:  'Exercise: Illumina Assembly'
 ## Exercise: Illumina Assembly
 
 In this exercise you will assemble genomes de novo using commonly used assembly software. You will work with Illumina data of Rhodobacter sphaerioides, data that was used in the GAGE-B comparison of assemblers. All settings used for the different programs are the ones used by the GAGE-B project. Due to time-restrictions we are forced to stick to assemblers that run quickly, but if you have an assembly project of your own you are encouraged to try other assemblers too. Remember that no assembler is best for all projects; if possible you need to try several.
+One of the assemblers, MaSuRCA, will take a bit longer to run (almost an hour) so be prepared to start this to run over lunch! 
 
 **Questions**
 
@@ -76,7 +77,7 @@ Now go on the next assembly program:
 
 #### Abyss
 
-First go to your work directory and make a new folder using `mkdir Abyss`.
+First go to your work directory and make a new folder using `mkdir Abyss`, and enter it.
 
 Now load the necessary modules:
 
@@ -88,7 +89,7 @@ module load bowtie
 If you have paired end data you can start Abyss using the abyss-pe script:
 
 ```
-abyss-pe k=31 l=1 n=5 s=100 np=8 name=asm lib='reads' reads=' ../data/Rhodo_Hiseq_trimmed_read1.fastq ../data/Rhodo_Hiseq_trimmed_read2.fastq' aligner=bowtie
+abyss-pe k=31 l=1 n=5 s=100 np=8 name=asm lib='reads' reads=' ../../data/Rhodo_Hiseq_trimmed_read1.fastq ../../data/Rhodo_Hiseq_trimmed_read2.fastq' aligner=bowtie
 ```
 
 Once done you will have two files called asm-contigs.fa and asm.scaffolds.fa. Now load these files into Quast together with the earlier Spades contigs. Can you based on these numbers say which assembler does the best job? (Note that this is a trick question!)
@@ -126,9 +127,9 @@ asm_flags=3
 
 rank=1
 
-q1=../data/Rhodo_Hiseq_trimmed_read1.fastq
+q1=../../data/Rhodo_Hiseq_trimmed_read1.fastq
 
-q2=../data/Rhodo_Hiseq_trimmed_read2.fastq
+q2=../../data/Rhodo_Hiseq_trimmed_read2.fastq
 ```
 
 Exit and save the file by ctrl-x (if using nano) and answer yes when asked to save.
@@ -151,13 +152,13 @@ Any improvements?
 
 #### MaSuRCA
 
-Once again - start by making a directory called masurca, and load the necessary modules:
+Once again - start by making an output directory, this time called "masurca", and load the necessary modules:
 
 ```
 module load MaSuRCA/3.2.1
 ```
 
-MaSuRCA also needs a configuration file. Luckily, it can make a template for you though! Run
+Like SOAP, MaSuRCA also needs a configuration file. Luckily, it can make a template for you! Run
 
 ```
 masurca -g masurca_config
