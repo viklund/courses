@@ -42,7 +42,7 @@ $ samtools view -bS assembly_lib_type.sam -o assembly_lib_type.bam
 We can now sort the BAM file to get a file that can be more efficiently parsed:
 
 ```
-$ samtools sort assembly_lib_type.bam assembly_lib_type.sorted
+$ samtools sort assembly_lib_type.bam -o assembly_lib_type.sorted.bam
 ```
 
 And finally we can index the sorted BAM file:
@@ -51,7 +51,14 @@ And finally we can index the sorted BAM file:
 $ samtools index assembly_lib_type.sorted.bam
 ```
 
-Now that we have a sorted, indexed BAM file, we can also remove the SAM file, and the unsorted BAM file to save some space and keep the project neat!
+Now that we have a sorted, indexed BAM file, we can also remove the SAM file, and the unsorted BAM file to save some space and keep the project neat! Now - what do we do with a BAM file? We will use it a little bit more later - but for now, we can use picard tools to get some statistics. Picard tools is a great set of tools, but they suffer from being a tad user hostile. To spare you some time, just use the following commands: (just replace <assembly name> and <sorted-bam-filename>
+
+```
+module load bioinfo-tools picard/2.0.1
+java -Xmx16g -XX:PermSize=8g -jar $PICARD_HOME/CollectInsertSizeMetrics.jar MINIMUM_PCT=0 HISTOGRAM_FILE=<assembly name>.pdf  INPUT=<sorted-bam-filename>  OUTPUT=<assembly name>.sorted.collectInseSize HISTOGRAM_WIDTH=500
+```
+
+This will produce a pdf report. Download this file using `scp`, and have a look.
 
 ### REAPR
 
