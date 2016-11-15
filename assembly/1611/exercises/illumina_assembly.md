@@ -19,7 +19,7 @@ Before you start working with the assemblers you need to setup a project structu
 
 To make certain you are in your home folder, type: `cd`.
 
-Make a directory for all of today’s exercises using `mkdir illumina_assembly`, and enter it using `cd illumina_assembly`. Data in your home directory is backed up, so this is a good place to store scripts and notes, but you have a storage quota and the drive isn't as fast as using scratch or glob, so don't store data or runs here. Instead create a second project directory in glob; `cd ~/glob`, `mkdir illumina_assembly`. Finally, go back to your original project directory `cd ~/illumina_assembly`, and make a soft-link to the directory in glob `ln -s ~/glob/illumina_assembly work`. This creates the directory link "work", where you can keep the files you work with, and run things a bit faster. Do your work in this directory, and then copy results back to the main project directory to keep them on a safer disk. (Remember though that uppmax is **not** a backup! Data can, and has, been lost!)
+Make a directory for all of today’s exercises using `mkdir illumina_assembly`, and enter it using `cd illumina_assembly`. Finally, make a directory called work, `mkdir work`. The directory "work" is where you can keep the files you work with and run things. Do your work in this directory, and then copy results back to the main project directory to keep them structured. (For real projects though - remember though that uppmax is **not** a backup! Data can, and has, been lost!)
 
 Anyway - make a copy of the folder which includes the read data using `cp -r /proj/g2016024/nobackup/illumina_assembly/data .`
 When you are done, type `ls -l` and you should see something like this:
