@@ -69,6 +69,7 @@ The next tool we need is `reapr smaltmap` which creates a bam file of read-pair 
 
 Finally we can use the smalt mapping, and the perfect mapping to run the reapr pipeline. Run `reapr pipeline` to get help on how to run, and then run the pipeline. Store the results in `reapr_<assembler>`. 
 
+There are several checks you can do after running Reapr (detailed [here](ftp://ftp.sanger.ac.uk/pub/resources/software/reapr/Reapr_1.0.18.manual.pdf)) but for now we'll stick to looking at the split output file, called `04.break.broken_assembly.fa`. Use this file together with the original assembly to generate a quast report. How does the results look after reapr?
 
 ## KMER analysis
 
