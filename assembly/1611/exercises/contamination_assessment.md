@@ -31,7 +31,7 @@ blastn -task megablast \
     -out [output_name].blast.out
 ```
 
-Now we can finally run blobtools! The uppmax module for blobtools is called `blobtools/0.9.17`.
+Now we can finally run blobtools! The uppmax module for blobtools is called `blobtools/0.9.17`. Sadly, the uppmax module is suffering from a small, but devastating, permission problem right now though, so it won't work. We've put a second version that should work at `/proj/g2016024/nobackup/illumina_assembly/blobtools/blobtools` though! You'll still need to load the module to get the dependencies right, but then use the full path to this version of the tool instead of the module version.
 Blobtools works by using a creating a blob database - then you can query the database to get information and plots. But first - run `blobtools –help` to get more information on how to run blobtools.
 
 Continue by creating a database using `blobtools create`. Use `blobtools create –help` to get help on the syntax. Now supply the **assembly**, **BWA mapping**, and **blast result**, as well as the nodes.dmp and names.dmp from the downloaded taxdump. Name the output based on the assembly you used.
