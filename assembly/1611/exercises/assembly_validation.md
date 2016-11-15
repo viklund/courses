@@ -45,7 +45,10 @@ show-tiling [filename].delta > [filename].tiling
 There is a built-in tool called `mummerplot` that can help us plot the output. It will default to trying to render directly to X11 though, so run with the `--png` flag to write an image file. As with `nucmer` you should also use the `-p` flag to set output name.
 Run mummerplot on the delta-file that nucmer produced, as well as the tiling file. Download both files and have a look!
 
-Does your assembly match well to the reference?
+ - Does your assembly match well to the reference?
+ - Did the plots look like you thought they would?
+
+The mummerplot of a tiling dataset isn't the same kind of plot as the original dotplot. To remedy this, we've also supplied a simple python script to make dotplots with. The script is called `dotplot.py` and can read .coord and .tiling files. It is available in `/proj/g2016024/nobackup/illumina_assembly/scripts/dotplot.py`.
 
 ### Mauve
 
