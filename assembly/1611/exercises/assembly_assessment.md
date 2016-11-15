@@ -84,7 +84,7 @@ A good continuation of the validation is looking at the kmer content of the asse
 
 ### KAT
 
- sing KAT again – we can plot the kmer content of the assembly compared to the kmer content of the read set. The first thing we need to do is to combine the reads into a single file, for gzipped files, this can be done with `zcat`, or for unzipped files `cat`.
+Using KAT again (module: `KAT/2.1.1`) – we can plot the kmer content of the assembly compared to the kmer content of the read set. The first thing we need to do is to combine the reads into a single file, for gzipped files, this can be done with `zcat`, or for unzipped files `cat`.
  
 Ex.
 ```
