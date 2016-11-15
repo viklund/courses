@@ -76,7 +76,7 @@ Now go on the next assembly program:
 
 #### Abyss
 
-First go to your folder RhodoAssembly and make a new folder using `mkdir Abyss`.
+First go to your work directory and make a new folder using `mkdir Abyss`.
 
 Now load the necessary modules:
 
@@ -91,7 +91,7 @@ If you have paired end data you can start Abyss using the abyss-pe script:
 abyss-pe k=31 l=1 n=5 s=100 np=8 name=asm lib='reads' reads=' ../data/Rhodo_Hiseq_trimmed_read1.fastq ../data/Rhodo_Hiseq_trimmed_read2.fastq' aligner=bowtie
 ```
 
-Once done you will have two files called asm-contigs.fa and asm.scaffolds.fa. Now load these files into Quast together with the earlier Spades contigs. Can you based on these numbers say which assembler does the best job? Note that this is a trick question!
+Once done you will have two files called asm-contigs.fa and asm.scaffolds.fa. Now load these files into Quast together with the earlier Spades contigs. Can you based on these numbers say which assembler does the best job? (Note that this is a trick question!)
 
 The next assembler we'll try is
 
@@ -149,6 +149,41 @@ GapCloser -b soap.config -a asm.scafSeq -o asm.new.scafSeq -t 8 >> SOAPdenovo.lo
 
 Any improvements? 
 
+#### MaSuRCA
+
+Once again - start by making a directory called masurca, and load the necessary modules:
+
+```
+module load MaSuRCA/3.2.1
+```
+
+MaSuRCA also needs a configuration file. Luckily, it can make a template for you though! Run
+
+```
+masurca -g masurca_config
+```
+
+to make a template, and open it in nano for editing.
+
+Find the line called `PE` and add the FULL paths to your `Rhodo_Hiseq_trimmed_read1.fastq` and `Rhodo_Hiseq_trimmed_read2.fastq` files. Generally, you should **NOT** give pre-trimmed data to MaSuRCA, as this will deteriorate the assembly (it does it's own pre-processing), but in this case we do it to get a slightly shorter run time. Next change the prefix to `pe 220 20` to set the proper type, insert length, and standard deviation. Also find the JUMP, PACBIO, and OTHER lines, and add a `#` to remove them from the assembly.
+Finally change the number of threads to 8, save the file, and exit nano.
+
+Now run the command:
+
+```
+masurca masurca_config
+```
+
+To generate an assembly script, and FINALLY run:
+
+```
+./assemble.sh
+```
+
+to start the assembly!
+
+Once done you will have two files called CA/10-gapclose/genome.ctg.fasta and CA/10-gapclose/genome.scf.fasta. Now load these files into Quast together with the earlier Spades, abyss, and soap-denovo contigs. 
+
 ### Part 2, MiSeq data
 
 There is also MiSeq data for the same organism. Links are in the data folder. You should now try running the three programs you already tried using MiSeq data to see if you get any improvements. If you feel adventurous, you can also try to run the programs with both HiSeq and MiSeq at the same time.
@@ -159,6 +194,7 @@ The MiSeq data have longer reads, and you therefore need to change the following
 
 - Abyss-pe - change k to 49
 - SoapDeNovo - change in the config file avg_ins to 540, use on the command line a K value of 79. **Note**: when using a kmer size greater than 63, you'll need to use `SOAPdenovo-127mer` instead of `SOAPdenovo-63mer`.
+- MaSuRCA - change insert size from 220 to 540, and standard deviation to 50.
 
 Compare with your HiSeq results. Differences? 
 
