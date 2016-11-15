@@ -25,7 +25,7 @@ Room: E10:1309
 
 Room: E10:1309  
 **09.00-09.30** Discussion of last day's exercises (Henrik Lantz, Mahesh Panchal, Martin Norling)  
-**09.30-10.00** Lecture: Assembly basics - Genome properties (Henrik Lantz)  
+**09.30-10.00** Lecture: [Assembly basics - Genome properties](files/Genome_properties_2016.ppt) (Henrik Lantz)  
 **10.00-10.15** Coffee break  
 **10.15-11.00** Lecture: Illumina assembly (Martin Norling)  
 **11.00-12.00** Exercise: [Illumina assembly](exercises/illumina_assembly) (Martin Norling, Mahesh Panchal, Henrik Lantz)  
