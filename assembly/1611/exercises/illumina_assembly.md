@@ -60,7 +60,7 @@ We then calculate some statistics and generate plots using a program called "Qua
 
 ```
 module load quast/3.2
-quast -o quast_spades -l Spades_scaffolds,Spades_contigs -t 1 scaffolds.fasta contigs.fasta
+quast.py -o quast_spades -l Spades_scaffolds,Spades_contigs -t 1 scaffolds.fasta contigs.fasta
 ```
 
 Download the whole quast result-folder (spades) to your own computer using `scp` and click on the reports.html file. Any big differences between the scaffolds and contigs files?
