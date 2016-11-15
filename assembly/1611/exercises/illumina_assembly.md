@@ -56,27 +56,21 @@ In SpadesOut you will now have a number of files, including contigs.fasta and sc
 
 Take a look at the files using `less`. Can you see any regions where contigs have been scaffolded together?
 
-We then calculate some statistics and generate plots using Quast:
+We then calculate some statistics and generate plots using a program called "Quast". Go back to your project directory (it is useful to keep all reports in the same place), and use this command, but fill int the complete paths to your spades output files:
 
 ```
-module load quast/2.3
-quast.py -o spades -l Spades_scaffolds,Spades_contigs -t 1 scaffolds.fasta contigs.fasta
+module load quast/3.2
+quast -o quast_spades -l Spades_scaffolds,Spades_contigs -t 1 scaffolds.fasta contigs.fasta
 ```
 
 Download the whole quast result-folder (spades) to your own computer using `scp` and click on the reports.html file. Any big differences between the scaffolds and contigs files?
 
-(OBS! You can also supply a reference genome to Quast that it will compare your assemblies with. You can find a reference genome at /proj/g2016024/nobackup/illumina_assembly/reference/R_sphaeroides.fasta
-Make symbolic link in your Rhodoassembly folder using
-
-```
-ln -s /proj/g2016024/nobackup/illumina_assembly/reference/R_sphaeroides.fasta
-```
-Now run Quast again but supply the reference this time:
+(OBS! You can also supply a reference genome to Quast that it will compare your assemblies with. You can find a reference genome at /proj/g2016024/nobackup/illumina_assembly/data/reference/R_sphaeroides.fasta. This was copied into your project along with the rest of your files, so it's already available to you! Again, make sure that all the paths are correct and run quast again with the reference:
 
 ```
 quast.py -R R_sphaeroides.fasta -o spades -l Spades_scaffolds,Spades_contigs -t 1 scaffolds.fasta contigs.fasta
 ```
-Does it tell you anything about misassemblies?)
+Does it tell you anything about misassemblies?
 
 Now go on the next assembly program:
 
