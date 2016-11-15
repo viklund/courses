@@ -31,8 +31,8 @@ Room: E10:1309
 **11.00-12.00** Exercise: [Illumina assembly](exercises/illumina_assembly) (Martin Norling, Mahesh Panchal, Henrik Lantz)  
 **12.00-13.00** Lunch  
 **13.00-13.30** Exercise: [Illumina assembly contd.](exercises/illumina_assembly) (Martin Norling, Mahesh Panchal, Henrik Lantz)  
-**13.30-14.30** Lecture: PacBio assembly, assembly polising, and demonstration of SMRT-portal (Mahesh Panchal)  
-**14.30-17.00** Exercise: [PacBio assembly](exercises/pacbio_assembly) (incl. coffee break) (Mahesh Panchal, Martin Norling, Henrik Lantz)  
+**13.30-14.30** Lecture: [PacBio assembly, assembly polising, and demonstration of SMRT-portal](files/PacBio_Assembly.pdf) (Mahesh Panchal)  
+**14.30-17.00** Exercise: [PacBio assembly](exercises/PacBio Assembly Exercises.pdf) (incl. coffee break) (Mahesh Panchal, Martin Norling, Henrik Lantz)  
 
 **Wednesday 16th**
 
