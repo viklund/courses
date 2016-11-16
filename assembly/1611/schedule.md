@@ -14,12 +14,12 @@ Room: E10:1309
 **09.15-10.00** Lecture: [NGS technologies and basic concepts](files/Sequence_technologies_2016.ppt) (Henrik Lantz)  
 **10.00-10.15** Coffee break  
 **10.15-10.45** Lecture: [Quality control and read trimming](files/Sequence_Quality_Assessment.pdf) (Mahesh Panchal)  
-**10.45-12.00** Exercise: [Quality control and read trimming](exercises/Sequence_Data_Quality_Assessment_Exercises.pdf) (Mahesh Panchal, Henrik Lantz, Martin Norling, Lucile Soler)  
+**10.45-12.00** Exercise: [Quality control and read trimming](exercises/Sequence_Data_Quality_Assessment_Exercises.pdf)([solutions](exercises/Sequence_Data_Quality_Assessment_Exercises_and_Solutions.pdf)) (Mahesh Panchal, Henrik Lantz, Martin Norling, Lucile Soler)  
 **12.00-13.00** Lunch  
 **13.00-13.45** Lecture: [Kmer-analysis, contamination analysis, and mapping-based analysis](files/KmerAnalysisContaminationMapping.pdf) (Mahesh Panchal)  
-**13.45-15.00** Exercise: [Kmer-analysis, contamination analysis, and mapping-based analysis](exercises/KmerAnalysisAndContamination_Exercises.pdf) (Mahesh Panchal, Henrik Lantz, Martin Norling, Lucile Soler)  
+**13.45-15.00** Exercise: [Kmer-analysis, contamination analysis, and mapping-based analysis](exercises/KmerAnalysisAndContamination_Exercises.pdf) ([solutions](exercises/KmerAnalysisAndContamination_ExercisesAndSolutions.pdf)) (Mahesh Panchal, Henrik Lantz, Martin Norling, Lucile Soler)  
 **15.00-15.15** Coffee break  
-**15.15-16.30** [Team based exercise on quality control](exercises/Team Exercise.pdf) (Mahesh Panchal, Henrik Lantz, Martin Norling, Lucile Soler)  
+**15.15-16.30** [Team based exercise on quality control](exercises/Team Exercise.pdf)([solutions](exercises/Team Exercise_Solutions.pdf)) (Mahesh Panchal, Henrik Lantz, Martin Norling, Lucile Soler)  
 
 **Tuesday 15th** 
 
