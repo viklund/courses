@@ -13,7 +13,7 @@ Held in Umeå November 28th - December 2nd, 2016.
 [Schedule](schedule)  
 
 ## Maps & Travel Info
-[Map over Uppsala](https://www.google.se/maps/place/Ume%C3%83%C2%A5+University/@63.8204349,20.3023786,16z/data=!4m2!3m1!1s0x467c5afca68f6d9b:0xdfb8448a59c42462)  
+[Map over Umeå](https://www.google.se/maps/place/Ume%C3%83%C2%A5+University/@63.8204349,20.3023786,16z/data=!4m2!3m1!1s0x467c5afca68f6d9b:0xdfb8448a59c42462)  
 [Campus Map](http://www.umu.se/om-universitetet/kartor/campus-karta-stor/)  
 [Travel Info](http://www.umu.se/english/umea/get-around/buses)   
 
