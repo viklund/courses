@@ -19,7 +19,7 @@ Room: E10:1309
 **13.00-13.45** Lecture: [Kmer-analysis, contamination analysis, and mapping-based analysis](files/KmerAnalysisContaminationMapping.pdf) (Mahesh Panchal)  
 **13.45-15.00** Exercise: [Kmer-analysis, contamination analysis, and mapping-based analysis](exercises/KmerAnalysisAndContamination_Exercises.pdf) ([solutions](exercises/KmerAnalysisAndContamination_ExercisesAndSolutions.pdf)) (Mahesh Panchal, Henrik Lantz, Martin Norling, Lucile Soler)  
 **15.00-15.15** Coffee break  
-**15.15-16.30** [Team based exercise on quality control](exercises/Team Exercise.pdf) ([solutions](exercises/Team Exercise_Solutions.pdf)) (Mahesh Panchal, Henrik Lantz, Martin Norling, Lucile Soler)  
+**15.15-16.30** [Team based exercise on quality control](exercises/Team Exercise.pdf) ([solutions](exercises/Team Exercise_Solution.pdf)) (Mahesh Panchal, Henrik Lantz, Martin Norling, Lucile Soler)  
 
 **Tuesday 15th** 
 
