@@ -38,13 +38,13 @@ Room: E10:1309
 
 Room: E10:1309  
 **09.00-09.30** Discussion of last day's exercises (Mahesh Panchal, Martin Norling)  
-**09.30-10.00** Lecture: Assembly assessment (Martin Norling)  
+**09.30-10.00** Lecture: [Assembly assessment](files/Assembly_assessment.pdf) (Martin Norling)  
 **10.00-10.15** Coffee break  
 **10.15-11.00** Exercise: [Assembly assessment](exercises/assembly_assessment) (Martin Norling, Mahesh Panchal, Henrik Lantz, Jaques Dainat)  
-**11.00-11.30** Lecture: Assembly validation (Martin Norling)  
+**11.00-11.30** Lecture: [Assembly validation](files/Assembly_validation.pdf) (Martin Norling)  
 **11.30-12.00** Exercise: [Assembly validation](exercises/assembly_validation) (Martin Norling, Mahesh Panchal, Henrik Lantz, Jaques Dainat)  
 **12.00-13.00** Lunch  
-**13.00-13.30** Lecture: Contamination assessment (Martin Norling)  
+**13.00-13.30** Lecture: [Contamination assessment](files/Contamination_assessment.pdf) (Martin Norling)  
 **13.30-15.00** Exercise: [Assembly validation contd.](exercises/assembly_validation) + [contamination assessment](exercises/contamination_assessment) (Martin Norling, Mahesh Panchal, Henrik Lantz, Jaques Dainat)  
 **15.00-15.15** Coffee break  
 **15.15-15.30** Exercise discussion (Martin Norling)  
