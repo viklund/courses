@@ -49,7 +49,7 @@ Run mummerplot on the delta-file that nucmer produced, as well as the tiling fil
  - Does your assembly match well to the reference?
  - Did the plots look like you thought they would?
 
-The mummerplot of a tiling dataset isn't the same kind of plot as the original dotplot. To remedy this, we've also supplied a simple python script to make dotplots with. The script is called `dotplot.py` and can read .coord and .tiling files. It is available in `/proj/g2016024/nobackup/illumina_assembly/scripts/dotplot.py`.
+The mummerplot of a tiling dataset isn't the same kind of plot as the original dotplot. To remedy this, we've also supplied a simple python script to make dotplots with. The script is called `dotplot.py` and it can read .coord and .tiling files. It is available in `/proj/g2016024/nobackup/illumina_assembly/scripts/dotplot.py`, and you need to load the `biopython` module for it to run.
 
 ### Mauve
 
