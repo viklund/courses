@@ -32,7 +32,7 @@ drwxrwxr-x 2 student student 2048 Nov 15 11:14 data
 lrwxrwxrwx 1 student student   36 Nov 15 11:08 work -> /home/student/glob/illumina_assembly
 ```
 
-You are now ready to proceed to working with the first assembly program, Velvet. You will start by using the HiSeq data for all exercises, and later if time allows, redo with the MiSeq data and compare results. 
+You are now ready to proceed to working with the first assembly program, Spades. You will start by using the HiSeq data for all exercises, and later if time allows, redo with the MiSeq data and compare results. 
 
 ### Part1, HiSeq data
 
