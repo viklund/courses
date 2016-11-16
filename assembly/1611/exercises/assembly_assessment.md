@@ -83,7 +83,7 @@ Finally, clean up you working directory by removing the combined fasta file, and
  - What do you think contamination would look like in the kmer plot?
  - What can the kmer graph tell you about the ploidy of the organism?
  
- ### REAPR
+### REAPR
 
 [Reapr](http://www.sanger.ac.uk/science/tools/reapr) is a tool trying to find explicit errors in the assembly based on incongruently mapped reads. It is heavily based on too low span coverage, or reads mapping too far or too close to each other. The program will also break up contigs/scaffolds at spurious sites to form smaller (but hopefully correct) contigs. Reapr runs pretty slowly, sadly, 
 
