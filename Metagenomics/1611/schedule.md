@@ -15,7 +15,7 @@ Room:  E10:1308/1309 (BMC, entrance C11)
 **09.00-09.30** Lecture: *Introduction to metagenomics (Anders Andersson)*  
 **09.30-12.00** [Tutorial](http://metagenomics-workshop.readthedocs.org/en/latest/): *Metagenomics (Johannes Alneberg, Anders Andersson, Thijs Ettema, Luisa Hugerth, John Larsson)*  
 **12.00-12.45** Lunch  
-**12.45-17.00** Tutorial: *Metagenomics (Johannes Alneberg, Anders Andersson, Thijs Ettema, Luisa Hugerth, John Larsson)*  
+**12.45-17.00** [Tutorial](http://metagenomics-workshop.readthedocs.org/en/latest/): *Metagenomics (Johannes Alneberg, Anders Andersson, Thijs Ettema, Luisa Hugerth, John Larsson)*  
 **18.00** Course dinner, more info soon!  
 
 
