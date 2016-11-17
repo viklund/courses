@@ -6,7 +6,7 @@ title:  'Schedule'
 #### Click the heading of a topic to see the lecture slides or lab instructions. Slides are added as the course progresses.
 
 **Monday 28/11**  
-Room: KB.J3.02 [KBF31](http://www.umu.se/om-universitetet/kartor/campus-karta-stor/?id=95)  
+Room: KB.J3.02 [KBF31](http://www.umu.se/om-universitetet/kartor/campus-karta-stor/?id=95) (Linnaeus väg 6)  
 **09.00-09.15** [Registration and Welcome, presentation of SciLifeLab ](slides/Kurs_160919.pptx) (Elina Staaf)  
 **09.15-10.00** [Lecture: Introduction to Linux](slides/dahlo-linux.pdf) (Martin Dahlö)  
 **10.00-12.00** [Exercise: Introduction to Linux](labs/linux-intro) (Martin Dahlö, Valentin Georgiev, Jeanette Tångrot, Joakim Bygdell)  
