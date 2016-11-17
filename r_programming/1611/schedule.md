@@ -7,7 +7,7 @@ title:  'Schedule'
 
 **Monday**  
 Room: [Trippelrummet, E10, ground floor](files/bmc_map.jpg)   
-**09.00-09.15** [Registration and Welcome, presentation of SciLifeLab ](Lectures/Welcome.pdf) (Thomas Källman)  
+**09.00-09.15** [Registration and Welcome, presentation of SciLifeLab ]() (Thomas Källman)  
 **09:15-10:00** [Lecture: Introduction to R programming](Lectures/Intro.pdf) (Marcin Kierczak)  
 **10:15-10:45** [Lecture: The R environment](Lectures/REnvironment.pdf) (Marcin Kierczak, Thomas Källman, ...)  
 **11:00-12:00** [Exercise and video: Using R-studio](Link to your movie1, best to keep them outside git) (Marcin Kierczak, Thomas Källman, ... )  
