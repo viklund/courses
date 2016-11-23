@@ -117,15 +117,17 @@ analysis.
 ## Exercise A1. Create and work with vectors<a id="orgheadline4"></a>
 
 Open R-studio and create two numeric vectors named x and y that are of equal length
-<pre>
+
 <details>
 <summary>:key: Click to see an example of how to do this in R</summary>
+<pre>
 {% highlight R %}
 x <- c(2, 4 ,7)
 y <- c(1, 5, 11)
 {% endhighlight %} 
-</details>
 </pre>
+</details>
+
 
 Answer the following questions
 
