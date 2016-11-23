@@ -43,7 +43,7 @@ For example, to count the reads from the **forward** reads in the HiSeq data set
 grep -c -e "^@HWI" /proj/g2015028/nobackup/single_cell_exercises/sequences/dataset1/G5_Hiseq_R1_001.fastq
 ```
 
-```grep``` : searches for lines that begin with a string of characters that you are looking for. In this example, the string of characters are __@HWI__.  
+```grep``` : searches for lines that contains a string of characters that you are looking for. In this example, the string of characters are __@HWI__.  
 ```-c``` flag counts the lines containing this string of characters.  
 ```-e``` flag means you are using Regular Expressions to search for the pattern.  
 In this case, ```^``` character means you expect to only check for lines that __begin__ with these specified characters.  
