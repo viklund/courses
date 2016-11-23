@@ -19,8 +19,10 @@ A good way to detect contaminants in your assembly, is to compare your contigs t
 To do this, perform the following BLASTn search:
 
 ```sh
-blastn -query contigs.fasta -db /proj/g2015028/nobackup/single_cell_exercises/databases/nt -evalue 1e-5 -num_threads 8 -out contigs_vs_nt.blastn #[This shouldn’t take more than 4 minutes]
+blastn -query contigs.fasta -db /sw/data/uppnex/blast_databases/nt -evalue 1e-5 -num_threads 8 -out contigs_vs_nt.blastn
 ```
+
+<!-- blastn -query contigs.fasta -db /proj/g2015028/nobackup/single_cell_exercises/databases/nt -evalue 1e-5 -num_threads 8 -out contigs_vs_nt.blastn #[This shouldn’t take more than 4 minutes]  -->
 
 Once the search is done, take a quick look of contigs_vs_nt.blastn with less. Scroll a bit through the file by hitting space. 
 When you are satisfied, hit q to quit less. This file contains all the information that we require to estimate which sequences in your assembly are 
