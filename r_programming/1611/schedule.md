@@ -36,7 +36,7 @@ Room: [Trippelrummet, E10, ground floor](files/bmc_map.jpg)
 **Thursday**
 Room: [Trippelrummet, E10, ground floor](files/bmc_map.jpg)  
 **09:00-10:00** [Lecture: Functions in R ]() (Marcin Kierczak)  
-**10:00-11:00** [Lecture: Graphics]() (Marcin Kierczak) 
+**10:00-11:00** [Lecture: Graphics]() (Marcin Kierczak)  
 **11:00-12:00** [Exercise: Functions in R]() (Thomas Källman, Moritz Buck, ...)  
 **12:00-13:00** Lunch at BMC restaurant  
 **13:00-15:00** [Exercise: Functions in R cted.]() (Thomas Källman, Moritz Buck, ...)  
