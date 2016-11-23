@@ -122,6 +122,8 @@ Open R-studio and create two numeric vectors named x and y that are of equal len
 <summary>:key: Click to see an example of how to do this in R</summary>
 {% highlight R %}
 x <- c(2, 4 ,7)
+{% endhighlight %}
+{% highlight R %}
 y <- c(1, 5, 11)
 {% endhighlight %} 
 </details>
