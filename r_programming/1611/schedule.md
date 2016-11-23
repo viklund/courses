@@ -37,10 +37,10 @@ Room: [Trippelrummet, E10, ground floor](files/bmc_map.jpg)
 Room: [Trippelrummet, E10, ground floor](files/bmc_map.jpg)  
 **09:00-10:00** [Lecture: Functions in R ]() (Marcin Kierczak)  
 **10:00-11:00** [Lecture: Graphics]() (Marcin Kierczak) 
-**11:00-12:00** [Exercise: Functions in R]() (Thomas Källman, ...)  
+**11:00-12:00** [Exercise: Functions in R]() (Thomas Källman, Moritz Buck, ...)  
 **12:00-13:00** Lunch at BMC restaurant  
-**13:00-15:00** [Exercise: Functions in R cted.]() (Thomas Källman, ...)  
-**15:00-17:00** [Exercise: Graphics in R cted.]() (Thomas Källman, ...)  
+**13:00-15:00** [Exercise: Functions in R cted.]() (Thomas Källman, Moritz Buck, ...)  
+**15:00-17:00** [Exercise: Graphics in R cted.]() (Thomas Källman, Mortiz Buck, ...)  
 
 **Friday**  
 Room: [Trippelrummet, E10, ground floor](files/bmc_map.jpg)  
@@ -48,4 +48,4 @@ Room: [Trippelrummet, E10, ground floor](files/bmc_map.jpg)
 **10:00-11:00** [Live presentation: Explanatory programming]() (Marcin Kierczak)  
 **11:00-12:00** Q&A session.  
 **12.00-13.00** Lunch at BMC restaurant  
-**13:00-16.00** [Graphics in R: ggplot2]() (Thomas Källman, Eva Freyhult, ...)  
+**13:00-16.00** [Graphics in R: ggplot2]() (Thomas Källman, Eva Freyhult, Moritz Buck)  
