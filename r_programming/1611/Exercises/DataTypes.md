@@ -91,12 +91,14 @@ class(example.vector)
 
 [1] "numeric"
 ```
-
+<details>
+<summary>:key: Click to see an example of how to do this in Ruby</summary>
 ```ruby
 require 'redcarpet'
 markdown = Redcarpet.new("Hello World!")
 puts markdown.to_html
 ```
+</details>
 
 If you for any reason want to have more information about any object
 you have stored in your R session the command str() is very helpful. 
