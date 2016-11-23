@@ -20,7 +20,7 @@ Before assembly you can do several pre-processing steps. Here we will focus on q
 
 *Trimmomatic* is a collection of tools for reads pre-treatment. We will use it to cut the Illumina adaptor with ```ILLUMINACLIP``` giving the location of the sequences to be removed, as well as some parameters describing for example how many mismatches shold be tolerated. ```LEADING``` and ```TRAILING``` removes bases below the given threshold from the beginning and end of the read. ```SLIDINGWINDOW``` performs a sliding window quality trimming in a given window length (4) using given quality threshold (15). Finally, ```MINLEN``` specifies a length threshold for reads to be kept. In case after all of the pre-processing steps the reads get shorter than this threshold (36) they are discarded. You can read up on the details of these commands on the [Trimmomatic website](http://www.usadellab.org/cms/?page=trimmomatic) 
 
-We first created a folder to store the trimmed files:
+We first create a folder to store the trimmed files:
 
 ```sh
 mkdir trimmed

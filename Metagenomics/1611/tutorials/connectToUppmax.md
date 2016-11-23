@@ -21,13 +21,13 @@ You will be using half a node (*8 cores*) per person. This means you will end up
 It is essential to log in with X forwarding (-X) option to be able to display graphical interfaces across remote computers.
 Type the following command but replace *username* with your login name.  
 
-1. Connect to Uppmax:
+### Connect to Uppmax:
 
 ```sh
 ssh -X username@milou.uppmax.uu.se
 ```
 
-2. The next command will reserve a compute node for *the next 8 hours*.  
+### The next command will reserve a compute node for *the next 8 hours*.  
 **The following command should be run only once a day otherwise you will be using more than 8 cores and others might not be able to connect.  
 Go to the next step if you already run step 2 today**  
 
@@ -35,19 +35,20 @@ Go to the next step if you already run step 2 today**
 salloc -A g2015028 -t 08:00:00 -p core -n 8 --no-shell --qos=interact &
 ```
 
-3. Type the following command to see the node you are affected to: 
+### Type the following command to see the node you are affected to: 
 
 ```sh
 squeue -u username
 ```
 
-4. The *nodelist* column gives you the name of the node that has been reserved for you.  
+### The *nodelist* column gives you the name of the node that has been reserved for you.  
 To log in to compute node run the following command (replace *mXX* with the actual compute node you are assigned to)  
 
 ```sh
 ssh -X mXX
 ```
-5. Make sure that you can launch graphical tools in your node by typing this command:  
+
+Make sure that you can launch graphical tools in your node by typing this command:  
 
 ```sh
 xclock
@@ -55,7 +56,7 @@ xclock
 
 If you see the clock then you should be able to launch GUI-based tools such as MEGAN or Artemis remotely. Close the clock.
 
-6. Load all necessary softwares to complete all exercices
+### Load all necessary softwares to complete all exercices  
 ```sh
 source /proj/g2015028/nobackup/single_cell_exercises/scripts/modules_load
 ```
