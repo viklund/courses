@@ -561,17 +561,3 @@ rm tmp.sbatch
 </pre>
 </details> 
 <br><br>
-
-
-
-<button type = "button" class = "btn btn-primary" data-toggle = "collapse" data-target = "#demo">
-   simple collapsible
-</button>
-
-<div id = "demo" class = "collapse in">
-```bash
-$ interactive -A g2016017 -t 02:00:00 -p core
-$ interactive -A g2016017 -t 02:00:00 -p core
-$ interactive -A g2016017 -t 02:00:00 -p core
-```
-</div>
