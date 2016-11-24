@@ -4,7 +4,7 @@ title: 'Data Structures in R'
 ---
 
 # Introduction<a id="orgheadline1"></a>
-
+hmmm
 There are several different data structured that are commonly used in
 R. The different data structures can be seen as different ways to
 organise data. In this exercise we learn the basics about the most
