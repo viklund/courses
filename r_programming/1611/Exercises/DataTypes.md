@@ -288,9 +288,8 @@ built-in function sum that adds all values found in a vector.
 
 To learn more about a function use the built in R manual as described
 earlier. If you do not know the name of a function that you believe
-should be found in R, use the function src\_R[:exports
-code]{help.search()} or use google to try and identify the name of the
-command.
+should be found in R, use the function `help.search()` or use google
+to try and identify the name of the command.
 
 # Exercise: Creating and working with vectors<a id="orgheadline7"></a>
 
@@ -309,8 +308,12 @@ solutions that solve the problem equally well.
 Open R-studio and create two numeric vectors named x and y that are of
 equal length. Use the vectors to answer the questions below. 
 
+:computer: **Create vectors**
+<details>
+<summary>:key: See R code</summary>
     x <- c(2, 4 ,7)
     y <- c(1, 5, 11)
+</details>
 
 1.  How many numbers are there in the vector x?
     
