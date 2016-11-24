@@ -19,17 +19,17 @@ Room: [Trippelrummet, E10, ground floor](files/bmc_map.jpg)
 Room: [Trippelrummet, E10, ground floor](files/bmc_map.jpg)  
 **09:00-10:00** [Lecture: Elements of the programming language - part 1b]() (Marcin Kierczak)  
 **10:00-11:00** [Lecture: Elements of the programming language - part 2]() (Marcin Kierczak)  
-**11:00-12:00** [Exercise: Datatypes part 1 - Working with vectors cont.]() (Thomas Källman, ...)  
+**11:00-12:00** [Exercise: Datatypes part 1 - Working with vectors cont.]() (Thomas Källman, Johan Viklund, Sebastian DiLorenzo)  
 **12:00-13:00** Lunch at BMC restaurant  
-**13:00-17:00** [Exercise: Datatypes part 2 - matrices, lists, data frames]() (Thomas Källman, ...)  
+**13:00-17:00** [Exercise: Datatypes part 2 - matrices, lists, data frames]() (Thomas Källman, Johan Viklund, Sebastian DiLorenzo)  
 
 **Wednesday** 
 Room: [Trippelrummet, E10, ground floor](files/bmc_map.jpg)  
 **09:00-10:00** [Lecture: Elements of a programming language - part 3 ]() (Marcin Kierczak)  
 **10:00-11:00** [Lecture: Loading data]() (Marcin Kierczak)  
-**11:00-12:00** [Exercise: Loding data]() (Thomas Källman, Eva Freyhult, ...)  
+**11:00-12:00** [Exercise: Loding data]() (Thomas Källman, Eva Freyhult, Johan Viklund)  
 **12:00-13:00** Lunch at BMC restaurant  
-**13:00-17:00** [Exercise: Datatypes part 3 - loops, conditional statements, functions, variable scope]() (Thomas Källman, Eva Freyhult, ...)  
+**13:00-17:00** [Exercise: Datatypes part 3 - loops, conditional statements, functions, variable scope]() (Thomas Källman, Eva Freyhult, Johan Viklund)  
 
 **18:00-** Course dinner at [Koh Phangan](https://www.google.se/maps/place/Restaurang+Koh+Phangan/@59.856787,17.6272816,17z/data=!3m1!4b1!4m5!3m4!1s0x465fcbf3d83e6711:0x4b004e395b108348!8m2!3d59.856787!4d17.6294703?hl=en)  
 
@@ -37,10 +37,10 @@ Room: [Trippelrummet, E10, ground floor](files/bmc_map.jpg)
 Room: [Trippelrummet, E10, ground floor](files/bmc_map.jpg)  
 **09:00-10:00** [Lecture: Functions in R ]() (Marcin Kierczak)  
 **10:00-11:00** [Lecture: Graphics]() (Marcin Kierczak)  
-**11:00-12:00** [Exercise: Functions in R]() (Thomas Källman, Moritz Buck, ...)  
+**11:00-12:00** [Exercise: Functions in R]() (Thomas Källman, Moritz Buck, Johan Viklund)  
 **12:00-13:00** Lunch at BMC restaurant  
-**13:00-15:00** [Exercise: Functions in R cted.]() (Thomas Källman, Moritz Buck, ...)  
-**15:00-17:00** [Exercise: Graphics in R cted.]() (Thomas Källman, Mortiz Buck, ...)  
+**13:00-15:00** [Exercise: Functions in R cted.]() (Thomas Källman, Moritz Buck, Johan Viklund)  
+**15:00-17:00** [Exercise: Graphics in R cted.]() (Thomas Källman, Moritz Buck, Sebastian DiLorenzo)  
 
 **Friday**  
 Room: [Trippelrummet, E10, ground floor](files/bmc_map.jpg)  
