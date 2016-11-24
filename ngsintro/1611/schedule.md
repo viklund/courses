@@ -25,7 +25,7 @@ Room: [NA326](http://www.umu.se/om-universitetet/kartor/campus-karta-stor/?id=58
 
 **Wednesday 30/11**  
 Room: KB.J3.02 [KBF31](http://www.umu.se/om-universitetet/kartor/campus-karta-stor/?id=95)   
-**09.00-10.00** Lecture: Next Generation Sequencing (Jeanette Tångrot)  
+**09.00-10.00** Lecture: National Bioinformatics Infrastructure Sweden; Introduction to NGS data analysis (Jeanette Tångrot)  
 **10:00-11.00** Lecture: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats (Pall Olason)   
 **11.00-12.00** Exercise: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part I (Pall Olason, Jeanette Tångrot, Allison Churcher, Firoj Mahmud)  
 **12.00-13.00** Lunch  
