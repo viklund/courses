@@ -561,3 +561,11 @@ rm tmp.sbatch
 </pre>
 </details> 
 <br><br>
+
+
+
+<div id="myId" class="hidden">```bash
+$ sbatch job_template.txt
+$ sbatch job_template.txt$ sbatch job_template.txt
+$ sbatch job_template.txt
+```</div>
