@@ -1,9 +1,8 @@
 ---
 layout: default
-title:  'Schedule'
+title:  'Vectors in R'
 ---
 
-<<<<<<< HEAD
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -28,10 +27,6 @@ title:  'Schedule'
 
 # Introduction<a id="orgheadline4"></a>
 
-=======
-# Introduction<a id="orgheadline1"></a>
-hmmm
->>>>>>> 187319384fd1a68fe8d210fcc5827d59c12ef256
 There are several different data structured that are commonly used in
 R. The different data structures can be seen as different ways to
 organise data. In this exercise we will focus on vectors that are the
@@ -115,33 +110,10 @@ will turn the whole vector to a numeric vector.
 
 To check what data type an object is, run the R built-in function
 class(), with the object as the only parameter.
-<<<<<<< HEAD
 
     class(example.vector)
 
     [1] "numeric"
-=======
-TEST2
-
-<details>
-<summary>:key: Click to see an example of how to do this in Ruby</summary>
-```
-library(limma)
-class(example.vector)
-
-[1] "numeric"
-```
-</details>
-
-<details>
-<summary>:key: Click to see an example of how to do this in Ruby</summary>
-```ruby
-require 'redcarpet'
-markdown = Redcarpet.new("Hello World!")
-puts markdown.to_html
-```
-</details>
->>>>>>> 187319384fd1a68fe8d210fcc5827d59c12ef256
 
 If you for any reason want to have more information about any object
 you have stored in your R session the command `str()` is very helpful.
@@ -150,7 +122,6 @@ you have stored in your R session the command `str()` is very helpful.
 
     num [1:3] 10 20 30
 
-<<<<<<< HEAD
 ## Basic R operators<a id="orgheadline3"></a>
 
 As in other programming languages there are a set of basic operators in R. 
@@ -247,51 +218,6 @@ As in other programming languages there are a set of basic operators in R.
 <td class="org-left">1 <= 1</td>
 <td class="org-left">TRUE</td>
 </tr>
-=======
-In the exercise below it is important that you prior to running the
-commands in R, try to figure out what you expect the result to be. You
-should then verify that this will indeed be the result by running the
-command in an R session. In case there is a discrepency between you
-expectations and the output make sure you understand why before you
-move forward. If you can not figure out how to run the command you can
-click the key to reveal code and output that are expected from the
-analysis.
-
-## Exercise A1. Create and work with vectors<a id="orgheadline4"></a>
-
-Open R-studio and create two numeric vectors named x and y that are of equal length
-
-<details>
-<summary>:key: Click to see an example of how to do this in R</summary>
-<pre>
-x <- c(2, 4 ,7)
-y <- c(1, 5, 11)
-</pre>
-</details>
-
-
-Answer the following questions
-
-- How many numbers is there in x?
-  <details>
-  <summary>:key: Click to see an example of how to do this in R</summary>
-  {% highlight R %}
-  length(x)
-  
-  [1] 3
-  {% endhighlight %} 
-  </details>  
-
-- How many numbers in y?
-  <details>
-  <summary>:key: Click to see an example of how to do this in R</summary>
-  {% highlight R %}
-  length(y)
-  
-  [1] 3
-  {% endhighlight %} 
-  </details>  
->>>>>>> 187319384fd1a68fe8d210fcc5827d59c12ef256
 
 
 <tr>
@@ -529,7 +455,7 @@ Do the following on your newly created vector.
     
         length(norm.rand[norm.rand<0])
     
-        [1] 30
+        [1] 23
 
 13. In many cases one has data from multiple replicates and different
     treatments in such cases it can be useful to have names of the type:
