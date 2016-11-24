@@ -316,13 +316,17 @@ x <- c(2, 4 ,7)
 y <- c(1, 5, 11)  
 </pre>
 </details>
+<br>
 
 1.  How many numbers are there in the vector x?
-    
-        length(x)
-    
-        [1] 3
-
+    <details>
+	<summary>:key: See R code</summary>
+	<pre>
+    length(x)  
+    [1] 3  
+	</pre>
+	</details>
+<br>
 2.  How many numbers will x + y generate?
     
         length(x + y)
