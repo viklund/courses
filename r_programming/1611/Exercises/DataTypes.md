@@ -87,7 +87,7 @@ TEST2
 
 <details>
 <summary>:key: Click to see an example of how to do this in Ruby</summary>
-```r
+```
 library(limma)
 class(example.vector)
 
