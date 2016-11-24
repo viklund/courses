@@ -311,8 +311,10 @@ equal length. Use the vectors to answer the questions below.
 :computer: **Create vectors**
 <details>
 <summary>:key: See R code</summary>
-    x <- c(2, 4 ,7)
-    y <- c(1, 5, 11)
+<pre>
+x <- c(2, 4 ,7)  
+y <- c(1, 5, 11)  
+</pre>
 </details>
 
 1.  How many numbers are there in the vector x?
