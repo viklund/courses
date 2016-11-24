@@ -83,14 +83,18 @@ will turn the whole vector to a numeric vector.
 
 To check what data type an object is, run the R built-in function
 class(), with the object as the only parameter.
-TEST
+TEST2
 
+<details>
+<summary>:key: Click to see an example of how to do this in Ruby</summary>
 ```r
 library(limma)
 class(example.vector)
 
 [1] "numeric"
 ```
+</details>
+
 <details>
 <summary>:key: Click to see an example of how to do this in Ruby</summary>
 ```ruby
