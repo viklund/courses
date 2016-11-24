@@ -122,7 +122,7 @@ Open R-studio and create two numeric vectors named x and y that are of equal len
 
 <details>
 <summary>:key: Click to see an example of how to do this in R</summary>
-{% highlight R %}
+{% highlight %}
 x <- c(2, 4 ,7)
 y <- c(1, 5, 11)
 {% endhighlight %} 
