@@ -33,14 +33,14 @@ Room: KB.J3.02 [KBF31](http://www.umu.se/om-universitetet/kartor/campus-karta-st
 
 **18:00-** Course dinner at TBA  
 
-**Thursday 31/11**  
+**Thursday 01/12**  
 Room: [NA326](http://www.umu.se/om-universitetet/kartor/campus-karta-stor/?id=584)  
 **09:00-12.00** Exercise: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part II (Jeanette Tångrot, Allison Churcher, Firoj Mahmud)  
 **12.00-13.00** Lunch  
 **13.00-14:00** Lecture: RNA sequencing, transcriptome and expression quantification (Olga Dethlefsen)  
 **14.00-17:00** Exercise: RNA sequencing, transcriptome and expression quantification part I (Olga Dethlefsen, Jeanette Tångrot, Allison Churcher, Andreas Schneider)  
 
-**Friday 01/12**  
+**Friday 02/12**  
 Room: [NA326](http://www.umu.se/om-universitetet/kartor/campus-karta-stor/?id=584)  
 **09:00-12:00** Exercise: RNA sequencing, transcriptome and expression quantification part II (Olga Dethlefsen, Jeanette Tångrot, Allison Churcher, Andreas Schneider)  
 **12.00-13.00** Lunch   
