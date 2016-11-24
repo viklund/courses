@@ -564,8 +564,14 @@ rm tmp.sbatch
 
 
 
-<div id="myId" class="hidden">```bash
-$ sbatch job_template.txt
-$ sbatch job_template.txt$ sbatch job_template.txt
-$ sbatch job_template.txt
-```</div>
+<button type = "button" class = "btn btn-primary" data-toggle = "collapse" data-target = "#demo">
+   simple collapsible
+</button>
+
+<div id = "demo" class = "collapse in">
+```bash
+$ interactive -A g2016017 -t 02:00:00 -p core
+$ interactive -A g2016017 -t 02:00:00 -p core
+$ interactive -A g2016017 -t 02:00:00 -p core
+```
+</div>
