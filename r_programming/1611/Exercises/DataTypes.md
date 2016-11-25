@@ -2,7 +2,7 @@
 layout: default
 title:  'Vectors in R'
 ---
-
+# Vectors in R
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
