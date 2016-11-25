@@ -9,7 +9,7 @@ google_analytics: 'UA-23985298-11'
 ########
 # more settings
 
-markdown: kramdown
+# markdown: kramdown
 
 # pygments: true
 highlighter: rouge
