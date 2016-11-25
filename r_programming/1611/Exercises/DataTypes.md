@@ -299,7 +299,7 @@ result to be. You should then verify that this will indeed be the
 result by running the command in an R session. In case there is a
 discrepency between your expectations and the actual output make sure
 you understand why before you move forward. If you can not figure out
-how to, or which command to run you can click the key to reveal example code
+howto, or which command to run you can click the key to reveal example code
 including expected output. Also note that in many cases there multiple
 solutions that solve the problem equally well.
 
@@ -310,7 +310,7 @@ equal length. Use the vectors to answer the questions below.
 
 :computer: **Create vectors**
 <details>
-<summary>:key: See R code</summary>
+<summary>:key: Click to see example R code to generate vectors</summary>
 <pre>
 x <- c(2, 4 ,7)  
 y <- c(1, 5, 11)  
@@ -320,7 +320,7 @@ y <- c(1, 5, 11)
 
 1.  How many numbers are there in the vector x?
     <details>
-	<summary>:key: See R code</summary>
+	<summary>:key: Click to see how</summary>
 	<pre>
     length(x)  
     [1] 3  
@@ -328,17 +328,23 @@ y <- c(1, 5, 11)
 	</details>
 <br>
 2.  How many numbers will x + y generate?
-    
-        length(x + y)
-    
-        [1] 3
-
+    <details>
+	<summary>:key: Show R code</summary>
+	<pre>
+	length(x + y)  
+    [1] 3  
+	</pre>
+	</details>
+<br>
 3.  What is the sum of all values in x?
-    
-        sum(x)
-    
-        [1] 13
-
+    <details>
+	<summary>:key: Show R code</summary>
+	<pre>
+	sum(x)  
+    [1] 13  
+	</pre>
+	</details>
+<br>
 4.  What is the sum of y times y?
     
         sum(y*y)
