@@ -78,9 +78,9 @@ example.vector with 3 entries in it.
 
     example.vector <- c(10, 20, 30)
 
-NB! If you need more information about the function c() you can always use
-the built-in manual in R. Typing `c()` will bring up the
-documentation for the function `?c`.
+NB! If you need more information about the function `c()` you can always use
+the built-in manual in R. Typing `?c` will bring up the
+documentation for the function `c()`.
 
 Once you have created this vector in R, you can access it by simply
 typing its name in an interactive session.
@@ -329,7 +329,7 @@ y <- c(1, 5, 11)
 <br>
 2.  How many numbers will x + y generate?
     <details>
-	<summary>:key: Show R code</summary>
+	<summary>:key: Click to see how</summary>
 	<pre>
 	length(x + y)  
     [1] 3  
@@ -338,7 +338,7 @@ y <- c(1, 5, 11)
 <br>
 3.  What is the sum of all values in x?
     <details>
-	<summary>:key: Show R code</summary>
+	<summary>:key: Click to see how</summary>
 	<pre>
 	sum(x)  
     [1] 13  
@@ -346,150 +346,232 @@ y <- c(1, 5, 11)
 	</details>
 <br>
 4.  What is the sum of y times y?
-    
-        sum(y*y)
-    
-        [1] 147
-
+     <details>
+	<summary>:key: Click to see how</summary>
+	<pre>
+    sum(y*y)  
+    [1] 147  
+	</pre>
+	</details>
+<br>
 5.  What do you get if you add x and y?
-    
-        x + y
-    
-        [1]  3  9 18
-
+    <details>
+	<summary>:key: Click to see how</summary>
+	<pre>
+    x + y
+    [1]  3  9 18
+	</pre>
+	</details>
+<br>
 6.  Assign x times 2 to a new vector named z
-    
-        z <- x * 2
-
+     <details>
+	<summary>:key: Show R code</summary>
+	<pre>
+    z <- x * 2
+	</pre>
+	</details>
+<br>
 7.  How many numbers will z have, why?
-    
-        length(z)
-    
-        [1] 3
-
+    <details>
+	<summary>:key: Show R code</summary>
+	<pre>
+    length(z)  
+    [1] 3  
+	</pre>
+	</details>
+<br>
 8.  Assign the mean of z to a new vector named z.mean and determine the length of z.mean
-    
-        z.mean <- mean(z)
-        length(z.mean)
-
+    <details>
+	<summary>:key: Show R code</summary>
+	<pre>
+    z.mean <- mean(z)  
+    length(z.mean)  
+	</pre>
+	</details>
+<br>
 9.  Create a numeric vector with all integers from 5 to 107
-    
-        vec.tmp <- 5:107
-        vec.tmp
-    
-        [1]   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22
-        [19]  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40
-        [37]  41  42  43  44  45  46  47  48  49  50  51  52  53  54  55  56  57  58
-        [55]  59  60  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76
-        [73]  77  78  79  80  81  82  83  84  85  86  87  88  89  90  91  92  93  94
-        [91]  95  96  97  98  99 100 101 102 103 104 105 106 107
-
+    <details>
+	<summary>:key: Show R code</summary>
+	<pre>
+	vec.tmp <- 5:107  
+	vec.tmp  
+	[1]   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  
+    [19]  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40  
+    [37]  41  42  43  44  45  46  47  48  49  50  51  52  53  54  55  56  57  58  
+    [55]  59  60  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76  
+    [73]  77  78  79  80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  
+    [91]  95  96  97  98  99 100 101 102 103 104 105 106 107  
+	</pre>
+	</details>
+<br>
 10. Create a numeric vector with the same length as the previos one, but only containg the number 3
-    
-        vec.tmp2 <- rep(3, length(vec.tmp))
-        vec.tmp2
-    
-        [1] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-        [38] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-        [75] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    <details>
+	<summary>:key: Show R code</summary>
+	<pre>
+    vec.tmp2 <- rep(3, length(vec.tmp))  
+	vec.tmp2  
+    [1] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3  
+    [38] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3  
+    [75] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3  
+	</pre>
+	</details>
+<br>
 
-## Exercise: Modify and subset vectors<a id="orgheadline6"></a>
+## Modify and subset vectors<a id="orgheadline6"></a>
 
 Create a new character vector that the following words and save it using a suitable name:
 apple, banana, orange, kiwi, potato
-
-    veggies <- c("apple", "banana", "orange", "kiwi", "potato")
+<details>
+<summary>:key: Show R code</summary>
+<pre>
+veggies <- c("apple", "banana", "orange", "kiwi", "potato")
+</pre>
+</details>
+<br>
 
 Do the following on your newly created vector.
 
 1.  Select orange from the vector
-    
-        veggies[3]
+	<details>
+	<summary>:key: Show R code</summary>
+	<pre>
+	veggies[3]
+	</pre>
+	</details>
+<br>
 2.  Select all fruits from the vector
-    
-        veggies[-5]
-        veggies[1:4]
+	<details>
+	<summary>:key: Show R code</summary>
+	<pre>
+	veggies[-5]  
+    veggies[1:4]
+	</pre>
+	</details>
+<br>
 3.  Do the same selection as in question 2 without using index positions
-    
-        veggies[veggies=="apple" | veggies == "banana" | veggies == "orange" | veggies == "kiwi"]
-        veggies[veggies!="potato"]
+    <details>
+	<summary>:key: Show R code</summary>
+	<pre>
+    veggies[veggies=="apple" | veggies == "banana" | veggies == "orange" | veggies == "kiwi"]  
+    veggies[veggies!="potato"]  
+	</pre>
+	</details>
+<br>
 4.  Convert the character string to a numeric vector
-    
-        as.numeric(veggies)
-
+    <details>
+	<summary>:key: Show R code</summary>
+	<pre>
+    as.numeric(veggies)
+	</pre>
+	</details>
+<br>
 5.  Create a vector of logic values that can be used to extract every second value from your character vector
-    
-        selection <- c(FALSE, TRUE, FALSE, TRUE, FALSE)
-        veggies[selection]
-    
-    Alternative solution, why do this work?
-    
-        selection2 <- c(FALSE, TRUE)
-        veggies[selection2]
+    <details>
+	<summary>:key: Show R code</summary>
+	<pre>
+    selection <- c(FALSE, TRUE, FALSE, TRUE, FALSE)  
+	veggies[selection]  
+   	</pre>
+	</details>
+	<br>
+
+	<details>
+	<summary>:key: Alternative solution, why do this work?</summary>
+	<pre>
+    selection2 <- c(FALSE, TRUE)  
+	veggies[selection2]  
+	</pre>
+	</details>
+<br>
+
 6.  Create a vector containing all the letters in the alphabet (NB! this
     can be done without having to type all letters). Google is your friend
-    
-        letters
-    
-         [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s"
-        [20] "t" "u" "v" "w" "x" "y" "z"
-
+    <details>
+	<summary>:key: Show R code</summary>
+	<pre>
+    letters  
+    [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s"  
+    [20] "t" "u" "v" "w" "x" "y" "z"  
+	</pre>
+	</details>
+<br>
 7.  Extract the letter 14 to 19 from the created vector
-    
-        letters[14:19]
-    
-        [1] "n" "o" "p" "q" "r" "s"
-
+    <details>
+	<summary>:key: Show R code</summary>
+	<pre>
+	letters[14:19]
+    [1] "n" "o" "p" "q" "r" "s"  
+	</pre>
+	</details>
+<br>
 8.  Extract all but the last letter
-    
-        letters[1:length(letters)-1]
-        letters[-length(letters)]
-    
-         [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s"
-        [20] "t" "u" "v" "w" "x" "y"
+    <details>
+	<summary>:key: Show R code</summary>
+	<pre>
+	letters[1:length(letters)-1]  
+    letters[-length(letters)]  
+    [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s"  
+	[20] "t" "u" "v" "w" "x" "y"  
          
-        [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s"
-        [20] "t" "u" "v" "w" "x" "y"
-
-9.  Make R print the position of the letter u in the vector.
-    
-        which(letters=="u")
-    
-        [1] 21
-
+    [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s"  
+	[20] "t" "u" "v" "w" "x" "y"  
+	</pre>
+	</details>
+<br>
+9.  Which is the index position of the letter u in the vector?
+    <details>
+	<summary>:key: Show R code</summary>
+	<pre>
+    which(letters=="u")  
+    [1] 21  
+	</pre>
+	</details>
+<br>
 10. Create a new vector of length one that holds all the alphabet a single entry
-    
-        paste(letters, sep = "", collapse = "")
-
+    <details>
+	<summary>:key: Show R code</summary>
+	<pre>
+    paste(letters, sep = "", collapse = "")  
+	</pre>
+	</details>
+<br>
 11. Create a numeric vector by sampling 100 numbers from a
     normal distribution with mean 2 and standard deviation 4. 
-    
-        norm.rand <- rnorm(100, mean = 2, sd = 4)
-
+    <details>
+	<summary>:key: Show R code</summary>
+	<pre>
+    norm.rand <- rnorm(100, mean = 2, sd = 4)  
+	</pre>
+	</details>
+<br>
 12. How many of the generated values are negative? 
-    
-        length(norm.rand[norm.rand<0])
-    
-        [1] 23
-
+    <details>
+	<summary>:key: Show R code</summary>
+	<pre>
+    length(norm.rand[norm.rand<0])  
+    [1] 23  
+	</pre>
+	</details>
+<br>
 13. In many cases one has data from multiple replicates and different
     treatments in such cases it can be useful to have names of the type:
     Geno\_a\_1, Geno\_a\_2, Geno\_a\_3, Geno\_b\_1, Geno\_b\_2&#x2026;, Geno\_s\_3
     Try to create this such a vector without manually typing it all in.
-    
-        geno <- rep("Geno", 57)
-        needed.letters <- rep(letters[1:19], 3)
-        needed.numbers <- rep(1:3, 19)
-        temp <- paste(geno, needed.letters, needed.numbers, sep = "_")
-        sort(temp)
-    
-        [1] "Geno_a_1" "Geno_a_2" "Geno_a_3" "Geno_b_1" "Geno_b_2" "Geno_b_3"
-         [7] "Geno_c_1" "Geno_c_2" "Geno_c_3" "Geno_d_1" "Geno_d_2" "Geno_d_3"
-        [13] "Geno_e_1" "Geno_e_2" "Geno_e_3" "Geno_f_1" "Geno_f_2" "Geno_f_3"
-        [19] "Geno_g_1" "Geno_g_2" "Geno_g_3" "Geno_h_1" "Geno_h_2" "Geno_h_3"
-        [25] "Geno_i_1" "Geno_i_2" "Geno_i_3" "Geno_j_1" "Geno_j_2" "Geno_j_3"
-        [31] "Geno_k_1" "Geno_k_2" "Geno_k_3" "Geno_l_1" "Geno_l_2" "Geno_l_3"
-        [37] "Geno_m_1" "Geno_m_2" "Geno_m_3" "Geno_n_1" "Geno_n_2" "Geno_n_3"
-        [43] "Geno_o_1" "Geno_o_2" "Geno_o_3" "Geno_p_1" "Geno_p_2" "Geno_p_3"
-        [49] "Geno_q_1" "Geno_q_2" "Geno_q_3" "Geno_r_1" "Geno_r_2" "Geno_r_3"
-        [55] "Geno_s_1" "Geno_s_2" "Geno_s_3"
+    <details>
+	<summary>:key: Show R code</summary>
+	<pre>
+    geno <- rep("Geno", 57)  
+    needed.letters <- rep(letters[1:19], 3)  
+    needed.numbers <- rep(1:3, 19)  
+    temp <- paste(geno, needed.letters, needed.numbers, sep = "_")  
+    sort(temp)  
+    [1] "Geno_a_1" "Geno_a_2" "Geno_a_3" "Geno_b_1" "Geno_b_2" "Geno_b_3"  
+    [7] "Geno_c_1" "Geno_c_2" "Geno_c_3" "Geno_d_1" "Geno_d_2" "Geno_d_3"  
+    [13] "Geno_e_1" "Geno_e_2" "Geno_e_3" "Geno_f_1" "Geno_f_2" "Geno_f_3"  
+    [19] "Geno_g_1" "Geno_g_2" "Geno_g_3" "Geno_h_1" "Geno_h_2" "Geno_h_3"  
+    [25] "Geno_i_1" "Geno_i_2" "Geno_i_3" "Geno_j_1" "Geno_j_2" "Geno_j_3"  
+    [31] "Geno_k_1" "Geno_k_2" "Geno_k_3" "Geno_l_1" "Geno_l_2" "Geno_l_3"  
+    [37] "Geno_m_1" "Geno_m_2" "Geno_m_3" "Geno_n_1" "Geno_n_2" "Geno_n_3"  
+    [43] "Geno_o_1" "Geno_o_2" "Geno_o_3" "Geno_p_1" "Geno_p_2" "Geno_p_3"  
+    [49] "Geno_q_1" "Geno_q_2" "Geno_q_3" "Geno_r_1" "Geno_r_2" "Geno_r_3"  
+    [55] "Geno_s_1" "Geno_s_2" "Geno_s_3"  
