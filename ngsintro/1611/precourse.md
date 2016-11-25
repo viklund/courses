@@ -8,8 +8,8 @@ title:  'Precourse Material'
 **The three first part from the [UNIX Tutorial for Beginners](../../ngsintro/common/unixtut/)**  
 
 * [**Introduction**](../../ngsintro/common/unixtut/unixintro.html)  
-* [**chapter 1**](../../ngsintro/common/unixtut/unix1.html)  
-* [**chapter 2**](../../ngsintro/common/unixtut/unix2.html)  
+* [**Chapter 1**](../../ngsintro/common/unixtut/unix1.html)  
+* [**Chapter 2**](../../ngsintro/common/unixtut/unix2.html)  
 
 You must use [http://uppnex.se/emu/](http://uppnex.se/emu/) [(or this mirror)](http://bellard.org/jslinux/) to try the commands in the tutorial, otherwise the commands will not work.
 If you any questions regarding this tutorial contact: martin.dahlo@scilifelab.uu.se

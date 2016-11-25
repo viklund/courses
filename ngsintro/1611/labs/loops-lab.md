@@ -36,7 +36,7 @@ Usually you would do most of the work in this lab directly on one of the login n
 
 ```bash
 # ONLY IF YOU DON'T ALREADY HAVE AN ACTIVE ALLOCATION SINCE BEFORE
-$ salloc -A g2016017 -t 04:30:00 -p core -n 1 --no-shell --reservation=g2016017_monday &
+$ salloc -A g2016028 -t 04:30:00 -p core -n 1 --no-shell --reservation=g2016028_TUE &
 ```
 
 check which node you got (replace **username** with your uppmax user name)
@@ -506,7 +506,7 @@ do
 
     # print a temporary script file that will be submitted to slurm
     echo "#!/bin/bash -l
-#SBATCH -A g2016017
+#SBATCH -A g2016028
 #SBATCH -p core
 #SBATCH -n 1
 #SBATCH -t 00:05:00
