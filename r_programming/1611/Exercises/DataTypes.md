@@ -247,7 +247,7 @@ As in other programming languages there are a set of basic operators in R.
 <tr>
 <td class="org-left">x || y</td>
 <td class="org-left">Boolean OR for scalar</td>
-<td class="org-left">1 >= 2  &vert; &vert; 3 < 10</td>
+<td class="org-left">1 >= 2 || 3 < 10</td>
 <td class="org-left">TRUE</td>
 </tr>
 
