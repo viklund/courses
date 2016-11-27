@@ -190,7 +190,7 @@ lectures and exercises.
 	</pre>
 	</details>
 <br>
-7.  Is floor of $\pi$ an integer?
+7.  Is floor of \pi an integer?
     <details>
 	<summary>:key: Click to see how</summary>
 	<pre>	
@@ -208,7 +208,7 @@ lectures and exercises.
 	</pre>
 	</details>
 <br>
-9.  Divide $\infty$ by $-\infty$
+9.  Divide \infty by -\infty
     <details>
 	<summary>:key: Click to see how</summary>
 	<pre>	
@@ -248,7 +248,7 @@ lectures and exercises.
      names(x) <- as.character(x)  
      outer(x, x, "|")  
      
-	         NA FALSE TRUE  
+	 NA FALSE TRUE  
      NA      NA    NA TRUE  
    	 FALSE   NA FALSE TRUE  
      TRUE  TRUE  TRUE TRUE  
@@ -273,7 +273,8 @@ lectures and exercises.
     -  find if 'and' occurs in the second line,
     -  substitute a word for another,
     -  extract substring starting at the 5th character and 5 characters long.
-    <details>
+
+	<details>
 	<summary>:key: Click to see how</summary>
 	<pre>	
     line1 <- "Hello darkness my old friend"  
@@ -285,10 +286,10 @@ lectures and exercises.
     substr(line1, 5, 5 + 5)  
     
 	[1] "Hello darkness my old friendI've come to talk to you again"  
-    [1] "Hello darkness my old friend*I've come to talk to you again"  
-    integer(0)  
-    [1] "Goodbye darkness my old friend"  
-    [1] "o dark"  
+	[1] "Hello darkness my old friend*I've come to talk to you again"  
+	integer(0)  
+	[1] "Goodbye darkness my old friend"  
+	[1] "o dark"  
 	</pre>
 	</details>
 <br>
