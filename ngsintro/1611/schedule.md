@@ -8,16 +8,16 @@ title:  'Schedule'
 **Monday 28/11**  
 Room: KB.J3.02 [KBF31](http://www.umu.se/om-universitetet/kartor/campus-karta-stor/?id=95) (Linnaeus väg 6)  
 **09.00-09.15** Registration and Welcome, presentation of SciLifeLab (Elina Staaf)  
-**09.15-10.00** Lecture: Introduction to Linux (Martin Dahlö)  
-**10.00-12.00** Exercise: Introduction to Linux (Martin Dahlö, Valentin Georgiev, Jeanette Tångrot, Joakim Bygdell)  
+**09.15-10.00** [Lecture: Introduction to Linux](slides/dahlo-linux.pdf) (Martin Dahlö)  
+**10.00-12.00** [Exercise: Introduction to Linux](labs/linux-intro) (Martin Dahlö, Valentin Georgiev, Jeanette Tångrot, Joakim Bygdell)  
 **12.00-13.00** Lunch  
-**13.00-14.00** Lecture: Introduction to UPPMAX/UPPNEX (Martin Dahlö)  
-**14.00-17.00** Exercise: Introduction to UPPMAX/UPPNEX (Martin Dahlö, Valentin Georgiev, Jeanette Tångrot, Joakim Bygdell)  
+**13.00-14.00** [Lecture: Introduction to UPPMAX/UPPNEX](slides/dahlo-uppmax.pdf) (Martin Dahlö)  
+**14.00-17.00** [Exercise: Introduction to UPPMAX/UPPNEX](labs/uppmax-intro) (Martin Dahlö, Valentin Georgiev, Jeanette Tångrot, Joakim Bygdell)  
 
 **Tuesday 29/11**  
 Room: [NA326](http://www.umu.se/om-universitetet/kartor/campus-karta-stor/?id=584)  
-**09.00-09.30** Lecture: File types in bioinformatics (Martin Dahlö)  
-**09.30-11.00** Exercise: File types in bioinformatics (Martin Dahlö, Valentin Georgiev, Jeanette Tångrot, Joakim Bygdell)  
+**09.00-09.30** [Lecture: File types in bioinformatics](slides/dahlo-filetypes.pdf) (Martin Dahlö)  
+**09.30-11.00** [Exercise: File types in bioinformatics](labs/filetypes) (Martin Dahlö, Valentin Georgiev, Jeanette Tångrot, Joakim Bygdell)  
 **11.00-12.00** Lecture: NGS and bioinformatics analysis pipelines (Adam Ameur)  
 **12.00-13.00** Lunch  
 **13:00-15:00** Lecture: Next Generation Sequencing Overview (Olga Vinnere Pettersson)  

@@ -71,7 +71,7 @@ $ ssh -Y q34
 
 To be able to do parts of this lab, you will need some files.
 To avoid all the course participants editing the same file all at once, undoing each other's edits, each participant will get their own copy of the needed files.
-The files are located in the folder `/dev/shm/ngsintro/filetypes`
+The files are located in the folder `/sw/courses/ngsintro/filetypes`
 
 Next, copy the lab files from this folder.
 -r means recursively, which means all the files including sub-folders of the source folder.
@@ -84,7 +84,7 @@ Ex.
 ```bash
 $ cp -r <source> <destination>
 
-$ cp -r /dev/shm/ngsintro/filetypes ~/glob/ngs-intro/
+$ cp -r /sw/courses/ngsintro/filetypes ~/glob/ngs-intro/
 ```
 
 Have a look in **~/glob/ngs-intro/filetypes:**
@@ -160,7 +160,7 @@ $ echo $PATH
 To pretend that we are loading a module, we will just add a the directory containing my dummy scripts to the $PATH variable, and it will be like we loaded the module for them.
 
 ```bash
-$ export PATH=$PATH:/dev/shm/ngsintro/uppmax_pipeline_exercise/dummy_scripts
+$ export PATH=$PATH:/sw/courses/ngsintro/uppmax_pipeline_exercise/dummy_scripts
 ```
 
 This will set the $PATH variable to whatever it is at the moment, and add a directory at the end of it.
@@ -417,3 +417,6 @@ The CRAM file is roughly 1/3 of the size of the BAM file.
 This is probably because all the reads in the simulated data has the same quality value (BBBBBBBBBB).
 Fewer types of quality values are easier to compress, hence this amazing compression ratio.
 Real data will have much more diverse quality scores, and the CRAM file would be pethaps 0.7-0.8 of the original BAM file.
+
+
+If you have been fast to finish this lab and you still have time left (or just can't get enough of linux stuff), please have a look at the [loops lab](loops-lab) where you can learn the basics in bash programming using variables, loops and controll statements.
