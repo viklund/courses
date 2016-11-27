@@ -84,7 +84,7 @@ Ex.
 ```bash
 $ cp -r <source> <destination>
 
-$ cp -r /dev/shm/ngsintro/filetypes ~/glob/ngs-intro/
+$ cp -r /sw/courses/ngsintro/filetypes ~/glob/ngs-intro/
 ```
 
 Have a look in **~/glob/ngs-intro/filetypes:**
