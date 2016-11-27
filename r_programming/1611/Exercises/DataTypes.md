@@ -248,9 +248,9 @@ lectures and exercises.
      names(x) <- as.character(x)  
      outer(x, x, "|")  
      
-             NA FALSE TRUE  
+	         NA FALSE TRUE  
      NA      NA    NA TRUE  
-     FALSE   NA FALSE TRUE  
+   	 FALSE   NA FALSE TRUE  
      TRUE  TRUE  TRUE TRUE  
 	</pre>
 	</details>
