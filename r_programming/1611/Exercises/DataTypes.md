@@ -219,25 +219,26 @@ lectures and exercises.
 	</details>
 <br>
 10.  Create two freely chosen complex numbers. 
-     -   Check that they are complex indeed.  
-     -   Add, multiply and divide one by another.  
-     -   Add an integer to their sum.  
-    <details>
-	<summary>:key: Click to see how</summary>
-	<pre>
-    c1 <- 23 + 4i  
-    c2 <- -15 - 7i  
-    is.complex(c1); is.complex(c2)  
-    c1 + c2  
-    c1 / c2  
-    c1 + c2 + 7  
-	[1] TRUE  
-    [1] TRUE  
-    [1] 8-3i  
-    [1] -1.361314+0.368613i  
-    [1] 15-3i  
-	</pre>
-	</details>
+     -   Check that they are complex indeed.
+     -   Add, multiply and divide one by another.
+     -   Add an integer to their sum.
+     <details>
+	 <summary>:key: Click to see how</summary>
+	 <pre>
+     c1 <- 23 + 4i  
+     c2 <- -15 - 7i  
+     is.complex(c1)  
+	 is.complex(c2)  
+     c1 + c2  
+     c1 / c2  
+     c1 + c2 + 7  
+	 [1] TRUE  
+     [1] TRUE  
+     [1] 8-3i  
+     [1] -1.361314+0.368613i  
+     [1] 15-3i  
+	 </pre>
+	 </details>
 <br>
 11.  Print a truth table for OR (for three distinct logical values).
      <details>
