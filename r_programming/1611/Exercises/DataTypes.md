@@ -230,8 +230,7 @@ lectures and exercises.
     is.complex(c1); is.complex(c2)  
     c1 + c2  
     c1 / c2  
-    c1 + c2 + 7
-    
+    c1 + c2 + 7  
 	[1] TRUE  
     [1] TRUE  
     [1] 8-3i  
