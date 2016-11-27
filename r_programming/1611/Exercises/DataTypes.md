@@ -176,7 +176,7 @@ lectures and exercises.
 	</pre>
 	</details>
 <br>
-6.  Report floor and ceiling of $\pi$ and round $\pi$ to 3 decimal places.
+6.  Report floor and ceiling of &pi; and round &pi; to 3 decimal places.
     <details>
 	<summary>:key: Click to see how</summary>
 	<pre>
@@ -208,7 +208,7 @@ lectures and exercises.
 	</pre>
 	</details>
 <br>
-9.  Divide \infty by -\infty
+9.  Divide &infin; by - &infin;
     <details>
 	<summary>:key: Click to see how</summary>
 	<pre>	
@@ -267,29 +267,28 @@ lectures and exercises.
 	</pre>
 	</details>
 <br>
-13.  Create two character variables containing two verses of your favorite song.
-    -  concatenate the two variables,
-    -  paste the variables with '\*' as separator.
-    -  find if 'and' occurs in the second line,
-    -  substitute a word for another,
-    -  extract substring starting at the 5th character and 5 characters long.
-
-	<details>
-	<summary>:key: Click to see how</summary>
-	<pre>	
-    line1 <- "Hello darkness my old friend"  
-    line2 <- "I've come to talk to you again"  
-    paste(line1, line2, sep = "")  
-    paste(line1, line2, sep = "*")  
-	grep('and', line2)  
-    sub('Hello', 'Goodbye', line1)  
-    substr(line1, 5, 5 + 5)  
+13.  Create two character variables containing two verses of your favorite song.  
+     -  concatenate the two variables,  
+     -  paste the variables with '\*' as separator.  
+     -  find if 'and' occurs in the second line,  
+     -  substitute a word for another,  
+     -  extract substring starting at the 5th character and 5 characters long.  
+	 <details>
+	 <summary>:key: Click to see how</summary>
+	 <pre>	
+     line1 <- "Hello darkness my old friend"  
+     line2 <- "I've come to talk to you again"  
+     paste(line1, line2, sep = "")  
+     paste(line1, line2, sep = "*")  
+	 grep('and', line2)  
+     sub('Hello', 'Goodbye', line1)  
+     substr(line1, 5, 5 + 5)  
     
-	[1] "Hello darkness my old friendI've come to talk to you again"  
-	[1] "Hello darkness my old friend*I've come to talk to you again"  
-	integer(0)  
-	[1] "Goodbye darkness my old friend"  
-	[1] "o dark"  
-	</pre>
-	</details>
+	 [1] "Hello darkness my old friendI've come to talk to you again"  
+	 [1] "Hello darkness my old friend*I've come to talk to you again"  
+	 integer(0)  
+	 [1] "Goodbye darkness my old friend"  
+	 [1] "o dark"  
+	 </pre>
+	 </details>
 <br>
