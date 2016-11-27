@@ -1,23 +1,21 @@
 ---
 layout: default
-title:  'Vectors in R'
+title:  'Data types in R'
 ---
-# Vectors in R
+
+# Pre-course Material
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline4">1. Introduction</a>
+<li><a href="#orgheadline2">1. Introduction</a>
 <ul>
 <li><a href="#orgheadline1">1.1. Data types</a></li>
-<li><a href="#orgheadline2">1.2. Vectors in R</a></li>
-<li><a href="#orgheadline3">1.3. Basic R operators</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline7">2. Exercise: Creating and working with vectors</a>
+<li><a href="#orgheadline4">2. Exercise: Basic operations and data types in R</a>
 <ul>
-<li><a href="#orgheadline5">2.1. Create and modify vectors</a></li>
-<li><a href="#orgheadline6">2.2. Exercise: Modify and subset vectors</a></li>
+<li><a href="#orgheadline3">2.1. Create and retrieve information about variables in R</a></li>
 </ul>
 </li>
 </ul>
@@ -25,22 +23,16 @@ title:  'Vectors in R'
 </div>
 
 
-# Introduction<a id="orgheadline4"></a>
+# Introduction<a id="orgheadline2"></a>
 
-There are several different data structured that are commonly used in
-R. The different data structures can be seen as different ways to
-organise data. In this exercise we will focus on vectors that are the
-base data structure in R and will also get on overview of the key data types
-(modes) that are found in R. At the end of this exercise you should
-know:
+There are set of data modes used in R. The mode of a variable will
+for example determine what kind of operators that can be done on it. At the end of
+this exercise you should know:
 
--   What are the data types commonly used in R.
--   What is a vector.
--   How to create vectors in an interactive R session.
--   How one can use R functions to determine the structure and mode of an vector.
--   What basic operators you can find in R
--   Howto subset vector using both indexes and operators.
--   Try some of the built-in functions in R.
+-   What are the data types commonly used in R and how to create them
+-   Use some basic operators in R
+-   Understand how R coerce data if needed
+-   Basic text manipulations
 
 ## Data types<a id="orgheadline1"></a>
 
@@ -54,7 +46,7 @@ at what they are.
 -   Integer = Numbers that can be represented without fractional component
 -   Numeric = Any number that is not a complex number.
 -   Character = Text
-
+-   Complex = Complex numbers
 In many cases the mode of on entry is determined by the content so if
 you save the value 5.1 as a variable in R, the variable will by R
 automatically be recognised as numeric. If you instead have a text
@@ -62,236 +54,7 @@ string like "hello world" it will have the mode character. Below you
 will also see examples of how you can specify the mode and not rely on
 R inferring the right mode based on content.
 
-## Vectors in R<a id="orgheadline2"></a>
-
-Depending on the type of data one needs to store in R different data
-structures can be used. The four most commonly used data types in R is
-vectors, lists, matrixes and data frames. We will in this exercise
-work only with vectors.
-
-The most basic data structure in R are vectors. Vectors are
-1-dimensional data structures that contain only one type of data
-(eg. all entries must have the same mode). To create a vector in R one
-can use the function `c()` (concatenate or
-combine) as seen below. This example will create a vector named
-example.vector with 3 entries in it.
-
-    example.vector <- c(10, 20, 30)
-
-NB! If you need more information about the function `c()` you can always use
-the built-in manual in R. Typing `?c` will bring up the
-documentation for the function `c()`.
-
-Once you have created this vector in R, you can access it by simply
-typing its name in an interactive session.
-
-    example.vector
-
-    [1] 10 20 30
-
-The output generate on screen shows the entries in your vector and the
-1 in squared brackets indicates what position in the vector the entry
-to the right of it have. In this case 10 is the first entry of the vector.
-
-If we for some reason only wanted to extract the value 10 from this
-vector we can use the fact that we know it is the first position to do
-so. 
-
-    example.vector[1]
-
-    [1] 10
-
-Since a vector can only contain one data type, all members need to be
-of the same type. If you try to combine data of different types into
-the same vector, R will not warn you, but instead coerce it to the
-most flexible type (From least to most flexible: Logical, integer,
-double, character). Hence, adding a number to a logical vector
-will turn the whole vector to a numeric vector.
-
-To check what data type an object is, run the R built-in function
-class(), with the object as the only parameter.
-
-    class(example.vector)
-
-    [1] "numeric"
-
-If you for any reason want to have more information about any object
-you have stored in your R session the command `str()` is very helpful.
-
-    str(example.vector)
-
-    num [1:3] 10 20 30
-
-## Basic R operators<a id="orgheadline3"></a>
-
-As in other programming languages there are a set of basic operators in R. 
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">Operation</th>
-<th scope="col" class="org-left">Description</th>
-<th scope="col" class="org-left">Example</th>
-<th scope="col" class="org-left">Example Result</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td class="org-left">x + y</td>
-<td class="org-left">Addition</td>
-<td class="org-left">1 + 3</td>
-<td class="org-left">4</td>
-</tr>
-
-
-<tr>
-<td class="org-left">x - y</td>
-<td class="org-left">Subtraction</td>
-<td class="org-left">1 - 3</td>
-<td class="org-left">-2</td>
-</tr>
-
-
-<tr>
-<td class="org-left">x \* y</td>
-<td class="org-left">Multiplication</td>
-<td class="org-left">2 \* 3</td>
-<td class="org-left">6</td>
-</tr>
-
-
-<tr>
-<td class="org-left">x / y</td>
-<td class="org-left">Division</td>
-<td class="org-left">1 / 2</td>
-<td class="org-left">0.5</td>
-</tr>
-
-
-<tr>
-<td class="org-left">x ^ y</td>
-<td class="org-left">Exponent</td>
-<td class="org-left">2 ^ 2</td>
-<td class="org-left">4</td>
-</tr>
-
-
-<tr>
-<td class="org-left">x %% y</td>
-<td class="org-left">Modular arethmetic</td>
-<td class="org-left">1 %% 2</td>
-<td class="org-left">1</td>
-</tr>
-
-
-<tr>
-<td class="org-left">x %/% y</td>
-<td class="org-left">Integer division</td>
-<td class="org-left">1 %/% 2</td>
-<td class="org-left">0</td>
-</tr>
-
-
-<tr>
-<td class="org-left">x == y</td>
-<td class="org-left">Test for equality</td>
-<td class="org-left">1 == 1</td>
-<td class="org-left">TRUE</td>
-</tr>
-
-
-<tr>
-<td class="org-left">x <= y</td>
-<td class="org-left">Test less or equal</td>
-<td class="org-left">1 <= 1</td>
-<td class="org-left">TRUE</td>
-</tr>
-
-
-<tr>
-<td class="org-left">x >= y</td>
-<td class="org-left">Test for greater or equal</td>
-<td class="org-left">1 >= 2</td>
-<td class="org-left">FALSE</td>
-</tr>
-
-
-<tr>
-<td class="org-left">x && y</td>
-<td class="org-left">Boolean AND for scalar</td>
-<td class="org-left">3 >= 2 &&  3 < 10</td>
-<td class="org-left">TRUE</td>
-</tr>
-
-
-<tr>
-<td class="org-left">x & y</td>
-<td class="org-left">The same for vectors</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">x || y</td>
-<td class="org-left">Boolean OR for scalar</td>
-<td class="org-left">1 >= 2 || 3 < 10</td>
-<td class="org-left">TRUE</td>
-</tr>
-
-
-<tr>
-<td class="org-left">x ||  y</td>
-<td class="org-left">The same for vectors</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">!x</td>
-<td class="org-left">Boolean not</td>
-<td class="org-left">1 != 2</td>
-<td class="org-left">TRUE</td>
-</tr>
-</tbody>
-</table>
-
-Besides these there of course numerous more or less simple functions
-that is based on these basic operators available in all R
-sessions. For example if we want to add all values in our
-example.vector that we discussed earlier, we can do that using
-addition:
-
-    example.vector[1] + example.vector[2] + example.vector[3]
-
-    [1] 60
-
-But as we often want to know the sum of a vector we can use the
-built-in function sum that adds all values found in a vector.
-
-    sum(example.vector)
-
-    [1] 60
-
-To learn more about a function use the built in R manual as described
-earlier. If you do not know the name of a function that you believe
-should be found in R, use the function `help.search()` or use google
-to try and identify the name of the command.
-
-# Exercise: Creating and working with vectors<a id="orgheadline7"></a>
+# Exercise: Basic operations and data types in R<a id="orgheadline4"></a>
 
 In all exercises on this course it is important that you prior to
 running the commands in R, try to figure out what you expect the
@@ -299,279 +62,223 @@ result to be. You should then verify that this will indeed be the
 result by running the command in an R session. In case there is a
 discrepency between your expectations and the actual output make sure
 you understand why before you move forward. If you can not figure out
-howto, or which command to run you can click the key to reveal example code
-including expected output. Also note that in many cases there multiple
-solutions that solve the problem equally well.
+how to, or which command to run you can click the key to reveal
+example code including expected output. If you after peaking at the
+code and trying out things on your own have a hard time understanding
+what is going on, ask the TAs or or your someone sitting next to you
+who might have wrapped their head around the issue.
 
-## Create and modify vectors<a id="orgheadline5"></a>
+Also note that in many cases there multiple solutions
+that solve the problem equally well.
 
-Open R-studio and create two numeric vectors named x and y that are of
-equal length. Use the vectors to answer the questions below. 
+## Create and retrieve information about variables in R<a id="orgheadline3"></a>
 
-:computer: **Create vectors**
-<details>
-<summary>:key: Click to see example R code to generate vectors</summary>
-<pre>
-x <- c(2, 4 ,7)  
-y <- c(1, 5, 11)  
-</pre>
-</details>
-<br>
+Open R-studio and make sure to set your working directory. Double
+check that you do not have stored objects in your current session with
+the following command. This will list all objects that you have in
+your current R session.
 
-1.  How many numbers are there in the vector x?
+    ls()  
+
+In case you have objects that you want to remove from the current
+session you can do so with the rm function. NB! This command will
+remove all objects available in your current session.
+
+    rm(list = ls())
+
+This command uses commands that we have not talked about yet. If you
+do not understand how it works now, you will do so after tomorrows
+lectures and exercises.
+
+1.  Create variables *var1* and *var2* and initialize them with two
+    integers of choice.
     <details>
 	<summary>:key: Click to see how</summary>
 	<pre>
-    length(x)  
+	var1 <- 11  
+    var2 <- 34  
+	</pre>
+	</details>
+<br>
+2.  Add the two variables and save them as a new variable named
+    *var3* and print the result
+    <details>
+	<summary>:key: Click to see how</summary>
+	<pre>
+	var3 <- var1 + var2   
+    var3  
+    [1] 45  
+	</pre>
+	</details>
+<br>
+3.  Check the class, mode and type for var1, var2, var3 and \(\pi\) (is
+    found under the variable name pi in R)
+    <details>
+	<summary>:key: Click to see how</summary>
+	<pre>
+	mode(var1)  
+    class(var1)  
+    typeof(var1)  
+    mode(var2)  
+    class(var2)  
+    typeof(var2)  
+    mode(var3)  
+    class(var3)  
+    typeof(var3)  
+    mode(pi)  
+    class(pi)  
+    typeof(pi)  
+    [1] "numeric"
+    [1] "numeric"
+    [1] "double"
+    [1] "numeric"
+    [1] "numeric"  
+    [1] "double"  
+    [1] "numeric"  
+    [1] "numeric"  
+    [1] "double"  
+    [1] "numeric"  
+    [1] "numeric"  
+    [1] "double"  
+	</pre>
+	</details>
+<br>
+4.  Create two character variables containing a text of choice. 
+    -   check  mode, class and type of the first one,
+    -   add var1 to it and report the result
+    <details>
+	<summary>:key: Click to see how</summary>
+	<pre>
+    text1 <- 'test'  
+    text1 + var1  
+    Error in text1 + var1 : non-numeric argument to binary operator  
+	</pre>
+	</details>
+<br>
+5.  Cast var3 to integer, cast an integer variable to double, cast a
+    string to a double.
+    <details>
+	<summary>:key: Click to see how</summary>
+	<pre>
+	as.integer(var3)  
+    i <- 175  
+    as.double(i)  
+    as.double(text1)  
+    [1] 45  
+    [1] 175  
+    [1] NA  
+    Warning message:  
+    NAs introduced by coercion  
+	</pre>
+	</details>
+<br>
+6.  Report floor and ceiling of \(\pi\) and round \(\pi\) to 3 decimal places.
+    <details>
+	<summary>:key: Click to see how</summary>
+	<pre>
+	floor(pi)  
+    ceiling(pi)  
+    round(pi, digits = 3)  
     [1] 3  
+    [1] 4  
+    [1] 3.142  
 	</pre>
 	</details>
 <br>
-2.  How many numbers will x + y generate?
+7.  Is floor of \(\pi\) an integer?
+    <details>
+	<summary>:key: Click to see how</summary>
+	<pre>	
+	is.integer(floor(pi))  
+    [1] FALSE  
+	</pre>
+	</details>
+<br>
+8.  Treat '3.56437' string as number.
+    <details>
+	<summary>:key: Click to see how</summary>
+	<pre>	
+	as.numeric('3.56437')  
+	</pre>
+	</details>
+<br>
+9.  Divide \(\infty\) by \(-\infty\)
+    <details>
+	<summary>:key: Click to see how</summary>
+	<pre>	
+	-Inf/Inf  
+    [1] NaN  
+	</pre>
+	</details>
+<br>
+10.  Create two freely chosen complex numbers. 
+     -   Check that they are complex indeed.  
+     -   Add, multiply and divide one by another.  
+     -   Add an integer to their sum.  
     <details>
 	<summary>:key: Click to see how</summary>
 	<pre>
-	length(x + y)  
-    [1] 3  
+    c1 <- 23 + 4i  
+    c2 <- -15 - 7i  
+    is.complex(c1); is.complex(c2)  
+    c1 + c2  
+    c1 / c2  
+    c1 + c2 + 7  
+    [1] TRUE  
+    [1] TRUE  
+    [1] 8-3i  
+    [1] -1.361314+0.368613i  
+    [1] 15-3i  
 	</pre>
 	</details>
 <br>
-3.  What is the sum of all values in x?
-    <details>
-	<summary>:key: Click to see how</summary>
-	<pre>
-	sum(x)  
-    [1] 13  
-	</pre>
-	</details>
-<br>
-4.  What is the sum of y times y?
+11.  Print a truth table for OR (for three distinct logical values).
      <details>
-	<summary>:key: Click to see how</summary>
-	<pre>
-    sum(y*y)  
-    [1] 147  
+	 <summary>:key: Click to see how</summary>
+	 <pre>	
+	 x <- c(NA, FALSE, TRUE)  
+     names(x) <- as.character(x)   
+     outer(x, x, "|")  
+           <NA> FALSE TRUE  
+     <NA>    NA    NA TRUE  
+     FALSE   NA FALSE TRUE  
+     TRUE  TRUE  TRUE TRUE  
 	</pre>
 	</details>
 <br>
-5.  What do you get if you add x and y?
-    <details>
-	<summary>:key: Click to see how</summary>
-	<pre>
-    x + y
-    [1]  3  9 18
-	</pre>
-	</details>
-<br>
-6.  Assign x times 2 to a new vector named z
+12.  Multiply a logical TRUE by a logical FALSE.  
+     Rise the logical true to the 7-th power.  
      <details>
-	<summary>:key: Show R code</summary>
-	<pre>
-    z <- x * 2
+     <summary>:key: Click to see how</summary>
+ 	 <pre>
+	 TRUE * FALSE  
+	 T^7  
+    [1] 0  
+	[1] 1  
 	</pre>
 	</details>
 <br>
-7.  How many numbers will z have, why?
+13.  Create two character variables containing two verses of your favorite song.
+    -   concatenate the two variables,
+    -   paste the variables with '\*' as separator.
+    -   find if 'and' occurs in the second line,
+    -   substitute a word for another,
+    -   extract substring starting at the 5th character and 5 characters long.
     <details>
-	<summary>:key: Show R code</summary>
-	<pre>
-    length(z)  
-    [1] 3  
+	<summary>:key: Click to see how</summary>
+	<pre>	
+    line1 <- "Hello darkness my old friend"  
+    line2 <- "I've come to talk to you again"  
+    paste(line1, line2, sep = "")  
+    paste(line1, line2, sep = '*')  
+    grep('and', line2)  
+    sub('Hello', 'Goodbye', line1)  
+    substr(line1, 5, 5 + 5)  
+    [1] "Hello darkness my old friendI've come to talk to you again"  
+    [1] "Hello darkness my old friend*I've come to talk to you again"  
+    integer(0)  
+    [1] "Goodbye darkness my old friend"  
+    [1] "o dark"  
 	</pre>
 	</details>
 <br>
-8.  Assign the mean of z to a new vector named z.mean and determine the length of z.mean
-    <details>
-	<summary>:key: Show R code</summary>
-	<pre>
-    z.mean <- mean(z)  
-    length(z.mean)  
-	</pre>
-	</details>
-<br>
-9.  Create a numeric vector with all integers from 5 to 107
-    <details>
-	<summary>:key: Show R code</summary>
-	<pre>
-	vec.tmp <- 5:107  
-	vec.tmp  
-	[1]   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  
-    [19]  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40  
-    [37]  41  42  43  44  45  46  47  48  49  50  51  52  53  54  55  56  57  58  
-    [55]  59  60  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76  
-    [73]  77  78  79  80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  
-    [91]  95  96  97  98  99 100 101 102 103 104 105 106 107  
-	</pre>
-	</details>
-<br>
-10. Create a numeric vector with the same length as the previos one, but only containg the number 3
-    <details>
-	<summary>:key: Show R code</summary>
-	<pre>
-    vec.tmp2 <- rep(3, length(vec.tmp))  
-	vec.tmp2  
-    [1] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3  
-    [38] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3  
-    [75] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3  
-	</pre>
-	</details>
-<br>
-
-## Modify and subset vectors<a id="orgheadline6"></a>
-
-Create a new character vector that the following words and save it using a suitable name:
-apple, banana, orange, kiwi, potato
-<details>
-<summary>:key: Show R code</summary>
-<pre>
-veggies <- c("apple", "banana", "orange", "kiwi", "potato")
-</pre>
-</details>
-<br>
-
-Do the following on your newly created vector.
-
-1.  Select orange from the vector
-	<details>
-	<summary>:key: Show R code</summary>
-	<pre>
-	veggies[3]
-	</pre>
-	</details>
-<br>
-2.  Select all fruits from the vector
-	<details>
-	<summary>:key: Show R code</summary>
-	<pre>
-	veggies[-5]  
-    veggies[1:4]
-	</pre>
-	</details>
-<br>
-3.  Do the same selection as in question 2 without using index positions
-    <details>
-	<summary>:key: Show R code</summary>
-	<pre>
-    veggies[veggies=="apple" | veggies == "banana" | veggies == "orange" | veggies == "kiwi"]  
-    veggies[veggies!="potato"]  
-	</pre>
-	</details>
-<br>
-4.  Convert the character string to a numeric vector
-    <details>
-	<summary>:key: Show R code</summary>
-	<pre>
-    as.numeric(veggies)
-	</pre>
-	</details>
-<br>
-5.  Create a vector of logic values that can be used to extract every second value from your character vector
-    <details>
-	<summary>:key: Show R code</summary>
-	<pre>
-    selection <- c(FALSE, TRUE, FALSE, TRUE, FALSE)  
-	veggies[selection]  
-   	</pre>
-	</details>
-	<br>
-
-	<details>
-	<summary>:key: Alternative solution, why do this work?</summary>
-	<pre>
-    selection2 <- c(FALSE, TRUE)  
-	veggies[selection2]  
-	</pre>
-	</details>
-<br>
-
-6.  Create a vector containing all the letters in the alphabet (NB! this
-    can be done without having to type all letters). Google is your friend
-    <details>
-	<summary>:key: Show R code</summary>
-	<pre>
-    letters  
-    [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s"  
-    [20] "t" "u" "v" "w" "x" "y" "z"  
-	</pre>
-	</details>
-<br>
-7.  Extract the letter 14 to 19 from the created vector
-    <details>
-	<summary>:key: Show R code</summary>
-	<pre>
-	letters[14:19]
-    [1] "n" "o" "p" "q" "r" "s"  
-	</pre>
-	</details>
-<br>
-8.  Extract all but the last letter
-    <details>
-	<summary>:key: Show R code</summary>
-	<pre>
-	letters[1:length(letters)-1]  
-    letters[-length(letters)]  
-    [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s"  
-	[20] "t" "u" "v" "w" "x" "y"  
-         
-    [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s"  
-	[20] "t" "u" "v" "w" "x" "y"  
-	</pre>
-	</details>
-<br>
-9.  Which is the index position of the letter u in the vector?
-    <details>
-	<summary>:key: Show R code</summary>
-	<pre>
-    which(letters=="u")  
-    [1] 21  
-	</pre>
-	</details>
-<br>
-10. Create a new vector of length one that holds all the alphabet a single entry
-    <details>
-	<summary>:key: Show R code</summary>
-	<pre>
-    paste(letters, sep = "", collapse = "")  
-	</pre>
-	</details>
-<br>
-11. Create a numeric vector by sampling 100 numbers from a
-    normal distribution with mean 2 and standard deviation 4. 
-    <details>
-	<summary>:key: Show R code</summary>
-	<pre>
-    norm.rand <- rnorm(100, mean = 2, sd = 4)  
-	</pre>
-	</details>
-<br>
-12. How many of the generated values are negative? 
-    <details>
-	<summary>:key: Show R code</summary>
-	<pre>
-    length(norm.rand[norm.rand<0])  
-    [1] 23  
-	</pre>
-	</details>
-<br>
-13. In many cases one has data from multiple replicates and different
-    treatments in such cases it can be useful to have names of the type:
-    Geno\_a\_1, Geno\_a\_2, Geno\_a\_3, Geno\_b\_1, Geno\_b\_2&#x2026;, Geno\_s\_3
-    Try to create this such a vector without manually typing it all in.
-    <details>
-	<summary>:key: Show R code</summary>
-	<pre>
-    geno <- rep("Geno", 57)  
-    needed.letters <- rep(letters[1:19], 3)  
-    needed.numbers <- rep(1:3, 19)  
-    temp <- paste(geno, needed.letters, needed.numbers, sep = "_")  
-    sort(temp)  
-    [1] "Geno_a_1" "Geno_a_2" "Geno_a_3" "Geno_b_1" "Geno_b_2" "Geno_b_3"  
-    [7] "Geno_c_1" "Geno_c_2" "Geno_c_3" "Geno_d_1" "Geno_d_2" "Geno_d_3"  
-    [13] "Geno_e_1" "Geno_e_2" "Geno_e_3" "Geno_f_1" "Geno_f_2" "Geno_f_3"  
-    [19] "Geno_g_1" "Geno_g_2" "Geno_g_3" "Geno_h_1" "Geno_h_2" "Geno_h_3"  
-    [25] "Geno_i_1" "Geno_i_2" "Geno_i_3" "Geno_j_1" "Geno_j_2" "Geno_j_3"  
-    [31] "Geno_k_1" "Geno_k_2" "Geno_k_3" "Geno_l_1" "Geno_l_2" "Geno_l_3"  
-    [37] "Geno_m_1" "Geno_m_2" "Geno_m_3" "Geno_n_1" "Geno_n_2" "Geno_n_3"  
-    [43] "Geno_o_1" "Geno_o_2" "Geno_o_3" "Geno_p_1" "Geno_p_2" "Geno_p_3"  
-    [49] "Geno_q_1" "Geno_q_2" "Geno_q_3" "Geno_r_1" "Geno_r_2" "Geno_r_3"  
-    [55] "Geno_s_1" "Geno_s_2" "Geno_s_3"  
