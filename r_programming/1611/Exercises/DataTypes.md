@@ -237,10 +237,11 @@ lectures and exercises.
 	 <summary>:key: Click to see how</summary>
 	 <pre>	
 	 x <- c(NA, FALSE, TRUE)  
-     names(x) <- as.character(x)   
-     outer(x, x, "|")  
-           <NA> FALSE TRUE  
-     <NA>    NA    NA TRUE  
+     names(x) <- as.character(x)  
+     
+	 outer(x, x, "|")  
+             NA FALSE TRUE  
+     NA      NA    NA TRUE  
      FALSE   NA FALSE TRUE  
      TRUE  TRUE  TRUE TRUE  
 	</pre>
