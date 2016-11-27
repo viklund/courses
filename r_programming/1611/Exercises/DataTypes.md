@@ -190,7 +190,7 @@ lectures and exercises.
 	</pre>
 	</details>
 <br>
-7.  Is floor of \pi an integer?
+7.  Is floor of &pi; an integer?
     <details>
 	<summary>:key: Click to see how</summary>
 	<pre>	
