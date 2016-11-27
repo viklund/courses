@@ -417,3 +417,6 @@ The CRAM file is roughly 1/3 of the size of the BAM file.
 This is probably because all the reads in the simulated data has the same quality value (BBBBBBBBBB).
 Fewer types of quality values are easier to compress, hence this amazing compression ratio.
 Real data will have much more diverse quality scores, and the CRAM file would be pethaps 0.7-0.8 of the original BAM file.
+
+
+If you have been fast to finish this lab and you still have time left (or just can't get enough of linux stuff), please have a look at the [loops lab](loops-lab) where you can learn the basics in bash programming using variables, loops and controll statements.
