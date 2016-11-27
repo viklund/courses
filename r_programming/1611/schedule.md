@@ -13,13 +13,13 @@ Room: [Trippelrummet, E10, ground floor](files/bmc_map.jpg)
 **11:00-12:00** [Exercise and video: Using R-studio]() (Marcin Kierczak, Thomas Källman)  
 **12:00-13:00** Lunch at BMC restaurant  
 **13:00-15:00** [Lecture: Elements of R programming - part 1a](Lectures/Elements1.pdf) (Marcin Kierczak)  
-**15:00-17:00** [Exercise: Working with vectors](Exercises/DataTypes) (Marcin Kierczak, Thomas Källman)  
+**15:00-17:00** [Exercise: Data types in R](Exercises/DataTypes) (Marcin Kierczak, Thomas Källman)  
 
 **Tuesday**  
 Room: [Trippelrummet, E10, ground floor](files/bmc_map.jpg)  
 **09:00-10:00** [Lecture: Elements of the programming language - part 1b](Lectures/Elements2.pdf) (Marcin Kierczak)  
 **10:00-11:00** [Lecture: Elements of the programming language - part 2](Lectures/Elements3.pdf) (Marcin Kierczak)  
-**11:00-12:00** [Exercise: Working with vectors cont.](Exercises/DataTypes) (Thomas Källman, Johan Viklund, Sebastian DiLorenzo)  
+**11:00-12:00** [Exercise: Working with vectors](Exercises/Vectors) (Thomas Källman, Johan Viklund, Sebastian DiLorenzo)  
 **12:00-13:00** Lunch at BMC restaurant  
 **13:00-17:00** [Exercise: Matrices, lists, data frames](Exercises/Dataframes) (Thomas Källman, Johan Viklund, Sebastian DiLorenzo)  
 
@@ -43,7 +43,7 @@ Room: [Trippelrummet, E10, ground floor](files/bmc_map.jpg)
 **15:00-17:00** [Exercise: Graphics in R cted.](Exercises/PlotsHandson) (Thomas Källman, Moritz Buck, Sebastian DiLorenzo)  
 
 **Friday**  
-Room: [Trippelrummet, E10, ground floor](files/bmc_map.jpg)  
+Room: [Other side of BMC, A1:104b, ground floor until lunch then Trippelrummet](files/bmc_map.jpg)  
 **09:00-10:00** [Lecture: ggplot2](Lectures/ggplot2.pdf) (Marcin Kierczak)  
 **10:00-11:00** Live presentation: Explanatory programming (Marcin Kierczak)  
 **11:00-12:00** Q&A session.  
