@@ -252,28 +252,27 @@ lectures and exercises.
      NA      NA    NA TRUE  
    	 FALSE   NA FALSE TRUE  
      TRUE  TRUE  TRUE TRUE  
-	</pre>
-	</details>
+	 </pre>
+	 </details>
 <br>
-12.  Multiply a logical TRUE by a logical FALSE.  
-     Rise the logical true to the 7-th power.  
+12.  Multiply a logical TRUE by a logical FALSE.
+     Rise the logical true to the 7-th power.
      <details>
      <summary>:key: Click to see how</summary>
  	 <pre>
 	 TRUE * FALSE  
 	 T^7  
-    
 	[1] 0  
 	[1] 1  
 	</pre>
 	</details>
 <br>
 13.  Create two character variables containing two verses of your favorite song.
-    -   concatenate the two variables,
-    -   paste the variables with '\*' as separator.
-    -   find if 'and' occurs in the second line,
-    -   substitute a word for another,
-    -   extract substring starting at the 5th character and 5 characters long.
+    -  concatenate the two variables,
+    -  paste the variables with '\*' as separator.
+    -  find if 'and' occurs in the second line,
+    -  substitute a word for another,
+    -  extract substring starting at the 5th character and 5 characters long.
     <details>
 	<summary>:key: Click to see how</summary>
 	<pre>	
