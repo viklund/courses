@@ -107,7 +107,8 @@ lectures and exercises.
 	<pre>
 	var3 <- var1 + var2   
     var3  
-    [1] 45  
+    
+	[1] 45  
 	</pre>
 	</details>
 <br>
@@ -128,7 +129,8 @@ lectures and exercises.
     mode(pi)  
     class(pi)  
     typeof(pi)  
-    [1] "numeric"
+    
+	[1] "numeric"
     [1] "numeric"
     [1] "double"
     [1] "numeric"
@@ -151,7 +153,8 @@ lectures and exercises.
 	<pre>
     text1 <- 'test'  
     text1 + var1  
-    Error in text1 + var1 : non-numeric argument to binary operator  
+    
+	Error in text1 + var1 : non-numeric argument to binary operator  
 	</pre>
 	</details>
 <br>
@@ -164,7 +167,8 @@ lectures and exercises.
     i <- 175  
     as.double(i)  
     as.double(text1)  
-    [1] 45  
+    
+	[1] 45  
     [1] 175  
     [1] NA  
     Warning message:  
@@ -179,7 +183,8 @@ lectures and exercises.
 	floor(pi)  
     ceiling(pi)  
     round(pi, digits = 3)  
-    [1] 3  
+    
+	[1] 3  
     [1] 4  
     [1] 3.142  
 	</pre>
@@ -190,7 +195,8 @@ lectures and exercises.
 	<summary>:key: Click to see how</summary>
 	<pre>	
 	is.integer(floor(pi))  
-    [1] FALSE  
+    
+	[1] FALSE  
 	</pre>
 	</details>
 <br>
@@ -207,7 +213,8 @@ lectures and exercises.
 	<summary>:key: Click to see how</summary>
 	<pre>	
 	-Inf/Inf  
-    [1] NaN  
+    
+	[1] NaN  
 	</pre>
 	</details>
 <br>
@@ -224,7 +231,8 @@ lectures and exercises.
     c1 + c2  
     c1 / c2  
     c1 + c2 + 7  
-    [1] TRUE  
+    
+	[1] TRUE  
     [1] TRUE  
     [1] 8-3i  
     [1] -1.361314+0.368613i  
@@ -238,8 +246,8 @@ lectures and exercises.
 	 <pre>	
 	 x <- c(NA, FALSE, TRUE)  
      names(x) <- as.character(x)  
+     outer(x, x, "|")  
      
-	 outer(x, x, "|")  
              NA FALSE TRUE  
      NA      NA    NA TRUE  
      FALSE   NA FALSE TRUE  
@@ -254,7 +262,8 @@ lectures and exercises.
  	 <pre>
 	 TRUE * FALSE  
 	 T^7  
-    [1] 0  
+    
+	[1] 0  
 	[1] 1  
 	</pre>
 	</details>
@@ -275,7 +284,8 @@ lectures and exercises.
     grep('and', line2)  
     sub('Hello', 'Goodbye', line1)  
     substr(line1, 5, 5 + 5)  
-    [1] "Hello darkness my old friendI've come to talk to you again"  
+    
+	[1] "Hello darkness my old friendI've come to talk to you again"  
     [1] "Hello darkness my old friend*I've come to talk to you again"  
     integer(0)  
     [1] "Goodbye darkness my old friend"  
