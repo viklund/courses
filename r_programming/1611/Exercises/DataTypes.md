@@ -112,7 +112,7 @@ lectures and exercises.
 	</pre>
 	</details>
 <br>
-3.  Check the class, mode and type for var1, var2, var3 and \(\pi\) (is
+3.  Check the class, mode and type for var1, var2, var3 and $\pi$ (is
     found under the variable name pi in R)
     <details>
 	<summary>:key: Click to see how</summary>
@@ -176,7 +176,7 @@ lectures and exercises.
 	</pre>
 	</details>
 <br>
-6.  Report floor and ceiling of \(\pi\) and round \(\pi\) to 3 decimal places.
+6.  Report floor and ceiling of $\pi$ and round $\pi$ to 3 decimal places.
     <details>
 	<summary>:key: Click to see how</summary>
 	<pre>
@@ -190,7 +190,7 @@ lectures and exercises.
 	</pre>
 	</details>
 <br>
-7.  Is floor of \(\pi\) an integer?
+7.  Is floor of $\pi$ an integer?
     <details>
 	<summary>:key: Click to see how</summary>
 	<pre>	
@@ -208,7 +208,7 @@ lectures and exercises.
 	</pre>
 	</details>
 <br>
-9.  Divide \(\infty\) by \(-\infty\)
+9.  Divide $\infty$ by $-\infty$
     <details>
 	<summary>:key: Click to see how</summary>
 	<pre>	
@@ -279,8 +279,8 @@ lectures and exercises.
     line1 <- "Hello darkness my old friend"  
     line2 <- "I've come to talk to you again"  
     paste(line1, line2, sep = "")  
-    paste(line1, line2, sep = '*')  
-    grep('and', line2)  
+    paste(line1, line2, sep = "*")  
+	grep('and', line2)  
     sub('Hello', 'Goodbye', line1)  
     substr(line1, 5, 5 + 5)  
     
