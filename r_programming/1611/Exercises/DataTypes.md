@@ -153,7 +153,6 @@ lectures and exercises.
     <pre>
     text1 <- 'test'  
     text1 + var1  
-    
     Error in text1 + var1 : non-numeric argument to binary operator  
     </pre>
     </details>
