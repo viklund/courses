@@ -1,3 +1,8 @@
+---
+layout: default
+title:  'Matrices, data frames and lists'
+---
+# Matrices, data frames and lists
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
