@@ -361,9 +361,9 @@ y <- c(1, 5, 11)
     <details>
 	<summary>:key: Click to see how</summary>
 	<pre>
-    x + y
+    x + y  
     
-	[1]  3  9 18
+	[1]  3  9 18  
 	</pre>
 	</details>
 <br>
@@ -371,7 +371,7 @@ y <- c(1, 5, 11)
      <details>
 	<summary>:key: Click to see how</summary>
 	<pre>
-    z <- x * 2
+    z <- x * 2  
 	</pre>
 	</details>
 <br>
@@ -533,7 +533,6 @@ Do the following on your newly created vector.
 	</pre>
 	</details>
 <br>
-
 6.  Add the names a, b, o, k and p to vector
    	<details>
 	<summary>:key: Click to see how</summary>
@@ -554,7 +553,20 @@ Do the following on your newly created vector.
 	</pre>
 	</details>
 <br>
-8.  Extract the letter 14 to 19 from the created vector
+8.  Sample 30 values randomly with replacement from your letter vector and convert the character vector to factors. Which of     the levels have most entries in the vector? 
+	<details>
+	<summary>:key: Click to see how</summary>
+	<pre>
+	letter.sample <- sample(letters, size = 30, replace = TRUE)  
+	letter.sample <- factor(letter.sample)  
+	summary(letter.sample)  
+	
+	a b c e g k l m n o q r t v w x z  
+	3 1 2 1 3 1 1 1 3 1 2 2 1 3 2 1 2  
+	</pre>
+	</details>
+<br>	
+9.  Extract the letter 14 to 19 from the created vector
     <details>
 	<summary>:key: Click to see how</summary>
 	<pre>
@@ -564,7 +576,7 @@ Do the following on your newly created vector.
 	</pre>
 	</details>
 <br>
-9.  Extract all but the last letter
+10.  Extract all but the last letter
     <details>
 	<summary>:key: Click to see how</summary>
 	<pre>
@@ -579,7 +591,7 @@ Do the following on your newly created vector.
 	</pre>
 	</details>
 <br>
-10.  Which is the index position of the letter u in the vector?
+11.  Which is the index position of the letter u in the vector?
     <details>
 	<summary>:key: Click to see how</summary>
 	<pre>
@@ -589,7 +601,7 @@ Do the following on your newly created vector.
 	</pre>
 	</details>
 <br>
-11. Create a new vector of length one that holds all the alphabet a single entry
+12. Create a new vector of length one that holds all the alphabet a single entry
     <details>
 	<summary>:key: Click to see how</summary>
 	<pre>
@@ -599,7 +611,7 @@ Do the following on your newly created vector.
 	</pre>
 	</details>
 <br>
-12. Create a numeric vector by sampling 100 numbers from a normal
+13. Create a numeric vector by sampling 100 numbers from a normal
     distribution with mean 2 and standard deviation 4. Hint! Check the
     function rnorm() 
 	<details> 
@@ -609,7 +621,7 @@ Do the following on your newly created vector.
 	</pre>
 	</details>
 <br>
-13. How many of the generated values are negative? 
+14. How many of the generated values are negative? 
     <details>
 	<summary>:key: Click to see how</summary>
 	<pre>
@@ -618,7 +630,61 @@ Do the following on your newly created vector.
 	</pre>
 	</details>
 <br>
-14. In many cases one has data from multiple replicates and different
+15. Calculate the standard deviation, mean, median of your random numbers
+	<details>
+	<summary>:key: Click to see how</summary>
+	<pre>
+    sd(norm.rand)  
+    mean(norm.rand)  
+	median(norm.rand)  
+	
+	[1] 3.541989  
+	[1] 1.910667  
+	[1] 1.631083  
+	</pre>
+	</details>
+<br>
+
+16. Replace the 11th value in your random number vector with NA and calculate the same summary statistics again
+    <details>
+	<summary>:key: Click to see how</summary>
+	<pre>
+    norm.rand[11] <- NA  
+    sd(norm.rand, na.rm = TRUE)  
+    mean(norm.rand, na.rm = TRUE)  
+	median(norm.rand, na.rm = TRUE)  
+	
+	[1] 3.553763  
+	[1] 1.889685  
+	[1] 1.62893  
+	</pre>
+	</details>
+<br>
+17. Replace the last position in the vector with the letter L and calculate the same summary statistics.
+    <details>
+	<summary>:key: Click to see how</summary>
+	<pre>
+    norm.rand[100] <- "L"  
+    sd(norm.rand, na.rm = TRUE)  
+    mean(norm.rand, na.rm = TRUE)  
+	median(norm.rand, na.rm = TRUE)  
+
+	Warning message:  
+	In var(if (is.vector(x) || is.factor(x)) x else as.double(x), na.rm = na.rm) :  
+	NAs introduced by coercion  
+	[1] NA  
+	Warning message:  
+	In mean.default(norm.rand, na.rm = TRUE) :  
+	argument is not numeric or logical: returning NA  
+    [1] NA  
+	Warning message:  
+	In mean.default(sort(x, partial = half + 0L:1L)[half + 0L:1L]) :  
+	argument is not numeric or logical: returning NA  
+	</pre>
+	</details>
+<br>
+
+18. In many cases one has data from multiple replicates and different
     treatments in such cases it can be useful to have names of the type:
     Geno\_a\_1, Geno\_a\_2, Geno\_a\_3, Geno\_b\_1, Geno\_b\_2&#x2026;, Geno\_s\_3
     Try to create this such a vector without manually typing it all in.
