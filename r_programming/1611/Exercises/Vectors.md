@@ -165,9 +165,9 @@ As in other programming languages there are a set of basic operators in R.
 
 
 <tr>
-<td class="org-left">x \* y</td>
+<td class="org-left">x * y</td>
 <td class="org-left">Multiplication</td>
-<td class="org-left">2 \* 3</td>
+<td class="org-left">2 * 3</td>
 <td class="org-left">6</td>
 </tr>
 
@@ -269,18 +269,17 @@ As in other programming languages there are a set of basic operators in R.
 </tbody>
 </table>
 
-Besides these there of course numerous more or less simple functions
-that is based on these basic operators available in all R
-sessions. For example if we want to add all values in our
-example.vector that we discussed earlier, we can do that using
+Besides these, there of course numerous more or less simple functions
+available in any R session. For example, if we want to add all values
+in our example.vector that we discussed earlier, we can do that using
 addition:
 
     example.vector[1] + example.vector[2] + example.vector[3]
 
     [1] 60
 
-But as we often want to know the sum of a vector we can use the
-built-in function sum that adds all values found in a vector.
+But we can also use the function `sum()` that adds all numeric values
+present as arguments.
 
     sum(example.vector)
 
@@ -306,7 +305,7 @@ solutions that solve the problem equally well.
 ## Create and modify vectors<a id="orgheadline5"></a>
 
 Open R-studio and create two numeric vectors named x and y that are of
-equal length. Use the vectors to answer the questions below. 
+equal length. Use these vectors to answer the questions below. 
 
 :computer: **Create vectors**
 <details>
@@ -427,6 +426,31 @@ y <- c(1, 5, 11)
 	</details>
 <br>
 
+11. Create a vector that contain all numbers from 1 to 17, where each number
+    occurs the the same number of times as the number itself eg. 1, 2, 2, 3, 3, 3...
+	<details>
+	<summary>:key: Click to see how</summary>
+	<pre>
+	rep(1:17, 1:17)  
+	
+	[1]  1  2  2  3  3  3  4  4  4  4  5  5  5  5  5  6  6  6  6  6  6  7  7  7  7  
+	[26]  7  7  7  8  8  8  8  8  8  8  8  9  9  9  9  9  9  9  9  9 10 10 10 10 10  
+	[51] 10 10 10 10 10 11 11 11 11 11 11 11 11 11 11 11 12 12 12 12 12 12 12 12 12  
+	[76] 12 12 12 13 13 13 13 13 13 13 13 13 13 13 13 13 14 14 14 14 14 14 14 14 14  
+	[101] 14 14 14 14 14 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 16 16 16 16 16  
+	[126] 16 16 16 16 16 16 16 16 16 16 16 17 17 17 17 17 17 17 17 17 17 17 17 17 17  
+	[151] 17 17 17  
+	</pre>
+	</details>
+	
+12. What will be the result of the following calculations?
+	- `c(1, 3, 5) + c(2, 4, 6)`
+	- `c(1, 3, 5) + c(2, 4, 6, 8)`
+	- `c(1, 3) - c(2, 4, 6 ,8)` 
+	Try to think about your expectations 
+	prior to running the code in R. 
+	
+	
 ## Modify and subset vectors<a id="orgheadline6"></a>
 
 Create a new character vector that the following words and save it using a suitable name:
@@ -440,7 +464,7 @@ veggies <- c("apple", "banana", "orange", "kiwi", "potato")
 <br>
 
 Do the following on your newly created vector.
-
+	
 1.  Select orange from the vector
 	<details>
 	<summary>:key: Click to see how</summary>
@@ -510,7 +534,15 @@ Do the following on your newly created vector.
 	</details>
 <br>
 
-6.  Create a vector containing all the letters in the alphabet (NB! this
+6.  Add the names a, b, o, k and p to vector
+   	<details>
+	<summary>:key: Click to see how</summary>
+	<pre>
+	names(veggies) <- c("a", "b", "o", "k", "p")
+	</pre>
+	</details>
+<br>
+7.  Create a vector containing all the letters in the alphabet (NB! this
     can be done without having to type all letters). Google is your friend
     <details>
 	<summary>:key: Click to see how</summary>
@@ -522,7 +554,7 @@ Do the following on your newly created vector.
 	</pre>
 	</details>
 <br>
-7.  Extract the letter 14 to 19 from the created vector
+8.  Extract the letter 14 to 19 from the created vector
     <details>
 	<summary>:key: Click to see how</summary>
 	<pre>
@@ -532,7 +564,7 @@ Do the following on your newly created vector.
 	</pre>
 	</details>
 <br>
-8.  Extract all but the last letter
+9.  Extract all but the last letter
     <details>
 	<summary>:key: Click to see how</summary>
 	<pre>
@@ -547,7 +579,7 @@ Do the following on your newly created vector.
 	</pre>
 	</details>
 <br>
-9.  Which is the index position of the letter u in the vector?
+10.  Which is the index position of the letter u in the vector?
     <details>
 	<summary>:key: Click to see how</summary>
 	<pre>
@@ -557,7 +589,7 @@ Do the following on your newly created vector.
 	</pre>
 	</details>
 <br>
-10. Create a new vector of length one that holds all the alphabet a single entry
+11. Create a new vector of length one that holds all the alphabet a single entry
     <details>
 	<summary>:key: Click to see how</summary>
 	<pre>
@@ -567,16 +599,17 @@ Do the following on your newly created vector.
 	</pre>
 	</details>
 <br>
-11. Create a numeric vector by sampling 100 numbers from a
-    normal distribution with mean 2 and standard deviation 4. 
-    <details>
-	<summary>:key: Click to see how</summary>
+12. Create a numeric vector by sampling 100 numbers from a normal
+    distribution with mean 2 and standard deviation 4. Hint! Check the
+    function rnorm() 
+	<details> 
+	<summary>:key: Click to see how</summary> 
 	<pre>
     norm.rand <- rnorm(100, mean = 2, sd = 4)  
 	</pre>
 	</details>
 <br>
-12. How many of the generated values are negative? 
+13. How many of the generated values are negative? 
     <details>
 	<summary>:key: Click to see how</summary>
 	<pre>
@@ -585,7 +618,7 @@ Do the following on your newly created vector.
 	</pre>
 	</details>
 <br>
-13. In many cases one has data from multiple replicates and different
+14. In many cases one has data from multiple replicates and different
     treatments in such cases it can be useful to have names of the type:
     Geno\_a\_1, Geno\_a\_2, Geno\_a\_3, Geno\_b\_1, Geno\_b\_2&#x2026;, Geno\_s\_3
     Try to create this such a vector without manually typing it all in.
@@ -607,3 +640,5 @@ Do the following on your newly created vector.
     [43] "Geno_o_1" "Geno_o_2" "Geno_o_3" "Geno_p_1" "Geno_p_2" "Geno_p_3"  
     [49] "Geno_q_1" "Geno_q_2" "Geno_q_3" "Geno_r_1" "Geno_r_2" "Geno_r_3"  
     [55] "Geno_s_1" "Geno_s_2" "Geno_s_3"  
+	</pre>
+	</details>
