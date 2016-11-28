@@ -112,7 +112,7 @@ lectures and exercises.
 	</pre>
 	</details>
 <br>
-3.  Check the class, mode and type for var1, var2, var3 and $\pi$ (is
+3.  Check the class, mode and type for var1, var2, var3 and &pi; (is
     found under the variable name pi in R)
     <details>
 	<summary>:key: Click to see how</summary>
