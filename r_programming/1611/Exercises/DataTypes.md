@@ -77,7 +77,7 @@ Open R-studio and make sure to set your working directory. Double
 check that you do not have stored objects in your current session with
 the following command. This will list all objects that you have in
 your current R session.
-```bash
+```
 ls()
 ```
 In case you have objects that you want to remove from the current
