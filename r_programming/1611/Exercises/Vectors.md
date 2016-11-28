@@ -446,7 +446,8 @@ y <- c(1, 5, 11)
 12. What will be the result of the following calculations?
 	- `c(1, 3, 5) + c(2, 4, 6)`
 	- `c(1, 3, 5) + c(2, 4, 6, 8)`
-	- `c(1, 3) - c(2, 4, 6 ,8)` 
+	- `c(1, 3) - c(2, 4, 6 ,8)`
+	
 	Try to think about your expectations 
 	prior to running the code in R. 
 	
@@ -570,7 +571,7 @@ Do the following on your newly created vector.
     <details>
 	<summary>:key: Click to see how</summary>
 	<pre>
-	letters[14:19]
+	letters[14:19]  
     
 	[1] "n" "o" "p" "q" "r" "s"  
 	</pre>
