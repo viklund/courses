@@ -576,7 +576,7 @@ Do the following on your newly created vector.
 	</pre>
 	</details>
 <br>
-10.  Extract all but the last letter
+10. Extract all but the last letter
     <details>
 	<summary>:key: Click to see how</summary>
 	<pre>
