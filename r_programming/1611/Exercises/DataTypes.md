@@ -77,9 +77,9 @@ Open R-studio and make sure to set your working directory. Double
 check that you do not have stored objects in your current session with
 the following command. This will list all objects that you have in
 your current R session.
-
-    ls()  
-
+```R
+ls()  
+```
 In case you have objects that you want to remove from the current
 session you can do so with the rm function. NB! This command will
 remove all objects available in your current session.
