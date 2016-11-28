@@ -109,7 +109,7 @@ Create a matrix containing 1:10 as shown for the matrix X above.
 
 <br>
 
-1.  Use similar ideas as when you worked with vectors to extract all
+2.  Use similar ideas as when you worked with vectors to extract all
     values in the matrix that is larger than 6
     <details>
     <summary>:key: Click to see how</summary>
@@ -124,7 +124,7 @@ Create a matrix containing 1:10 as shown for the matrix X above.
 
 <br>
 
-1.  Shift places of column 1 and 3 in X
+3.  Shift places of column 1 and 3 in X
     <details>
     <summary>:key: Click to see how</summary>
     <pre>
@@ -142,7 +142,7 @@ Create a matrix containing 1:10 as shown for the matrix X above.
 
 <br>
 
-1.  Add a vector with three zeros as a fifth row to the matrix
+4.  Add a vector with three zeros as a fifth row to the matrix
     <details>
     <summary>:key: Click to see how</summary>
     <pre>
@@ -162,7 +162,7 @@ Create a matrix containing 1:10 as shown for the matrix X above.
 
 <br>   
 
-1.  Replace all values the first two columns in your matrix with "NA".
+5.  Replace all values the first two columns in your matrix with "NA".
     <details>
     <summary>:key: Click to see how</summary>
     <pre>
@@ -181,7 +181,7 @@ Create a matrix containing 1:10 as shown for the matrix X above.
 
 <br>
 
-1.  Replace all values in the matrix with 0 and convert it to a vector
+6.  Replace all values in the matrix with 0 and convert it to a vector
     <details>
     <summary>:key: Click to see how</summary>
     <pre>
@@ -196,7 +196,7 @@ Create a matrix containing 1:10 as shown for the matrix X above.
 
 <br>
 
-1.  In the the exercies earlier you created a vector with the names of
+7.  In the the exercies earlier you created a vector with the names of
     the type Geno\_a\_1, Geno\_a\_2, Geno\_a\_3, Geno\_b\_1, Geno\_b\_2&#x2026;,
     Geno\_s\_3 using vectors. In todays lecture a function named outer
     that generate matrixes was mentioned. Try to generate the same
@@ -231,7 +231,7 @@ Create a matrix containing 1:10 as shown for the matrix X above.
 
 <br>
 
-1.  Create two different 2 by 2 matrices named A and B. A should
+8.  Create two different 2 by 2 matrices named A and B. A should
     contain the values 1 - 4 and B the values 5-8. Try out the
     following commands and by looking at the results see if you can
     figure out what is going on. 
@@ -295,7 +295,7 @@ Create a matrix containing 1:10 as shown for the matrix X above.
 
 <br>
 
-1.  Generate a 10 by 10 matrix with random numbers. Add row and
+9.  Generate a 10 by 10 matrix with random numbers. Add row and
     columnnames and calculate mean and median over rows and save these
     in a new matrix.  
     <details> <summary>:key: Click to see how</summary> 
@@ -372,7 +372,7 @@ factor even though we just gave it a character vector.
 
 <br>
 
-1.  One can select columns from a data frame using either the name or
+2.  One can select columns from a data frame using either the name or
     the position. Use both methods to print the last two columns from
     the df data frame.
     <details>
@@ -410,7 +410,7 @@ factor even though we just gave it a character vector.
 
 <br>
 
-1.  Print all letters in the vector2 column of the data frame where the
+3.  Print all letters in the vector2 column of the data frame where the
     vector3 column has a positive value.
     <details>
     <summary>:key: Click to see how</summary>
@@ -427,7 +427,7 @@ factor even though we just gave it a character vector.
 
 <br>
 
-1.  Create a new vector combining the all columns of df seperated by a underscore.
+4.  Create a new vector combining the all columns of df seperated by a underscore.
     <details>
     <summary>:key: Click to see how</summary>
     <pre>
@@ -444,7 +444,7 @@ factor even though we just gave it a character vector.
 
 <br>
 
-1.  There is a data frame of car information that comes with the base
+5.  There is a data frame of car information that comes with the base
     installation of R. Have a look at this data by typing.
     <details>
     <summary>:key: Click to see how</summary>
@@ -491,7 +491,7 @@ factor even though we just gave it a character vector.
 
 <br>
 
-1.  Re-arrange the row names of this data frame and save as a vector.
+6.  Re-arrange the row names of this data frame and save as a vector.
     <details>
     <summary>:key: Click to see how</summary>
     <pre>
@@ -503,7 +503,7 @@ factor even though we just gave it a character vector.
 
 <br>
 
-1.  Create a data frame containg the vector from the previous question
+7.  Create a data frame containg the vector from the previous question
     and two vectors  with random numbers named random1 and random2.
     <details>
     <summary>:key: Click to see how</summary>
@@ -553,7 +553,7 @@ factor even though we just gave it a character vector.
 
 <br>
 
-1.  Now you have two data frames that both contains information on a
+8.  Now you have two data frames that both contains information on a
     set of cars. A collaborator asks you to create a new data frame
     with all this information combined in one data frame. Create this
     merged data frame and make sure that it corresponds to the your
@@ -637,7 +637,7 @@ factor even though we just gave it a character vector.
 
 <br>
 
-1.  Calculate the mean value for the two columns that you added to the
+9.  Calculate the mean value for the two columns that you added to the
     mtcars data frame. Try to modify so you get the mean by cylinder
     number instead.
     <details>
@@ -781,7 +781,7 @@ the list u.2.
 
 <br>
 
-1.  Create a data fram and add this to the list.
+2.  Create a data fram and add this to the list.
     <details>
     <summary>:key: Click to see how</summary>
     <pre>
@@ -794,7 +794,7 @@ the list u.2.
 
 <br>   
 
-1.  Remove the the second entry of your list
+3.  Remove the the second entry of your list
     <details>
     <summary>:key: Click to see how</summary>
     <pre>
@@ -844,7 +844,7 @@ the list u.2.
 </details>
 <br>
 
-1.  Create a new list that contain 20 entries, with each entry holding
+4.  Create a new list that contain 20 entries, with each entry holding
     a numeric vector.
     <details>
     <summary>:key: Click to see how</summary>
@@ -858,7 +858,7 @@ the list u.2.
 
 <br>
 
-1.  How long is the your list, and how long are each of the vectors
+5.  How long is the your list, and how long are each of the vectors
     that are part of the list?
     <details>
     <summary>:key: Click to see how</summary>
@@ -933,7 +933,7 @@ the list u.2.
 
 <br>
 
-1.  Figure out what the main differences are between the function
+6.  Figure out what the main differences are between the function
     lapply and sapply and try use both of them with the function
     summary on your newly created list.
     What are the pros and cons of the two approaches to calculate the
@@ -1051,3 +1051,19 @@ the list u.2.
     </details>
 
 <br>
+
+## Extra exercises
+1. Design a S3 class that should hold information on human
+   proteins. The data needed for each protein is:
+   - The gene that encodes it
+   - The molecular weight of the protein
+   - The length of the protein sequence
+   - Information on who and when it was discovered
+   
+   Create this hypethetical S3 object in R.
+   
+2. Among the test data sets that are part of base R, there is one
+   called iris. It contains measurements on set of plants. You can
+   access the data using by typing iris at in R. Explore this data set
+   and calculate some useful summary statistics, like SD, mean and
+   median for the parts of the data where this makes sense.
