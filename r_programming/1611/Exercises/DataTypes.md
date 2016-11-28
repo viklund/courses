@@ -291,3 +291,17 @@ lectures and exercises.
 	 </pre>
 	 </details>
 <br>
+
+## R Environment
+- get help for the *t.test*, *table*, *locator* and *identify* functions,
+- check for all occurences of *fisher.test* in the docs,
+- which package contains the *plot.gcdf* function. What does it do?
+- find package 'reshaape'-related questions on StackOverflow,
+- *google* how to load an XML file into R,
+- install the 'cgmisc' package from GitHub,
+- look up the 'cgmisc' vignette,
+- see all the demos available for you and run one you like,
+- run examples for the *fisher.test*,
+- check out CRANs view for genetics,
+- install a CRAN package of choice,
+- install the R-Forge pckage 'bigRR'
