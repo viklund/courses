@@ -295,7 +295,7 @@ lectures and exercises.
 ## R Environment
 - get help for the *t.test*, *table*, *locator* and *identify* functions,
 - check for all occurences of *fisher.test* in the docs,
-- which package contains the *plot.gcdf* function. What does it do?
+- which package contains the *plot.ecdf* function. What does it do?
 - find package 'reshaape'-related questions on StackOverflow,
 - *google* how to load an XML file into R,
 - install the 'cgmisc' package from GitHub,
