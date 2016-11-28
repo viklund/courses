@@ -534,8 +534,9 @@ Do the following on your newly created vector.
 	</pre>
 	</details>
 <br>
-6.  Add the names a, b, o, k and p to vector
-   	<details>
+
+6.  Add the names a, b, o, k and p to the vector
+	<details>
 	<summary>:key: Click to see how</summary>
 	<pre>
 	names(veggies) <- c("a", "b", "o", "k", "p")  
@@ -592,8 +593,8 @@ Do the following on your newly created vector.
 	</pre>
 	</details>
 <br>
-11.  Which is the index position of the letter u in the vector?
-    <details>
+11. Which is the index position of the letter u in the vector?
+	<details>
 	<summary>:key: Click to see how</summary>
 	<pre>
     which(letters=="u")  
