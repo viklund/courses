@@ -168,7 +168,7 @@ lectures and exercises.
     as.double(i)  
     as.double(text1)  
     
-	[1] 45  
+    [1] 45  
     [1] 175  
     [1] NA  
     Warning message:  
