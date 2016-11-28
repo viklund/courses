@@ -537,7 +537,7 @@ Do the following on your newly created vector.
    	<details>
 	<summary>:key: Click to see how</summary>
 	<pre>
-	names(veggies) <- c("a", "b", "o", "k", "p")
+	names(veggies) <- c("a", "b", "o", "k", "p")  
 	</pre>
 	</details>
 <br>
