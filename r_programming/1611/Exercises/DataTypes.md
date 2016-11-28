@@ -115,9 +115,9 @@ lectures and exercises.
 3.  Check the class, mode and type for var1, var2, var3 and &pi; (is
     found under the variable name pi in R)
     <details>
-	<summary>:key: Click to see how</summary>
-	<pre>
-	mode(var1)  
+    <summary>:key: Click to see how</summary>
+    <pre>
+    mode(var1)  
     class(var1)  
     typeof(var1)  
     mode(var2)  
@@ -130,7 +130,7 @@ lectures and exercises.
     class(pi)  
     typeof(pi)  
     
-	[1] "numeric"
+    [1] "numeric"
     [1] "numeric"
     [1] "double"
     [1] "numeric"
@@ -149,14 +149,14 @@ lectures and exercises.
     -   check  mode, class and type of the first one,
     -   add var1 to it and report the result
     <details>
-	<summary>:key: Click to see how</summary>
-	<pre>
+    <summary>:key: Click to see how</summary>
+    <pre>
     text1 <- 'test'  
     text1 + var1  
     
-	Error in text1 + var1 : non-numeric argument to binary operator  
-	</pre>
-	</details>
+    Error in text1 + var1 : non-numeric argument to binary operator  
+    </pre>
+    </details>
 <br>
 5.  Cast var3 to integer, cast an integer variable to double, cast a
     string to a double.
