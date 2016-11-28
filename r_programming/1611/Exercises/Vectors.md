@@ -370,7 +370,7 @@ y <- c(1, 5, 11)
 <br>
 6.  Assign x times 2 to a new vector named z
      <details>
-	<summary>:key: Show R code</summary>
+	<summary>:key: Click to see how</summary>
 	<pre>
     z <- x * 2
 	</pre>
@@ -378,7 +378,7 @@ y <- c(1, 5, 11)
 <br>
 7.  How many numbers will z have, why?
     <details>
-	<summary>:key: Show R code</summary>
+	<summary>:key: Click to see how</summary>
 	<pre>
     length(z)  
     
@@ -388,7 +388,7 @@ y <- c(1, 5, 11)
 <br>
 8.  Assign the mean of z to a new vector named z.mean and determine the length of z.mean
     <details>
-	<summary>:key: Show R code</summary>
+	<summary>:key: Click to see how</summary>
 	<pre>
     z.mean <- mean(z)  
     length(z.mean)  
@@ -399,7 +399,7 @@ y <- c(1, 5, 11)
 <br>
 9.  Create a numeric vector with all integers from 5 to 107
     <details>
-	<summary>:key: Show R code</summary>
+	<summary>:key: Click to see how</summary>
 	<pre>
 	vec.tmp <- 5:107  
 	vec.tmp  
@@ -415,7 +415,7 @@ y <- c(1, 5, 11)
 <br>
 10. Create a numeric vector with the same length as the previos one, but only containg the number 3
     <details>
-	<summary>:key: Show R code</summary>
+	<summary>:key: Click to see how</summary>
 	<pre>
     vec.tmp2 <- rep(3, length(vec.tmp))  
 	vec.tmp2  
@@ -432,7 +432,7 @@ y <- c(1, 5, 11)
 Create a new character vector that the following words and save it using a suitable name:
 apple, banana, orange, kiwi, potato
 <details>
-<summary>:key: Show R code</summary>
+<summary>:key: Click to see how</summary>
 <pre>
 veggies <- c("apple", "banana", "orange", "kiwi", "potato")
 </pre>
@@ -443,7 +443,7 @@ Do the following on your newly created vector.
 
 1.  Select orange from the vector
 	<details>
-	<summary>:key: Show R code</summary>
+	<summary>:key: Click to see how</summary>
 	<pre>
 	veggies[3]  
 	
@@ -453,7 +453,7 @@ Do the following on your newly created vector.
 <br>
 2.  Select all fruits from the vector
 	<details>
-	<summary>:key: Show R code</summary>
+	<summary>:key: Click to see how</summary>
 	<pre>
 	veggies[-5]  
     veggies[1:4]  
@@ -465,7 +465,7 @@ Do the following on your newly created vector.
 <br>
 3.  Do the same selection as in question 2 without using index positions
     <details>
-	<summary>:key: Show R code</summary>
+	<summary>:key: Click to see how</summary>
 	<pre>
     veggies[veggies=="apple" | veggies == "banana" | veggies == "orange" | veggies == "kiwi"]  
     veggies[veggies!="potato"]  
@@ -477,7 +477,7 @@ Do the following on your newly created vector.
 <br>
 4.  Convert the character string to a numeric vector
     <details>
-	<summary>:key: Show R code</summary>
+	<summary>:key: Click to see how</summary>
 	<pre>
     as.numeric(veggies)  
 	
@@ -489,7 +489,7 @@ Do the following on your newly created vector.
 <br>
 5.  Create a vector of logic values that can be used to extract every second value from your character vector
     <details>
-	<summary>:key: Show R code</summary>
+	<summary>:key: Click to see how</summary>
 	<pre>
     selection <- c(FALSE, TRUE, FALSE, TRUE, FALSE)  
 	veggies[selection]  
@@ -513,7 +513,7 @@ Do the following on your newly created vector.
 6.  Create a vector containing all the letters in the alphabet (NB! this
     can be done without having to type all letters). Google is your friend
     <details>
-	<summary>:key: Show R code</summary>
+	<summary>:key: Click to see how</summary>
 	<pre>
     letters  
     
@@ -524,7 +524,7 @@ Do the following on your newly created vector.
 <br>
 7.  Extract the letter 14 to 19 from the created vector
     <details>
-	<summary>:key: Show R code</summary>
+	<summary>:key: Click to see how</summary>
 	<pre>
 	letters[14:19]
     
@@ -534,7 +534,7 @@ Do the following on your newly created vector.
 <br>
 8.  Extract all but the last letter
     <details>
-	<summary>:key: Show R code</summary>
+	<summary>:key: Click to see how</summary>
 	<pre>
 	letters[1:length(letters)-1]  
     letters[-length(letters)]  
@@ -549,7 +549,7 @@ Do the following on your newly created vector.
 <br>
 9.  Which is the index position of the letter u in the vector?
     <details>
-	<summary>:key: Show R code</summary>
+	<summary>:key: Click to see how</summary>
 	<pre>
     which(letters=="u")  
    
@@ -559,7 +559,7 @@ Do the following on your newly created vector.
 <br>
 10. Create a new vector of length one that holds all the alphabet a single entry
     <details>
-	<summary>:key: Show R code</summary>
+	<summary>:key: Click to see how</summary>
 	<pre>
     paste(letters, sep = "", collapse = "")  
 	
@@ -570,7 +570,7 @@ Do the following on your newly created vector.
 11. Create a numeric vector by sampling 100 numbers from a
     normal distribution with mean 2 and standard deviation 4. 
     <details>
-	<summary>:key: Show R code</summary>
+	<summary>:key: Click to see how</summary>
 	<pre>
     norm.rand <- rnorm(100, mean = 2, sd = 4)  
 	</pre>
@@ -578,7 +578,7 @@ Do the following on your newly created vector.
 <br>
 12. How many of the generated values are negative? 
     <details>
-	<summary>:key: Show R code</summary>
+	<summary>:key: Click to see how</summary>
 	<pre>
     length(norm.rand[norm.rand<0])  
     [1] 23  
@@ -590,7 +590,7 @@ Do the following on your newly created vector.
     Geno\_a\_1, Geno\_a\_2, Geno\_a\_3, Geno\_b\_1, Geno\_b\_2&#x2026;, Geno\_s\_3
     Try to create this such a vector without manually typing it all in.
     <details>
-	<summary>:key: Show R code</summary>
+	<summary>:key: Click to see how</summary>
 	<pre>
     geno <- rep("Geno", 57)  
     needed.letters <- rep(letters[1:19], 3)  
