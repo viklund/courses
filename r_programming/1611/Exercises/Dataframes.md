@@ -631,6 +631,7 @@ factor even though we just gave it a character vector.
     </pre>
     </details>
 <br>
+
 # Lists<a id="orgheadline7"></a>
 
 The last data structure that we will explore is lists, which are a
@@ -1004,6 +1005,7 @@ the list u.2.
     </pre>
     </details>
 <br>
+
 ## Extra exercises
 1. Design a S3 class that should hold information on human
    proteins. The data needed for each protein is:
