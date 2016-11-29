@@ -100,10 +100,10 @@ to a vector otherwise it will still be a matrix.
 
 Create a matrix containing 1:10 as shown for the matrix X above. 
 
-1.  <details>
+1.  What is the length and the mode of the matrix?
+    <details>
     <summary>:key: Click to see how</summary>
     <pre>
-    What is the length and the mode of the matrix?
     
         mode(X)
         length(X)
