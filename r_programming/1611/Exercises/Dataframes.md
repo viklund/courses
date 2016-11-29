@@ -110,7 +110,6 @@ Create a matrix containing 1:10 as shown for the matrix X above.
     
         [1] "numeric"
         [1] 12
-    
     </pre>
     </details>
 <br>
@@ -142,9 +141,9 @@ Create a matrix containing 1:10 as shown for the matrix X above.
     
     </pre>
     </details>
-
 <br>
 4.  Add a vector with three zeros as a fifth row to the matrix
+
     <details>
     <summary>:key: Click to see how</summary>
     <pre>
@@ -158,7 +157,6 @@ Create a matrix containing 1:10 as shown for the matrix X above.
         [3,]    7    8    9
         [4,]   10   11   12
         [5,]    0    0    0
-    
     </pre>
     </details>
 
@@ -176,10 +174,8 @@ Create a matrix containing 1:10 as shown for the matrix X above.
         [2,]   NA   NA    6
         [3,]   NA   NA    9
         [4,]   NA   NA   12
-    
     </pre>
     </details>
-
 <br>
 6.  Replace all values in the matrix with 0 and convert it to a vector
     <details>
@@ -190,10 +186,8 @@ Create a matrix containing 1:10 as shown for the matrix X above.
         as.vector(X)
     
         [1] 0 0 0 0 0 0 0 0 0 0 0 0
-    
     </pre>
     </details>
-
 <br>
 7.  In the the exercies earlier you created a vector with the names of
     the type Geno\_a\_1, Geno\_a\_2, Geno\_a\_3, Geno\_b\_1, Geno\_b\_2&#x2026;,
