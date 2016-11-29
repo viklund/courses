@@ -38,6 +38,13 @@ example characters and numerics in the same matrix). For data frames
 this is not a requirement and different columns can have different
 modes.
 
+In this exercise you will learn how to:
+- Create and work with matrices, data frames and lists
+- To perform basic math operator on matrices
+- Use functions to summarize information from data frames
+- Create S3 object from a list
+
+
 # Matrices in R<a id="orgheadline3"></a>
 
 The command to create a matrix in R is `matrix()`. 
@@ -106,9 +113,7 @@ Create a matrix containing 1:10 as shown for the matrix X above.
     
     </pre>
     </details>
-
 <br>
-
 2.  Use similar ideas as when you worked with vectors to extract all
     values in the matrix that is larger than 6
     <details>
@@ -121,14 +126,12 @@ Create a matrix containing 1:10 as shown for the matrix X above.
     
     </pre>
     </details>
-
 <br>
-
 3.  Shift places of column 1 and 3 in X
     <details>
     <summary>:key: Click to see how</summary>
     <pre>
-    
+
         X[,c(3,2,1)]
     
              [,1] [,2] [,3]
@@ -141,7 +144,6 @@ Create a matrix containing 1:10 as shown for the matrix X above.
     </details>
 
 <br>
-
 4.  Add a vector with three zeros as a fifth row to the matrix
     <details>
     <summary>:key: Click to see how</summary>
@@ -160,8 +162,7 @@ Create a matrix containing 1:10 as shown for the matrix X above.
     </pre>
     </details>
 
-<br>   
-
+<br>
 5.  Replace all values the first two columns in your matrix with "NA".
     <details>
     <summary>:key: Click to see how</summary>
@@ -180,7 +181,6 @@ Create a matrix containing 1:10 as shown for the matrix X above.
     </details>
 
 <br>
-
 6.  Replace all values in the matrix with 0 and convert it to a vector
     <details>
     <summary>:key: Click to see how</summary>
@@ -195,7 +195,6 @@ Create a matrix containing 1:10 as shown for the matrix X above.
     </details>
 
 <br>
-
 7.  In the the exercies earlier you created a vector with the names of
     the type Geno\_a\_1, Geno\_a\_2, Geno\_a\_3, Geno\_b\_1, Geno\_b\_2&#x2026;,
     Geno\_s\_3 using vectors. In todays lecture a function named outer
@@ -228,13 +227,11 @@ Create a matrix containing 1:10 as shown for the matrix X above.
     
     </pre>
     </details>
-
 <br>
-
 8.  Create two different 2 by 2 matrices named A and B. A should
     contain the values 1 - 4 and B the values 5-8. Try out the
     following commands and by looking at the results see if you can
-    figure out what is going on. 
+    figure out what is going on.
     A. A \* B 
     B. A / B 
     C. A %x% B 
@@ -292,9 +289,7 @@ Create a matrix containing 1:10 as shown for the matrix X above.
     
     </pre>
     </details>
-
 <br>
-
 9.  Generate a 10 by 10 matrix with random numbers. Add row and
     columnnames and calculate mean and median over rows and save these
     in a new matrix.  
@@ -319,7 +314,6 @@ Create a matrix containing 1:10 as shown for the matrix X above.
     
     </pre>
     </details>
-
 <br>
 
 # Data frames<a id="orgheadline5"></a>
@@ -360,7 +354,7 @@ factor even though we just gave it a character vector.
     <pre>
     
         df <- data.frame(vector1, vector2, vector3, stringsAsFactors = FALSE)
-        str(df)
+			str(df)
     
         'data.frame':   10 obs. of  3 variables:
          $ vector1: int  1 2 3 4 5 6 7 8 9 10
@@ -369,9 +363,7 @@ factor even though we just gave it a character vector.
     
     </pre>
     </details>
-
 <br>
-
 2.  One can select columns from a data frame using either the name or
     the position. Use both methods to print the last two columns from
     the df data frame.
@@ -407,9 +399,7 @@ factor even though we just gave it a character vector.
     
     </pre>
     </details>
-
 <br>
-
 3.  Print all letters in the vector2 column of the data frame where the
     vector3 column has a positive value.
     <details>
@@ -424,9 +414,7 @@ factor even though we just gave it a character vector.
     
     </pre>
     </details>
-
 <br>
-
 4.  Create a new vector combining the all columns of df seperated by a underscore.
     <details>
     <summary>:key: Click to see how</summary>
@@ -441,9 +429,7 @@ factor even though we just gave it a character vector.
     
     </pre>
     </details>
-
 <br>
-
 5.  There is a data frame of car information that comes with the base
     installation of R. Have a look at this data by typing.
     <details>
@@ -488,9 +474,7 @@ factor even though we just gave it a character vector.
     
     </pre>
     </details>
-
 <br>
-
 6.  Re-arrange the row names of this data frame and save as a vector.
     <details>
     <summary>:key: Click to see how</summary>
@@ -500,11 +484,9 @@ factor even though we just gave it a character vector.
     
     </pre>
     </details>
-
 <br>
-
 7.  Create a data frame containg the vector from the previous question
-    and two vectors  with random numbers named random1 and random2.
+    and two vectors with random numbers named random1 and random2.
     <details>
     <summary>:key: Click to see how</summary>
     <pre>
@@ -547,17 +529,14 @@ factor even though we just gave it a character vector.
         30           Merc 240D -1.3300011  0.941390495
         31           Merc 280C -0.1134380 -1.051899224
         32          Merc 450SL  1.0369179 -0.256698993
-    
     </pre>
     </details>
-
 <br>
-
 8.  Now you have two data frames that both contains information on a
     set of cars. A collaborator asks you to create a new data frame
-    with all this information combined in one data frame. Create this
-    merged data frame and make sure that it corresponds to the your
-    original files.
+    with all this information combined. Create this
+    merged data frame and make sure that it corresponds that is combined 
+	in the correct way.
     <details>
     <summary>:key: Click to see how</summary>
     <pre>
@@ -631,12 +610,9 @@ factor even though we just gave it a character vector.
         30  0.2672093  0.748625274
         31 -0.9114306 -0.552239587
         32  1.4695465  1.822855299
-    
     </pre>
     </details>
-
 <br>
-
 9.  Calculate the mean value for the two columns that you added to the
     mtcars data frame. Try to modify so you get the mean by cylinder
     number instead.
@@ -661,9 +637,7 @@ factor even though we just gave it a character vector.
     
     </pre>
     </details>
-
 <br>
-
 # Lists<a id="orgheadline7"></a>
 
 The last data structure that we will explore is lists, which are a
@@ -775,12 +749,9 @@ the list u.2.
         [2,]   99   95   91   87   83
         [3,]   98   94   90   86   82
         [4,]   97   93   89   85   81
-    
     </pre>
     </details>
-
 <br>
-
 2.  Create a data fram and add this to the list.
     <details>
     <summary>:key: Click to see how</summary>
@@ -791,17 +762,15 @@ the list u.2.
     
     </pre>
     </details>
-
-<br>   
-
+<br>
 3.  Remove the the second entry of your list
     <details>
     <summary>:key: Click to see how</summary>
     <pre>
-    
+		
         list.2[-2]
-
-    $vec1
+	
+	$vec1
     [1] "hi"        "ho"        "merry"     "christmas"
     
     $mat1
@@ -839,11 +808,9 @@ the list u.2.
     24       x       X              FALSE
     25       y       Y              FALSE
     26       z       Z              FALSE
-
-</pre>
-</details>
+    </pre>
+    </details>
 <br>
-
 4.  Create a new list that contain 20 entries, with each entry holding
     a numeric vector.
     <details>
@@ -855,10 +822,8 @@ the list u.2.
     
     </pre>
     </details>
-
 <br>
-
-5.  How long is the your list, and how long are each of the vectors
+5.  How long is your list, and how long are each of the vectors
     that are part of the list?
     <details>
     <summary>:key: Click to see how</summary>
@@ -927,14 +892,11 @@ the list u.2.
         
         $`20`
         [1] 50
-    
     </pre>
     </details>
-
 <br>
-
 6.  Figure out what the main differences are between the function
-    lapply and sapply and try use both of them with the function
+    lapply and sapply are and use both of them with the function
     summary on your newly created list.
     What are the pros and cons of the two approaches to calculate the
     same summary statistics?
@@ -1046,12 +1008,9 @@ the list u.2.
         Mean    -0.3507 -0.07110  0.02680  0.1381
         3rd Qu.  0.3900  0.41190  0.48520  0.6583
         Max.     1.8250  1.66200  2.75000  2.7100
-    
     </pre>
     </details>
-
 <br>
-
 ## Extra exercises
 1. Design a S3 class that should hold information on human
    proteins. The data needed for each protein is:
@@ -1059,11 +1018,13 @@ the list u.2.
    - The molecular weight of the protein
    - The length of the protein sequence
    - Information on who and when it was discovered
+   - Protein assay data
    
    Create this hypethetical S3 object in R.
    
 2. Among the test data sets that are part of base R, there is one
    called iris. It contains measurements on set of plants. You can
-   access the data using by typing iris at in R. Explore this data set
+   access the data using by typing iris in R. Explore this data set
    and calculate some useful summary statistics, like SD, mean and
-   median for the parts of the data where this makes sense.
+   median for the parts of the data where this makes sense. Calculate
+   the same statistics for any grouping that you can find in the data.
