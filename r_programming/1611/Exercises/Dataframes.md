@@ -159,7 +159,6 @@ Create a matrix containing 1:10 as shown for the matrix X above.
         [5,]    0    0    0
     </pre>
     </details>
-
 <br>
 5.  Replace all values the first two columns in your matrix with "NA".
     <details>
